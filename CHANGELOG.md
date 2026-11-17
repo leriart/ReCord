@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.8.0
+
+- Sound themes: 14 sets besides the synthesized one. Twelve from UI SFX (arcade, sci-fi, mechanical, minimal, glass, cinematic, studio, soft, rubber, organic, dreamy, zen) and two from Kenney (UI SFX Set, Interface Sounds). All CC0, licenses included next to the files
+- A sound theme now covers the replaced Discord sounds too (messages, mentions, voice, streams), not only the interface sounds
+- Mixing: every sound in the list has its own theme selector, so hover can come from one set and mentions from another
+- Sets are fetched on demand: only the files the current configuration can play are downloaded
+
 ## 3.7.0
 
 - Loading screen: Discord's logo video is replaced by the pixel mark, drawn in bands, with a stepped progress bar and the tip in pixel type. The previous rule targeted a class that no longer exists, so it never applied

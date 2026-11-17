@@ -94,7 +94,9 @@ Light mode follows Discord's own `Appearance` -> `Light`. A background URL in Qu
 - **Settings panel** for every option above.
 - **Replaced Discord sounds**: messages, mentions, mute, deafen, join, leave, calls, streams, camera, push-to-talk, activities.
 - **Interface sounds**: hover, select, back, navigation, toggles, menu open and close, typing, send, boot.
-- **Sound control**: a list of every sound with a switch and a Play button, one volume for interface sounds and another for the replaced Discord sounds.
+- **Sound themes**: 15 to choose from. The synthesized terminal set, twelve UI SFX sets (arcade, sci-fi, mechanical, minimal, glass, cinematic, studio, soft, rubber, organic, dreamy, zen) and two Kenney sets. A theme changes the interface sounds and the replaced Discord sounds.
+- **Mixing**: each sound has its own theme selector, so hover can come from one set and mentions from another.
+- **Sound control**: a switch and a Play button per sound, one volume for interface sounds and another for the replaced Discord sounds.
 - **Your own sounds**: any audio file in the `record-sounds` folder (button in the settings) replaces the bundled sound with the same name, either a pack name (`mention`, `hover`...) or a Discord event (`message1`, `user_join`...). WAV, OGG, MP3, FLAC and M4A.
 
 The installer builds Vencord with the plugin and points Vesktop at that build, so Vencord stops updating itself there; run the installer again to update. For any other Vencord built from source, copy `plugin/record` into `src/userplugins/` and run `pnpm build && pnpm inject`.
@@ -151,6 +153,8 @@ Vencord, Vesktop, Equicord, Equibop and BetterDiscord on Discord desktop. Develo
 
 - Theme code: Apache-2.0. Plugin: GPL-3.0-or-later, as required for Vencord plugins.
 - Pixel Operator by Jayvee Enaguas (HarvettFox96): CC0 1.0, license at `assets/fonts/LICENSE-PixelOperator.txt`.
+- UI SFX by Yuki Capital ([romainsimon/uisfx](https://github.com/romainsimon/uisfx)): audio CC0 1.0, license at `sounds/uisfx/LICENSE-AUDIO.txt`.
+- Kenney Interface Sounds by Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/interface-sounds)): CC0 1.0, license at `sounds/kenney-interface/LICENSE.txt`.
 - Kenney UI SFX Set by Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/ui-audio)): CC0 1.0, license at `sounds/kenney/LICENSE.txt`.
 - Visual reference: REPLACED, a game by Sad Cat Studios published by Thunderful. [playreplaced.com](https://playreplaced.com/)
 - Unofficial fan project, not affiliated with Sad Cat Studios or Thunderful. No game assets are included.

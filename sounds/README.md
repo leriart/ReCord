@@ -38,6 +38,14 @@ python3 scripts/generate-sounds.py
 
 The generator uses only the Python standard library.
 
-## Kenney set
+## Sound themes
 
-`kenney/` holds nine files from the UI SFX Set by Kenney Vleugels (kenney.nl), released under CC0 1.0; the license is in `kenney/LICENSE.txt`. They are mapped in the `sets.kenney` block of `manifest.json` and can be selected in the plugin as the interface sound set.
+`manifest.json` has a `sets` block. Each set has a label and a `sounds` map from a sound name to a file. A name is either an interface sound (`hover`, `select`, `back`...) or the name of a file in the synthesized pack (`mention`, `receive`, `join`...), which is how a set also replaces Discord's sounds. A set does not need every name; missing ones fall back to the synthesized pack.
+
+| Folder | Source | License |
+| --- | --- | --- |
+| `kenney/` | UI SFX Set, Kenney Vleugels (kenney.nl) | CC0 1.0, `kenney/LICENSE.txt` |
+| `kenney-interface/` | Interface Sounds, Kenney Vleugels (kenney.nl) | CC0 1.0, `kenney-interface/LICENSE.txt` |
+| `uisfx/` | UI SFX, Yuki Capital (github.com/romainsimon/uisfx), twelve packs | CC0 1.0, `uisfx/LICENSE-AUDIO.txt` |
+
+To add a set, drop the files in a new folder, add an entry to `sets`, and add its label to the `uiSet` options in `plugin/record/index.tsx`.

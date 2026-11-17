@@ -94,7 +94,9 @@ El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en Q
 - **Panel de ajustes** con todas las opciones de arriba.
 - **Sonidos de Discord sustituidos**: mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades.
 - **Sonidos de interfaz**: cursor, seleccionar, volver, navegar, interruptores, abrir y cerrar menús, teclear, enviar, arranque.
-- **Control de sonidos**: una lista con cada sonido, su interruptor y un botón para oírlo; un volumen para los sonidos de interfaz y otro para los sonidos de Discord sustituidos.
+- **Temas de sonido**: 15 para elegir. El sintetizado de terminal, doce de UI SFX (arcade, sci-fi, mecánico, minimal, cristal, cinemático, estudio, suave, goma, orgánico, onírico, zen) y dos de Kenney. Un tema cambia los sonidos de interfaz y los sonidos de Discord sustituidos.
+- **Mezcla**: cada sonido tiene su propio selector de tema, así que el cursor puede venir de un juego y las menciones de otro.
+- **Control de sonidos**: un interruptor y un botón para oír cada sonido, un volumen para los de interfaz y otro para los de Discord sustituidos.
 - **Tus propios sonidos**: cualquier audio en la carpeta `record-sounds` (hay un botón en los ajustes) sustituye al sonido incluido del mismo nombre, sea un nombre del pack (`mention`, `hover`...) o un evento de Discord (`message1`, `user_join`...). WAV, OGG, MP3, FLAC y M4A.
 
 El instalador compila Vencord con el plugin y apunta Vesktop a esa compilación, así que ahí Vencord deja de actualizarse solo; vuelve a ejecutar el instalador para actualizar. En cualquier otro Vencord compilado desde el código, copia `plugin/record` en `src/userplugins/` y ejecuta `pnpm build && pnpm inject`.
@@ -151,6 +153,8 @@ Vencord, Vesktop, Equicord, Equibop y BetterDiscord en Discord de escritorio. De
 
 - Código del tema: Apache-2.0. Plugin: GPL-3.0-or-later, como exigen los plugins de Vencord.
 - Pixel Operator, de Jayvee Enaguas (HarvettFox96): CC0 1.0, licencia en `assets/fonts/LICENSE-PixelOperator.txt`.
+- UI SFX de Yuki Capital ([romainsimon/uisfx](https://github.com/romainsimon/uisfx)): audio CC0 1.0, licencia en `sounds/uisfx/LICENSE-AUDIO.txt`.
+- Interface Sounds de Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/interface-sounds)): CC0 1.0, licencia en `sounds/kenney-interface/LICENSE.txt`.
 - UI SFX Set de Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/ui-audio)): CC0 1.0, licencia en `sounds/kenney/LICENSE.txt`.
 - Referencia visual: REPLACED, un juego de Sad Cat Studios publicado por Thunderful. [playreplaced.com](https://playreplaced.com/)
 - Proyecto de fans no oficial, sin relación con Sad Cat Studios ni Thunderful. No incluye assets del juego.

@@ -15,7 +15,7 @@ import { React } from "@webpack/common";
 interface Manifest {
     customSounds: Record<string, string>;
     ui: Record<string, string>;
-    sets?: Record<string, Record<string, string>>;
+    sets?: Record<string, { label: string; sounds: Record<string, string>; }>;
 }
 
 type SoundContext = ((key: string) => string) & { keys(): string[]; resolve(key: string): unknown; };
@@ -72,7 +72,7 @@ function colorSetting(key: "backgroundColor" | "textColor", title: string, note:
 }
 
 function SoundList() {
-    const { disabledSounds } = settings.use(["disabledSounds", "uiSet"]);
+    const { disabledSounds, soundSources } = settings.use(["disabledSounds", "uiSet", "soundSources"]);
     const [, refresh] = React.useReducer((count: number) => count + 1, 0);
     React.useEffect(() => {
         const timer = setInterval(() => { if (manifest) { clearInterval(timer); refresh(); } }, 500);
@@ -80,6 +80,7 @@ function SoundList() {
     }, []);
 
     if (!manifest) return <Paragraph>The sound pack is still loading.</Paragraph>;
+    const pack = manifest;
 
     const disabled = new Set(disabledSounds.split(",").filter(Boolean));
     const flip = (key: string) => {
@@ -87,27 +88,43 @@ function SoundList() {
         settings.store.disabledSounds = [...disabled].join(",");
     };
 
+    const sources = parseSources(soundSources);
+    const choose = (name: string, value: string) => {
+        if (value) sources[name] = value; else delete sources[name];
+        settings.store.soundSources = JSON.stringify(sources);
+        void loadNeeded();
+    };
+
     const events = new Map<string, string[]>();
-    for (const [event, file] of Object.entries(manifest.customSounds)) {
+    for (const [event, file] of Object.entries(pack.customSounds)) {
         events.set(file, [...(events.get(file) ?? []), event]);
     }
 
-    const row = (key: string, label: string, detail: string, file: string) => (
-        <label key={key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", cursor: "pointer" }}>
+    const row = (key: string, name: string, detail: string, fallback: string) => (
+        <div key={key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0" }}>
             <input type="checkbox" checked={!disabled.has(key)} onChange={() => flip(key)} />
-            <span style={{ flex: "0 0 110px", color: "var(--text-default)" }}>{label}</span>
+            <span style={{ flex: "0 0 96px", color: "var(--text-default)" }}>{name}</span>
+            <select
+                value={sources[name] ?? ""}
+                onChange={event => choose(name, event.currentTarget.value)}
+                style={{ flex: "0 0 150px", background: "var(--input-background-default, #000)", color: "var(--text-default)", border: "1px solid var(--border-subtle)", padding: "2px 4px", font: "inherit", fontSize: 12 }}
+            >
+                <option value="">(sound theme)</option>
+                <option value="synth">Synth</option>
+                {Object.entries(pack.sets ?? {}).filter(([, set]) => set.sounds[name]).map(([id, set]) => <option key={id} value={id}>{set.label}</option>)}
+            </select>
             <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "var(--text-muted)", fontSize: 12 }}>{detail}</span>
-            <Button size="small" variant="secondary" onClick={event => { event.preventDefault(); preview(file); }}>Play</Button>
-        </label>
+            <Button size="small" variant="secondary" onClick={() => { void preview(name, fallback); }}>Play</Button>
+        </div>
     );
 
     return (
         <section>
-            <Heading>Interface sounds</Heading>
-            <Paragraph>Untick a sound to silence it.</Paragraph>
-            {Object.keys(manifest.ui).map(name => row(`ui:${name}`, name, uiFile(name) ?? "", uiFile(name) ?? ""))}
-            <Heading style={{ marginTop: 16 }}>Discord sounds</Heading>
-            <Paragraph>Untick a sound to get Discord's original back for those events.</Paragraph>
+            <Heading>Interface sounds / Sonidos de interfaz</Heading>
+            <Paragraph>Untick to silence a sound. The list picks a different theme for that one sound.</Paragraph>
+            {Object.entries(pack.ui).map(([name, file]) => row(`ui:${name}`, name, "", file))}
+            <Heading style={{ marginTop: 16 }}>Discord sounds / Sonidos de Discord</Heading>
+            <Paragraph>Untick to get Discord's original back for those events.</Paragraph>
             {[...events].map(([file, names]) => row(`discord:${stem(file)}`, stem(file), names.join(", "), file))}
         </section>
     );
@@ -338,11 +355,31 @@ const settings = definePluginSettings({
     },
     uiSet: {
         type: OptionType.SELECT,
-        description: "Interface sound set / Juego de sonidos de interfaz",
+        description: "Sound theme / Tema de sonido (interface and Discord sounds)",
         options: [
-            { label: "Synth (original, terminal blips)", value: "synth", default: true },
-            { label: "Kenney UI SFX (CC0, clicks and switches)", value: "kenney" }
-        ]
+            { label: "Synth (original terminal blips)", value: "synth", default: true },
+            { label: "Kenney UI SFX (clicks, switches)", value: "kenney" },
+            { label: "Kenney Interface (ticks, plucks)", value: "kenney-interface" },
+            { label: "UI SFX Arcade", value: "arcade" },
+            { label: "UI SFX Sci-fi", value: "scifi" },
+            { label: "UI SFX Mechanical", value: "mechanical" },
+            { label: "UI SFX Minimal", value: "minimal" },
+            { label: "UI SFX Glass", value: "glass" },
+            { label: "UI SFX Cinematic", value: "cinematic" },
+            { label: "UI SFX Studio", value: "studio" },
+            { label: "UI SFX Soft", value: "soft" },
+            { label: "UI SFX Rubber", value: "rubber" },
+            { label: "UI SFX Organic", value: "organic" },
+            { label: "UI SFX Dreamy", value: "dreamy" },
+            { label: "UI SFX Zen", value: "zen" }
+        ],
+        onChange: () => { void loadNeeded(); }
+    },
+    soundSources: {
+        type: OptionType.STRING,
+        description: "Per-sound themes (managed by the list below)",
+        default: "{}",
+        hidden: true
     },
     soundList: {
         type: OptionType.COMPONENT,
@@ -466,15 +503,43 @@ function fileFor(name: string) {
 
 const stem = (file: string) => file.replace(/\.[^.]+$/, "").toLowerCase();
 
-const uiFile = (name: string) => manifest?.sets?.[settings.store.uiSet]?.[name] ?? manifest?.ui[name];
+function parseSources(text: string): Record<string, string> {
+    try {
+        const value = JSON.parse(text || "{}");
+        return value && typeof value === "object" ? value : {};
+    } catch {
+        return {};
+    }
+}
+
+// A sound comes from the theme chosen for it, or from the global sound theme,
+// or from the synthesized base pack when the theme has no file for it.
+function themedFile(name: string, fallback?: string) {
+    const source = parseSources(settings.store.soundSources)[name] ?? settings.store.uiSet;
+    return manifest?.sets?.[source]?.sounds[name] ?? fallback;
+}
+
+const uiFile = (name: string) => themedFile(name, manifest?.ui[name]);
 const isDisabled = (key: string) => settings.store.disabledSounds.split(",").includes(key);
+
+function blobFor(file: string) {
+    const cached = blobs.get(file);
+    if (cached) return cached;
+    const buffer = buffers.get(file);
+    if (!buffer) return null;
+    const url = URL.createObjectURL(encodeWav(buffer, settings.store.discordVolume / 100));
+    blobs.set(file, url);
+    return url;
+}
 
 function resolveSound(key: string) {
     if (!settings.store.replaceDiscord) return null;
     const name = key.replace(/^\.\//, "").replace(/\.mp3$/, "");
-    const file = fileFor(name);
-    if (file && isDisabled(`discord:${stem(file)}`)) return null;
-    return localBlobs.get(name) ?? (file && (localBlobs.get(stem(file)) ?? blobs.get(file))) ?? null;
+    const base = fileFor(name);
+    if (!base) return localBlobs.get(name) ?? null;
+    if (isDisabled(`discord:${stem(base)}`)) return null;
+    const file = themedFile(stem(base), base)!;
+    return localBlobs.get(name) ?? localBlobs.get(stem(base)) ?? blobFor(file) ?? blobFor(base);
 }
 
 // Discord plays its sounds through its own Audio element, so the only way to
@@ -511,12 +576,12 @@ function encodeWav(buffer: AudioBuffer, gain: number) {
 }
 
 function rebuildBlobs() {
+    for (const url of blobs.values()) URL.revokeObjectURL(url);
+    blobs.clear();
+    for (const url of localBlobs.values()) URL.revokeObjectURL(url);
+    localBlobs.clear();
     const gain = settings.store.discordVolume / 100;
-    for (const [source, target] of [[buffers, blobs], [localBuffers, localBlobs]] as const) {
-        for (const url of target.values()) URL.revokeObjectURL(url);
-        target.clear();
-        for (const [name, buffer] of source) target.set(name, URL.createObjectURL(encodeWav(buffer, gain)));
-    }
+    for (const [name, buffer] of localBuffers) localBlobs.set(name, URL.createObjectURL(encodeWav(buffer, gain)));
 }
 
 async function reloadSounds() {
@@ -532,23 +597,46 @@ async function reloadSounds() {
     rebuildBlobs();
 }
 
+const loading = new Map<string, Promise<void>>();
+
+function ensure(file: string) {
+    if (buffers.has(file)) return Promise.resolve();
+    let task = loading.get(file);
+    if (!task) {
+        const base = settings.store.baseUrl.replace(/\/?$/, "/");
+        task = (async () => {
+            try {
+                const response = await fetch(base + file);
+                if (response.ok && audio) buffers.set(file, await audio.decodeAudioData(await response.arrayBuffer()));
+            } catch { }
+            loading.delete(file);
+        })();
+        loading.set(file, task);
+    }
+    return task;
+}
+
+// Only the files the current configuration can play are fetched, so adding
+// more sound themes does not slow the start down.
+function loadNeeded() {
+    if (!manifest) return Promise.resolve();
+    const files = new Set<string>();
+    for (const [name, file] of Object.entries(manifest.ui)) {
+        files.add(file);
+        files.add(themedFile(name, file)!);
+    }
+    for (const file of Object.values(manifest.customSounds)) {
+        files.add(file);
+        files.add(themedFile(stem(file), file)!);
+    }
+    return Promise.all([...files].map(ensure)).then(() => { });
+}
+
 async function load() {
     const base = settings.store.baseUrl.replace(/\/?$/, "/");
     manifest = await (await fetch(base + "manifest.json")).json() as Manifest;
     audio = new AudioContext();
-
-    const files = new Set([
-        ...Object.values(manifest.customSounds),
-        ...Object.values(manifest.ui),
-        ...Object.values(manifest.sets ?? {}).flatMap(set => Object.values(set))
-    ]);
-    await Promise.all([...files].map(async file => {
-        try {
-            const response = await fetch(base + file);
-            if (!response.ok) return;
-            buffers.set(file, await audio!.decodeAudioData(await response.arrayBuffer()));
-        } catch { }
-    }));
+    await loadNeeded();
 }
 
 function output(buffer: AudioBuffer) {
@@ -562,8 +650,12 @@ function output(buffer: AudioBuffer) {
     source.start();
 }
 
-function preview(file: string) {
-    const buffer = localBuffers.get(stem(file)) ?? buffers.get(file);
+async function preview(name: string, fallback: string) {
+    const local = localBuffers.get(name) ?? localBuffers.get(stem(fallback));
+    if (local) return output(local);
+    const file = themedFile(name, fallback) ?? fallback;
+    await ensure(file);
+    const buffer = buffers.get(file) ?? buffers.get(fallback);
     if (buffer) output(buffer);
 }
 
