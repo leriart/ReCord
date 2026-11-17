@@ -1,6 +1,6 @@
 /*
- * RETROLESS, a Vencord userplugin
- * Companion for the RETROLESS theme: in-app theme settings, replaced Discord sounds and interface sounds.
+ * RECORD, a Vencord userplugin
+ * Companion for the RECORD theme: in-app theme settings, replaced Discord sounds and interface sounds.
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
@@ -19,7 +19,7 @@ interface Manifest {
 
 type SoundContext = ((key: string) => string) & { keys(): string[]; resolve(key: string): unknown; };
 
-const Native = VencordNative.pluginHelpers.Retroless as PluginNative<typeof import("./native")>;
+const Native = VencordNative.pluginHelpers.ReCord as PluginNative<typeof import("./native")>;
 
 const PRESETS = ["#e94221", "#dda052", "#3ddc97", "#4fb8c9", "#b58cff", "#ff5fa2"];
 
@@ -44,6 +44,37 @@ function AccentPicker() {
                     />
                 ))}
                 <Paragraph>{accent}</Paragraph>
+            </div>
+        </section>
+    );
+}
+
+function BackgroundPicker() {
+    const [busy, setBusy] = React.useState(false);
+    const [, refresh] = React.useReducer((count: number) => count + 1, 0);
+
+    const run = async (action: () => Promise<{ type: string; data: Uint8Array; } | null | void>) => {
+        setBusy(true);
+        try {
+            const image = await action();
+            if (image !== null) setBackground(image ?? null);
+        } finally {
+            setBusy(false);
+            refresh();
+        }
+    };
+
+    return (
+        <section>
+            <Heading>Background image</Heading>
+            <Paragraph>
+                Pick a picture from your computer. It sits behind the interface; use the two sliders below
+                to control how dark it is and how see-through the panels are.
+            </Paragraph>
+            <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center" }}>
+                <Button size="small" disabled={busy} onClick={() => run(() => Native.pickBackground())}>Choose image</Button>
+                <Button size="small" variant="secondary" disabled={busy || !backgroundUrl} onClick={() => run(() => Native.clearBackground())}>Remove</Button>
+                <Paragraph>{backgroundUrl ? "Image set" : "No image"}</Paragraph>
             </div>
         </section>
     );
@@ -85,23 +116,46 @@ const toggle = (description: string, fallback = true) => ({
     onChange: () => applyTheme()
 });
 
+const choice = (description: string, options: Array<[string, string]>, fallback: string) => ({
+    type: OptionType.SELECT as const,
+    description,
+    options: options.map(([label, value]) => ({ label, value, default: value === fallback })),
+    onChange: () => applyTheme()
+});
+
+const FONTS: Record<string, string> = {
+    pixel: '"Pixel Operator", "Pixel Operator Mono", "Courier New", monospace',
+    mono: '"Pixel Operator Mono", "Pixel Operator", "Courier New", monospace',
+    system: 'ui-monospace, "JetBrains Mono", "Cascadia Mono", "DejaVu Sans Mono", Consolas, monospace',
+    discord: '"gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif'
+};
+
 const settings = definePluginSettings({
+    mode: choice("Color mode", [["Follow Discord appearance", "auto"], ["Dark (terminal)", "dark"], ["Light (paper)", "light"]], "auto"),
     accent: {
         type: OptionType.COMPONENT,
         default: "#e94221",
         component: AccentPicker
     },
+    background: {
+        type: OptionType.COMPONENT,
+        component: BackgroundPicker
+    },
+    backgroundDim: percent("Background darkening (with an image)", 70),
+    panelOpacity: percent("Panel opacity (lower shows more background)", 100),
+    motionLevel: choice("Animations", [["Full (everything moves in steps)", "full"], ["Subtle (menus and dialogs only)", "subtle"], ["Off", "off"]], "full"),
+    font: choice("Typeface", [["Pixel Operator", "pixel"], ["Pixel Operator Mono", "mono"], ["System monospace", "system"], ["Discord default", "discord"]], "pixel"),
     scanlines: percent("Scanline strength", 25),
     grain: percent("Film grain", 18),
     vignette: percent("Vignette", 55),
     flicker: toggle("CRT flicker", false),
+    frame: toggle("Corner brackets and screen frame"),
     pixelIcons: toggle("Pixel icons"),
-    motion: toggle("Menu and selection animations"),
     avatarFilter: toggle("Warm filter and scanlines on avatars"),
     baseUrl: {
         type: OptionType.STRING,
         description: "Sound pack folder (manifest.json and audio files)",
-        default: "https://raw.githubusercontent.com/leriart/Retroless/main/sounds/",
+        default: "https://raw.githubusercontent.com/leriart/ReCord/main/sounds/",
         restartNeeded: true
     },
     soundFolder: {
@@ -142,12 +196,23 @@ const settings = definePluginSettings({
     }
 });
 
+let backgroundUrl: string | null = null;
+
+function setBackground(image: { type: string; data: Uint8Array; } | null) {
+    if (backgroundUrl) URL.revokeObjectURL(backgroundUrl);
+    backgroundUrl = image ? URL.createObjectURL(new Blob([new Uint8Array(image.data)], { type: image.type })) : null;
+    applyTheme();
+}
+
 function applyTheme() {
     const store = settings.store;
-    let style = document.getElementById("retroless-config") as HTMLStyleElement | null;
+    if (store.mode === "dark" || store.mode === "light") document.documentElement.dataset.rlMode = store.mode;
+    else delete document.documentElement.dataset.rlMode;
+
+    let style = document.getElementById("record-config") as HTMLStyleElement | null;
     if (!style) {
         style = document.createElement("style");
-        style.id = "retroless-config";
+        style.id = "record-config";
         document.head.append(style);
     }
 
@@ -158,8 +223,14 @@ function applyTheme() {
         `--rl-vignette-opacity: ${store.vignette / 100}`,
         `--rl-flicker-duration: ${store.flicker ? "6s" : "0s"}`,
         `--rl-icons: ${store.pixelIcons ? "on" : "off"}`,
-        `--rl-motion: ${store.motion ? "on" : "off"}`
+        `--rl-motion: ${["full", "subtle", "off"].includes(store.motionLevel) ? store.motionLevel : "full"}`,
+        `--rl-frame-opacity: ${store.frame ? 0.6 : 0}`,
+        `--rl-font: ${FONTS[store.font] ?? FONTS.pixel}`,
+        `--rl-font-display: ${FONTS[store.font] ?? FONTS.pixel}`,
+        `--rl-background-dim: ${store.backgroundDim}%`,
+        `--rl-surface: ${store.panelOpacity}%`
     ];
+    if (backgroundUrl) rules.push(`--rl-background-image: url("${backgroundUrl}")`);
     if (!store.avatarFilter) rules.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");
 
     style.textContent = `:root:root {\n${rules.map(rule => `    ${rule};`).join("\n")}\n}`;
@@ -210,7 +281,7 @@ async function reloadSounds() {
             if (audio) localBuffers.set(sound.name, await audio.decodeAudioData(bytes.buffer.slice(0)));
         }
     } catch (error) {
-        console.error("[Retroless] could not read the local sound folder", error);
+        console.error("[ReCord] could not read the local sound folder", error);
     }
 }
 
@@ -312,18 +383,19 @@ function hookInterface() {
 }
 
 export default definePlugin({
-    name: "Retroless",
-    description: "RETROLESS companion: theme settings (accent, CRT, icons, motion), replaced Discord sounds and interface sounds",
+    name: "ReCord",
+    description: "RECORD companion: theme settings (dark or light, accent, background, CRT, icons, animations, typeface), replaced Discord sounds and interface sounds",
     authors: [{ name: "leriart", id: 0n }],
     settings,
 
     async start() {
         applyTheme();
+        void Native.readBackground().then(setBackground).catch(() => { });
 
         try {
             await load();
         } catch (error) {
-            console.error("[Retroless] could not load the sound pack", error);
+            console.error("[ReCord] could not load the sound pack", error);
             audio ??= new AudioContext();
             manifest ??= { customSounds: {}, ui: {} };
         }
@@ -335,7 +407,10 @@ export default definePlugin({
     },
 
     stop() {
-        document.getElementById("retroless-config")?.remove();
+        document.getElementById("record-config")?.remove();
+        delete document.documentElement.dataset.rlMode;
+        if (backgroundUrl) URL.revokeObjectURL(backgroundUrl);
+        backgroundUrl = null;
         for (const url of localBlobs.values()) URL.revokeObjectURL(url);
         localBlobs.clear();
         localBuffers.clear();

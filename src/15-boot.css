@@ -64,7 +64,7 @@
 }
 
 [class*="loading_2kO"]::after {
-    content: "SIGNAL BOOT // PHOENIX-CITY";
+    content: "SIGNAL BOOT // ONLINE";
     color: var(--rl-smoke);
     font-family: var(--rl-font-mono);
     font-size: 10px;

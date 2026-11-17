@@ -6,13 +6,13 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const pkg = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
 
 const header = `/**
- * @name RETROLESS
+ * @name ReCord
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Signal phosphor, pixel type, CRT grain.
  * @version ${pkg.version}
  * @license Apache-2.0
- * @source https://github.com/leriart/Retroless
- * @website https://leriart.github.io/Retroless/
+ * @source https://github.com/leriart/ReCord
+ * @website https://leriart.github.io/ReCord/
  */`;
 
 const settings = `/*
@@ -95,13 +95,13 @@ const assetBlock = `:root {\n${[...assets].map(([name, uri]) => `    ${name}: ur
 const bundle = [header, settings, "/* embedded assets */\n\n" + assetBlock, ...parts].join("\n\n") + "\n";
 
 if (process.argv.includes("--check")) {
-    const current = await readFile(path.join(root, "Retroless.theme.css"), "utf8").catch(() => "");
+    const current = await readFile(path.join(root, "ReCord.theme.css"), "utf8").catch(() => "");
     if (current !== bundle) {
-        console.error("error: Retroless.theme.css is out of date; run npm run build");
+        console.error("error: ReCord.theme.css is out of date; run npm run build");
         process.exit(1);
     }
-    console.log("Retroless.theme.css is up to date");
+    console.log("ReCord.theme.css is up to date");
 } else {
-    await writeFile(path.join(root, "Retroless.theme.css"), bundle);
-    console.log(`Built Retroless.theme.css v${pkg.version} (${modules.length} modules, ${assets.size} embedded assets, ${(bundle.length / 1024).toFixed(1)} KiB)`);
+    await writeFile(path.join(root, "ReCord.theme.css"), bundle);
+    console.log(`Built ReCord.theme.css v${pkg.version} (${modules.length} modules, ${assets.size} embedded assets, ${(bundle.length / 1024).toFixed(1)} KiB)`);
 }

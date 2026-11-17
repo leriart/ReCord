@@ -16,7 +16,7 @@ const exists = async relative => {
     }
 };
 
-const entry = await read("Retroless.theme.css");
+const entry = await read("ReCord.theme.css");
 const header = entry.split("*/", 1)[0] ?? "";
 
 for (const field of ["@name", "@author", "@description", "@version", "@license", "@source"]) {
@@ -33,7 +33,7 @@ for (const file of files) {
     const css = await read(file);
     for (const match of css.matchAll(/url\((["']?)([^)"']+)\1\)/g)) {
         const url = match[2].trim();
-        if (!url || url.startsWith("data:") || url.startsWith("http") || url.startsWith("var(")) continue;
+        if (!url || url.startsWith("#") || url.startsWith("data:") || url.startsWith("http") || url.startsWith("var(")) continue;
         const target = path.normalize(path.join(path.dirname(file), url));
         if (!(await exists(target))) errors.push(`${file} references missing asset: ${url}`);
     }

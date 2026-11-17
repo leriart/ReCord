@@ -39,7 +39,7 @@ li[id^="chat-messages-"]:has([class*="mentioned"]):hover {
 
 li[id^="chat-messages-"][class*="replying"],
 li[id^="chat-messages-"]:has([class*="replying"]) {
-    background: linear-gradient(90deg, rgba(212, 180, 150, 0.07), transparent 55%) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-paper) 7%, transparent), transparent 55%) !important;
     border-left-color: var(--rl-paper);
 }
 
@@ -125,8 +125,8 @@ li[id^="chat-messages-"] [class*="edited_"] {
 
 [id^="message-content-"] code.inline,
 [id^="message-content-"] .inline {
-    background: rgba(212, 180, 150, 0.07);
-    border: 1px solid rgba(212, 180, 150, 0.09);
+    background: color-mix(in srgb, var(--rl-paper) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--rl-paper) 9%, transparent);
     color: var(--rl-paper);
     padding: 1px 4px;
 }
@@ -281,7 +281,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 }
 
 [class*="reactionBtn"] {
-    border: 1px dashed rgba(212, 180, 150, 0.16) !important;
+    border: 1px dashed color-mix(in srgb, var(--rl-paper) 16%, transparent) !important;
     border-radius: 0 !important;
     background: transparent !important;
 }
@@ -319,7 +319,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 }
 
 [class*="replyBar"] {
-    background: rgba(212, 180, 150, 0.05) !important;
+    background: color-mix(in srgb, var(--rl-paper) 5%, transparent) !important;
     border-left: 2px solid var(--rl-paper) !important;
     border-radius: 0 !important;
     color: var(--rl-smoke);
@@ -459,7 +459,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 
 [class*="uploadArea_"],
 [class*="uploadDropModal_"] {
-    background: rgba(5, 6, 5, 0.92) !important;
+    background: color-mix(in srgb, var(--rl-void) 92%, transparent) !important;
     border: 1px dashed var(--rl-signal) !important;
     border-radius: 0 !important;
     color: var(--rl-cream);

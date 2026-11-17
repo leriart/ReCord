@@ -9,7 +9,7 @@ on:
             - "assets/**"
             - "sounds/**"
             - "index.html"
-            - "Retroless.theme.css"
+            - "ReCord.theme.css"
             - ".github/workflows/pages.yml"
     workflow_dispatch:
 
@@ -38,7 +38,7 @@ jobs:
                   cp -r assets _site/assets
                   cp -r sounds _site/sounds
                   cp index.html _site/index.html
-                  cp Retroless.theme.css _site/Retroless.theme.css
+                  cp ReCord.theme.css _site/ReCord.theme.css
             - uses: actions/configure-pages@v5
             - uses: actions/upload-pages-artifact@v3
               with:

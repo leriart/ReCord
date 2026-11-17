@@ -1,10 +1,24 @@
 # Changelog
 
+## 3.0.0
+
+- Renamed to ReCord: repository, theme file (`ReCord.theme.css`), plugin (`plugin/record`) and local folders
+- One-line installers: `install.sh` (Linux, macOS, Git Bash, WSL) and `install.ps1` (Windows). They find every supported client, install and enable the theme, update, and uninstall; `--plugin` builds the plugin for Vesktop
+- Light paper mode: follows Discord's Light appearance, or can be forced from the plugin or the configurator
+- Background image with darkening and panel opacity
+- Animation levels: full, subtle, off
+- Typeface choice and corner frame switch
+- Icons: 99 in total (38 new). Discord icons are now matched by SVG path, so menus, settings, channel list and member list are covered in every language
+- Status indicators (online, idle, do not disturb, offline, streaming, mobile) redrawn as square pixel glyphs; voice connection signal icon added
+- Plugin: background picker that reads a local file, mode, animation and typeface selectors
+- Configurator: all options, forced mode palettes, embedded background on download
+- `scripts/install-plugin.sh` replaced by `install.sh --plugin`
+
 ## 2.1.0
 
 - Fixed images and videos not opening in the viewer: the modal animation left a `clip-path` on Discord's zero-size dialog wrapper, which clipped the whole viewer
-- The plugin is now `Retroless` (`plugin/retroless`) and has in-app theme settings: accent picker, scanlines, grain, vignette, flicker, pixel icons, animations and avatar filter
-- Added a local `retroless-sounds` folder: any audio file placed there replaces the bundled sound with the same name
+- The plugin is now `ReCord` (`plugin/record`) and has in-app theme settings: accent picker, scanlines, grain, vignette, flicker, pixel icons, animations and avatar filter
+- Added a local `record-sounds` folder: any audio file placed there replaces the bundled sound with the same name
 - Landing page configurator: same controls, downloads a theme with the settings baked in or copies a QuickCSS block
 - Added `--rl-icons` and `--rl-motion` switches
 - Motion pass: stepped transitions everywhere, beam redraw on channel switch, list slide-in, hover flash, press invert, icon jitter, reaction pop, typing cursor
@@ -13,9 +27,9 @@
 ## 2.0.0
 
 - Fixed attachments, GIFs and embeds staying hidden: a forced `opacity: 1` kept Discord's blurred placeholder on top of the loaded image
-- `Retroless.theme.css` is now one self-contained file with embedded fonts, icons and textures; it can be used as an online link or downloaded and dropped into the themes folder, and works offline
+- `ReCord.theme.css` is now one self-contained file with embedded fonts, icons and textures; it can be used as an online link or downloaded and dropped into the themes folder, and works offline
 - Added `--rl-accent`: one variable recolors the whole interface, including Discord's brand tokens
-- Added the `RetrolessSounds` userplugin: replaces Discord's sounds with the signal pack and adds hover, select, back, navigation, toggle, menu, typing and send sounds; `scripts/install-sounds.sh` installs it for Vesktop
+- Added the `ReCordSounds` userplugin: replaces Discord's sounds with the signal pack and adds hover, select, back, navigation, toggle, menu, typing and send sounds; `scripts/install-sounds.sh` installs it for Vesktop
 - Added nine sounds (type, open, close, navigate, toggle, camera on/off, clip, stage)
 - New interface layer checked against the live client: inverted solid selections for channels, DMs, menus and settings, like REPLACED's menus
 - Rebuilt avatar styling on Discord's real avatar markup: square portraits without layout side effects, no boxes around navigation icons

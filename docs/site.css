@@ -1191,3 +1191,20 @@ button {
     flex-wrap: wrap;
     gap: 8px;
 }
+
+.accent-range select,
+.accent-range input[type="url"],
+.accent-range input[type="file"] {
+    min-width: 0;
+    padding: 6px 8px;
+    border: 1px solid var(--rl-line);
+    background: var(--rl-void);
+    color: var(--rl-bone);
+    font: inherit;
+    letter-spacing: 0.04em;
+}
+
+.accent-output {
+    max-height: 220px;
+    overflow: auto;
+}

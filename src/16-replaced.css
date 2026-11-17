@@ -33,7 +33,7 @@
     inset: 0;
     pointer-events: none;
     background:
-        linear-gradient(180deg, var(--rl-a12), rgba(5, 6, 5, 0.2)),
+        linear-gradient(180deg, var(--rl-a12), color-mix(in srgb, var(--rl-void) 20%, transparent)),
         repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
     opacity: var(--rl-avatar-scanline);
 }

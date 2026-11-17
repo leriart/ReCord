@@ -20,9 +20,8 @@ select,
     font-family: var(--rl-font);
 }
 
-#app-mount,
 [class*="app_"] {
-    background-color: var(--rl-void) !important;
+    background-color: transparent !important;
     color: var(--rl-bone);
 }
 
@@ -30,7 +29,7 @@ select,
 *::before,
 *::after {
     scrollbar-width: thin;
-    scrollbar-color: #4a3326 transparent;
+    scrollbar-color: var(--rl-line) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -43,7 +42,7 @@ select,
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3b2a20;
+    background: var(--rl-line);
     border: 2px solid var(--rl-void);
 }
 
@@ -111,8 +110,8 @@ tt {
 
 code {
     color: var(--rl-paper);
-    background: rgba(212, 180, 150, 0.07);
-    border: 1px solid rgba(212, 180, 150, 0.08);
+    background: color-mix(in srgb, var(--rl-paper) 7%, transparent);
+    border: 1px solid color-mix(in srgb, var(--rl-paper) 8%, transparent);
     padding: 1px 4px;
 }
 
@@ -139,7 +138,7 @@ mark {
 }
 
 ::backdrop {
-    background: rgba(3, 4, 3, 0.82);
+    background: color-mix(in srgb, var(--rl-void) 82%, transparent);
 }
 
 [class*="theme-light"],

@@ -61,7 +61,7 @@ body::after {
         var(--rl-corner) right bottom / 12px 1px,
         var(--rl-corner) right bottom / 1px 12px;
     background-repeat: no-repeat;
-    opacity: 0.6;
+    opacity: var(--rl-frame-opacity);
     filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rl-signal) 16%, transparent));
 }
 

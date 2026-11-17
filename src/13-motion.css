@@ -223,76 +223,6 @@
 }
 
 @container not style(--rl-motion: off) {
-    #app-mount *,
-    #app-mount *::before,
-    #app-mount *::after {
-        transition-timing-function: steps(4, end) !important;
-    }
-
-    #app-mount [class*="chatContent_"],
-    #app-mount [class*="peopleColumn_"],
-    #app-mount [class*="nowPlayingColumn_"] {
-        animation: rl-screen-in 260ms steps(5, end) backwards;
-    }
-
-    #app-mount [class*="sidebarList_"] [class*="scroller_"] > ul,
-    #app-mount [class*="sidebarList_"] [class*="privateChannels_"] [class*="content_"],
-    #app-mount [class*="members_"] > div {
-        animation: rl-row-in 220ms steps(4, end) backwards;
-    }
-
-    #app-mount [class*="newMessagesBar_"],
-    #app-mount li[id^="chat-messages"] [class*="mentioned_"],
-    #app-mount [class*="embedFull_"],
-    #app-mount [class*="reaction_"][class*="reactionMe_"] {
-        animation: rl-flash 260ms steps(4, end) backwards;
-    }
-
-    #app-mount [class*="sidebarList_"] a[class*="link_"]:hover,
-    #app-mount [class*="privateChannels_"] [class*="interactive_"]:hover,
-    #app-mount [class*="member_"]:hover,
-    #app-mount :is(button, [role="button"], [role="tab"]):hover {
-        animation: rl-flash 180ms steps(3, end) backwards;
-    }
-
-    #app-mount nav[class*="guilds_"] [class*="listItem_"]:hover [class*="wrapper_"] > svg,
-    #app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover {
-        animation: rl-jitter 200ms steps(4, end) backwards;
-    }
-
-    #app-mount :is(button, [role="button"], [role="tab"], [role="switch"]):active,
-    #app-mount [class*="sidebarList_"] a[class*="link_"]:active,
-    #app-mount [class*="privateChannels_"] [class*="interactive_"]:active {
-        animation: rl-press 140ms steps(2, end) backwards;
-    }
-
-    #app-mount [class*="reaction_"],
-    #app-mount [class*="numberBadge_"],
-    #app-mount [class*="textBadge_"] {
-        animation: rl-pop 180ms steps(3, end) backwards;
-    }
-
-    [class*="backdrop_"],
-    [class*="scrim_"] {
-        animation: rl-scrim-in 200ms steps(4, end) backwards;
-    }
-
-    #app-mount [class*="channelTextArea_"]:focus-within {
-        animation: rl-flash 220ms steps(3, end) backwards;
-    }
-
-    #app-mount [class*="typing_"] [class*="text_"]::after {
-        content: "_";
-        margin-left: 2px;
-        color: var(--rl-signal);
-        animation: rl-caret 0.9s steps(1, end) infinite;
-    }
-
-    #app-mount [class*="spinner_"] [class*="inner_"],
-    #app-mount [class*="spinningCircle_"] {
-        animation: rl-spin 0.9s steps(8, end) infinite !important;
-    }
-
     [role="menu"] {
         transform-origin: top left;
         animation: rl-menu-in var(--rl-menu-duration) steps(4, end) backwards;
@@ -408,5 +338,77 @@
         [class*="mentionBadge"] {
             animation: none !important;
         }
+    }
+}
+
+@container style(--rl-motion: full) {
+    #app-mount *,
+    #app-mount *::before,
+    #app-mount *::after {
+        transition-timing-function: steps(4, end) !important;
+    }
+
+    #app-mount [class*="chatContent_"],
+    #app-mount [class*="peopleColumn_"],
+    #app-mount [class*="nowPlayingColumn_"] {
+        animation: rl-screen-in 260ms steps(5, end) backwards;
+    }
+
+    #app-mount [class*="sidebarList_"] [class*="scroller_"] > ul,
+    #app-mount [class*="sidebarList_"] [class*="privateChannels_"] [class*="content_"],
+    #app-mount [class*="members_"] > div {
+        animation: rl-row-in 220ms steps(4, end) backwards;
+    }
+
+    #app-mount [class*="newMessagesBar_"],
+    #app-mount li[id^="chat-messages"] [class*="mentioned_"],
+    #app-mount [class*="embedFull_"],
+    #app-mount [class*="reaction_"][class*="reactionMe_"] {
+        animation: rl-flash 260ms steps(4, end) backwards;
+    }
+
+    #app-mount [class*="sidebarList_"] a[class*="link_"]:hover,
+    #app-mount [class*="privateChannels_"] [class*="interactive_"]:hover,
+    #app-mount [class*="member_"]:hover,
+    #app-mount :is(button, [role="button"], [role="tab"]):hover {
+        animation: rl-flash 180ms steps(3, end) backwards;
+    }
+
+    #app-mount nav[class*="guilds_"] [class*="listItem_"]:hover [class*="wrapper_"] > svg,
+    #app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover {
+        animation: rl-jitter 200ms steps(4, end) backwards;
+    }
+
+    #app-mount :is(button, [role="button"], [role="tab"], [role="switch"]):active,
+    #app-mount [class*="sidebarList_"] a[class*="link_"]:active,
+    #app-mount [class*="privateChannels_"] [class*="interactive_"]:active {
+        animation: rl-press 140ms steps(2, end) backwards;
+    }
+
+    #app-mount [class*="reaction_"],
+    #app-mount [class*="numberBadge_"],
+    #app-mount [class*="textBadge_"] {
+        animation: rl-pop 180ms steps(3, end) backwards;
+    }
+
+    [class*="backdrop_"],
+    [class*="scrim_"] {
+        animation: rl-scrim-in 200ms steps(4, end) backwards;
+    }
+
+    #app-mount [class*="channelTextArea_"]:focus-within {
+        animation: rl-flash 220ms steps(3, end) backwards;
+    }
+
+    #app-mount [class*="typing_"] [class*="text_"]::after {
+        content: "_";
+        margin-left: 2px;
+        color: var(--rl-signal);
+        animation: rl-caret 0.9s steps(1, end) infinite;
+    }
+
+    #app-mount [class*="spinner_"] [class*="inner_"],
+    #app-mount [class*="spinningCircle_"] {
+        animation: rl-spin 0.9s steps(8, end) infinite !important;
     }
 }

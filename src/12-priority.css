@@ -6,7 +6,6 @@ html.theme-dark.theme-dark,
 html.theme-darker.theme-darker,
 html.theme-midnight.theme-midnight,
 html.theme-light.theme-light {
-    color-scheme: dark !important;
 
     --radius-none: 0px !important;
     --radius-xs: 0px !important;
@@ -37,10 +36,10 @@ html.theme-light.theme-light {
     --background-surface-high: var(--rl-raised) !important;
     --background-surface-higher: var(--rl-high) !important;
     --background-surface-highest: var(--rl-higher) !important;
-    --background-mod-muted: rgba(212, 180, 150, 0.05) !important;
-    --background-mod-subtle: rgba(212, 180, 150, 0.07) !important;
-    --background-mod-normal: rgba(212, 180, 150, 0.11) !important;
-    --background-mod-strong: rgba(212, 180, 150, 0.16) !important;
+    --background-mod-muted: color-mix(in srgb, var(--rl-paper) 5%, transparent) !important;
+    --background-mod-subtle: color-mix(in srgb, var(--rl-paper) 7%, transparent) !important;
+    --background-mod-normal: color-mix(in srgb, var(--rl-paper) 11%, transparent) !important;
+    --background-mod-strong: color-mix(in srgb, var(--rl-paper) 16%, transparent) !important;
     --background-modifier-hover: color-mix(in srgb, var(--rl-signal) 7%, transparent) !important;
     --background-modifier-active: color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
     --background-modifier-selected: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
@@ -134,30 +133,29 @@ html.theme-light.theme-light {
     --accent-3: var(--rl-signal) !important;
     --accent-4: var(--rl-signal-hot) !important;
     --accent-5: var(--rl-signal-deep) !important;
-    --border-light: rgba(212, 180, 150, 0.1) !important;
+    --border-light: color-mix(in srgb, var(--rl-paper) 10%, transparent) !important;
     --border: color-mix(in srgb, var(--rl-signal) 22%, transparent) !important;
     --border-hover: color-mix(in srgb, var(--rl-signal) 42%, transparent) !important;
-    --button-border: rgba(212, 180, 150, 0.18) !important;
+    --button-border: color-mix(in srgb, var(--rl-paper) 18%, transparent) !important;
     --hover: color-mix(in srgb, var(--rl-signal) 7%, transparent) !important;
     --active: color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
     --message-hover: color-mix(in srgb, var(--rl-signal) 4.5%, transparent) !important;
     --mention: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
     --mention-hover: color-mix(in srgb, var(--rl-signal) 22%, transparent) !important;
-    --reply: rgba(212, 180, 150, 0.06) !important;
-    --reply-hover: rgba(212, 180, 150, 0.09) !important;
+    --reply: color-mix(in srgb, var(--rl-paper) 6%, transparent) !important;
+    --reply-hover: color-mix(in srgb, var(--rl-paper) 9%, transparent) !important;
 }
 
 html body {
-    background:
-        radial-gradient(1200px 700px at 72% -12%, color-mix(in srgb, var(--rl-signal) 7%, transparent), transparent 62%),
-        radial-gradient(900px 500px at -10% 40%, rgba(20, 50, 42, 0.35), transparent 62%),
-        var(--rl-void) !important;
+    background: var(--rl-void) !important;
 }
 
 #app-mount {
     background:
+        linear-gradient(color-mix(in srgb, var(--rl-void) var(--rl-background-dim), transparent) 0 0),
+        var(--rl-background-image) center / var(--rl-background-size) no-repeat,
         radial-gradient(1150px 620px at 74% -18%, color-mix(in srgb, var(--rl-signal) 7.5%, transparent), transparent 62%),
-        radial-gradient(900px 520px at -12% 112%, rgba(20, 50, 42, 0.45), transparent 64%),
+        radial-gradient(900px 520px at -12% 112%, color-mix(in srgb, var(--rl-teal) 12%, transparent), transparent 64%),
         var(--rl-void) !important;
 }
 
@@ -299,7 +297,7 @@ html body {
 }
 
 #app-mount [class*="panels"] button,
-#app-mount [class*="panels"] [class*="button"] {
+#app-mount [class*="panels"] [class*="button_"] {
     background-color: transparent !important;
     background-image: none !important;
     border-color: transparent !important;
@@ -307,7 +305,7 @@ html body {
 }
 
 #app-mount [class*="panels"] button:hover,
-#app-mount [class*="panels"] [class*="button"]:hover {
+#app-mount [class*="panels"] [class*="button_"]:hover {
     background-color: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
 }
 
@@ -487,7 +485,7 @@ html body {
 }
 
 #app-mount [class*="folderPreviewWrapper"] {
-    background-color: rgba(212, 180, 150, 0.06) !important;
+    background-color: color-mix(in srgb, var(--rl-paper) 6%, transparent) !important;
     border: 1px solid var(--rl-line) !important;
 }
 

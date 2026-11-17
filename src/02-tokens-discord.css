@@ -56,12 +56,12 @@
     --background-feedback-mod-positive: rgba(121, 181, 154, 0.08);
     --background-feedback-mod-warning: rgba(221, 160, 82, 0.08);
     --background-feedback-notification: var(--rl-signal);
-    --background-mod-muted: rgba(212, 180, 150, 0.05);
-    --background-mod-subtle: rgba(212, 180, 150, 0.07);
-    --background-mod-normal: rgba(212, 180, 150, 0.11);
-    --background-mod-strong: rgba(212, 180, 150, 0.16);
-    --background-scrim: rgba(3, 4, 3, 0.8);
-    --background-scrim-lightbox: rgba(3, 4, 3, 0.93);
+    --background-mod-muted: color-mix(in srgb, var(--rl-paper) 5%, transparent);
+    --background-mod-subtle: color-mix(in srgb, var(--rl-paper) 7%, transparent);
+    --background-mod-normal: color-mix(in srgb, var(--rl-paper) 11%, transparent);
+    --background-mod-strong: color-mix(in srgb, var(--rl-paper) 16%, transparent);
+    --background-scrim: color-mix(in srgb, var(--rl-void) 80%, transparent);
+    --background-scrim-lightbox: color-mix(in srgb, var(--rl-void) 93%, transparent);
     --background-voice-muted: color-mix(in srgb, var(--rl-signal) 12%, transparent);
     --background-tile-gradient-pink-start: color-mix(in srgb, var(--rl-signal) 18%, transparent);
     --background-tile-gradient-pink-end: color-mix(in srgb, var(--rl-signal-hot) 8%, transparent);
@@ -70,7 +70,7 @@
     --panel-bg: var(--rl-panel);
     --card-background-default: var(--rl-raised);
     --card-border-default: var(--rl-line-soft);
-    --card-secondary-bg: rgba(212, 180, 150, 0.05);
+    --card-secondary-bg: color-mix(in srgb, var(--rl-paper) 5%, transparent);
     --modal-background: var(--rl-panel);
     --modal-footer-background: var(--rl-ink);
     --channel-background-default: var(--rl-ink);
@@ -182,16 +182,16 @@
     --interactive-background-active: color-mix(in srgb, var(--rl-signal) 12%, transparent);
     --interactive-background-selected: color-mix(in srgb, var(--rl-signal) 16%, transparent);
 
-    --border-subtle: rgba(212, 180, 150, 0.1);
-    --border-muted: rgba(212, 180, 150, 0.06);
+    --border-subtle: color-mix(in srgb, var(--rl-paper) 10%, transparent);
+    --border-muted: color-mix(in srgb, var(--rl-paper) 6%, transparent);
     --border-normal: color-mix(in srgb, var(--rl-signal) 22%, transparent);
     --border-strong: color-mix(in srgb, var(--rl-signal) 42%, transparent);
     --border-focus: var(--rl-signal);
-    --border-light: rgba(212, 180, 150, 0.1);
+    --border-light: color-mix(in srgb, var(--rl-paper) 10%, transparent);
     --border: color-mix(in srgb, var(--rl-signal) 22%, transparent);
     --border-hover: color-mix(in srgb, var(--rl-signal) 42%, transparent);
-    --border-button: rgba(212, 180, 150, 0.18);
-    --button-border: rgba(212, 180, 150, 0.18);
+    --border-button: color-mix(in srgb, var(--rl-paper) 18%, transparent);
+    --button-border: color-mix(in srgb, var(--rl-paper) 18%, transparent);
     --border-feedback-critical: #ff7a61;
     --border-feedback-info: var(--rl-signal-soft);
     --border-feedback-positive: var(--rl-green);
@@ -200,7 +200,7 @@
 
     --input-background-default: var(--rl-void);
     --input-background-error-default: rgba(255, 70, 38, 0.08);
-    --input-border-default: rgba(212, 180, 150, 0.14);
+    --input-border-default: color-mix(in srgb, var(--rl-paper) 14%, transparent);
     --input-border-hover: color-mix(in srgb, var(--rl-signal) 35%, transparent);
     --input-border-active: var(--rl-signal);
     --input-border-error-default: var(--rl-red);
@@ -294,12 +294,12 @@
     --control-overlay-primary-icon-default: var(--rl-void);
     --control-overlay-primary-icon-hover: var(--rl-void);
     --control-overlay-primary-icon-active: var(--rl-void);
-    --control-overlay-secondary-background-default: rgba(5, 6, 5, 0.55);
-    --control-overlay-secondary-background-hover: rgba(5, 6, 5, 0.7);
-    --control-overlay-secondary-background-active: rgba(5, 6, 5, 0.82);
-    --control-overlay-secondary-border-default: rgba(212, 180, 150, 0.14);
-    --control-overlay-secondary-border-hover: rgba(212, 180, 150, 0.24);
-    --control-overlay-secondary-border-active: rgba(212, 180, 150, 0.34);
+    --control-overlay-secondary-background-default: color-mix(in srgb, var(--rl-void) 55%, transparent);
+    --control-overlay-secondary-background-hover: color-mix(in srgb, var(--rl-void) 70%, transparent);
+    --control-overlay-secondary-background-active: color-mix(in srgb, var(--rl-void) 82%, transparent);
+    --control-overlay-secondary-border-default: color-mix(in srgb, var(--rl-paper) 14%, transparent);
+    --control-overlay-secondary-border-hover: color-mix(in srgb, var(--rl-paper) 24%, transparent);
+    --control-overlay-secondary-border-active: color-mix(in srgb, var(--rl-paper) 34%, transparent);
     --control-overlay-secondary-text-default: var(--rl-bone);
     --control-overlay-secondary-text-hover: var(--rl-cream);
     --control-overlay-secondary-text-active: var(--rl-cream);
@@ -315,8 +315,8 @@
     --control-icon-only-icon-active: var(--rl-cream);
 
     --message-background-hover: color-mix(in srgb, var(--rl-signal) 4.5%, transparent);
-    --message-highlight-background-default: rgba(212, 180, 150, 0.05);
-    --message-highlight-background-hover: rgba(212, 180, 150, 0.075);
+    --message-highlight-background-default: color-mix(in srgb, var(--rl-paper) 5%, transparent);
+    --message-highlight-background-hover: color-mix(in srgb, var(--rl-paper) 7.5%, transparent);
     --message-mentioned-background-default: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 16%, transparent), color-mix(in srgb, var(--rl-signal) 3.5%, transparent) 55%, transparent);
     --message-mentioned-background-hover: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 20%, transparent), color-mix(in srgb, var(--rl-signal) 5%, transparent) 55%, transparent);
     --message-reacted-background-default: color-mix(in srgb, var(--rl-signal) 10%, transparent);
@@ -325,12 +325,12 @@
     --message-automod-background-hover: rgba(255, 70, 38, 0.14);
     --mention-background: color-mix(in srgb, var(--rl-signal) 16%, transparent);
     --mention-foreground: var(--rl-signal-soft);
-    --reaction-background-default: rgba(212, 180, 150, 0.05);
+    --reaction-background-default: color-mix(in srgb, var(--rl-paper) 5%, transparent);
     --reaction-background-hover: color-mix(in srgb, var(--rl-signal) 10%, transparent);
     --reaction-background-active: color-mix(in srgb, var(--rl-signal) 14%, transparent);
     --reaction-background-reacted-default: color-mix(in srgb, var(--rl-signal) 14%, transparent);
     --reaction-background-reacted-hover: color-mix(in srgb, var(--rl-signal) 20%, transparent);
-    --reaction-border-default: rgba(212, 180, 150, 0.1);
+    --reaction-border-default: color-mix(in srgb, var(--rl-paper) 10%, transparent);
     --reaction-border-hover: color-mix(in srgb, var(--rl-signal) 24%, transparent);
     --reaction-border-active: color-mix(in srgb, var(--rl-signal) 32%, transparent);
     --reaction-border-reacted-default: var(--rl-signal);
@@ -345,7 +345,7 @@
     --badge-notification-text: var(--rl-void);
     --badge-expressive-background-default: var(--rl-cream);
     --badge-expressive-text-default: var(--rl-void);
-    --badge-common-background: rgba(212, 180, 150, 0.12);
+    --badge-common-background: color-mix(in srgb, var(--rl-paper) 12%, transparent);
     --badge-common-text: var(--rl-bone);
 
     --status-green: var(--rl-green);
@@ -421,11 +421,11 @@
     --red-400: #ff7a61;
     --red-500: var(--rl-red);
 
-    --scrollbar-auto-thumb: #4a3326;
+    --scrollbar-auto-thumb: var(--rl-line);
     --scrollbar-auto-track: transparent;
-    --scrollbar-thin-thumb: #4a3326;
+    --scrollbar-thin-thumb: var(--rl-line);
     --scrollbar-thin-track: transparent;
-    --scrollbar-auto-scrollbar-color-thumb: #4a3326;
+    --scrollbar-auto-scrollbar-color-thumb: var(--rl-line);
     --scrollbar-auto-scrollbar-color-track: var(--rl-void);
 
     --switch-background-default: var(--rl-raised);
