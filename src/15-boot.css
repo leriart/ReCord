@@ -1,0 +1,89 @@
+/* startup */
+
+@keyframes rl-boot-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 14px rgba(233, 66, 33, 0.22));
+    }
+    50% {
+        opacity: 0.72;
+        filter: drop-shadow(0 0 24px rgba(233, 66, 33, 0.38));
+    }
+}
+
+@keyframes rl-boot-text {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
+}
+
+[class*="loading_2kO"],
+[class*="fallbackSplash"] {
+    background:
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.25) 2px 3px),
+        var(--rl-void) !important;
+    color: var(--rl-signal-soft) !important;
+}
+
+[class*="loading_2kO"] p,
+[class*="loading_2kO"] span {
+    color: var(--rl-smoke) !important;
+    font-family: var(--rl-font) !important;
+    font-size: 11px !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+[class*="loading_2kO"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px;
+}
+
+[class*="loading_2kO"] svg,
+[class*="loading_2kO"] img {
+    display: none !important;
+}
+
+[class*="loading_2kO"]::before {
+    content: "";
+    display: block;
+    width: 112px;
+    height: 112px;
+    background: var(--rl-signal);
+    -webkit-mask: url("../assets/brand/mark.svg") center / contain no-repeat;
+    mask: url("../assets/brand/mark.svg") center / contain no-repeat;
+    animation: rl-boot-pulse 1.4s steps(2, end) infinite;
+}
+
+[class*="loading_2kO"]::after {
+    content: "SIGNAL BOOT // PHOENIX-CITY";
+    color: var(--rl-smoke);
+    font-family: var(--rl-font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    animation: rl-boot-text 2s steps(2, end) infinite;
+}
+
+[class*="splash_FNz3hO"] {
+    background: var(--rl-void) !important;
+}
+
+[class*="splash_FNz3hO"] img {
+    opacity: 0.14 !important;
+    filter: grayscale(1) sepia(0.45) contrast(1.05) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [class*="loading_2kO"]::before,
+    [class*="loading_2kO"]::after {
+        animation: none !important;
+    }
+}

@@ -14,7 +14,7 @@
     [class*="guilds_"] :is(button, [role="button"]),
     [class*="message"] :is(button, [role="button"]),
     [role="dialog"] [class*="header_"] :is(button, [role="button"])
-):has(> svg) > svg {
+):has(svg) svg {
     display: none !important;
 }
 
@@ -28,7 +28,7 @@
     [class*="guilds_"] :is(button, [role="button"]),
     [class*="message"] :is(button, [role="button"]),
     [role="dialog"] [class*="header_"] :is(button, [role="button"])
-):has(> svg)::before {
+):has(svg)::before {
     content: "";
     display: inline-block;
     flex: 0 0 auto;
@@ -186,6 +186,46 @@
 
 #app-mount :is(button, [role="button"]):is([aria-label*="Añadir servidor" i], [aria-label*="Add a Server" i], [aria-label*="Add Server" i], [aria-label*="Crear DM" i], [aria-label*="Create DM" i], [aria-label*="Nuevo mensaje directo" i], [aria-label*="Add Friend" i], [aria-label*="Añadir amigo" i]) {
     --rl-icon: url("../assets/icons/plus.svg");
+}
+
+#app-mount [class*="privateChannels"] a[href="/channels/@me"] [class*="icon_"] svg,
+#app-mount [class*="privateChannels"] a[href*="/shop"] [class*="icon_"] svg,
+#app-mount [class*="privateChannels"] a[href*="/store"] [class*="icon_"] svg,
+#app-mount [class*="privateChannels"] a[href*="/quests"] [class*="icon_"] svg {
+    display: none !important;
+}
+
+#app-mount [class*="privateChannels"] a[href="/channels/@me"] [class*="icon_"]::before,
+#app-mount [class*="privateChannels"] a[href*="/shop"] [class*="icon_"]::before,
+#app-mount [class*="privateChannels"] a[href*="/store"] [class*="icon_"]::before,
+#app-mount [class*="privateChannels"] a[href*="/quests"] [class*="icon_"]::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: currentColor;
+    -webkit-mask: url("../assets/icons/diamond.svg") center / contain no-repeat;
+    mask: url("../assets/icons/diamond.svg") center / contain no-repeat;
+}
+
+#app-mount [class*="privateChannels"] a[href="/channels/@me"] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/friends.svg");
+    mask-image: url("../assets/icons/friends.svg");
+}
+
+#app-mount [class*="privateChannels"] a[href*="/shop"] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/shop.svg");
+    mask-image: url("../assets/icons/shop.svg");
+}
+
+#app-mount [class*="privateChannels"] a[href*="/store"] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/spark.svg");
+    mask-image: url("../assets/icons/spark.svg");
+}
+
+#app-mount [class*="privateChannels"] a[href*="/quests"] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/missions.svg");
+    mask-image: url("../assets/icons/missions.svg");
 }
 
 #app-mount [data-list-item-id^="channels___"] [class*="icon_"] > svg,

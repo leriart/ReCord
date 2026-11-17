@@ -52,7 +52,7 @@ El archivo de entrada importa todos los módulos desde `raw.githubusercontent.co
 Si una actualización de CSS no aparece, elimina el tema online y vuelve a agregarlo con un query de versión, o cierra Discord por completo desde la bandeja y vuelve a abrirlo:
 
 ```text
-https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.0.3
+https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.1.0
 ```
 
 Los imports de módulos también incluyen ese query, así que una entrada nueva carga módulos nuevos.
@@ -104,6 +104,12 @@ Los avatares de contactos son imágenes del usuario, así que no se pueden reemp
 ```
 
 Pon `--rl-avatar-filter: none` o `--rl-avatar-scanline: 0` para desactivar cada efecto.
+
+## Arranque
+
+Vesktop permite una imagen de splash personalizada desde `Vesktop` -> `Ajustes` -> `Customize App Assets` -> `Splash`. Elige `assets/brand/splash.gif` (animado) o `assets/brand/splash.png` (estático) y activa `Nearest-Neighbor Scaling (for pixel art)`. Mantén el fondo oscuro y el texto crema/naranja.
+
+El tema también reemplaza la pantalla de carga interna de Discord: oculta el logo y el spinner, y los sustituye por la R pixel, un pulso de scanline y `SIGNAL BOOT // PHOENIX-CITY`.
 
 ## Sonidos
 
@@ -205,7 +211,8 @@ Retroless/
 │   ├── 11-effects.css
 │   ├── 12-priority.css
 │   ├── 13-motion.css
-│   └── 14-icons.css
+│   ├── 14-icons.css
+│   └── 15-boot.css
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
 │   ├── fonts/               Pixel Operator (CC0)

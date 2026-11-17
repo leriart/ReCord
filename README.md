@@ -54,7 +54,7 @@ The entry file imports every module from `raw.githubusercontent.com`. Vencord al
 If a CSS update does not appear, remove the online theme and add it again with a version query, or fully close Discord from the tray and reopen it:
 
 ```text
-https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.0.3
+https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.1.0
 ```
 
 The module imports also carry this version query, so a fresh entry fetch loads fresh modules.
@@ -106,6 +106,12 @@ Contact avatars are user images, so they cannot be replaced by masks. RETROLESS 
 ```
 
 Set `--rl-avatar-filter: none` or `--rl-avatar-scanline: 0` to disable either effect.
+
+## Startup
+
+Vesktop supports a custom splash image through `Vesktop` -> `Settings` -> `Customize App Assets` -> `Splash`. Choose `assets/brand/splash.gif` (animated) or `assets/brand/splash.png` (static) and enable `Nearest-Neighbor Scaling (for pixel art)`. Keep the splash background dark and the foreground cream/orange.
+
+The theme also replaces Discord's in-app loading screen: the Discord logo and spinner are hidden and replaced by the pixel R mark, a scanline pulse and `SIGNAL BOOT // PHOENIX-CITY`.
 
 ## Sounds
 
@@ -207,7 +213,8 @@ Retroless/
 │   ├── 11-effects.css
 │   ├── 12-priority.css
 │   ├── 13-motion.css
-│   └── 14-icons.css
+│   ├── 14-icons.css
+│   └── 15-boot.css
 ├── assets/
 │   ├── brand/               mark, corners, grain, skyline
 │   ├── fonts/               Pixel Operator (CC0)

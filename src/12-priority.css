@@ -677,7 +677,9 @@ html body #app-mount [class*="avatar"]:not([class*="decoration"])::after {
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
+    background:
+        linear-gradient(180deg, rgba(233, 66, 33, 0.12), rgba(5, 6, 5, 0.2)),
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
     opacity: var(--rl-avatar-scanline);
     mix-blend-mode: multiply;
 }
@@ -690,4 +692,79 @@ html body #app-mount [class*="avatar"]:hover {
 
 html body #app-mount [class*="avatar"]:hover img {
     filter: saturate(0.95) contrast(1.04) sepia(0.06) brightness(1.03) !important;
+}
+
+html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"] img,
+html body #app-mount [data-list-item-id^="guildsnav___"] img {
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    filter: saturate(0.78) contrast(1.1) sepia(0.16) brightness(0.96) !important;
+    image-rendering: pixelated;
+}
+
+html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"] {
+    position: relative;
+    overflow: hidden !important;
+    background-color: var(--rl-coal) !important;
+    border: 1px solid var(--rl-line-hot) !important;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.55) 2px 3px);
+    opacity: 0.16;
+    mix-blend-mode: multiply;
+}
+
+html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"],
+html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
+html body #app-mount #app-mount [class*="privateChannels"] [aria-current="page"],
+html body #app-mount #app-mount [class*="privateChannels"] [aria-selected="true"],
+html body #app-mount #app-mount [data-list-item-id^="private-channels"][class*="selected"] {
+    background: var(--rl-raised) !important;
+    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.14), transparent 72%) !important;
+    box-shadow: inset 2px 0 var(--rl-signal) !important;
+    color: var(--rl-cream) !important;
+}
+
+html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"]::before,
+html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"]::after,
+html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"]::before,
+html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"]::after {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"],
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"][class*="selected"],
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"][class*="selected"],
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"][aria-current="page"],
+html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"][aria-current="page"] {
+    background: var(--rl-raised) !important;
+    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.14), transparent 72%) !important;
+    box-shadow: inset 2px 0 var(--rl-signal) !important;
+    color: var(--rl-cream) !important;
+}
+
+html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"] *,
+html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"] * {
+    background-image: none !important;
+}
+
+html body #app-mount li[id^="chat-messages"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]) {
+    position: absolute !important;
+}
+
+html body #app-mount li[id^="chat-messages"][class*="compact"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]),
+html body #app-mount li[id^="chat-messages"] [class*="compact"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]) {
+    position: relative !important;
 }
