@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.6.1
+
+Visual pass against the live client.
+
+- Member list group headers: the `//` marker sits on the same line as the title
+- Settings: the active sub-page is a marker line instead of a second solid block under its parent
+- Dialogs: radio buttons are square like every other control
+- Text inputs with a wrapper no longer draw a second frame inside the first
+
 ## 3.6.0
 
 - Fixed the server rail losing its square frames: Discord shapes those icons with an SVG mask on a `foreignObject`, which the 3.5.0 selector cleanup no longer removed

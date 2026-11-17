@@ -222,3 +222,52 @@
 #app-mount [class*="channelTextArea_"] [role="textbox"] {
     caret-color: var(--rl-signal);
 }
+
+#app-mount [class*="membersGroup_"] {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5ch;
+}
+
+#app-mount [class*="membersGroup_"] > [class*="headerContainer_"] {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* settings sub-pages: the parent is the solid block, the child is a marker line */
+
+[role="dialog"] nav [class*="subnav_"] [class*="item_"][class*="active_"] {
+    background: transparent !important;
+    color: var(--rl-signal) !important;
+    box-shadow: -4px 0 0 var(--rl-signal) !important;
+}
+
+[role="dialog"] nav [class*="subnav_"] [class*="item_"][class*="active_"] * {
+    color: var(--rl-signal) !important;
+}
+
+/* form controls */
+
+svg[class*="radioIndicator_"] {
+    box-sizing: border-box;
+    border: 1px solid var(--rl-smoke);
+    border-radius: 0;
+    background: var(--rl-void);
+}
+
+svg[class*="radioIndicator_"] > * {
+    display: none;
+}
+
+label:has(input[type="radio"]:checked) > svg[class*="radioIndicator_"] {
+    border-color: var(--rl-signal);
+    background: var(--rl-signal);
+    box-shadow: inset 0 0 0 3px var(--rl-void);
+}
+
+[class*="wrapper_"][class*="container_"] > input[class*="input_"] {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
