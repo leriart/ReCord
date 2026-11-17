@@ -34,6 +34,7 @@
             </a>
             <nav class="topnav" aria-label="Sections">
                 <a href="#preview">PREVIEW</a>
+                <a href="#demo">DEMO</a>
                 <a href="#palette">PALETTE</a>
                 <a href="#install">INSTALL</a>
                 <a href="#source">SOURCE</a>
@@ -41,7 +42,7 @@
                 <a href="sounds.html">SOUNDS</a>
             </nav>
             <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
-            <span class="top-version">V3.8.0</span>
+            <span class="top-version">V3.9.0</span>
         </div>
     </header>
 
@@ -60,7 +61,7 @@
 
                     <div class="hero-actions">
                         <a class="btn" href="#install">INSTALL</a>
-                        <a class="btn btn--ghost" href="preview.html">OPEN PREVIEW</a>
+                        <a class="btn btn--ghost" href="preview.html">OPEN LIVE DEMO</a>
                     </div>
 
                     <div class="raw-line">
@@ -123,7 +124,7 @@
                             <span>RECORD / CHANNEL VIEW</span>
                             <span>1440 x 900 / SIGNAL LOCKED</span>
                         </div>
-                        <img src="preview.png" alt="RECORD Discord interface preview with orange terminal panels, pixel typography and a dark CRT scanline surface." width="1440" height="900">
+                        <img src="preview.png" alt="RECORD Discord interface preview with orange terminal panels, pixel typography and a dark CRT scanline surface." width="1400" height="800">
                     </div>
 
                     <div class="feature-grid">
@@ -148,6 +149,24 @@
                             <p>Override <code>--rl-*</code> variables in QuickCSS to retune the signal, surfaces or scanline density.</p>
                         </article>
                     </div>
+                </div>
+            </section>
+
+            <section class="section" id="demo">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-label">// <b>TRY IT</b></div>
+                            <h2>SEE IT AND HEAR IT</h2>
+                        </div>
+                        <p class="section-note">
+                            A working mock of the interface. Power it on, then hover, click, switch channels and type: every action plays the sound theme you pick.
+                        </p>
+                    </div>
+                    <div class="demo-frame">
+                        <iframe src="preview.html" title="Live demo of the RECORD interface" loading="lazy" allow="autoplay"></iframe>
+                    </div>
+                    <p class="demo-link"><a class="btn btn--ghost" href="preview.html">OPEN FULL SCREEN</a></p>
                 </div>
             </section>
 
@@ -378,7 +397,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                             <div class="link-list" style="margin-top:18px">
                                 <a href="https://github.com/leriart/ReCord">REPOSITORY <span>GITHUB</span></a>
                                 <a href="https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.theme.css">THEME FILE <span>RAW</span></a>
-                                <a href="preview.html">INTERFACE STUDY <span>LOCAL</span></a>
+                                <a href="preview.html">LIVE DEMO <span>AUDIO</span></a>
                                 <a href="icons.html">PIXEL ICON SET <span>SVG</span></a>
                                 <a href="sounds.html">SIGNAL PACK <span>AUDIO</span></a>
                             </div>

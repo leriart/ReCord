@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.9.0
+
+- Live demo on the website (`docs/preview.html`, also embedded in the landing page): a working mock of the interface where hovering, clicking, switching channels and typing play the sounds. Sending a message gets a reply, and there are buttons to test a mention and an incoming message
+- Demo controls: accent, dark or light mode, the 15 sound themes, volume and animations. It uses the same tokens as the theme and the same sound resolution as the plugin
+- The demo is bilingual and fits phones
+- The mock's sample text no longer uses names from the game
+
 ## 3.8.0
 
 - Sound themes: 14 sets besides the synthesized one. Twelve from UI SFX (arcade, sci-fi, mechanical, minimal, glass, cinematic, studio, soft, rubber, organic, dreamy, zen) and two from Kenney (UI SFX Set, Interface Sounds). All CC0, licenses included next to the files

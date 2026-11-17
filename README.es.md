@@ -46,6 +46,8 @@ En PowerShell, para desinstalar:
 
 El archivo es autocontenido: fuentes, iconos y texturas van embebidos, así que funciona sin conexión.
 
+¿Quieres probarlo antes de instalar? La [demo en vivo](https://leriart.github.io/ReCord/docs/preview.html) es una maqueta funcional: pasa el cursor, haz clic y escribe para oír cada tema de sonido, y cambia el acento y el modo.
+
 Usa ReCord como único tema activo. Otros temas completos sobrescriben las mismas variables de Discord y se mezclan.
 
 ## Configuración

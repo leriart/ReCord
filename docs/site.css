@@ -1330,3 +1330,19 @@ img {
     background: var(--rl-void);
     cursor: pointer;
 }
+
+.demo-frame {
+    border: 1px solid var(--rl-line-hot);
+    background: var(--rl-void);
+}
+
+.demo-frame iframe {
+    display: block;
+    width: 100%;
+    height: min(900px, 90vh);
+    border: 0;
+}
+
+.demo-link {
+    margin: 16px 0 0;
+}

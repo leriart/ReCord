@@ -46,6 +46,8 @@ On PowerShell, uninstall with:
 
 The file is self-contained: fonts, icons and textures are embedded, so it works offline.
 
+Want to try before installing? The [live demo](https://leriart.github.io/ReCord/docs/preview.html) is a working mock: hover, click and type to hear every sound theme, and switch accent and mode.
+
 Use ReCord as the only enabled theme. Other full themes override the same Discord variables and the two will mix.
 
 ## Configure

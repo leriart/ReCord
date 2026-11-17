@@ -4,14 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
-    <title>RECORD / interface preview</title>
+    <title>RECORD / live demo</title>
     <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../src/01-fonts.css">
     <link rel="stylesheet" href="../src/00-tokens.css">
     <link rel="stylesheet" href="demo.css">
+    <script src="i18n.js" defer></script>
+    <script src="demo.js" defer></script>
 </head>
 <body>
+    <header class="demo-bar">
+        <a class="demo-back" href="index.html">&lt; RECORD</a>
+        <label><span>ACCENT</span><input type="color" id="demo-accent" value="#e94221"></label>
+        <label><span>MODE</span>
+            <select id="demo-mode">
+                <option value="dark">Dark (terminal)</option>
+                <option value="light">Light (paper)</option>
+            </select>
+        </label>
+        <label><span>SOUND THEME</span><select id="demo-set"><option value="synth">Synth</option></select></label>
+        <label><span>VOLUME</span><input type="range" id="demo-volume" min="0" max="100" value="50"></label>
+        <label class="demo-check"><input type="checkbox" id="demo-motion" checked> <span>ANIMATIONS</span></label>
+        <button type="button" id="demo-mention">TEST MENTION</button>
+        <button type="button" id="demo-message">TEST MESSAGE</button>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
+    </header>
+
     <div class="app" aria-label="RECORD theme preview">
+        <button type="button" class="power" id="demo-power">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2" width="4" height="20"/><rect x="8" y="2" width="8" height="4"/><rect x="16" y="6" width="4" height="4"/><rect x="8" y="10" width="12" height="4"/><rect x="12" y="14" width="4" height="4"/><rect x="16" y="18" width="4" height="4"/></svg>
+            <b>CLICK TO POWER ON</b>
+            <small>Sound starts after the first click. Hover, click and type to hear the theme.</small>
+        </button>
         <aside class="rail">
             <div class="rail-logo" title="RECORD">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -72,7 +96,7 @@
         <main class="chat">
             <header class="chat-head">
                 <div class="chat-title"><span class="hash">#</span> terminal</div>
-                <div class="chat-topic">TERMINAL RELAY RELAY // CLEARANCE LEVEL 04 <span class="live"><i></i> LIVE</span></div>
+                <div class="chat-topic">TERMINAL RELAY // CLEARANCE LEVEL 04 <span class="live"><i></i> LIVE</span></div>
                 <div class="chat-actions"><span>[ / ]</span><span>[ MEM ]</span><span>[ PIN ]</span></div>
             </header>
 
@@ -92,9 +116,9 @@
                     <div class="avatar avatar--cream">K</div>
                     <div class="msg-body">
                         <div class="msg-head"><span class="name">KESTREL</span><span class="time">14:04</span></div>
-                        <p>Phoenix Corp patrols the lower ward. I tagged the route on the Wingman.</p>
+                        <p>Patrols are sweeping the lower ward. I tagged a clean route on the handheld.</p>
                         <div class="code">
-                            <div class="code-head"><span>WINGMAN / SHELL</span><span>COPY</span></div>
+                            <div class="code-head"><span>HANDHELD / SHELL</span><span class="code-copy">COPY</span></div>
                             <pre><span class="c-dim">$</span> decrypt --sig <span class="c-orange">0xE94221</span>
 <span class="c-dim">></span> SIGNAL ACQUIRED
 <span class="c-dim">></span> NODE <span class="c-paper">04</span> // TERMINAL RELAY
@@ -108,10 +132,10 @@
                     <div class="avatar avatar--teal">S</div>
                     <div class="msg-body">
                         <div class="msg-head"><span class="name name--teal">SABLE</span><span class="time">14:07</span></div>
-                        <p><span class="mention">@R.E.C.O.R.D.</span> the Wingman log is clean. No trace on the relay.</p>
+                        <p><span class="mention">@R.E.C.O.R.D.</span> the handheld log is clean. No trace on the relay.</p>
                         <div class="attachment">
                             <div class="attachment-icon">TXT</div>
-                            <div class="attachment-info"><span>wingman_log.txt</span><small>12.4 KB // SHA 9F2A</small></div>
+                            <div class="attachment-info"><span>handheld_log.txt</span><small>12.4 KB // SHA 9F2A</small></div>
                             <div class="attachment-action">GET</div>
                         </div>
                     </div>
@@ -131,7 +155,7 @@
             <div class="composer">
                 <div class="composer-box">
                     <span class="prompt">&gt;</span>
-                    <span class="composer-placeholder">TRANSMIT MESSAGE...</span>
+                    <input class="composer-input" id="demo-input" type="text" placeholder="TRANSMIT MESSAGE..." autocomplete="off" aria-label="Message">
                     <div class="composer-tools"><span>+</span><span>GIF</span><span>STK</span><span>EMO</span></div>
                 </div>
                 <div class="composer-meta"><span>CONNECTED</span><span>PING 12MS</span><span>AES-256</span></div>
@@ -143,7 +167,7 @@
 
             <div class="role">OPERATORS</div>
             <div class="member"><div class="m-avatar m-avatar--orange">R<span class="status"></span></div><div><b>R.E.C.O.R.D.</b><small>Signal lost</small></div></div>
-            <div class="member"><div class="m-avatar m-avatar--cream">K<span class="status"></span></div><div><b>KESTREL</b><small>Wingman link</small></div></div>
+            <div class="member"><div class="m-avatar m-avatar--cream">K<span class="status"></span></div><div><b>KESTREL</b><small>Handheld link</small></div></div>
             <div class="member"><div class="m-avatar m-avatar--teal">S<span class="status status--idle"></span></div><div><b>SABLE</b><small>Relay watch</small></div></div>
 
             <div class="role">SUPPORT</div>
@@ -160,7 +184,7 @@
             </div>
         </aside>
 
-        <div class="frame-label frame-label--tl">RECORD / 1.1.0</div>
+        <div class="frame-label frame-label--tl">RECORD / LIVE DEMO</div>
         <div class="frame-label frame-label--br">SYS.ONLINE <i></i></div>
     </div>
 </body>
