@@ -57,7 +57,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | Background image | Your own picture, with darkening and panel opacity |
 | Animations | Full, subtle (menus and dialogs only), off |
 | Typeface | Pixel Operator, Pixel Operator Mono, system monospace, Discord default |
-| CRT layer | Scanlines, grain, vignette, flicker, corner frame |
+| CRT layer | Scanlines, grain, vignette, flicker, rolling scan beam, corner frame |
 | Pixel icons | On, or Discord's native icons |
 | Avatars | Warm filter and scanlines on or off |
 
@@ -77,6 +77,7 @@ html:root:root {
     --rl-vignette-opacity: 0.55;
     --rl-flicker-duration: 0s;        /* 6s to enable */
     --rl-frame-opacity: 0.6;
+    --rl-beam-opacity: 0.5;           /* 0 hides the scan beam */
     --rl-background-image: url("https://i.imgur.com/picture.png");
     --rl-background-dim: 70%;
     --rl-surface: 70%;                /* panel opacity */
@@ -102,7 +103,7 @@ The bundled pack in `sounds/` is original synthesized audio (CC0). No game audio
 
 - **Selections**: the active channel, DM, menu item and settings entry are solid accent blocks with dark type.
 - **Motion**: everything moves in steps. Menus wipe in, the chat redraws from a beam on channel switch, rows flash on hover and invert on press.
-- **Icons**: 99 original 16 x 16 pixel icons. Discord's glyphs are matched by their vector shape, so they are replaced everywhere they appear (toolbar, menus, settings, channel list, member list) in any language. Status indicators are square pixel glyphs: block for online, notch for idle, bar for do not disturb, hollow for offline. Gallery at `docs/icons.html`.
+- **Icons**: 103 original 16 x 16 pixel icons. Discord's glyphs are matched by their vector shape, so they are replaced everywhere they appear (toolbar, menus, settings, channel list, member list) in any language. Status indicators are square pixel glyphs: block for online, notch for idle, bar for do not disturb, hollow for offline. Gallery at `docs/icons.html`.
 - **Avatars**: square, framed, with a warm filter.
 - **Startup**: Discord's loading screen shows the pixel mark. For Vesktop's own splash choose `assets/brand/splash.gif` in `Vesktop Settings` -> `Customize App Assets`.
 

@@ -65,6 +65,23 @@ body::after {
     filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rl-signal) 16%, transparent));
 }
 
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9995;
+    pointer-events: none;
+    background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent) 0 -160px / 100% 160px no-repeat;
+    opacity: var(--rl-beam-opacity);
+    animation: rl-beam var(--rl-beam-duration) linear infinite;
+}
+
+@keyframes rl-beam {
+    to {
+        background-position: 0 calc(100vh + 160px);
+    }
+}
+
 @keyframes rl-flicker {
     0%,
     93%,
@@ -107,6 +124,10 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html::before {
+        animation: none;
+    }
+
     *,
     *::before,
     *::after {

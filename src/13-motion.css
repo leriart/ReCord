@@ -161,6 +161,7 @@
     }
     25% {
         transform: translate(-1px, 1px);
+        filter: drop-shadow(2px 0 0 rgba(255, 0, 70, 0.7)) drop-shadow(-2px 0 0 rgba(0, 220, 255, 0.7));
     }
     50% {
         transform: translate(1px, -1px);
@@ -168,6 +169,35 @@
     }
     75% {
         transform: translate(-1px, 0);
+    }
+}
+
+@keyframes rl-power-on {
+    0% {
+        transform: scale(0.35, 0.004);
+        filter: brightness(9);
+    }
+    35% {
+        transform: scale(1, 0.004);
+        filter: brightness(6);
+    }
+    65% {
+        transform: scale(1, 1);
+        filter: brightness(2.2);
+    }
+    85% {
+        filter: brightness(0.8);
+    }
+}
+
+@keyframes rl-status {
+    0%,
+    69% {
+        opacity: 1;
+    }
+    70%,
+    100% {
+        opacity: 0.45;
     }
 }
 
@@ -342,6 +372,29 @@
 }
 
 @container style(--rl-motion: full) {
+    #app-mount [class*="layers_"] {
+        animation: rl-power-on 620ms steps(9, end) backwards;
+    }
+
+    #app-mount svg[class*="mask_"] rect:is([fill="#45a366" i], [fill="#43a25a" i], [fill="#23a55a" i]) {
+        animation: rl-status 2.8s steps(1, end) infinite;
+    }
+
+    #app-mount svg[class*="mask_"] rect:is([fill="#9147ff" i], [fill="#593695" i]) {
+        animation: rl-status 0.9s steps(1, end) infinite;
+    }
+
+    #app-mount [class*="avatarSpeaking_"],
+    #app-mount [class*="speaking_"] {
+        animation: rl-pulse 0.5s steps(2, end) infinite;
+    }
+
+    #app-mount [class*="channelTextArea_"] [class*="placeholder_"]::after {
+        content: "_";
+        color: var(--rl-signal);
+        animation: rl-caret 1s steps(1, end) infinite;
+    }
+
     #app-mount *,
     #app-mount *::before,
     #app-mount *::after {

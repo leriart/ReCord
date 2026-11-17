@@ -74,6 +74,8 @@
     --rl-icons: on;
     --rl-motion: full;
     --rl-frame-opacity: 0.6;
+    --rl-beam-duration: 9s;
+    --rl-beam-opacity: 0.5;
 
     --rl-background-image: none;
     --rl-background-dim: 70%;

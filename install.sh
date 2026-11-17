@@ -10,6 +10,12 @@ RAW="${RECORD_RAW:-https://raw.githubusercontent.com/leriart/ReCord/main}"
 THEME="ReCord.theme.css"
 LEGACY="Retroless.theme.css"
 
+# Set when the script runs from a checkout, so local files are used instead of downloads.
+HERE=""
+if [ -n "${BASH_SOURCE[0]:-}" ] && [ -f "${BASH_SOURCE[0]}" ]; then
+    HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
+
 action="install"
 plugin=0
 enable=1
@@ -143,7 +149,11 @@ install_theme() {
 
     local tmp
     tmp="$(mktemp)"
-    fetch "$RAW/$THEME" "$tmp"
+    if [ -n "$HERE" ] && [ -f "$HERE/$THEME" ]; then
+        cp "$HERE/$THEME" "$tmp"
+    else
+        fetch "$RAW/$THEME" "$tmp"
+    fi
     grep -q "@name ReCord" "$tmp" || { echo "Downloaded file is not the ReCord theme" >&2; rm -f "$tmp"; exit 1; }
 
     for client in "${clients[@]}"; do
@@ -195,11 +205,9 @@ install_plugin() {
     local dest="$work/src/userplugins/record"
     rm -rf "$work/src/userplugins/retroless" "$work/src/userplugins/retrolessSounds" "$dest"
     mkdir -p "$dest"
-    local here=""
-    [ -n "${BASH_SOURCE[0]:-}" ] && [ -f "${BASH_SOURCE[0]}" ] && here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     for file in index.tsx native.ts; do
-        if [ -n "$here" ] && [ -f "$here/plugin/record/$file" ]; then
-            cp "$here/plugin/record/$file" "$dest/$file"
+        if [ -n "$HERE" ] && [ -f "$HERE/plugin/record/$file" ]; then
+            cp "$HERE/plugin/record/$file" "$dest/$file"
         else
             fetch "$RAW/plugin/record/$file" "$dest/$file"
         fi

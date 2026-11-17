@@ -57,7 +57,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | Imagen de fondo | Tu propia imagen, con oscurecido y opacidad de paneles |
 | Animaciones | Completas, sutiles (solo menús y diálogos), desactivadas |
 | Tipografía | Pixel Operator, Pixel Operator Mono, monoespaciada del sistema, la de Discord |
-| Capa CRT | Scanlines, grano, viñeta, parpadeo, marco de esquinas |
+| Capa CRT | Scanlines, grano, viñeta, parpadeo, haz de barrido, marco de esquinas |
 | Iconos pixel | Activados, o los iconos nativos de Discord |
 | Avatares | Filtro cálido y scanlines, sí o no |
 
@@ -77,6 +77,7 @@ html:root:root {
     --rl-vignette-opacity: 0.55;
     --rl-flicker-duration: 0s;        /* 6s para activarlo */
     --rl-frame-opacity: 0.6;
+    --rl-beam-opacity: 0.5;           /* 0 oculta el haz de barrido */
     --rl-background-image: url("https://i.imgur.com/imagen.png");
     --rl-background-dim: 70%;
     --rl-surface: 70%;                /* opacidad de paneles */
@@ -102,7 +103,7 @@ El pack de `sounds/` es audio original sintetizado (CC0). No se incluye ni distr
 
 - **Selecciones**: el canal, DM, elemento de menú y entrada de ajustes activos son bloques sólidos del color de acento con texto oscuro.
 - **Movimiento**: todo se mueve a saltos. Los menús entran con un barrido, el chat se redibuja desde una línea al cambiar de canal, las filas destellan al pasar el cursor y se invierten al pulsar.
-- **Iconos**: 99 iconos pixel originales de 16 x 16. Los glifos de Discord se identifican por su forma vectorial, así que se sustituyen en todos los sitios donde aparecen (barra superior, menús, ajustes, lista de canales, lista de miembros) y en cualquier idioma. Los indicadores de estado son glifos pixel cuadrados: bloque para conectado, muesca para ausente, barra para no molestar, hueco para desconectado. Galería en `docs/icons.html`.
+- **Iconos**: 103 iconos pixel originales de 16 x 16. Los glifos de Discord se identifican por su forma vectorial, así que se sustituyen en todos los sitios donde aparecen (barra superior, menús, ajustes, lista de canales, lista de miembros) y en cualquier idioma. Los indicadores de estado son glifos pixel cuadrados: bloque para conectado, muesca para ausente, barra para no molestar, hueco para desconectado. Galería en `docs/icons.html`.
 - **Avatares**: cuadrados, con marco y filtro cálido.
 - **Arranque**: la pantalla de carga de Discord muestra la marca pixel. Para el splash de Vesktop elige `assets/brand/splash.gif` en `Vesktop Settings` -> `Customize App Assets`.
 

@@ -112,15 +112,27 @@ SIGNATURES = [
     ("unread", ["M12.93 21.96c.25-.03.43-.23.47-.47"]),
     ("trash", ["M14.25 1c.41 0 .75.34.75.75V3h5.25", "M12.79 20.97a1 1 0 0 1 .17 1.99 11", "M10.67 1.33a9.33 9.33 0 0 1 8.05 1"]),
     ("flag", ["M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"]),
+    ("chevron-down", ["M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"]),
+    ("chevron-up", ["M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"]),
+    ("settings", ["M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"]),
+    ("play", ["M9.25 3.35C7.87 2.45 6 3.38 6 4.96"]),
+    ("check", ["M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"]),
+    ("attach", ["M13.82 21.7c.17.05.14.3-.04.3H6a4"]),
+    ("poll", ["M2 5c0-1.1.9-2 2-2h16a2 2 0 1 1 0"]),
+    ("info", ["M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1"]),
+    ("eye", ["M15.56 11.77c.2-.1.44.02.44.23a4 4"]),
+    ("shield", ["M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"]),
+    ("lock", ["M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"]),
 ]
 
+# Discord paints each status as a rect with a per-avatar mask, so the fill color
+# is the stable way to tell them apart.
 STATUS = [
-    ("status-online", "online"),
-    ("status-idle", "idle"),
-    ("status-dnd", "dnd"),
-    ("status-offline", "offline"),
-    ("status-streaming", "streaming"),
-    ("status-mobile", "online-mobile"),
+    ("status-online", "var(--rl-green)", ["#45a366", "#43a25a", "#23a55a"]),
+    ("status-idle", "var(--rl-amber)", ["#ffc04e", "#ca9654", "#f0b232"]),
+    ("status-dnd", "var(--rl-red)", ["#da3e44", "#d83a42", "#f23f43"]),
+    ("status-offline", "var(--rl-offline)", ["#84858d", "#83838b", "#80848e"]),
+    ("status-streaming", "var(--rl-purple)", ["#9147ff", "#593695"]),
 ]
 
 CHANNELS = [
@@ -234,14 +246,24 @@ out += [
 for name, paths in SIGNATURES:
     out += [f"#app-mount :is(\n{signature(paths)}\n) {{", f"    --rl-glyph: {url(name)};", "}", ""]
 
-for name, state in STATUS:
+for name, color, fills in STATUS:
+    selector = ",\n".join(f'#app-mount svg[class*="mask_"] rect[fill="{fill}" i]' for fill in fills)
     out += [
-        f'#app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-{state})"] {{',
+        f"{selector} {{",
+        f"    fill: {color};",
         f"    -webkit-mask: {url(name)} center / contain no-repeat !important;",
         f"    mask: {url(name)} center / contain no-repeat !important;",
         "}",
         "",
     ]
+
+out += [
+    '#app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-online-mobile)"] {',
+    f"    -webkit-mask: {url('status-mobile')} center / contain no-repeat !important;",
+    f"    mask: {url('status-mobile')} center / contain no-repeat !important;",
+    "}",
+    "",
+]
 
 out += [
     '#app-mount [class*="rtcConnectionStatus"] [class*="ping_"] svg > * {',

@@ -188,3 +188,37 @@
     box-shadow: inset 2px 0 var(--rl-signal);
     border-radius: 0 !important;
 }
+
+/* terminal punctuation */
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] a[class*="link_"] [class*="name_"]::before,
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] [class*="nameAndDecorators_"]::before,
+[class*="menu_"] [class*="item_"][class*="focused_"] [class*="label_"]::before {
+    content: "> ";
+}
+
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] [class*="nameAndDecorators_"]::before {
+    flex: 0 0 auto;
+    margin-right: 4px;
+    color: var(--rl-void);
+}
+
+#app-mount [class*="membersGroup_"]::before,
+#app-mount [class*="privateChannelsHeaderContainer_"] [class*="headerText_"]::before {
+    content: "// ";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="divider_"] > [class*="content_"]::before {
+    content: "[ ";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="divider_"] > [class*="content_"]::after {
+    content: " ]";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="channelTextArea_"] [role="textbox"] {
+    caret-color: var(--rl-signal);
+}

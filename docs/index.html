@@ -39,7 +39,7 @@
                 <a href="icons.html">ICONS</a>
                 <a href="sounds.html">SOUNDS</a>
             </nav>
-            <span class="top-version">V3.0.0</span>
+            <span class="top-version">V3.1.0</span>
         </div>
     </header>
 
@@ -295,6 +295,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                                         <label><input type="checkbox" id="frame" checked> CORNER FRAME</label>
                                         <label><input type="checkbox" id="avatars" checked> AVATAR FILTER</label>
                                         <label><input type="checkbox" id="flicker"> CRT FLICKER</label>
+                                        <label><input type="checkbox" id="beam" checked> SCAN BEAM</label>
                                     </div>
                                     <pre class="accent-output" id="snippet"></pre>
                                     <div class="accent-actions">
@@ -476,7 +477,8 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                 `--rl-flicker-duration: ${$("flicker").checked ? "6s" : "0s"}`,
                 `--rl-icons: ${$("icons").checked ? "on" : "off"}`,
                 `--rl-motion: ${$("motion").value}`,
-                `--rl-frame-opacity: ${$("frame").checked ? 0.6 : 0}`
+                `--rl-frame-opacity: ${$("frame").checked ? 0.6 : 0}`,
+                `--rl-beam-opacity: ${$("beam").checked ? 0.5 : 0}`
             ];
             if ($("font").value !== "pixel") lines.push(`--rl-font: ${fonts[$("font").value]}`, `--rl-font-display: ${fonts[$("font").value]}`);
             if (!$("avatars").checked) lines.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");

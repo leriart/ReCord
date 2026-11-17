@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.1.0
+
+- Status indicators are now matched by fill color, so the pixel glyphs also apply in the DM list and wherever Discord uses per-avatar masks
+- Fixed pixel icons hidden inside guild rail badges and folders
+- 103 icons: added chevron-up, play, poll, eye and more path signatures (attach menu, server menu, inbox)
+- Retro pass: CRT power-on when the app loads, rolling scan beam, blinking online and streaming status, chromatic split on avatar and server hover, blinking cursor in the empty message box and typing indicator
+- Terminal punctuation: `>` marker on the active channel, DM and menu item, `//` on list headers, `[ ]` around date dividers
+- Plugin and configurator: scan beam switch
+
 ## 3.0.0
 
 - Renamed to ReCord: repository, theme file (`ReCord.theme.css`), plugin (`plugin/record`) and local folders

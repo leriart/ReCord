@@ -2,7 +2,7 @@
  * @name ReCord
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Signal phosphor, pixel type, CRT grain.
- * @version 3.0.0
+ * @version 3.1.0
  * @license Apache-2.0
  * @source https://github.com/leriart/ReCord
  * @website https://leriart.github.io/ReCord/
@@ -102,6 +102,13 @@
     --rl-asset-apps: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h6v1h-6zM8 0h6v1h-6zM0 1h6v1h-6zM8 1h6v1h-6zM0 2h6v1h-6zM8 2h6v1h-6zM0 3h6v1h-6zM8 3h6v1h-6zM0 4h6v1h-6zM8 4h6v1h-6zM0 5h6v1h-6zM8 5h6v1h-6zM0 8h6v1h-6zM10 8h2v1h-2zM0 9h6v1h-6zM10 9h2v1h-2zM0 10h6v1h-6zM8 10h6v1h-6zM0 11h6v1h-6zM8 11h6v1h-6zM0 12h6v1h-6zM10 12h2v1h-2zM0 13h6v1h-6zM10 13h2v1h-2z%22/%3E%3C/svg%3E");
     --rl-asset-unread: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M2 2h12v1h-12zM2 3h12v1h-12zM2 4h2v1h-2zM12 4h2v1h-2zM2 5h2v1h-2zM12 5h2v1h-2zM2 6h2v1h-2zM6 6h4v1h-4zM12 6h2v1h-2zM2 7h2v1h-2zM6 7h4v1h-4zM12 7h2v1h-2zM2 8h2v1h-2zM6 8h4v1h-4zM12 8h2v1h-2zM2 9h2v1h-2zM6 9h4v1h-4zM12 9h2v1h-2zM2 10h2v1h-2zM12 10h2v1h-2zM2 11h2v1h-2zM12 11h2v1h-2zM2 12h12v1h-12zM2 13h12v1h-12z%22/%3E%3C/svg%3E");
     --rl-asset-flag: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h4v1h-4zM0 1h4v1h-4zM0 2h14v1h-14zM0 3h14v1h-14zM0 4h14v1h-14zM0 5h14v1h-14zM0 6h14v1h-14zM0 7h14v1h-14zM0 8h14v1h-14zM0 9h14v1h-14zM0 10h4v1h-4zM0 11h4v1h-4zM0 12h4v1h-4zM0 13h4v1h-4zM0 14h4v1h-4zM0 15h4v1h-4z%22/%3E%3C/svg%3E");
+    --rl-asset-chevron-up: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M6 4h4v1h-4zM6 5h4v1h-4zM4 6h8v1h-8zM4 7h8v1h-8zM2 8h4v1h-4zM10 8h4v1h-4zM2 9h4v1h-4zM10 9h4v1h-4zM0 10h4v1h-4zM12 10h4v1h-4zM0 11h4v1h-4zM12 11h4v1h-4z%22/%3E%3C/svg%3E");
+    --rl-asset-play: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h4v1h-4zM0 1h4v1h-4zM0 2h8v1h-8zM0 3h8v1h-8zM0 4h12v1h-12zM0 5h12v1h-12zM0 6h16v1h-16zM0 7h16v1h-16zM0 8h16v1h-16zM0 9h16v1h-16zM0 10h12v1h-12zM0 11h12v1h-12zM0 12h8v1h-8zM0 13h8v1h-8zM0 14h4v1h-4zM0 15h4v1h-4z%22/%3E%3C/svg%3E");
+    --rl-asset-attach: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M9 2h4v1h-4zM8 3h5v1h-5zM7 4h1v1h-1zM9 4h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM5 6h1v1h-1zM7 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM5 8h1v1h-1zM6 9h1v1h-1zM10 9h2v1h-2zM7 10h1v1h-1zM10 10h2v1h-2zM8 11h4v1h-4zM8 12h4v1h-4z%22/%3E%3C/svg%3E");
+    --rl-asset-poll: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 2h4v1h-4zM0 3h4v1h-4zM0 4h4v1h-4zM6 4h8v1h-8zM0 5h4v1h-4zM6 5h8v1h-8zM0 8h4v1h-4zM0 9h4v1h-4zM0 10h4v1h-4zM6 10h4v1h-4zM0 11h4v1h-4zM6 11h4v1h-4z%22/%3E%3C/svg%3E");
+    --rl-asset-info: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M7 1h1v1h-1zM4 2h3v1h-3zM8 2h3v1h-3zM3 3h1v1h-1zM11 3h1v1h-1zM2 4h1v1h-1zM7 4h2v1h-2zM12 4h1v1h-1zM2 5h1v1h-1zM7 5h2v1h-2zM12 5h1v1h-1zM2 6h1v1h-1zM12 6h1v1h-1zM1 7h1v1h-1zM7 7h2v1h-2zM13 7h1v1h-1zM2 8h1v1h-1zM7 8h2v1h-2zM12 8h1v1h-1zM2 9h1v1h-1zM7 9h2v1h-2zM12 9h1v1h-1zM2 10h1v1h-1zM7 10h2v1h-2zM12 10h1v1h-1zM3 11h1v1h-1zM7 11h2v1h-2zM11 11h1v1h-1zM4 12h3v1h-3zM8 12h3v1h-3zM7 13h1v1h-1z%22/%3E%3C/svg%3E");
+    --rl-asset-eye: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M4 2h8v1h-8zM4 3h8v1h-8zM2 4h2v1h-2zM12 4h2v1h-2zM2 5h2v1h-2zM12 5h2v1h-2zM0 6h2v1h-2zM6 6h4v1h-4zM14 6h2v1h-2zM0 7h2v1h-2zM6 7h4v1h-4zM14 7h2v1h-2zM0 8h2v1h-2zM6 8h4v1h-4zM14 8h2v1h-2zM0 9h2v1h-2zM6 9h4v1h-4zM14 9h2v1h-2zM2 10h2v1h-2zM12 10h2v1h-2zM2 11h2v1h-2zM12 11h2v1h-2zM4 12h8v1h-8zM4 13h8v1h-8z%22/%3E%3C/svg%3E");
+    --rl-asset-lock: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M5 3h6v1h-6zM5 4h6v1h-6zM5 5h2v1h-2zM9 5h2v1h-2zM5 6h2v1h-2zM9 6h2v1h-2zM3 7h10v1h-10zM3 8h1v1h-1zM12 8h1v1h-1zM3 9h1v1h-1zM7 9h2v1h-2zM12 9h1v1h-1zM3 10h1v1h-1zM7 10h2v1h-2zM12 10h1v1h-1zM3 11h1v1h-1zM7 11h2v1h-2zM12 11h1v1h-1zM3 12h1v1h-1zM12 12h1v1h-1zM3 13h10v1h-10z%22/%3E%3C/svg%3E");
     --rl-asset-status-online: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h16v1h-16zM0 1h16v1h-16zM0 2h16v1h-16zM0 3h16v1h-16zM0 4h16v1h-16zM0 5h16v1h-16zM0 6h16v1h-16zM0 7h16v1h-16zM0 8h16v1h-16zM0 9h16v1h-16zM0 10h16v1h-16zM0 11h16v1h-16zM0 12h16v1h-16zM0 13h16v1h-16zM0 14h16v1h-16zM0 15h16v1h-16z%22/%3E%3C/svg%3E");
     --rl-asset-status-idle: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h16v1h-16zM0 1h16v1h-16zM0 2h10v1h-10zM0 3h10v1h-10zM0 4h8v1h-8zM0 5h8v1h-8zM0 6h6v1h-6zM0 7h6v1h-6zM0 8h6v1h-6zM0 9h6v1h-6zM0 10h8v1h-8zM0 11h8v1h-8zM0 12h10v1h-10zM0 13h10v1h-10zM0 14h16v1h-16zM0 15h16v1h-16z%22/%3E%3C/svg%3E");
     --rl-asset-status-dnd: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22 shape-rendering=%22crispEdges%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h16v1h-16zM0 1h16v1h-16zM0 2h16v1h-16zM0 3h16v1h-16zM0 4h16v1h-16zM0 5h16v1h-16zM0 6h2v1h-2zM14 6h2v1h-2zM0 7h2v1h-2zM14 7h2v1h-2zM0 8h2v1h-2zM14 8h2v1h-2zM0 9h2v1h-2zM14 9h2v1h-2zM0 10h16v1h-16zM0 11h16v1h-16zM0 12h16v1h-16zM0 13h16v1h-16zM0 14h16v1h-16zM0 15h16v1h-16z%22/%3E%3C/svg%3E");
@@ -223,6 +230,8 @@
     --rl-icons: on;
     --rl-motion: full;
     --rl-frame-opacity: 0.6;
+    --rl-beam-duration: 9s;
+    --rl-beam-opacity: 0.5;
 
     --rl-background-image: none;
     --rl-background-dim: 70%;
@@ -3269,6 +3278,23 @@ body::after {
     filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rl-signal) 16%, transparent));
 }
 
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9995;
+    pointer-events: none;
+    background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent) 0 -160px / 100% 160px no-repeat;
+    opacity: var(--rl-beam-opacity);
+    animation: rl-beam var(--rl-beam-duration) linear infinite;
+}
+
+@keyframes rl-beam {
+    to {
+        background-position: 0 calc(100vh + 160px);
+    }
+}
+
 @keyframes rl-flicker {
     0%,
     93%,
@@ -3311,6 +3337,10 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html::before {
+        animation: none;
+    }
+
     *,
     *::before,
     *::after {
@@ -4132,6 +4162,7 @@ html body {
     }
     25% {
         transform: translate(-1px, 1px);
+        filter: drop-shadow(2px 0 0 rgba(255, 0, 70, 0.7)) drop-shadow(-2px 0 0 rgba(0, 220, 255, 0.7));
     }
     50% {
         transform: translate(1px, -1px);
@@ -4139,6 +4170,35 @@ html body {
     }
     75% {
         transform: translate(-1px, 0);
+    }
+}
+
+@keyframes rl-power-on {
+    0% {
+        transform: scale(0.35, 0.004);
+        filter: brightness(9);
+    }
+    35% {
+        transform: scale(1, 0.004);
+        filter: brightness(6);
+    }
+    65% {
+        transform: scale(1, 1);
+        filter: brightness(2.2);
+    }
+    85% {
+        filter: brightness(0.8);
+    }
+}
+
+@keyframes rl-status {
+    0%,
+    69% {
+        opacity: 1;
+    }
+    70%,
+    100% {
+        opacity: 0.45;
     }
 }
 
@@ -4313,6 +4373,29 @@ html body {
 }
 
 @container style(--rl-motion: full) {
+    #app-mount [class*="layers_"] {
+        animation: rl-power-on 620ms steps(9, end) backwards;
+    }
+
+    #app-mount svg[class*="mask_"] rect:is([fill="#45a366" i], [fill="#43a25a" i], [fill="#23a55a" i]) {
+        animation: rl-status 2.8s steps(1, end) infinite;
+    }
+
+    #app-mount svg[class*="mask_"] rect:is([fill="#9147ff" i], [fill="#593695" i]) {
+        animation: rl-status 0.9s steps(1, end) infinite;
+    }
+
+    #app-mount [class*="avatarSpeaking_"],
+    #app-mount [class*="speaking_"] {
+        animation: rl-pulse 0.5s steps(2, end) infinite;
+    }
+
+    #app-mount [class*="channelTextArea_"] [class*="placeholder_"]::after {
+        content: "_";
+        color: var(--rl-signal);
+        animation: rl-caret 1s steps(1, end) infinite;
+    }
+
     #app-mount *,
     #app-mount *::before,
     #app-mount *::after {
@@ -4933,7 +5016,18 @@ svg:has(> path[d^="M12.93 21.96c.25-.03.43-.23.47-.47"]),
 svg:has(> path[d^="M14.25 1c.41 0 .75.34.75.75V3h5.25"]),
 svg:has(> path[d^="M12.79 20.97a1 1 0 0 1 .17 1.99 11"]),
 svg:has(> path[d^="M10.67 1.33a9.33 9.33 0 0 1 8.05 1"]),
-svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"])
+svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"]),
+svg:has(> path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"]),
+svg:has(> path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"]),
+svg:has(> path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"]),
+svg:has(> path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96"]),
+svg:has(> path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"]),
+svg:has(> path[d^="M13.82 21.7c.17.05.14.3-.04.3H6a4"]),
+svg:has(> path[d^="M2 5c0-1.1.9-2 2-2h16a2 2 0 1 1 0"]),
+svg:has(> path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1"]),
+svg:has(> path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4"]),
+svg:has(> path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"]),
+svg:has(> path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"])
 ) {
         background: currentColor !important;
         -webkit-mask: var(--rl-glyph) center / contain no-repeat !important;
@@ -5019,7 +5113,18 @@ svg:has(> path[d^="M12.93 21.96c.25-.03.43-.23.47-.47"]),
 svg:has(> path[d^="M14.25 1c.41 0 .75.34.75.75V3h5.25"]),
 svg:has(> path[d^="M12.79 20.97a1 1 0 0 1 .17 1.99 11"]),
 svg:has(> path[d^="M10.67 1.33a9.33 9.33 0 0 1 8.05 1"]),
-svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"])
+svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"]),
+svg:has(> path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"]),
+svg:has(> path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"]),
+svg:has(> path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"]),
+svg:has(> path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96"]),
+svg:has(> path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"]),
+svg:has(> path[d^="M13.82 21.7c.17.05.14.3-.04.3H6a4"]),
+svg:has(> path[d^="M2 5c0-1.1.9-2 2-2h16a2 2 0 1 1 0"]),
+svg:has(> path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1"]),
+svg:has(> path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4"]),
+svg:has(> path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"]),
+svg:has(> path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"])
 ) > * {
         visibility: hidden;
     }
@@ -5433,27 +5538,107 @@ svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"])
         --rl-glyph: var(--rl-asset-flag);
     }
 
-    #app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-online)"] {
+    #app-mount :is(
+svg:has(> path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"])
+) {
+        --rl-glyph: var(--rl-asset-chevron-down);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"])
+) {
+        --rl-glyph: var(--rl-asset-chevron-up);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"])
+) {
+        --rl-glyph: var(--rl-asset-settings);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96"])
+) {
+        --rl-glyph: var(--rl-asset-play);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"])
+) {
+        --rl-glyph: var(--rl-asset-check);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M13.82 21.7c.17.05.14.3-.04.3H6a4"])
+) {
+        --rl-glyph: var(--rl-asset-attach);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M2 5c0-1.1.9-2 2-2h16a2 2 0 1 1 0"])
+) {
+        --rl-glyph: var(--rl-asset-poll);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1"])
+) {
+        --rl-glyph: var(--rl-asset-info);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4"])
+) {
+        --rl-glyph: var(--rl-asset-eye);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"])
+) {
+        --rl-glyph: var(--rl-asset-shield);
+    }
+
+    #app-mount :is(
+svg:has(> path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"])
+) {
+        --rl-glyph: var(--rl-asset-lock);
+    }
+
+    #app-mount svg[class*="mask_"] rect[fill="#45a366" i],
+#app-mount svg[class*="mask_"] rect[fill="#43a25a" i],
+#app-mount svg[class*="mask_"] rect[fill="#23a55a" i] {
+        fill: var(--rl-green);
         -webkit-mask: var(--rl-asset-status-online) center / contain no-repeat !important;
         mask: var(--rl-asset-status-online) center / contain no-repeat !important;
     }
 
-    #app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-idle)"] {
+    #app-mount svg[class*="mask_"] rect[fill="#ffc04e" i],
+#app-mount svg[class*="mask_"] rect[fill="#ca9654" i],
+#app-mount svg[class*="mask_"] rect[fill="#f0b232" i] {
+        fill: var(--rl-amber);
         -webkit-mask: var(--rl-asset-status-idle) center / contain no-repeat !important;
         mask: var(--rl-asset-status-idle) center / contain no-repeat !important;
     }
 
-    #app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-dnd)"] {
+    #app-mount svg[class*="mask_"] rect[fill="#da3e44" i],
+#app-mount svg[class*="mask_"] rect[fill="#d83a42" i],
+#app-mount svg[class*="mask_"] rect[fill="#f23f43" i] {
+        fill: var(--rl-red);
         -webkit-mask: var(--rl-asset-status-dnd) center / contain no-repeat !important;
         mask: var(--rl-asset-status-dnd) center / contain no-repeat !important;
     }
 
-    #app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-offline)"] {
+    #app-mount svg[class*="mask_"] rect[fill="#84858d" i],
+#app-mount svg[class*="mask_"] rect[fill="#83838b" i],
+#app-mount svg[class*="mask_"] rect[fill="#80848e" i] {
+        fill: var(--rl-offline);
         -webkit-mask: var(--rl-asset-status-offline) center / contain no-repeat !important;
         mask: var(--rl-asset-status-offline) center / contain no-repeat !important;
     }
 
-    #app-mount svg[class*="mask_"] rect[mask="url(#svg-mask-status-streaming)"] {
+    #app-mount svg[class*="mask_"] rect[fill="#9147ff" i],
+#app-mount svg[class*="mask_"] rect[fill="#593695" i] {
+        fill: var(--rl-purple);
         -webkit-mask: var(--rl-asset-status-streaming) center / contain no-repeat !important;
         mask: var(--rl-asset-status-streaming) center / contain no-repeat !important;
     }
@@ -5757,4 +5942,38 @@ svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"])
     background: var(--rl-a10) !important;
     box-shadow: inset 2px 0 var(--rl-signal);
     border-radius: 0 !important;
+}
+
+/* terminal punctuation */
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] a[class*="link_"] [class*="name_"]::before,
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] [class*="nameAndDecorators_"]::before,
+[class*="menu_"] [class*="item_"][class*="focused_"] [class*="label_"]::before {
+    content: "> ";
+}
+
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] [class*="nameAndDecorators_"]::before {
+    flex: 0 0 auto;
+    margin-right: 4px;
+    color: var(--rl-void);
+}
+
+#app-mount [class*="membersGroup_"]::before,
+#app-mount [class*="privateChannelsHeaderContainer_"] [class*="headerText_"]::before {
+    content: "// ";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="divider_"] > [class*="content_"]::before {
+    content: "[ ";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="divider_"] > [class*="content_"]::after {
+    content: " ]";
+    color: var(--rl-signal);
+}
+
+#app-mount [class*="channelTextArea_"] [role="textbox"] {
+    caret-color: var(--rl-signal);
 }
