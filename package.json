@@ -1,0 +1,21 @@
+{
+    "name": "retroless",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "A REPLACED-inspired terminal theme for Discord and Vencord",
+    "homepage": "https://leriart.github.io/Retroless/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leriart/Retroless.git"
+    },
+    "license": "Apache-2.0",
+    "scripts": {
+        "check": "node scripts/check.mjs",
+        "build": "node scripts/build.mjs",
+        "serve": "python3 -m http.server 8123"
+    },
+    "devDependencies": {
+        "css-tree": "^3.2.1"
+    }
+}

@@ -1,0 +1,64 @@
+/*
+ * RETROLESS / tokens
+ * Palette derived from REPLACED menu captures: signal orange #E94221,
+ * oxide #A8231B, wingman paper #D4B496, channel teal #14322A.
+ */
+
+:root {
+    color-scheme: dark;
+
+    --rl-signal: #e94221;
+    --rl-signal-hot: #ff6a3d;
+    --rl-signal-soft: #ff9368;
+    --rl-signal-dim: #b7472a;
+    --rl-signal-deep: #7a2c1a;
+    --rl-oxide: #a8231b;
+
+    --rl-void: #050605;
+    --rl-ink: #080907;
+    --rl-coal: #0b0d0a;
+    --rl-panel: #0e100c;
+    --rl-raised: #131511;
+    --rl-high: #191c16;
+    --rl-higher: #1f221b;
+
+    --rl-line: #2c241d;
+    --rl-line-hot: rgba(233, 66, 33, 0.34);
+    --rl-line-soft: rgba(212, 180, 150, 0.12);
+
+    --rl-paper: #d4b496;
+    --rl-cream: #f0dec6;
+    --rl-bone: #e4cdb1;
+    --rl-smoke: #a58979;
+    --rl-ash: #8c7b6c;
+    --rl-faint: #6f5d4f;
+
+    --rl-teal: #4f9a8e;
+    --rl-teal-deep: #14322a;
+    --rl-night-teal: #051f1c;
+
+    --rl-green: #79b59a;
+    --rl-amber: #dda052;
+    --rl-red: #ff4626;
+    --rl-purple: #a57ab8;
+    --rl-offline: #6f655a;
+
+    --rl-font: "Pixel Operator", "Pixel Operator Mono", "Courier New", monospace;
+    --rl-font-display: "Pixel Operator", "Pixel Operator Mono", "Courier New", monospace;
+    --rl-font-mono: "Pixel Operator Mono", "Pixel Operator", "Courier New", monospace;
+
+    --rl-weight: 400;
+    --rl-tracking: 0.015em;
+
+    --rl-radius: 0px;
+
+    --rl-scanline-opacity: 0.4;
+    --rl-grain-opacity: 0.25;
+    --rl-vignette-opacity: 0.8;
+    --rl-flicker-duration: 0s;
+
+    --rl-dither: conic-gradient(from 0deg, var(--rl-signal) 25%, transparent 0 50%, var(--rl-signal) 0 75%, transparent 0);
+    --rl-dither-size: 2px 2px;
+
+    --rl-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

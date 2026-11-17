@@ -1,0 +1,210 @@
+/* navigation, channels, direct messages */
+
+[data-list-item-id^="channels___"] {
+    border-left: 2px solid transparent;
+    border-radius: 0 !important;
+    margin: 1px 6px 1px 0;
+    padding-left: 6px;
+    transition:
+        background-color 100ms var(--rl-ease),
+        border-color 100ms var(--rl-ease),
+        color 100ms var(--rl-ease);
+}
+
+[data-list-item-id^="channels___"]:hover {
+    background-color: rgba(233, 66, 33, 0.065) !important;
+    border-left-color: rgba(233, 66, 33, 0.34);
+}
+
+[data-list-item-id^="channels___"] [class*="name_"],
+[data-list-item-id^="channels___"] [class*="channelName_"] {
+    color: var(--rl-smoke);
+    font-size: 14px;
+    letter-spacing: 0.035em;
+}
+
+[data-list-item-id^="channels___"] [class*="icon_"] {
+    color: var(--rl-ash);
+}
+
+[data-list-item-id^="channels___"]:hover [class*="name_"],
+[data-list-item-id^="channels___"]:hover [class*="icon_"] {
+    color: var(--rl-cream);
+}
+
+[data-list-item-id^="channels___"][class*="modeSelected_"],
+[data-list-item-id^="channels___"] [class*="modeSelected_"] {
+    background: linear-gradient(90deg, rgba(233, 66, 33, 0.19), rgba(233, 66, 33, 0.05) 72%, transparent) !important;
+    border-left-color: var(--rl-signal) !important;
+}
+
+[data-list-item-id^="channels___"][class*="modeSelected_"] [class*="name_"],
+[data-list-item-id^="channels___"][class*="modeSelected_"] [class*="icon_"],
+[data-list-item-id^="channels___"] [class*="modeSelected_"] [class*="name_"],
+[data-list-item-id^="channels___"] [class*="modeSelected_"] [class*="icon_"] {
+    color: var(--rl-cream) !important;
+}
+
+[data-list-item-id^="channels___"][class*="modeConnected_"],
+[data-list-item-id^="channels___"][class*="modeUnread_"],
+[data-list-item-id^="channels___"] [class*="modeUnread_"] {
+    color: var(--rl-bone);
+}
+
+[data-list-item-id^="channels___"][class*="modeUnread_"] [class*="name_"] {
+    color: var(--rl-bone);
+    font-weight: 700;
+}
+
+[data-list-item-id^="channels___"][class*="modeMuted_"] [class*="name_"] {
+    color: var(--rl-faint);
+}
+
+[data-list-item-id^="channels___"] [class*="unread_"] {
+    background-color: var(--rl-signal) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 8px rgba(233, 66, 33, 0.5);
+}
+
+[data-list-item-id^="channels___"] [class*="numberBadge_"] {
+    background: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    border-radius: 0 !important;
+    font-family: var(--rl-font);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+[class*="sidebarList_"] [class*="header_"] {
+    color: var(--rl-smoke);
+}
+
+[class*="sidebarList_"] [class*="header_"]:hover {
+    color: var(--rl-cream);
+}
+
+[class*="sidebarList_"] [class*="header_"] [class*="icon_"] {
+    color: var(--rl-smoke);
+}
+
+[class*="sidebarList_"] [class*="header_"] [class*="icon_"]:hover {
+    color: var(--rl-signal-hot);
+}
+
+[class*="sidebarList_"] [class*="section_"] > [class*="header_"],
+[class*="sidebarList_"] [class*="category_"] {
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--rl-ash);
+}
+
+[class*="sidebarList_"] [class*="section_"] > [class*="header_"]::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    margin-left: 8px;
+    background: linear-gradient(90deg, var(--rl-line), transparent);
+}
+
+[class*="privateChannels_"],
+[class*="privateChannels_"] [class*="scroller_"] {
+    background: transparent !important;
+}
+
+[class*="privateChannels_"] [class*="channel_"],
+[class*="privateChannels_"] [class*="link_"] {
+    border-left: 2px solid transparent;
+    border-radius: 0 !important;
+    margin: 1px 6px 1px 0;
+    padding-left: 6px;
+}
+
+[class*="privateChannels_"] [class*="channel_"]:hover,
+[class*="privateChannels_"] [class*="link_"]:hover {
+    background: rgba(233, 66, 33, 0.065) !important;
+    border-left-color: rgba(233, 66, 33, 0.34);
+}
+
+[class*="privateChannels_"] [class*="interactiveSelected_"],
+[class*="privateChannels_"] [class*="selected_"] {
+    background: linear-gradient(90deg, rgba(233, 66, 33, 0.19), rgba(233, 66, 33, 0.05) 72%, transparent) !important;
+    border-left-color: var(--rl-signal) !important;
+}
+
+[class*="privateChannels_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="privateChannels_"] [class*="name_"] {
+    color: var(--rl-bone);
+    font-size: 14px;
+    letter-spacing: 0.03em;
+}
+
+[class*="privateChannels_"] [class*="activity_"],
+[class*="privateChannels_"] [class*="subText_"] {
+    color: var(--rl-ash);
+    font-size: 12px;
+}
+
+[class*="privateChannels_"] [class*="unread_"] {
+    background: var(--rl-signal) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 8px rgba(233, 66, 33, 0.5);
+}
+
+[class*="voiceBar_"],
+[class*="voiceChannelsIcon_"] {
+    color: var(--rl-signal) !important;
+}
+
+[class*="voiceBar_"] [class*="barText_"] {
+    color: var(--rl-signal-soft);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+[class*="voiceUser_"] {
+    border-radius: 0 !important;
+}
+
+[class*="voiceUser_"]:hover {
+    background: rgba(233, 66, 33, 0.06);
+}
+
+[class*="voiceUser_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="unreadBottom_"],
+[class*="unreadTop_"],
+[class*="newMessagesBar_"] {
+    border-radius: 0 !important;
+    background: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    font-family: var(--rl-font-display);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+[class*="barButtonAlt_"] {
+    border-radius: 0 !important;
+    color: var(--rl-void) !important;
+}
+
+[class*="sidebarList_"] [class*="empty_"],
+[class*="sidebarList_"] [class*="emptyChannel_"] {
+    color: var(--rl-ash);
+}
+
+[class*="sidebarList_"] [class*="emptyChannelIcon_"] path {
+    fill: var(--rl-ash);
+}

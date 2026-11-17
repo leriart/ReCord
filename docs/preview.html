@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>RETROLESS / interface preview</title>
+    <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../src/01-fonts.css">
+    <link rel="stylesheet" href="../src/00-tokens.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <div class="app" aria-label="RETROLESS theme preview">
+        <aside class="rail">
+            <div class="rail-logo" title="RETROLESS">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4" y="2" width="4" height="20"/>
+                    <rect x="8" y="2" width="8" height="4"/>
+                    <rect x="16" y="6" width="4" height="4"/>
+                    <rect x="8" y="10" width="12" height="4"/>
+                    <rect x="12" y="14" width="4" height="4"/>
+                    <rect x="16" y="18" width="4" height="4"/>
+                </svg>
+            </div>
+            <div class="rail-line"></div>
+            <div class="server active"><span>P</span><i></i></div>
+            <div class="server">K</div>
+            <div class="server">S</div>
+            <div class="server server--dim">M</div>
+            <div class="rail-line"></div>
+            <div class="server-add">+</div>
+            <div class="rail-spacer"></div>
+            <div class="rail-small">04</div>
+        </aside>
+
+        <aside class="channels">
+            <header class="server-head">
+                <div class="server-name">PHOENIX CITY</div>
+                <div class="server-meta">NODE 04 <span>·</span> CLEARANCE 04</div>
+            </header>
+
+            <nav class="channel-list">
+                <div class="category">// TEXT CHANNELS</div>
+                <div class="channel active"><span class="channel-icon">#</span><span>terminal</span><span class="channel-badge">3</span></div>
+                <div class="channel"><span class="channel-icon">#</span><span>briefing</span></div>
+                <div class="channel"><span class="channel-icon">#</span><span>intel</span></div>
+                <div class="channel"><span class="channel-icon">#</span><span>market</span><span class="channel-dot"></span></div>
+                <div class="category">// VOICE</div>
+                <div class="channel"><span class="channel-icon">></span><span>relay</span></div>
+                <div class="channel voice"><span class="channel-icon">></span><span>ops-room</span><span class="voice-count">2</span></div>
+                <div class="voice-panel">
+                    <div class="voice-panel-head">VOICE CONNECTED</div>
+                    <div class="voice-panel-body"><span class="signal-dot"></span> PHOENIX-CITY / 12MS</div>
+                </div>
+                <div class="category">// DIRECT</div>
+                <div class="dm"><span class="dm-avatar">K</span><span class="dm-name">KESTREL</span><span class="dm-status"></span></div>
+                <div class="dm"><span class="dm-avatar">S</span><span class="dm-name">SABLE</span><span class="dm-status dm-status--idle"></span></div>
+                <div class="dm"><span class="dm-avatar">M</span><span class="dm-name">MOTH</span><span class="dm-status dm-status--off"></span></div>
+            </nav>
+
+            <div class="user-panel">
+                <div class="user-avatar">R<span></span></div>
+                <div class="user-info">
+                    <div class="user-name">R.E.A.C.H.</div>
+                    <div class="user-state">ONLINE // OPERATOR</div>
+                </div>
+                <div class="user-actions"><button>MIC</button><button>CFG</button></div>
+            </div>
+        </aside>
+
+        <main class="chat">
+            <header class="chat-head">
+                <div class="chat-title"><span class="hash">#</span> terminal</div>
+                <div class="chat-topic">PHOENIX-CITY RELAY // CLEARANCE LEVEL 04 <span class="live"><i></i> LIVE</span></div>
+                <div class="chat-actions"><span>[ / ]</span><span>[ MEM ]</span><span>[ PIN ]</span></div>
+            </header>
+
+            <div class="messages">
+                <div class="date-divider"><span>14.04.2087 // LOG START</span></div>
+
+                <article class="msg">
+                    <div class="avatar avatar--orange">R</div>
+                    <div class="msg-body">
+                        <div class="msg-head"><span class="name name--orange">R.E.A.C.H.</span><span class="tag">OPERATOR</span><span class="time">14:02</span></div>
+                        <p>Relay is stable. Keep this channel clean and log everything you carry out.</p>
+                        <p class="dim">The city is listening.</p>
+                    </div>
+                </article>
+
+                <article class="msg">
+                    <div class="avatar avatar--cream">K</div>
+                    <div class="msg-body">
+                        <div class="msg-head"><span class="name">KESTREL</span><span class="time">14:04</span></div>
+                        <p>Phoenix Corp patrols the lower ward. I tagged the route on the Wingman.</p>
+                        <div class="code">
+                            <div class="code-head"><span>WINGMAN / SHELL</span><span>COPY</span></div>
+                            <pre><span class="c-dim">$</span> decrypt --sig <span class="c-orange">0xE94221</span>
+<span class="c-dim">></span> SIGNAL ACQUIRED
+<span class="c-dim">></span> NODE <span class="c-paper">04</span> // PHOENIX-CITY
+<span class="c-green">TRACE: NONE</span></pre>
+                        </div>
+                        <div class="reactions"><span class="reaction active">+3</span><span class="reaction">ACK 2</span><span class="reaction">LOG 1</span></div>
+                    </div>
+                </article>
+
+                <article class="msg msg--mention">
+                    <div class="avatar avatar--teal">S</div>
+                    <div class="msg-body">
+                        <div class="msg-head"><span class="name name--teal">SABLE</span><span class="time">14:07</span></div>
+                        <p><span class="mention">@R.E.A.C.H.</span> the Wingman log is clean. No trace on the relay.</p>
+                        <div class="attachment">
+                            <div class="attachment-icon">TXT</div>
+                            <div class="attachment-info"><span>wingman_log.txt</span><small>12.4 KB // SHA 9F2A</small></div>
+                            <div class="attachment-action">GET</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="msg">
+                    <div class="avatar avatar--dim">M</div>
+                    <div class="msg-body">
+                        <div class="msg-head"><span class="name name--dim">MOTH</span><span class="time">14:09</span></div>
+                        <p>Copy that. I am moving the cache to the old metro line.</p>
+                    </div>
+                </article>
+
+                <div class="date-divider date-divider--new"><span>NEW SIGNAL</span></div>
+            </div>
+
+            <div class="composer">
+                <div class="composer-box">
+                    <span class="prompt">&gt;</span>
+                    <span class="composer-placeholder">TRANSMIT MESSAGE...</span>
+                    <div class="composer-tools"><span>+</span><span>GIF</span><span>STK</span><span>EMO</span></div>
+                </div>
+                <div class="composer-meta"><span>CONNECTED</span><span>PING 12MS</span><span>AES-256</span></div>
+            </div>
+        </main>
+
+        <aside class="members">
+            <div class="members-head">// CREW <span>06</span></div>
+
+            <div class="role">OPERATORS</div>
+            <div class="member"><div class="m-avatar m-avatar--orange">R<span class="status"></span></div><div><b>R.E.A.C.H.</b><small>Signal lost</small></div></div>
+            <div class="member"><div class="m-avatar m-avatar--cream">K<span class="status"></span></div><div><b>KESTREL</b><small>Wingman link</small></div></div>
+            <div class="member"><div class="m-avatar m-avatar--teal">S<span class="status status--idle"></span></div><div><b>SABLE</b><small>Relay watch</small></div></div>
+
+            <div class="role">SUPPORT</div>
+            <div class="member"><div class="m-avatar m-avatar--dim">M<span class="status status--off"></span></div><div><b>MOTH</b><small>Offline</small></div></div>
+            <div class="member"><div class="m-avatar m-avatar--ghost">V</div><div><b>VECTOR</b><small>Idle</small></div></div>
+
+            <div class="member-card">
+                <div class="member-card-head">SIGNAL STATUS</div>
+                <div class="signal-row"><span>UPLINK</span><b>97%</b></div>
+                <div class="signal-bar"><i style="width:97%"></i></div>
+                <div class="signal-row"><span>NOISE</span><b>03%</b></div>
+                <div class="signal-bar"><i style="width:3%"></i></div>
+                <div class="signal-foot">PHOENIX-CITY // 2087</div>
+            </div>
+        </aside>
+
+        <div class="frame-label frame-label--tl">RETROLESS / 1.0.0</div>
+        <div class="frame-label frame-label--br">SYS.ONLINE <i></i></div>
+    </div>
+</body>
+</html>

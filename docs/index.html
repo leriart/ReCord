@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#e94221">
+    <meta name="description" content="RETROLESS: a REPLACED-inspired terminal theme for Discord and Vencord. Amber phosphor, pixel type, CRT grain.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://leriart.github.io/Retroless/">
+    <meta property="og:title" content="RETROLESS / Discord terminal theme">
+    <meta property="og:description" content="Amber phosphor, pixel type, CRT grain. A REPLACED-inspired Vencord theme.">
+    <meta property="og:image" content="https://leriart.github.io/Retroless/docs/preview.png">
+    <title>RETROLESS / REPLACED-inspired Discord theme</title>
+    <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../src/01-fonts.css">
+    <link rel="stylesheet" href="../src/00-tokens.css">
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a class="brand" href="#">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="4" y="2" width="4" height="20"/>
+                    <rect x="8" y="2" width="8" height="4"/>
+                    <rect x="16" y="6" width="4" height="4"/>
+                    <rect x="8" y="10" width="12" height="4"/>
+                    <rect x="12" y="14" width="4" height="4"/>
+                    <rect x="16" y="18" width="4" height="4"/>
+                </svg>
+                RETROLESS
+            </a>
+            <nav class="topnav" aria-label="Sections">
+                <a href="#preview">PREVIEW</a>
+                <a href="#palette">PALETTE</a>
+                <a href="#install">INSTALL</a>
+                <a href="#source">SOURCE</a>
+            </nav>
+            <span class="top-version">V1.0.0</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap hero-inner">
+                <div>
+                    <div class="eyebrow">DISCORD THEME // VENCORD</div>
+                    <h1>RETRO<span>LESS</span></h1>
+                    <h2>AMBER PHOSPHOR. PIXEL TYPE. CRT GRAIN.</h2>
+                    <p>
+                        A terminal-grade theme built around the visual language of REPLACED:
+                        signal orange, dark glass, pixel typography and a persistent scanline.
+                        Modular CSS loads raw from the repository.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="#install">INSTALL</a>
+                        <a class="btn btn--ghost" href="preview.html">OPEN PREVIEW</a>
+                    </div>
+
+                    <div class="raw-line">
+                        <code id="raw-url">https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css</code>
+                        <button type="button" id="copy-raw">COPY RAW</button>
+                    </div>
+
+                    <div class="hero-meta">
+                        <span>PIXEL OPERATOR CC0</span>
+                        <span>RAW MODULES</span>
+                        <span>REDUCED-MOTION SAFE</span>
+                    </div>
+                </div>
+
+                <div class="terminal-card" aria-hidden="true">
+                    <div class="terminal-bar"><span>RETROLESS // BOOT</span><span>ONLINE</span></div>
+                    <div class="terminal-body">
+                        <div><b>SYS</b> <span class="dim">//</span> loading interface modules</div>
+                        <div><b>NET</b> <span class="dim">//</span> raw.githubusercontent.com <span class="ok">OK</span></div>
+                        <div><b>FONT</b> <span class="dim">//</span> pixel operator 400 / 700 <span class="ok">OK</span></div>
+                        <div><b>CRT</b> <span class="dim">//</span> scanline 40% / grain 25% <span class="ok">OK</span></div>
+                        <div class="terminal-sep"></div>
+                        <div><span class="p">&gt;</span> mount --theme retroless</div>
+                        <div><span class="ok">SIGNAL ACQUIRED</span> <span class="dim">//</span> node 04</div>
+                        <div class="dim">PHOENIX-CITY RELAY / 2087</div>
+                        <div class="terminal-swatch">
+                            <i style="background:#e94221"></i>
+                            <i style="background:#a8231b"></i>
+                            <i style="background:#d4b496"></i>
+                            <i style="background:#14322a"></i>
+                            <i style="background:#050605"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="ticker" aria-hidden="true">
+            <div class="ticker-inner">
+                <span>SIGNAL 97%</span><span>PHOENIX-CITY</span><span>NODE 04</span><span>R.E.A.C.H. ONLINE</span><span>NO TRACE</span><span>SIGNAL 97%</span><span>PHOENIX-CITY</span><span>NODE 04</span><span>R.E.A.C.H. ONLINE</span><span>NO TRACE</span>
+            </div>
+        </div>
+
+        <div class="main">
+            <section class="section" id="preview">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-label">// 01 <b>INTERFACE</b></div>
+                            <h2>TERMINAL IN PRACTICE</h2>
+                        </div>
+                        <p class="section-note">
+                            Square panels, one-pixel rules, dithered edges and a warm black surface.
+                            The screenshot is a static interface study of the theme language.
+                        </p>
+                    </div>
+
+                    <div class="preview-frame">
+                        <div class="preview-bar">
+                            <span>RETROLESS / CHANNEL VIEW</span>
+                            <span>1440 x 900 / SIGNAL LOCKED</span>
+                        </div>
+                        <img src="preview.png" alt="RETROLESS Discord interface preview with orange terminal panels, pixel typography and a dark CRT scanline surface." width="1440" height="900">
+                    </div>
+
+                    <div class="feature-grid">
+                        <article class="feature">
+                            <div class="feature-num">01</div>
+                            <h3>RAW MODULES</h3>
+                            <p>The entry file imports every CSS module directly from GitHub raw. No build step is required to install.</p>
+                        </article>
+                        <article class="feature">
+                            <div class="feature-num">02</div>
+                            <h3>PIXEL TYPE</h3>
+                            <p>Pixel Operator, released under CC0, carries display, body and monospaced terminal text.</p>
+                        </article>
+                        <article class="feature">
+                            <div class="feature-num">03</div>
+                            <h3>CRT SURFACE</h3>
+                            <p>Scanlines, film grain, a soft vignette and corner brackets sit above the interface without blocking input.</p>
+                        </article>
+                        <article class="feature">
+                            <div class="feature-num">04</div>
+                            <h3>TOKEN DRIVEN</h3>
+                            <p>Override <code>--rl-*</code> variables in QuickCSS to retune the signal, surfaces or scanline density.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="palette">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-label">// 02 <b>COLOR</b></div>
+                            <h2>SIGNAL PALETTE</h2>
+                        </div>
+                        <p class="section-note">
+                            The orange is sampled directly from the REPLACED pause menu and logo.
+                            Paper and teal are taken from the Wingman device and the game's shadow tones.
+                        </p>
+                    </div>
+
+                    <div class="palette-grid">
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#e94221"></div>
+                            <div class="swatch-meta"><span class="swatch-name">SIGNAL ORANGE</span><span class="swatch-hex">#E94221</span><span class="swatch-source">PAUSE MENU / LOGO</span></div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#a8231b"></div>
+                            <div class="swatch-meta"><span class="swatch-name">OXIDE</span><span class="swatch-hex">#A8231B</span><span class="swatch-source">LOGO SHADOW</span></div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#d4b496"></div>
+                            <div class="swatch-meta"><span class="swatch-name">WINGMAN PAPER</span><span class="swatch-hex">#D4B496</span><span class="swatch-source">DEVICE INTERFACE</span></div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#14322a"></div>
+                            <div class="swatch-meta"><span class="swatch-name">CHANNEL TEAL</span><span class="swatch-hex">#14322A</span><span class="swatch-source">SHADOW TONES</span></div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#051f1c"></div>
+                            <div class="swatch-meta"><span class="swatch-name">DEEP TEAL</span><span class="swatch-hex">#051F1C</span><span class="swatch-source">DEVICE BEZEL</span></div>
+                        </div>
+                        <div class="swatch">
+                            <div class="swatch-color" style="background:#050605"></div>
+                            <div class="swatch-meta"><span class="swatch-name">VOID</span><span class="swatch-hex">#050605</span><span class="swatch-source">SURFACE BASE</span></div>
+                        </div>
+                    </div>
+
+                    <div class="note">
+                        <b>STATUS COLORS</b> keep their meaning while staying inside the palette:
+                        <code>#79B59A</code> online, <code>#DDA052</code> idle, <code>#FF4626</code> do not disturb,
+                        <code>#6F655A</code> offline.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="install">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-label">// 03 <b>DEPLOY</b></div>
+                            <h2>INSTALL THE SIGNAL</h2>
+                        </div>
+                        <p class="section-note">
+                            Tested with Vencord and Equicord on Discord desktop and Vesktop.
+                            The online theme loads CSS and fonts from GitHub raw.
+                        </p>
+                    </div>
+
+                    <div class="install">
+                        <ol class="steps">
+                            <li>
+                                <h3>OPEN VENCORD THEMES</h3>
+                                <p>In Discord, open <code>Settings</code>, find <code>Vencord</code>, then <code>Themes</code>.</p>
+                            </li>
+                            <li>
+                                <h3>PASTE THE RAW LINK</h3>
+                                <p>Switch to <code>Online Themes</code> and paste the direct CSS link on its own line.</p>
+                            </li>
+                            <li>
+                                <h3>ENABLE AND RELOAD</h3>
+                                <p>Enable <code>RETROLESS</code>. If the interface does not refresh, fully restart Discord.</p>
+                            </li>
+                        </ol>
+
+                        <div>
+                            <div class="code-card">
+                                <div class="code-card-head"><span>ONLINE THEME URL</span><span>READY</span></div>
+                                <pre><span class="c">// Vencord &gt; Themes &gt; Online Themes</span>
+<span class="a">https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css</span>
+
+<span class="c">// local use: clone the repository</span>
+git clone https://github.com/leriart/Retroless.git
+<span class="c">// then load Retroless.theme.css as a local theme</span>
+<span class="g">online imports stay active; keep the repo path intact</span></pre>
+                            </div>
+                            <div class="note">
+                                <b>NO BUILD REQUIRED.</b> The entry file imports twelve modules and four font
+                                files from the same repository. An internet connection is needed while the theme is active.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="source">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-label">// 04 <b>SOURCE</b></div>
+                            <h2>MODULAR BY DESIGN</h2>
+                        </div>
+                        <p class="section-note">
+                            Every layer is a separate file. Change one module, keep the rest of the system intact.
+                        </p>
+                    </div>
+
+                    <div class="tree">
+                        <pre><b>Retroless/</b>
+├── <b>Retroless.theme.css</b>      entry / raw imports
+├── src/
+│   ├── 00-tokens.css       palette + surface
+│   ├── 01-fonts.css        pixel operator faces
+│   ├── 02-tokens-discord.css
+│   ├── 03-base.css
+│   ├── 04-shell.css
+│   ├── 05-navigation.css
+│   ├── 06-chat.css
+│   ├── 07-members.css
+│   ├── 08-controls.css
+│   ├── 09-overlays.css
+│   ├── 10-settings.css
+│   └── 11-effects.css
+├── assets/
+│   ├── brand/              mark, corners, grain
+│   └── fonts/              pixel operator (CC0)
+└── docs/                   preview + landing page</pre>
+
+                        <div>
+                            <p>
+                                <b>Customize:</b> override any token in QuickCSS. The accent, scanline opacity,
+                                grain, vignette and font stack are all plain custom properties.
+                            </p>
+                            <div class="code-card">
+                                <div class="code-card-head"><span>QUICKCSS EXAMPLE</span><span>OVERRIDE</span></div>
+                                <pre><span class="c">:root {</span>
+  <span class="a">--rl-signal</span>: #ff5a2e;
+  <span class="a">--rl-panel</span>: #10120e;
+  <span class="a">--rl-scanline-opacity</span>: 0.35;
+  <span class="a">--rl-grain-opacity</span>: 0.22;
+<span class="c">}</span></pre>
+                            </div>
+
+                            <div class="link-list" style="margin-top:18px">
+                                <a href="https://github.com/leriart/Retroless">REPOSITORY <span>GITHUB</span></a>
+                                <a href="https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css">ENTRY FILE <span>RAW</span></a>
+                                <a href="preview.html">INTERFACE STUDY <span>LOCAL</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="4" y="2" width="4" height="20"/>
+                        <rect x="8" y="2" width="8" height="4"/>
+                        <rect x="16" y="6" width="4" height="4"/>
+                        <rect x="8" y="10" width="12" height="4"/>
+                        <rect x="12" y="14" width="4" height="4"/>
+                        <rect x="16" y="18" width="4" height="4"/>
+                    </svg>
+                    RETROLESS
+                </div>
+                <p>
+                    Unofficial fan theme. REPLACED is a game by Sad Cat Studios, published by Thunderful.
+                    This project is not affiliated with either company and bundles no game assets.
+                    Theme code is Apache-2.0. Pixel Operator is CC0.
+                </p>
+            </div>
+            <div class="footer-meta">
+                <div>APACHE-2.0 / PIXEL OPERATOR CC0</div>
+                <div>PHOENIX-CITY // NODE 04</div>
+                <div>SIGNAL LOCKED</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const copyButton = document.getElementById("copy-raw");
+        const rawUrl = document.getElementById("raw-url");
+        copyButton.addEventListener("click", async () => {
+            const value = rawUrl.textContent.trim();
+            try {
+                await navigator.clipboard.writeText(value);
+            } catch {
+                const area = document.createElement("textarea");
+                area.value = value;
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand("copy");
+                area.remove();
+            }
+            const previous = copyButton.textContent;
+            copyButton.textContent = "COPIED";
+            copyButton.classList.add("copied");
+            window.setTimeout(() => {
+                copyButton.textContent = previous;
+                copyButton.classList.remove("copied");
+            }, 1600);
+        });
+    </script>
+</body>
+</html>

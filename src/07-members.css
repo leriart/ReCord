@@ -1,0 +1,290 @@
+/* member list, user panel, profiles */
+
+[class*="membersGroup_"],
+[class*="membersGroupHeader_"] {
+    color: var(--rl-signal-soft) !important;
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rl-line-soft);
+    padding-bottom: 4px;
+    margin-bottom: 2px;
+}
+
+[class*="membersGroupName_"] {
+    color: var(--rl-signal-soft) !important;
+}
+
+[class*="membersGroup_"] [class*="count_"],
+[class*="membersGroup_"] [class*="memberCount_"] {
+    color: var(--rl-ash);
+    font-family: var(--rl-font-mono);
+    font-size: 10px;
+}
+
+[class*="members_"] [class*="member_"] {
+    border-left: 2px solid transparent;
+    border-radius: 0 !important;
+    transition:
+        background-color 90ms var(--rl-ease),
+        border-color 90ms var(--rl-ease);
+}
+
+[class*="members_"] [class*="member_"]:hover {
+    background: rgba(233, 66, 33, 0.06) !important;
+    border-left-color: rgba(233, 66, 33, 0.28);
+}
+
+[class*="members_"] [class*="member_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="members_"] [class*="member_"] [class*="username_"],
+[class*="members_"] [class*="member_"] [class*="name_"] {
+    color: var(--rl-bone);
+    font-size: 14px;
+    letter-spacing: 0.025em;
+}
+
+[class*="members_"] [class*="member_"] [class*="activity_"],
+[class*="members_"] [class*="member_"] [class*="subText_"] {
+    color: var(--rl-ash);
+    font-size: 11px;
+}
+
+[class*="members_"] [class*="member_"] [class*="ownerIcon_"],
+[class*="members_"] [class*="member_"] [class*="roleIcon_"] {
+    color: var(--rl-signal);
+}
+
+[class*="members_"] [class*="member_"] [class*="status_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-void);
+}
+
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(69, 163, 102)"],
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(121, 181, 154)"] {
+    background-color: var(--rl-green) !important;
+}
+
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(255, 192, 78)"],
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(221, 160, 82)"] {
+    background-color: var(--rl-amber) !important;
+}
+
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(218, 62, 68)"],
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(233, 66, 33)"] {
+    background-color: var(--rl-red) !important;
+}
+
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(132, 133, 141)"],
+[class*="members_"] [class*="member_"] [class*="status_"][style*="rgb(111, 101, 90)"] {
+    background-color: var(--rl-offline) !important;
+}
+
+[class*="panels_"] [class*="avatarWrapper_"] [class*="avatar_"],
+[class*="panels_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="panels_"] [class*="nameTag_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+[class*="panels_"] [class*="subText_"],
+[class*="panels_"] [class*="activityText_"] {
+    color: var(--rl-ash);
+    font-size: 12px;
+}
+
+[class*="panels_"] [class*="button_"] {
+    border-radius: 0 !important;
+    color: var(--rl-smoke);
+}
+
+[class*="panels_"] [class*="button_"]:hover {
+    background: rgba(233, 66, 33, 0.1) !important;
+    color: var(--rl-signal-hot);
+}
+
+[class*="panels_"] [class*="button_"][class*="danger_"]:hover,
+[class*="panels_"] [class*="button_"][class*="redGlow_"]:hover {
+    background: rgba(255, 70, 38, 0.12) !important;
+    color: var(--rl-red);
+}
+
+[class*="panels_"] [class*="voice_"] [class*="button_"] {
+    color: var(--rl-smoke);
+}
+
+[class*="panels_"] [class*="voice_"] [class*="button_"]:hover {
+    color: var(--rl-signal-hot);
+}
+
+[class*="panels_"] [class*="connection_"] {
+    background: var(--rl-void);
+    border-top: 1px solid var(--rl-line);
+    border-radius: 0;
+}
+
+[class*="panels_"] [class*="connection_"] [class*="label_"] {
+    color: var(--rl-signal-soft);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+[class*="user-profile-popout"],
+[class*="user-profile-modal"],
+[class*="profilePopout_"],
+.user-profile-sidebar {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line-hot) !important;
+    border-radius: 0 !important;
+    box-shadow:
+        0 0 0 1px var(--rl-void),
+        0 16px 48px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(233, 66, 33, 0.06) !important;
+}
+
+[class*="profileBanner_"],
+[class*="profileHeader_"] {
+    position: relative;
+    border-radius: 0 !important;
+}
+
+[class*="profileBanner_"] {
+    border-bottom: 1px solid var(--rl-line);
+    filter: saturate(0.75) contrast(1.05);
+}
+
+[class*="profileBanner_"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 45%, rgba(14, 16, 12, 0.9)),
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.18) 2px 3px);
+    pointer-events: none;
+}
+
+[class*="profileHeader_"] [class*="username_"],
+[class*="profileHeader_"] [class*="name_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.04em;
+}
+
+[class*="profileHeader_"] [class*="discriminator_"],
+[class*="profileHeader_"] [class*="tag_"] {
+    color: var(--rl-ash);
+    font-family: var(--rl-font-mono);
+}
+
+[class*="profileBadges_"] [class*="badge_"] {
+    border-radius: 0 !important;
+}
+
+[class*="profileBadges_"] [class*="badge_"]:hover {
+    background: rgba(233, 66, 33, 0.08);
+}
+
+[class*="rolePill_"] {
+    border-radius: 0 !important;
+}
+
+[class*="rolePill_"] {
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    color: var(--rl-bone);
+    font-size: 11px;
+}
+
+[class*="rolePill_"]:hover {
+    border-color: var(--rl-signal-dim) !important;
+    background: var(--rl-high) !important;
+}
+
+[class*="profileTabs_"] {
+    border-bottom: 1px solid var(--rl-line);
+}
+
+[class*="profileTabs_"] [class*="tab_"] {
+    color: var(--rl-smoke);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+[class*="profileTabs_"] [class*="tab_"][class*="selected_"] {
+    color: var(--rl-signal-soft);
+    border-bottom: 2px solid var(--rl-signal);
+}
+
+[class*="profileTabs_"] [class*="tab_"]:hover {
+    color: var(--rl-cream);
+}
+
+[class*="user-profile-sidebar"] [class*="inner_"],
+[class*="user-profile-sidebar"] [class*="outer_"] {
+    border-radius: 0 !important;
+    background: var(--rl-panel) !important;
+}
+
+[class*="activityPanel_"],
+[class*="activityCard_"],
+[class*="nowPlayingCard_"] {
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="activityPanel_"] [class*="header_"],
+[class*="activityCard_"] [class*="header_"] {
+    color: var(--rl-smoke);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+[class*="activityPanel_"] [class*="name_"],
+[class*="activityCard_"] [class*="name_"] {
+    color: var(--rl-cream);
+}
+
+[class*="activityPanel_"] [class*="details_"],
+[class*="activityPanel_"] [class*="state_"],
+[class*="activityCard_"] [class*="details_"],
+[class*="activityCard_"] [class*="state_"] {
+    color: var(--rl-smoke);
+}
+
+[class*="profileNote_"],
+[class*="note_"] {
+    background: var(--rl-void) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+    color: var(--rl-bone);
+}
+
+[class*="profileNote_"]::placeholder,
+[class*="note_"]::placeholder {
+    color: var(--rl-faint);
+}
+
+[class*="profileNote_"]:focus,
+[class*="note_"]:focus {
+    border-color: var(--rl-signal) !important;
+}

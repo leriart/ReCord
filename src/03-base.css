@@ -1,0 +1,148 @@
+/* base */
+
+html,
+body {
+    background: var(--rl-void) !important;
+    color: var(--rl-bone);
+    font-family: var(--rl-font);
+    font-weight: var(--rl-weight);
+    letter-spacing: var(--rl-tracking);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+[contenteditable="true"] {
+    font-family: var(--rl-font);
+}
+
+#app-mount,
+[class*="app_"] {
+    background-color: var(--rl-void) !important;
+    color: var(--rl-bone);
+}
+
+*,
+*::before,
+*::after {
+    scrollbar-width: thin;
+    scrollbar-color: #4a3326 transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b2a20;
+    border: 2px solid var(--rl-void);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--rl-signal-dim);
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::selection {
+    background: var(--rl-signal);
+    color: var(--rl-void);
+}
+
+::placeholder {
+    color: var(--rl-faint) !important;
+    opacity: 1;
+}
+
+a {
+    color: var(--rl-signal-soft);
+    text-decoration-color: rgba(255, 147, 104, 0.4);
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: var(--rl-signal-hot);
+    text-decoration-color: currentColor;
+}
+
+:focus-visible {
+    outline: 1px solid var(--rl-signal);
+    outline-offset: 2px;
+}
+
+button,
+[role="button"] {
+    font-family: var(--rl-font);
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"] {
+    opacity: 0.45;
+}
+
+input,
+textarea,
+select {
+    caret-color: var(--rl-signal);
+}
+
+input[type="range"] {
+    accent-color: var(--rl-signal);
+}
+
+code,
+kbd,
+pre,
+samp,
+tt {
+    font-family: var(--rl-font-mono);
+}
+
+code {
+    color: var(--rl-paper);
+    background: rgba(212, 180, 150, 0.07);
+    border: 1px solid rgba(212, 180, 150, 0.08);
+    padding: 1px 4px;
+}
+
+pre {
+    color: var(--rl-bone);
+}
+
+kbd {
+    color: var(--rl-bone);
+    background: var(--rl-raised);
+    border: 1px solid var(--rl-line);
+    box-shadow: 0 2px 0 var(--rl-void);
+    padding: 1px 5px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--rl-line-soft);
+}
+
+mark {
+    background: var(--rl-signal);
+    color: var(--rl-void);
+}
+
+::backdrop {
+    background: rgba(3, 4, 3, 0.82);
+}
+
+[class*="theme-light"],
+[class*="theme-dark"] {
+    color-scheme: dark;
+}

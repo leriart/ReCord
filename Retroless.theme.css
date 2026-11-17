@@ -1,0 +1,22 @@
+/**
+ * @name RETROLESS
+ * @author leriart
+ * @description A REPLACED-inspired terminal for Discord. Amber phosphor, pixel type, CRT grain.
+ * @version 1.0.0
+ * @license Apache-2.0
+ * @source https://github.com/leriart/Retroless
+ * @website https://leriart.github.io/Retroless/
+ */
+
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/01-fonts.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/00-tokens.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/02-tokens-discord.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/03-base.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/04-shell.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/05-navigation.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/06-chat.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/07-members.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/08-controls.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/09-overlays.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/10-settings.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/11-effects.css");

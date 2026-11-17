@@ -1,0 +1,385 @@
+/* settings, friends, discovery */
+
+[class*="standardSidebarView"],
+[class*="sidebarRegion"],
+[class*="contentRegion"],
+[class*="contentColumn"] {
+    background: transparent !important;
+}
+
+[role="dialog"] [class*="sidebar_"] {
+    background: var(--rl-ink) !important;
+    border-right: 1px solid var(--rl-line);
+}
+
+[class*="sidebarRegion_"] [class*="side_"],
+[class*="sidebar_"] [class*="side_"],
+[role="dialog"] > div > [class*="sidebar_"] {
+    background: var(--rl-ink) !important;
+    border-right: 1px solid var(--rl-line);
+}
+
+[class*="side_"] [class*="item_"] {
+    border-radius: 0 !important;
+    border-left: 2px solid transparent;
+    color: var(--rl-smoke) !important;
+    font-family: var(--rl-font);
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    margin-bottom: 1px;
+    padding-left: 8px;
+}
+
+[class*="side_"] [class*="item_"]:hover {
+    background: rgba(233, 66, 33, 0.06) !important;
+    border-left-color: rgba(233, 66, 33, 0.3);
+    color: var(--rl-bone) !important;
+}
+
+[class*="side_"] [class*="item_"][class*="selected_"] {
+    background: linear-gradient(90deg, rgba(233, 66, 33, 0.18), transparent) !important;
+    border-left-color: var(--rl-signal);
+    color: var(--rl-cream) !important;
+}
+
+[class*="side_"] [class*="item_"][class*="selected_"]::before {
+    background: var(--rl-signal) !important;
+}
+
+[class*="side_"] [class*="header_"],
+[class*="side_"] [class*="title_"] {
+    color: var(--rl-ash);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+[class*="contentRegionScroller"],
+[class*="contentColumn_"] {
+    background: var(--rl-panel) !important;
+}
+
+[class*="contentRegion"] h1,
+[class*="contentRegion"] h2,
+[class*="contentRegion"] h3,
+[class*="contentColumn"] h1,
+[class*="contentColumn"] h2,
+[class*="contentColumn"] h3 {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+}
+
+[class*="contentRegion"] [class*="divider"],
+[class*="contentColumn"] [class*="divider"] {
+    background: var(--rl-line-soft) !important;
+}
+
+[class*="card_"] {
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+[class*="card_"]:hover {
+    border-color: var(--rl-line-hot) !important;
+}
+
+[class*="radioBar_"] {
+    background: var(--rl-void) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="radioBar_"]:hover {
+    border-color: var(--rl-line-hot) !important;
+    background: var(--rl-raised) !important;
+}
+
+[class*="radioBar_"][class*="selected_"],
+[class*="radioBar_"]:has(input:checked) {
+    border-color: var(--rl-signal) !important;
+    background: rgba(233, 66, 33, 0.06) !important;
+}
+
+[class*="radioBar_"] [class*="radio_"] {
+    border-radius: 0 !important;
+}
+
+[class*="settingsSearch_"],
+[class*="searchBar_"] {
+    border-radius: 0 !important;
+}
+
+[class*="peopleColumn_"],
+[class*="tabBody_"],
+[class*="nowPlayingColumn_"] {
+    background: var(--rl-ink) !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="peopleColumn_"] [class*="header_"],
+[class*="tabBody_"] [class*="header_"] {
+    border-bottom: 1px solid var(--rl-line);
+}
+
+[class*="peopleColumn_"] [class*="title_"],
+[class*="tabBody_"] [class*="title_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+[class*="peopleListItem_"] {
+    border-radius: 0 !important;
+    border-left: 2px solid transparent;
+    margin: 0 !important;
+}
+
+[class*="peopleListItem_"]:hover {
+    background: rgba(233, 66, 33, 0.06) !important;
+    border-left-color: rgba(233, 66, 33, 0.3);
+}
+
+[class*="peopleListItem_"] [class*="avatar_"] {
+    border-radius: 0 !important;
+    border: 1px solid var(--rl-line);
+}
+
+[class*="peopleListItem_"] [class*="username_"] {
+    color: var(--rl-bone);
+    font-family: var(--rl-font-display);
+    font-size: 15px;
+    letter-spacing: 0.03em;
+}
+
+[class*="peopleListItem_"] [class*="subText_"],
+[class*="peopleListItem_"] [class*="activity_"] {
+    color: var(--rl-ash);
+}
+
+[class*="peopleListItem_"] [class*="actionButton_"],
+[class*="peopleListItem_"] [class*="button_"] {
+    border-radius: 0 !important;
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    color: var(--rl-smoke) !important;
+}
+
+[class*="peopleListItem_"] [class*="actionButton_"]:hover,
+[class*="peopleListItem_"] [class*="button_"]:hover {
+    border-color: var(--rl-signal) !important;
+    background: rgba(233, 66, 33, 0.1) !important;
+    color: var(--rl-signal-hot) !important;
+}
+
+[class*="addFriend_"] {
+    background: var(--rl-void) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+    color: var(--rl-bone) !important;
+}
+
+[class*="addFriend_"]:hover {
+    border-color: var(--rl-signal) !important;
+    background: rgba(233, 66, 33, 0.05) !important;
+}
+
+[class*="addFriend_"] [class*="input_"] {
+    background: transparent !important;
+    border: 0 !important;
+}
+
+[class*="nowPlayingColumn_"] [class*="card_"],
+[class*="activeNow"] [class*="card_"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line) !important;
+}
+
+[class*="nowPlayingColumn_"] [class*="card_"] [class*="header_"],
+[class*="activeNow"] [class*="card_"] [class*="header_"] {
+    color: var(--rl-smoke);
+    font-family: var(--rl-font-display);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+[class*="nowPlayingColumn_"] [class*="card_"] [class*="body_"],
+[class*="activeNow"] [class*="card_"] [class*="body_"] {
+    color: var(--rl-bone);
+}
+
+[class*="emptyCard_"],
+[class*="emptyState_"] {
+    background: var(--rl-panel) !important;
+    border: 1px dashed var(--rl-line) !important;
+    border-radius: 0 !important;
+    color: var(--rl-smoke);
+}
+
+[class*="emptyCard_"] h1,
+[class*="emptyCard_"] h2,
+[class*="emptyCard_"] h3 {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+[class*="discovery"] [class*="card_"],
+[class*="guildCard"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="discovery"] [class*="card_"]:hover,
+[class*="guildCard"]:hover {
+    border-color: var(--rl-signal) !important;
+    box-shadow: 0 0 24px rgba(233, 66, 33, 0.08);
+}
+
+[class*="discovery"] [class*="category_"],
+[class*="discovery"] [class*="header_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+}
+
+[class*="library"] [class*="card_"],
+[class*="applicationStore_"] [class*="card_"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="shop_"] [class*="card_"],
+[class*="quest_"] [class*="card_"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="authBox"],
+[class*="loginForm"],
+[class*="registerForm"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line-hot) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8) !important;
+}
+
+[class*="authBox"] h1,
+[class*="authBox"] h2,
+[class*="loginForm"] h1 {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+[class*="vc-settings"] [class*="card_"],
+[class*="vc-card"] {
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="vc-settings"] [class*="header_"],
+[class*="vc-settings"] h1,
+[class*="vc-settings"] h2 {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+}
+
+[class*="vc-settings"] [class*="selected_"] {
+    background: rgba(233, 66, 33, 0.12) !important;
+    color: var(--rl-cream) !important;
+}
+
+[class*="vc-switch-container"] {
+    border-radius: 0 !important;
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+}
+
+[class*="vc-switch-container"][class*="checked"] {
+    background: var(--rl-signal) !important;
+    border-color: var(--rl-signal) !important;
+}
+
+/* forum, stage, soundboard, plugin panels */
+
+[class*="forum"] [class*="card_"],
+[class*="mainCard_"],
+[class*="forumPost"] {
+    background: var(--rl-panel) !important;
+    border: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+[class*="forum"] [class*="card_"]:hover,
+[class*="mainCard_"]:hover,
+[class*="forumPost"]:hover {
+    border-color: var(--rl-signal) !important;
+    background: var(--rl-raised) !important;
+}
+
+[class*="forum"] [class*="header_"],
+[class*="forum"] [class*="title_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+}
+
+[class*="forum"] [class*="tag_"],
+[class*="forum"] [class*="pill_"] {
+    border-radius: 0 !important;
+    background: var(--rl-raised) !important;
+    border: 1px solid var(--rl-line) !important;
+    color: var(--rl-smoke) !important;
+}
+
+[class*="stage_"],
+[class*="soundboard_"] {
+    background: var(--rl-panel) !important;
+    border-color: var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+[class*="stage_"] [class*="header_"],
+[class*="soundboard_"] [class*="header_"] {
+    color: var(--rl-cream);
+    font-family: var(--rl-font-display);
+    letter-spacing: 0.05em;
+}
+
+#vc-spotify-player {
+    background: var(--rl-void) !important;
+    border-top: 1px solid var(--rl-line) !important;
+    border-radius: 0 !important;
+}
+
+#vc-spotify-player [class*="bar_"],
+#vc-spotify-player [class*="progress_"] {
+    border-radius: 0 !important;
+}
+
+#vc-spotify-player [class*="barFill_"],
+#vc-spotify-player [class*="fill_"] {
+    background: var(--rl-signal) !important;
+}
+
+#vc-spotify-player [class*="title_"] {
+    color: var(--rl-cream);
+}
+
+#vc-spotify-player [class*="artist_"] {
+    color: var(--rl-ash);
+}
