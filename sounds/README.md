@@ -6,7 +6,7 @@ All files are CC0 1.0. Replace any WAV with your own capture using the same file
 
 ## RetrolessSounds plugin
 
-`plugin/retrolessSounds` is a Vencord userplugin that loads this folder, replaces Discord's sounds using the `customSounds` map in `manifest.json` and plays the `ui` sounds on hover, select, back, navigation, toggles, menus, typing and send. Seasonal variants such as `halloween_mute` or `winter_user_join` resolve to the same file as the base event. Install it on Vesktop with `./scripts/install-sounds.sh`.
+`plugin/retroless` is a Vencord userplugin that loads this folder, replaces Discord's sounds using the `customSounds` map in `manifest.json` and plays the `ui` sounds on hover, select, back, navigation, toggles, menus, typing and send. Seasonal variants such as `halloween_mute` or `winter_user_join` resolve to the same file as the base event. Install it on Vesktop with `./scripts/install-plugin.sh`.
 
 ## Mapping for Equicord CustomSounds
 

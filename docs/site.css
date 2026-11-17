@@ -1147,3 +1147,47 @@ button {
     color: var(--rl-ash);
     font-size: 12px;
 }
+
+.accent-range {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    align-items: center;
+    gap: 12px;
+    color: var(--rl-smoke);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+}
+
+.accent-range input {
+    accent-color: var(--rl-signal);
+}
+
+.accent-toggles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    color: var(--rl-bone);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+}
+
+.accent-toggles input {
+    accent-color: var(--rl-signal);
+}
+
+.accent-output {
+    margin: 0;
+    padding: 12px;
+    border: 1px solid var(--rl-line);
+    background: var(--rl-void);
+    color: var(--rl-signal-soft);
+    font-family: var(--rl-font-mono);
+    font-size: 12px;
+    user-select: all;
+}
+
+.accent-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}

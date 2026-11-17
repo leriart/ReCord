@@ -2,7 +2,7 @@
  * @name RETROLESS
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Signal phosphor, pixel type, CRT grain.
- * @version 2.0.0
+ * @version 2.1.0
  * @license Apache-2.0
  * @source https://github.com/leriart/Retroless
  * @website https://leriart.github.io/Retroless/
@@ -163,6 +163,8 @@
     --rl-flicker-duration: 0s;
     --rl-avatar-filter: saturate(0.78) contrast(1.1) sepia(0.2) brightness(0.96);
     --rl-avatar-scanline: 0.14;
+    --rl-icons: on;
+    --rl-motion: on;
 
     --rl-dither: conic-gradient(from 0deg, var(--rl-signal) 25%, transparent 0 50%, var(--rl-signal) 0 75%, transparent 0);
     --rl-dither-size: 2px 2px;
@@ -3901,31 +3903,19 @@ html body {
         opacity: 1;
         clip-path: inset(0 8% 0 0);
     }
-    100% {
-        opacity: 1;
-        clip-path: inset(0);
-        filter: none;
-    }
 }
 
 @keyframes rl-modal-in {
     0% {
         opacity: 0;
-        clip-path: inset(0 0 100% 0);
         filter: brightness(1.9);
     }
     35% {
         opacity: 0.55;
-        clip-path: inset(0 0 54% 0);
     }
     70% {
         opacity: 1;
-        clip-path: inset(0 0 12% 0);
-    }
-    100% {
-        opacity: 1;
-        clip-path: inset(0);
-        filter: none;
+        filter: brightness(1.25);
     }
 }
 
@@ -3935,21 +3925,12 @@ html body {
         transform: translateY(-3px);
         filter: brightness(1.8);
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: none;
-    }
 }
 
 @keyframes rl-item-in {
     0% {
         opacity: 0;
         transform: translateX(-5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
 
@@ -3992,20 +3973,12 @@ html body {
         filter: brightness(1.8);
         box-shadow: inset 2px 0 var(--rl-signal);
     }
-    100% {
-        filter: none;
-        box-shadow: inset 2px 0 var(--rl-signal);
-    }
 }
 
 @keyframes rl-icon-on {
     0% {
         filter: brightness(2);
         transform: scale(0.96);
-    }
-    100% {
-        filter: none;
-        transform: scale(1);
     }
 }
 
@@ -4019,120 +3992,301 @@ html body {
     }
 }
 
-[role="menu"] {
-    transform-origin: top left;
-    animation: rl-menu-in var(--rl-menu-duration) steps(4, end) both;
+@keyframes rl-screen-in {
+    0% {
+        opacity: 0;
+        clip-path: inset(48% 0 48% 0);
+        filter: brightness(2.4) saturate(1.5);
+    }
+    30% {
+        opacity: 1;
+        clip-path: inset(30% 0 30% 0);
+        filter: brightness(1.8);
+    }
+    60% {
+        clip-path: inset(8% 0 8% 0);
+        filter: brightness(1.3);
+    }
 }
 
-[role="menu"] [role="menuitem"] {
-    position: relative;
-    overflow: hidden;
-    font-family: var(--rl-font-display);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    animation: rl-item-in var(--rl-item-duration) steps(3, end) both;
+@keyframes rl-row-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-8px);
+        filter: brightness(1.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateX(-3px);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(1) {
-    animation-delay: 15ms;
+@keyframes rl-flash {
+    0% {
+        filter: brightness(2.2) contrast(1.3);
+    }
+    40% {
+        filter: brightness(0.7);
+    }
+    70% {
+        filter: brightness(1.35);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(2) {
-    animation-delay: 30ms;
+@keyframes rl-jitter {
+    0% {
+        transform: translate(0, 0);
+        filter: brightness(1.6);
+    }
+    25% {
+        transform: translate(-1px, 1px);
+    }
+    50% {
+        transform: translate(1px, -1px);
+        filter: brightness(1.2);
+    }
+    75% {
+        transform: translate(-1px, 0);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(3) {
-    animation-delay: 45ms;
+@keyframes rl-press {
+    0% {
+        filter: invert(1) brightness(1.2);
+    }
+    50% {
+        filter: invert(0) brightness(1.6);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(4) {
-    animation-delay: 60ms;
+@keyframes rl-pop {
+    0% {
+        transform: scale(0.7);
+        filter: brightness(2);
+    }
+    50% {
+        transform: scale(1.12);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(5) {
-    animation-delay: 75ms;
+@keyframes rl-caret {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0;
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(6) {
-    animation-delay: 90ms;
+@keyframes rl-scrim-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.35;
+    }
+    75% {
+        opacity: 1;
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(7) {
-    animation-delay: 105ms;
+@keyframes rl-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-[role="menu"] [role="menuitem"]:nth-child(8) {
-    animation-delay: 120ms;
-}
+@container not style(--rl-motion: off) {
+    #app-mount *,
+    #app-mount *::before,
+    #app-mount *::after {
+        transition-timing-function: steps(4, end) !important;
+    }
 
-[role="menu"] [role="menuitem"]::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgba(240, 222, 198, 0.16), transparent);
-    transform: translateX(-100%);
-    opacity: 0;
-}
+    #app-mount [class*="chatContent_"],
+    #app-mount [class*="peopleColumn_"],
+    #app-mount [class*="nowPlayingColumn_"] {
+        animation: rl-screen-in 260ms steps(5, end) backwards;
+    }
 
-[role="menu"] [role="menuitem"]:hover,
-[role="menu"] [role="menuitem"]:focus-visible {
-    animation: rl-glitch var(--rl-glitch-duration) steps(2, end) both;
-    box-shadow: inset 2px 0 var(--rl-signal);
-}
+    #app-mount [class*="sidebarList_"] [class*="scroller_"] > ul,
+    #app-mount [class*="sidebarList_"] [class*="privateChannels_"] [class*="content_"],
+    #app-mount [class*="members_"] > div {
+        animation: rl-row-in 220ms steps(4, end) backwards;
+    }
 
-[role="menu"] [role="menuitem"]:hover::after,
-[role="menu"] [role="menuitem"]:focus-visible::after {
-    animation: rl-sweep 240ms steps(4, end) both;
-}
+    #app-mount [class*="newMessagesBar_"],
+    #app-mount li[id^="chat-messages"] [class*="mentioned_"],
+    #app-mount [class*="embedFull_"],
+    #app-mount [class*="reaction_"][class*="reactionMe_"] {
+        animation: rl-flash 260ms steps(4, end) backwards;
+    }
 
-[role="dialog"],
-[class*="modal_"] {
-    animation: rl-modal-in var(--rl-menu-duration) steps(4, end) both;
-}
+    #app-mount [class*="sidebarList_"] a[class*="link_"]:hover,
+    #app-mount [class*="privateChannels_"] [class*="interactive_"]:hover,
+    #app-mount [class*="member_"]:hover,
+    #app-mount :is(button, [role="button"], [role="tab"]):hover {
+        animation: rl-flash 180ms steps(3, end) backwards;
+    }
 
-[class*="popout_"],
-[class*="popover_"],
-[class*="autocomplete_"] {
-    transform-origin: top left;
-    animation: rl-pop-in 150ms steps(3, end) both;
-}
+    #app-mount nav[class*="guilds_"] [class*="listItem_"]:hover [class*="wrapper_"] > svg,
+    #app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover {
+        animation: rl-jitter 200ms steps(4, end) backwards;
+    }
 
-[role="tooltip"],
-[class*="tooltip_"] {
-    animation: rl-pop-in 110ms steps(2, end) both;
-}
+    #app-mount :is(button, [role="button"], [role="tab"], [role="switch"]):active,
+    #app-mount [class*="sidebarList_"] a[class*="link_"]:active,
+    #app-mount [class*="privateChannels_"] [class*="interactive_"]:active {
+        animation: rl-press 140ms steps(2, end) backwards;
+    }
 
-[data-list-item-id^="channels___"][class*="modeSelected"] {
-    animation: rl-channel-on 160ms steps(3, end) both;
-}
+    #app-mount [class*="reaction_"],
+    #app-mount [class*="numberBadge_"],
+    #app-mount [class*="textBadge_"] {
+        animation: rl-pop 180ms steps(3, end) backwards;
+    }
 
-[data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"] {
-    animation: rl-icon-on 160ms steps(3, end) both;
-}
+    [class*="backdrop_"],
+    [class*="scrim_"] {
+        animation: rl-scrim-in 200ms steps(4, end) backwards;
+    }
 
-[class*="numberBadge"],
-[class*="mentionBadge"] {
-    animation: rl-pulse 2.4s steps(2, end) infinite;
-}
+    #app-mount [class*="channelTextArea_"]:focus-within {
+        animation: rl-flash 220ms steps(3, end) backwards;
+    }
 
-@media (prefers-reduced-motion: reduce) {
-    [role="menu"],
-    [role="menu"] [role="menuitem"],
-    [role="menu"] [role="menuitem"]::after,
+    #app-mount [class*="typing_"] [class*="text_"]::after {
+        content: "_";
+        margin-left: 2px;
+        color: var(--rl-signal);
+        animation: rl-caret 0.9s steps(1, end) infinite;
+    }
+
+    #app-mount [class*="spinner_"] [class*="inner_"],
+    #app-mount [class*="spinningCircle_"] {
+        animation: rl-spin 0.9s steps(8, end) infinite !important;
+    }
+
+    [role="menu"] {
+        transform-origin: top left;
+        animation: rl-menu-in var(--rl-menu-duration) steps(4, end) backwards;
+    }
+
+    [role="menu"] [role="menuitem"] {
+        position: relative;
+        overflow: hidden;
+        font-family: var(--rl-font-display);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        animation: rl-item-in var(--rl-item-duration) steps(3, end) backwards;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(1) {
+        animation-delay: 15ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(2) {
+        animation-delay: 30ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(3) {
+        animation-delay: 45ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(4) {
+        animation-delay: 60ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(5) {
+        animation-delay: 75ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(6) {
+        animation-delay: 90ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(7) {
+        animation-delay: 105ms;
+    }
+
+    [role="menu"] [role="menuitem"]:nth-child(8) {
+        animation-delay: 120ms;
+    }
+
+    [role="menu"] [role="menuitem"]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(240, 222, 198, 0.16), transparent);
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    [role="menu"] [role="menuitem"]:hover,
+    [role="menu"] [role="menuitem"]:focus-visible {
+        animation: rl-glitch var(--rl-glitch-duration) steps(2, end) both;
+        box-shadow: inset 2px 0 var(--rl-signal);
+    }
+
+    [role="menu"] [role="menuitem"]:hover::after,
+    [role="menu"] [role="menuitem"]:focus-visible::after {
+        animation: rl-sweep 240ms steps(4, end) both;
+    }
+
     [role="dialog"],
-    [class*="modal_"],
+    [class*="modal_"] {
+        animation: rl-modal-in var(--rl-menu-duration) steps(4, end) backwards;
+    }
+
     [class*="popout_"],
     [class*="popover_"],
-    [class*="autocomplete_"],
+    [class*="autocomplete_"] {
+        transform-origin: top left;
+        animation: rl-pop-in 150ms steps(3, end) backwards;
+    }
+
     [role="tooltip"],
-    [class*="tooltip_"],
-    [data-list-item-id^="channels___"][class*="modeSelected"],
-    [data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"],
+    [class*="tooltip_"] {
+        animation: rl-pop-in 110ms steps(2, end) backwards;
+    }
+
+    [data-list-item-id^="channels___"][class*="modeSelected"] {
+        animation: rl-channel-on 160ms steps(3, end) backwards;
+    }
+
+    [data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"] {
+        animation: rl-icon-on 160ms steps(3, end) backwards;
+    }
+
     [class*="numberBadge"],
     [class*="mentionBadge"] {
-        animation: none !important;
+        animation: rl-pulse 2.4s steps(2, end) infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [role="menu"],
+        [role="menu"] [role="menuitem"],
+        [role="menu"] [role="menuitem"]::after,
+        [role="dialog"],
+        [class*="modal_"],
+        [class*="popout_"],
+        [class*="popover_"],
+        [class*="autocomplete_"],
+        [role="tooltip"],
+        [class*="tooltip_"],
+        [data-list-item-id^="channels___"][class*="modeSelected"],
+        [data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"],
+        [class*="numberBadge"],
+        [class*="mentionBadge"] {
+            animation: none !important;
+        }
     }
 }
 
@@ -4140,7 +4294,8 @@ html body {
 
 /* pixel icon set. Generated by scripts/generate-icon-css.py */
 
-#app-mount :is(
+@container not style(--rl-icons: off) {
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4148,23 +4303,23 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"])[aria-label]::before {
-    content: "";
-    display: var(--rl-icon-display, none);
-    flex: 0 0 auto;
-    width: var(--rl-icon-size, 16px);
-    height: var(--rl-icon-size, 16px);
-    background: currentColor;
-    -webkit-mask: var(--rl-icon) center / contain no-repeat;
-    mask: var(--rl-icon) center / contain no-repeat;
-}
-
-@container style(--rl-icon-display: inline-block) {
-    #app-mount :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]) {
-        display: none !important;
+        content: "";
+        display: var(--rl-icon-display, none);
+        flex: 0 0 auto;
+        width: var(--rl-icon-size, 16px);
+        height: var(--rl-icon-size, 16px);
+        background: currentColor;
+        -webkit-mask: var(--rl-icon) center / contain no-repeat;
+        mask: var(--rl-icon) center / contain no-repeat;
     }
-}
 
-#app-mount :is(
+    @container style(--rl-icon-display: inline-block) {
+        #app-mount :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]) {
+            display: none !important;
+        }
+    }
+
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4172,11 +4327,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Hilos" i], [aria-label*="Threads" i], [aria-label*="Crear hilo" i], [aria-label*="Create Thread" i]) {
-    --rl-icon: var(--rl-asset-thread);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-thread);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4184,11 +4339,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Ajustes de notificaciones" i], [aria-label*="Notification Settings" i]) {
-    --rl-icon: var(--rl-asset-bell);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-bell);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4196,11 +4351,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Mensajes fijados" i], [aria-label*="Pinned Messages" i], [aria-label*="Fijar mensaje" i], [aria-label*="Pin Message" i]) {
-    --rl-icon: var(--rl-asset-pin);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-pin);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4208,11 +4363,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="lista de miembros" i], [aria-label*="Member List" i]) {
-    --rl-icon: var(--rl-asset-members);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-members);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4220,11 +4375,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Bandeja de entrada" i], [aria-label*="Inbox" i]) {
-    --rl-icon: var(--rl-asset-inbox);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-inbox);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4232,11 +4387,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Ayuda" i], [aria-label*="Help" i]) {
-    --rl-icon: var(--rl-asset-help);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-help);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4244,11 +4399,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Iniciar llamada de voz" i], [aria-label*="Start Voice Call" i]) {
-    --rl-icon: var(--rl-asset-phone);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-phone);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4256,11 +4411,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Iniciar videollamada" i], [aria-label*="Start Video Call" i], [aria-label*="Encender cámara" i], [aria-label*="Turn On Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Turn Off Camera" i]) {
-    --rl-icon: var(--rl-asset-camera);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-camera);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4268,11 +4423,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="perfil de usuario" i], [aria-label*="User Profile" i]) {
-    --rl-icon: var(--rl-asset-user);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-user);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4280,11 +4435,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Añadir amigos a MD" i], [aria-label*="Add Friends to DM" i], [aria-label*="Crear MD" i], [aria-label*="Create DM" i], [aria-label*="Subir un archivo" i], [aria-label*="Upload a file" i]) {
-    --rl-icon: var(--rl-asset-plus);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-plus);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4292,11 +4447,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Silenciar" i], [aria-label*="Mute" i]) {
-    --rl-icon: var(--rl-asset-mic);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-mic);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4304,11 +4459,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Activar micrófono" i], [aria-label*="Unmute" i]) {
-    --rl-icon: var(--rl-asset-mic-off);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-mic-off);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4316,11 +4471,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Ensordecer" i], [aria-label*="Deafen" i]) {
-    --rl-icon: var(--rl-asset-headphones);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-headphones);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4328,11 +4483,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Activar audio" i], [aria-label*="Undeafen" i]) {
-    --rl-icon: var(--rl-asset-headphones-off);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-headphones-off);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4340,11 +4495,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Ajustes de usuario" i], [aria-label*="User Settings" i]) {
-    --rl-icon: var(--rl-asset-settings);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-settings);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4352,11 +4507,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Desconectar" i], [aria-label*="Disconnect" i]) {
-    --rl-icon: var(--rl-asset-phone-off);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-phone-off);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4364,11 +4519,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Compartir pantalla" i], [aria-label*="Share Your Screen" i]) {
-    --rl-icon: var(--rl-asset-screen);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-screen);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4376,11 +4531,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Enviar un regalo" i], [aria-label*="Send a gift" i]) {
-    --rl-icon: var(--rl-asset-gift);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-gift);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4388,11 +4543,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="selector de GIF" i], [aria-label*="GIF picker" i]) {
-    --rl-icon: var(--rl-asset-gif);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-gif);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4400,11 +4555,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="selector de sticker" i], [aria-label*="sticker picker" i]) {
-    --rl-icon: var(--rl-asset-sticker);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-sticker);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4412,11 +4567,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Agregar emoji" i], [aria-label*="Seleccionar emoji" i], [aria-label*="Select emoji" i]) {
-    --rl-icon: var(--rl-asset-emoji);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-emoji);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4424,11 +4579,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Apps" i]) {
-    --rl-icon: var(--rl-asset-spark);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-spark);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4436,11 +4591,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Enviar mensaje" i], [aria-label*="Send Message" i]) {
-    --rl-icon: var(--rl-asset-send);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-send);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4448,11 +4603,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Añadir reacción" i], [aria-label*="Add Reaction" i]) {
-    --rl-icon: var(--rl-asset-react);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-react);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4460,11 +4615,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Responder" i], [aria-label*="Reply" i]) {
-    --rl-icon: var(--rl-asset-reply);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-reply);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4472,11 +4627,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Editar" i], [aria-label*="Edit" i]) {
-    --rl-icon: var(--rl-asset-edit);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-edit);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4484,11 +4639,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Reenviar" i], [aria-label*="Forward" i]) {
-    --rl-icon: var(--rl-asset-arrow-right);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-arrow-right);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4496,11 +4651,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Más" i], [aria-label*="More" i]) {
-    --rl-icon: var(--rl-asset-more);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-more);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4508,11 +4663,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Eliminar" i], [aria-label*="Delete" i]) {
-    --rl-icon: var(--rl-asset-trash);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-trash);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4520,11 +4675,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Copiar" i], [aria-label*="Copy" i]) {
-    --rl-icon: var(--rl-asset-copy);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-copy);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4532,11 +4687,11 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Cerrar" i], [aria-label*="Close" i]) {
-    --rl-icon: var(--rl-asset-close);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-close);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount :is(
+    #app-mount :is(
     [class*="toolbar_"],
     [class*="panels_"],
     [class*="channelTextArea_"],
@@ -4544,65 +4699,66 @@ html body {
     [class*="headerActions_"],
     [class*="upperContainer_"]
 ) :is(button, [role="button"], [role="switch"]):is([aria-label*="Más opciones de mensajes" i], [aria-label*="More message options" i]) {
-    --rl-icon: var(--rl-asset-plus);
-    --rl-icon-display: inline-block;
-}
+        --rl-icon: var(--rl-asset-plus);
+        --rl-icon-display: inline-block;
+    }
 
-#app-mount a[data-list-item-id^="channels___"] [class*="iconContainer_"] > svg {
-    display: none !important;
-}
+    #app-mount a[data-list-item-id^="channels___"] [class*="iconContainer_"] > svg {
+        display: none !important;
+    }
 
-#app-mount a[data-list-item-id^="channels___"] [class*="iconContainer_"]::before {
-    content: "";
-    display: block;
-    width: 16px;
-    height: 16px;
-    background: currentColor;
-    -webkit-mask: var(--rl-channel-icon, var(--rl-asset-hash)) center / contain no-repeat;
-    mask: var(--rl-channel-icon, var(--rl-asset-hash)) center / contain no-repeat;
-}
+    #app-mount a[data-list-item-id^="channels___"] [class*="iconContainer_"]::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: currentColor;
+        -webkit-mask: var(--rl-channel-icon, var(--rl-asset-hash)) center / contain no-repeat;
+        mask: var(--rl-channel-icon, var(--rl-asset-hash)) center / contain no-repeat;
+    }
 
-#app-mount a[data-list-item-id^="channels___"]:is([aria-label*="voz" i], [aria-label*="voice" i], [aria-label*="escenario" i], [aria-label*="stage" i]) {
-    --rl-channel-icon: var(--rl-asset-volume);
-}
+    #app-mount a[data-list-item-id^="channels___"]:is([aria-label*="voz" i], [aria-label*="voice" i], [aria-label*="escenario" i], [aria-label*="stage" i]) {
+        --rl-channel-icon: var(--rl-asset-volume);
+    }
 
-#app-mount a[data-list-item-id^="channels___"]:is([aria-label*="anuncio" i], [aria-label*="announcement" i]) {
-    --rl-channel-icon: var(--rl-asset-announcement);
-}
+    #app-mount a[data-list-item-id^="channels___"]:is([aria-label*="anuncio" i], [aria-label*="announcement" i]) {
+        --rl-channel-icon: var(--rl-asset-announcement);
+    }
 
-#app-mount a[data-list-item-id^="channels___"]:is([aria-label*="foro" i], [aria-label*="forum" i]) {
-    --rl-channel-icon: var(--rl-asset-forum);
-}
+    #app-mount a[data-list-item-id^="channels___"]:is([aria-label*="foro" i], [aria-label*="forum" i]) {
+        --rl-channel-icon: var(--rl-asset-forum);
+    }
 
-#app-mount [class*="privateChannels_"] svg[class*="linkButtonIcon_"] {
-    display: none !important;
-}
+    #app-mount [class*="privateChannels_"] svg[class*="linkButtonIcon_"] {
+        display: none !important;
+    }
 
-#app-mount [class*="privateChannels_"] [class*="avatar_"]:has(> svg[class*="linkButtonIcon_"])::before {
-    content: "";
-    display: block;
-    width: 16px;
-    height: 16px;
-    margin: auto;
-    background: currentColor;
-    -webkit-mask: var(--rl-link-icon, var(--rl-asset-diamond)) center / contain no-repeat;
-    mask: var(--rl-link-icon, var(--rl-asset-diamond)) center / contain no-repeat;
-}
+    #app-mount [class*="privateChannels_"] [class*="avatar_"]:has(> svg[class*="linkButtonIcon_"])::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin: auto;
+        background: currentColor;
+        -webkit-mask: var(--rl-link-icon, var(--rl-asset-diamond)) center / contain no-repeat;
+        mask: var(--rl-link-icon, var(--rl-asset-diamond)) center / contain no-repeat;
+    }
 
-#app-mount [class*="privateChannels_"] a[href="/channels/@me"] {
-    --rl-link-icon: var(--rl-asset-friends);
-}
+    #app-mount [class*="privateChannels_"] a[href="/channels/@me"] {
+        --rl-link-icon: var(--rl-asset-friends);
+    }
 
-#app-mount [class*="privateChannels_"] a[href="/store"] {
-    --rl-link-icon: var(--rl-asset-spark);
-}
+    #app-mount [class*="privateChannels_"] a[href="/store"] {
+        --rl-link-icon: var(--rl-asset-spark);
+    }
 
-#app-mount [class*="privateChannels_"] a[href="/shop"] {
-    --rl-link-icon: var(--rl-asset-shop);
-}
+    #app-mount [class*="privateChannels_"] a[href="/shop"] {
+        --rl-link-icon: var(--rl-asset-shop);
+    }
 
-#app-mount [class*="privateChannels_"] a[href^="/quest"] {
-    --rl-link-icon: var(--rl-asset-missions);
+    #app-mount [class*="privateChannels_"] a[href^="/quest"] {
+        --rl-link-icon: var(--rl-asset-missions);
+    }
 }
 
 /* 15-boot.css */

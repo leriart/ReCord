@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds Vencord with the RetrolessSounds userplugin and points Vesktop at it.
+# Builds Vencord with the Retroless userplugin and points Vesktop at it.
 # Run again to update. Use --uninstall to go back to the stock Vencord build.
 set -euo pipefail
 
@@ -46,9 +46,9 @@ else
     git clone --depth 1 https://github.com/Vendicated/Vencord.git "$work"
 fi
 
-rm -rf "$work/src/userplugins/retrolessSounds"
+rm -rf "$work/src/userplugins/retrolessSounds" "$work/src/userplugins/retroless"
 mkdir -p "$work/src/userplugins"
-cp -r "$repo/plugin/retrolessSounds" "$work/src/userplugins/retrolessSounds"
+cp -r "$repo/plugin/retroless" "$work/src/userplugins/retroless"
 
 pnpm="pnpm"
 command -v pnpm >/dev/null || pnpm="npx --yes pnpm@10"
@@ -64,4 +64,4 @@ set_dir "$target"
 
 echo
 echo "Installed to $target"
-echo "Restart Vesktop, then enable RetrolessSounds in Settings > Plugins."
+echo "Restart Vesktop, then enable Retroless in Settings > Plugins."

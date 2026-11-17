@@ -39,7 +39,7 @@
                 <a href="icons.html">ICONS</a>
                 <a href="sounds.html">SOUNDS</a>
             </nav>
-            <span class="top-version">V2.0.0</span>
+            <span class="top-version">V2.1.0</span>
         </div>
     </header>
 
@@ -233,7 +233,7 @@
 <span class="a">https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css</span></pre>
                             </div>
                             <div class="code-card accent-card">
-                                <div class="code-card-head"><span>DOWNLOAD</span><span>OFFLINE</span></div>
+                                <div class="code-card-head"><span>CONFIGURE</span><span>LIVE</span></div>
                                 <div class="accent-body">
                                     <label class="accent-field" for="accent">
                                         <span>ACCENT</span>
@@ -248,8 +248,21 @@
                                         <button type="button" data-accent="#b58cff" style="--swatch: #b58cff" aria-label="Violet"></button>
                                         <button type="button" data-accent="#ff5fa2" style="--swatch: #ff5fa2" aria-label="Pink"></button>
                                     </div>
-                                    <button type="button" class="btn" id="download">DOWNLOAD RETROLESS.THEME.CSS</button>
-                                    <p class="accent-help" id="download-status">Drop the file into <code>Themes</code> &gt; <code>Local Themes</code> &gt; <code>Open Themes Folder</code>.</p>
+                                    <label class="accent-range"><span>SCANLINES</span><input type="range" id="scanlines" min="0" max="100" value="25"></label>
+                                    <label class="accent-range"><span>GRAIN</span><input type="range" id="grain" min="0" max="100" value="18"></label>
+                                    <label class="accent-range"><span>VIGNETTE</span><input type="range" id="vignette" min="0" max="100" value="55"></label>
+                                    <div class="accent-toggles">
+                                        <label><input type="checkbox" id="icons" checked> PIXEL ICONS</label>
+                                        <label><input type="checkbox" id="motion" checked> ANIMATIONS</label>
+                                        <label><input type="checkbox" id="avatars" checked> AVATAR FILTER</label>
+                                        <label><input type="checkbox" id="flicker"> CRT FLICKER</label>
+                                    </div>
+                                    <pre class="accent-output" id="snippet"></pre>
+                                    <div class="accent-actions">
+                                        <button type="button" class="btn" id="download">DOWNLOAD CSS</button>
+                                        <button type="button" class="btn btn--ghost" id="copy">COPY FOR QUICKCSS</button>
+                                    </div>
+                                    <p class="accent-help" id="download-status">Download a file with these settings baked in, or paste the block into QuickCSS to adjust an online install.</p>
                                 </div>
                             </div>
                             <div class="note">
@@ -384,23 +397,43 @@
         });
     </script>
     <script>
-        const picker = document.getElementById("accent");
-        const label = document.getElementById("accent-value");
-        const status = document.getElementById("download-status");
+        const $ = id => document.getElementById(id);
+        const picker = $("accent");
+        const status = $("download-status");
         const raw = "https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css";
 
-        function setAccent(value) {
-            picker.value = value;
-            label.textContent = value;
-            document.documentElement.style.setProperty("--rl-accent", value);
+        function snippet() {
+            const lines = [
+                `--rl-accent: ${picker.value}`,
+                `--rl-scanline-opacity: ${$("scanlines").value / 100}`,
+                `--rl-grain-opacity: ${$("grain").value / 100}`,
+                `--rl-vignette-opacity: ${$("vignette").value / 100}`,
+                `--rl-flicker-duration: ${$("flicker").checked ? "6s" : "0s"}`,
+                `--rl-icons: ${$("icons").checked ? "on" : "off"}`,
+                `--rl-motion: ${$("motion").checked ? "on" : "off"}`
+            ];
+            if (!$("avatars").checked) lines.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");
+            return `:root:root {\n${lines.map(line => `    ${line};`).join("\n")}\n}`;
         }
 
-        picker.addEventListener("input", () => setAccent(picker.value));
+        function update() {
+            $("accent-value").textContent = picker.value;
+            $("snippet").textContent = snippet();
+            document.documentElement.style.setProperty("--rl-accent", picker.value);
+        }
+
+        for (const input of document.querySelectorAll(".accent-body input")) input.addEventListener("input", update);
         for (const swatch of document.querySelectorAll("[data-accent]")) {
-            swatch.addEventListener("click", () => setAccent(swatch.dataset.accent));
+            swatch.addEventListener("click", () => { picker.value = swatch.dataset.accent; update(); });
         }
+        update();
 
-        document.getElementById("download").addEventListener("click", async () => {
+        $("copy").addEventListener("click", async () => {
+            await navigator.clipboard.writeText(snippet());
+            status.textContent = "Copied. Paste it into Vencord > Themes > QuickCSS.";
+        });
+
+        $("download").addEventListener("click", async () => {
             status.textContent = "Fetching theme...";
             let css = null;
             for (const url of ["../Retroless.theme.css", raw]) {
@@ -413,13 +446,12 @@
                 status.textContent = "Could not fetch the theme. Use the raw link instead.";
                 return;
             }
-            css = css.replace(/--rl-accent:\s*#[0-9a-fA-F]{3,8};/, `--rl-accent: ${picker.value};`);
             const link = document.createElement("a");
-            link.href = URL.createObjectURL(new Blob([css], { type: "text/css" }));
+            link.href = URL.createObjectURL(new Blob([`${css}\n/* settings */\n\n${snippet()}\n`], { type: "text/css" }));
             link.download = "Retroless.theme.css";
             link.click();
             URL.revokeObjectURL(link.href);
-            status.textContent = `Downloaded with accent ${picker.value}. Drop it into your themes folder.`;
+            status.textContent = "Downloaded with these settings. Drop it into your themes folder.";
         });
     </script>
 </body>

@@ -1,6 +1,6 @@
 {
     "name": "retroless",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "private": true,
     "type": "module",
     "description": "A REPLACED-inspired terminal theme for Discord and Vencord",
@@ -15,7 +15,8 @@
         "check": "node scripts/check.mjs && node scripts/build.mjs --check",
         "icons": "python3 scripts/generate-icons.py && python3 scripts/generate-icon-css.py",
         "sounds": "python3 scripts/generate-sounds.py",
-        "serve": "python3 -m http.server 8123"
+        "serve": "python3 -m http.server 8123",
+        "plugin": "bash scripts/install-plugin.sh"
     },
     "devDependencies": {
         "css-tree": "^3.2.1"

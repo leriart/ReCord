@@ -135,5 +135,9 @@ out += [
 for name, sel in LINKS:
     out += [f"{nav} {sel} {{", f"    --rl-link-icon: {url(name)};", "}", ""]
 
-(ROOT / "src" / "14-icons.css").write_text("\n".join(out).rstrip() + "\n")
+head, body = out[:2], out[2:]
+while body and not body[-1]:
+    body.pop()
+wrapped = ["@container not style(--rl-icons: off) {"] + [("    " + line if line else line) for line in body] + ["}"]
+(ROOT / "src" / "14-icons.css").write_text("\n".join(head + wrapped) + "\n")
 print("wrote src/14-icons.css")

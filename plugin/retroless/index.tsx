@@ -1,12 +1,16 @@
 /*
- * RETROLESS Sounds, a Vencord userplugin
- * Replaces Discord's sounds with the RETROLESS signal pack and adds interface sounds.
+ * RETROLESS, a Vencord userplugin
+ * Companion for the RETROLESS theme: in-app theme settings, replaced Discord sounds and interface sounds.
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 import { definePluginSettings } from "@api/Settings";
-import definePlugin, { OptionType } from "@utils/types";
+import { Button } from "@components/Button";
+import { Heading } from "@components/Heading";
+import { Paragraph } from "@components/Paragraph";
+import definePlugin, { OptionType, PluginNative } from "@utils/types";
 import { find, wreq } from "@webpack";
+import { React } from "@webpack/common";
 
 interface Manifest {
     customSounds: Record<string, string>;
@@ -15,12 +19,94 @@ interface Manifest {
 
 type SoundContext = ((key: string) => string) & { keys(): string[]; resolve(key: string): unknown; };
 
+const Native = VencordNative.pluginHelpers.Retroless as PluginNative<typeof import("./native")>;
+
+const PRESETS = ["#e94221", "#dda052", "#3ddc97", "#4fb8c9", "#b58cff", "#ff5fa2"];
+
+function AccentPicker() {
+    const { accent } = settings.use(["accent"]);
+    return (
+        <section>
+            <Heading>Accent color</Heading>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <input
+                    type="color"
+                    value={accent}
+                    onChange={event => { settings.store.accent = event.currentTarget.value; applyTheme(); }}
+                    style={{ width: 48, height: 32, padding: 0, border: "1px solid var(--border-subtle)", background: "none", cursor: "pointer" }}
+                />
+                {PRESETS.map(color => (
+                    <button
+                        key={color}
+                        aria-label={color}
+                        onClick={() => { settings.store.accent = color; applyTheme(); }}
+                        style={{ width: 28, height: 28, background: color, border: color === accent ? "2px solid var(--text-default)" : "1px solid var(--border-subtle)", cursor: "pointer" }}
+                    />
+                ))}
+                <Paragraph>{accent}</Paragraph>
+            </div>
+        </section>
+    );
+}
+
+function SoundFolder() {
+    const [folder, setFolder] = React.useState("");
+    React.useEffect(() => { void Native.getSoundFolder().then(setFolder); }, []);
+    return (
+        <section>
+            <Heading>Your own sounds</Heading>
+            <Paragraph>
+                Audio files in this folder replace the bundled pack. Name a file after a pack sound
+                (mention, receive, hover, select...) or a Discord event (message1, user_join, call_ringing...).
+                WAV, OGG, MP3, FLAC and M4A are supported.
+            </Paragraph>
+            <Paragraph style={{ margin: "8px 0", userSelect: "text" }}>{folder}</Paragraph>
+            <div style={{ display: "flex", gap: 8 }}>
+                <Button size="small" onClick={() => Native.openSoundFolder()}>Open folder</Button>
+                <Button size="small" variant="secondary" onClick={() => reloadSounds()}>Reload sounds</Button>
+            </div>
+        </section>
+    );
+}
+
+const percent = (description: string, fallback: number) => ({
+    type: OptionType.SLIDER as const,
+    description,
+    default: fallback,
+    markers: [0, 25, 50, 75, 100],
+    stickToMarkers: false,
+    onChange: () => applyTheme()
+});
+
+const toggle = (description: string, fallback = true) => ({
+    type: OptionType.BOOLEAN as const,
+    description,
+    default: fallback,
+    onChange: () => applyTheme()
+});
+
 const settings = definePluginSettings({
+    accent: {
+        type: OptionType.COMPONENT,
+        default: "#e94221",
+        component: AccentPicker
+    },
+    scanlines: percent("Scanline strength", 25),
+    grain: percent("Film grain", 18),
+    vignette: percent("Vignette", 55),
+    flicker: toggle("CRT flicker", false),
+    pixelIcons: toggle("Pixel icons"),
+    motion: toggle("Menu and selection animations"),
+    avatarFilter: toggle("Warm filter and scanlines on avatars"),
     baseUrl: {
         type: OptionType.STRING,
-        description: "Folder that holds manifest.json and the WAV files",
+        description: "Sound pack folder (manifest.json and audio files)",
         default: "https://raw.githubusercontent.com/leriart/Retroless/main/sounds/",
         restartNeeded: true
+    },
+    soundFolder: {
+        type: OptionType.COMPONENT,
+        component: SoundFolder
     },
     replaceDiscord: {
         type: OptionType.BOOLEAN,
@@ -56,11 +142,36 @@ const settings = definePluginSettings({
     }
 });
 
+function applyTheme() {
+    const store = settings.store;
+    let style = document.getElementById("retroless-config") as HTMLStyleElement | null;
+    if (!style) {
+        style = document.createElement("style");
+        style.id = "retroless-config";
+        document.head.append(style);
+    }
+
+    const rules = [
+        `--rl-accent: ${/^#[0-9a-f]{6}$/i.test(store.accent) ? store.accent : "#e94221"}`,
+        `--rl-scanline-opacity: ${store.scanlines / 100}`,
+        `--rl-grain-opacity: ${store.grain / 100}`,
+        `--rl-vignette-opacity: ${store.vignette / 100}`,
+        `--rl-flicker-duration: ${store.flicker ? "6s" : "0s"}`,
+        `--rl-icons: ${store.pixelIcons ? "on" : "off"}`,
+        `--rl-motion: ${store.motion ? "on" : "off"}`
+    ];
+    if (!store.avatarFilter) rules.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");
+
+    style.textContent = `:root:root {\n${rules.map(rule => `    ${rule};`).join("\n")}\n}`;
+}
+
 const SEASONAL = /^(halloween|winter|asmr|bit|bop|ducky|lofi)_/;
 const ALIASES: Record<string, string> = { defean: "deafen", undefean: "undeafen" };
 const INTERACTIVE = 'a[href], button, [role="button"], [role="tab"], [role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"], [role="option"], [role="switch"], [role="listitem"], [role="treeitem"], [data-list-item-id]';
 
 const blobs = new Map<string, string>();
+const localBlobs = new Map<string, string>();
+const localBuffers = new Map<string, AudioBuffer>();
 const buffers = new Map<string, AudioBuffer>();
 const disposers: Array<() => void> = [];
 const lastPlayed = new Map<string, number>();
@@ -78,10 +189,29 @@ function fileFor(name: string) {
     return manifest.customSounds[name] ?? manifest.customSounds[base] ?? manifest.customSounds[ALIASES[base] ?? ""] ?? null;
 }
 
+const stem = (file: string) => file.replace(/\.[^.]+$/, "").toLowerCase();
+
 function resolveSound(key: string) {
+    if (!settings.store.replaceDiscord) return null;
     const name = key.replace(/^\.\//, "").replace(/\.mp3$/, "");
-    const file = settings.store.replaceDiscord ? fileFor(name) : null;
-    return (file && blobs.get(file)) || null;
+    const file = fileFor(name);
+    return localBlobs.get(name) ?? (file && (localBlobs.get(stem(file)) ?? blobs.get(file))) ?? null;
+}
+
+async function reloadSounds() {
+    for (const url of localBlobs.values()) URL.revokeObjectURL(url);
+    localBlobs.clear();
+    localBuffers.clear();
+
+    try {
+        for (const sound of await Native.readLocalSounds()) {
+            const bytes = new Uint8Array(sound.data);
+            localBlobs.set(sound.name, URL.createObjectURL(new Blob([bytes], { type: sound.type })));
+            if (audio) localBuffers.set(sound.name, await audio.decodeAudioData(bytes.buffer.slice(0)));
+        }
+    } catch (error) {
+        console.error("[Retroless] could not read the local sound folder", error);
+    }
 }
 
 async function load() {
@@ -103,7 +233,7 @@ async function load() {
 
 function play(name: string, gap = 0) {
     const file = manifest?.ui[name];
-    const buffer = file && buffers.get(file);
+    const buffer = localBuffers.get(name) ?? (file && (localBuffers.get(stem(file)) ?? buffers.get(file)));
     if (!buffer || !audio || !settings.store.interfaceSounds) return;
 
     const now = performance.now();
@@ -182,18 +312,22 @@ function hookInterface() {
 }
 
 export default definePlugin({
-    name: "RetrolessSounds",
-    description: "Replaces Discord sounds with the RETROLESS signal pack and adds terminal interface sounds",
+    name: "Retroless",
+    description: "RETROLESS companion: theme settings (accent, CRT, icons, motion), replaced Discord sounds and interface sounds",
     authors: [{ name: "leriart", id: 0n }],
     settings,
 
     async start() {
+        applyTheme();
+
         try {
             await load();
         } catch (error) {
-            console.error("[RetrolessSounds] could not load the sound pack", error);
-            return;
+            console.error("[Retroless] could not load the sound pack", error);
+            audio ??= new AudioContext();
+            manifest ??= { customSounds: {}, ui: {} };
         }
+        await reloadSounds();
 
         hookDiscordSounds();
         hookInterface();
@@ -201,6 +335,10 @@ export default definePlugin({
     },
 
     stop() {
+        document.getElementById("retroless-config")?.remove();
+        for (const url of localBlobs.values()) URL.revokeObjectURL(url);
+        localBlobs.clear();
+        localBuffers.clear();
         for (const dispose of disposers.splice(0)) dispose();
         if (moduleId && original) wreq.c[moduleId].exports = original;
         for (const url of blobs.values()) URL.revokeObjectURL(url);

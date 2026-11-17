@@ -48,7 +48,7 @@ https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css
 
 4. Activa `RETROLESS`. Reinicia Discord si la interfaz no se refresca.
 
-Si una actualización no aparece, añade una versión a la URL, por ejemplo `?v=2.0.0`, o cierra Discord por completo desde la bandeja y vuelve a abrirlo.
+Si una actualización no aparece, añade una versión a la URL, por ejemplo `?v=2.1.0`, o cierra Discord por completo desde la bandeja y vuelve a abrirlo.
 
 ### Descarga
 
@@ -56,17 +56,27 @@ Si una actualización no aparece, añade una versión a la URL, por ejemplo `?v=
 2. Abre `Vencord` -> `Themes` -> `Local Themes` -> `Open Themes Folder` y suelta ahí el archivo.
 3. Activa `RETROLESS`. Funciona sin conexión.
 
-## Color de acento
+## Configuración
 
-Todo el naranja de la interfaz sale de una sola variable. Pon esto en `Vencord` -> `Themes` -> `QuickCSS` para recolorear el tema entero:
+Tres formas, de la más fácil a la más manual:
+
+1. **Dentro de Discord**: con el plugin `Retroless` instalado (ver Sonidos), abre `Ajustes` -> `Plugins` -> `Retroless`. Tiene selector de acento con colores predefinidos, deslizadores para scanlines, grano y viñeta, e interruptores para parpadeo CRT, iconos pixel, animaciones y filtro de avatares. Los cambios se aplican al momento.
+2. **En la página**: la tarjeta `CONFIGURE` tiene los mismos controles. `DOWNLOAD CSS` te da el tema con tu configuración incluida; `COPY FOR QUICKCSS` te da un bloque para pegar en `Vencord` -> `Themes` -> `QuickCSS`.
+3. **A mano** en QuickCSS:
 
 ```css
-:root {
+:root:root {
     --rl-accent: #3ddc97;
+    --rl-scanline-opacity: 0.25;
+    --rl-grain-opacity: 0.18;
+    --rl-vignette-opacity: 0.55;
+    --rl-flicker-duration: 0s;
+    --rl-icons: on;
+    --rl-motion: on;
 }
 ```
 
-Selecciones, bordes, brillos, iconos, insignias, la marca de arranque y los tokens de marca de Discord la siguen.
+Todos los tonos de acento salen de `--rl-accent`. `--rl-icons: off` devuelve los iconos nativos de Discord y `--rl-motion: off` desactiva las animaciones.
 
 ## Conflictos entre temas
 
@@ -78,7 +88,7 @@ Instala RETROLESS desde `Online Themes` o `Local Themes`. No pegues el tema comp
 
 ## Movimiento
 
-Los menús contextuales y modales abren con un barrido CRT por pasos. Los elementos del menú entran en secuencia, hacen glitch al pasar el cursor y reciben un barrido corto. Los canales y servidores seleccionados parpadean una vez, y los badges de no leídos pulsan. Todo se desactiva automáticamente con `prefers-reduced-motion: reduce`.
+Todo el movimiento va a saltos, como un terminal redibujándose. Los menús y modales se encienden con un barrido CRT y sus elementos llegan en secuencia. Al cambiar de canal el chat se redibuja desde una línea horizontal, las listas entran deslizándose y las transiciones propias de Discord se cuantizan en pasos. Al pasar el cursor por una fila o botón destella, al pulsar se invierte un instante, los iconos de servidor tiemblan, las reacciones e insignias saltan y el indicador de escritura termina en un cursor parpadeante. Todo se desactiva con `prefers-reduced-motion: reduce` o con `--rl-motion: off`.
 
 ```css
 :root {
@@ -111,7 +121,7 @@ El tema también reemplaza la pantalla de carga interna de Discord: oculta el lo
 
 ## Sonidos
 
-Los temas son solo CSS y no pueden reproducir audio, así que de los sonidos se encarga `RetrolessSounds`, un pequeño userplugin de Vencord en `plugin/retrolessSounds`. Sustituye los sonidos propios de Discord (mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades) por el pack de señal de RETROLESS y añade sonidos de interfaz: ticks al pasar el cursor, seleccionar, volver, navegar, interruptores, abrir y cerrar menús, teclear y enviar.
+Los temas son solo CSS y no pueden reproducir audio, así que de los sonidos se encarga `Retroless`, un pequeño userplugin de Vencord en `plugin/retroless`. Sustituye los sonidos propios de Discord (mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades) por el pack de señal de RETROLESS y añade sonidos de interfaz: ticks al pasar el cursor, seleccionar, volver, navegar, interruptores, abrir y cerrar menús, teclear y enviar.
 
 El pack de `sounds/` es audio original sintetizado e inspirado en REPLACED. No incluye ni redistribuye audio del juego. Es CC0; cambia cualquier WAV por el tuyo usando el mismo nombre.
 
@@ -120,14 +130,20 @@ El pack de `sounds/` es audio original sintetizado e inspirado en REPLACED. No i
 ```bash
 git clone https://github.com/leriart/Retroless.git
 cd Retroless
-./scripts/install-sounds.sh
+./scripts/install-plugin.sh
 ```
 
-El script compila Vencord con el plugin y apunta Vesktop a esa compilación. Reinicia Vesktop y activa `RetrolessSounds` en `Ajustes` -> `Plugins`. Ejecútalo otra vez para actualizar, o con `--uninstall` para volver a la compilación original.
+El script compila Vencord con el plugin y apunta Vesktop a esa compilación. Reinicia Vesktop y activa `Retroless` en `Ajustes` -> `Plugins`. Ejecútalo otra vez para actualizar, o con `--uninstall` para volver a la compilación original.
+
+### Tus propios sonidos
+
+Los ajustes del plugin muestran una carpeta `retroless-sounds` con un botón `Open folder`. Cualquier audio que pongas ahí sustituye al sonido incluido con el mismo nombre: usa un nombre del pack (`mention`, `receive`, `hover`, `select`, `back`...) o el nombre de un evento de Discord (`message1`, `user_join`, `call_ringing`...). Sirven WAV, OGG, MP3, FLAC y M4A. Pulsa `Reload sounds` después de cambiar archivos.
+
+Esta es la vía para usar audio que tengas derecho a usar, como los archivos de un juego que tengas comprado. Este repositorio no incluye ni distribuye audio del juego.
 
 ### Cualquier Vencord compilado desde el código
 
-Copia `plugin/retrolessSounds` en `src/userplugins/` de tu copia de Vencord y ejecuta `pnpm build` y `pnpm inject`.
+Copia `plugin/retroless` en `src/userplugins/` de tu copia de Vencord y ejecuta `pnpm build` y `pnpm inject`.
 
 En los ajustes del plugin puedes desactivar los sonidos sustituidos de Discord, los de interfaz, los ticks de cursor, los de teclado y la señal de arranque, y ajustar el volumen. El mapeo de eventos está en `sounds/manifest.json`; hay una vista previa en `docs/sounds.html`. En Equicord puedes subir los WAV en su plugin `CustomSounds`.
 

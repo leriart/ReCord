@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0
+
+- Fixed images and videos not opening in the viewer: the modal animation left a `clip-path` on Discord's zero-size dialog wrapper, which clipped the whole viewer
+- The plugin is now `Retroless` (`plugin/retroless`) and has in-app theme settings: accent picker, scanlines, grain, vignette, flicker, pixel icons, animations and avatar filter
+- Added a local `retroless-sounds` folder: any audio file placed there replaces the bundled sound with the same name
+- Landing page configurator: same controls, downloads a theme with the settings baked in or copies a QuickCSS block
+- Added `--rl-icons` and `--rl-motion` switches
+- Motion pass: stepped transitions everywhere, beam redraw on channel switch, list slide-in, hover flash, press invert, icon jitter, reaction pop, typing cursor
+- `scripts/install-sounds.sh` renamed to `scripts/install-plugin.sh`
+
 ## 2.0.0
 
 - Fixed attachments, GIFs and embeds staying hidden: a forced `opacity: 1` kept Discord's blurred placeholder on top of the loaded image

@@ -50,7 +50,7 @@ https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css
 
 4. Enable `RETROLESS`. Restart Discord if the interface does not refresh.
 
-If an update does not appear, add a version query such as `?v=2.0.0` to the URL or fully close Discord from the tray and reopen it.
+If an update does not appear, add a version query such as `?v=2.1.0` to the URL or fully close Discord from the tray and reopen it.
 
 ### Download
 
@@ -58,17 +58,27 @@ If an update does not appear, add a version query such as `?v=2.0.0` to the URL 
 2. Open `Vencord` -> `Themes` -> `Local Themes` -> `Open Themes Folder` and drop the file there.
 3. Enable `RETROLESS`. It works offline.
 
-## Accent color
+## Configure
 
-Every orange in the interface derives from one variable. Put this in `Vencord` -> `Themes` -> `QuickCSS` to recolor the whole theme:
+Three ways, from easiest to most manual:
+
+1. **In Discord**: with the `Retroless` plugin installed (see Sounds), open `Settings` -> `Plugins` -> `Retroless`. It has an accent picker with presets, sliders for scanlines, grain and vignette, and switches for CRT flicker, pixel icons, animations and the avatar filter. Changes apply live.
+2. **On the landing page**: the `CONFIGURE` card has the same controls. `DOWNLOAD CSS` gives you a theme file with your settings baked in; `COPY FOR QUICKCSS` gives you a block to paste into `Vencord` -> `Themes` -> `QuickCSS`.
+3. **By hand** in QuickCSS:
 
 ```css
-:root {
+:root:root {
     --rl-accent: #3ddc97;
+    --rl-scanline-opacity: 0.25;
+    --rl-grain-opacity: 0.18;
+    --rl-vignette-opacity: 0.55;
+    --rl-flicker-duration: 0s;
+    --rl-icons: on;
+    --rl-motion: on;
 }
 ```
 
-Selections, borders, glows, icons, badges, the boot mark and Discord's brand tokens all follow it.
+Every accent shade in the interface derives from `--rl-accent`. `--rl-icons: off` restores Discord's native icons and `--rl-motion: off` disables the animations.
 
 ## Theme conflicts
 
@@ -80,7 +90,7 @@ Install RETROLESS through `Online Themes` or `Local Themes`. Do not paste the wh
 
 ## Motion
 
-Context menus and modals open with a stepped CRT wipe. Menu items arrive in sequence, glitch on hover and receive a short scan sweep. Selected channels and servers flash once, and unread badges pulse. Everything is disabled automatically under `prefers-reduced-motion: reduce`.
+All motion is stepped, like a terminal redrawing itself. Context menus and modals power on with a CRT wipe and menu items arrive in sequence with a scan sweep. Switching channel redraws the chat from a horizontal beam, lists slide in, and Discord's own transitions are quantized into steps. Hovering a row or button flashes it, pressing inverts it for a frame, server icons jitter, reactions and badges pop, and the typing indicator ends in a blinking cursor. Everything is disabled under `prefers-reduced-motion: reduce` or with `--rl-motion: off`.
 
 ```css
 :root {
@@ -113,7 +123,7 @@ The theme also replaces Discord's in-app loading screen: the Discord logo and sp
 
 ## Sounds
 
-Themes are CSS-only and cannot play audio, so sounds are handled by `RetrolessSounds`, a small Vencord userplugin in `plugin/retrolessSounds`. It replaces Discord's own sounds (messages, mentions, mute, deafen, join, leave, calls, streams, camera, push-to-talk, activities) with the RETROLESS signal pack and adds interface sounds: hover ticks, select, back, navigation, toggles, menu open and close, typing and send.
+Themes are CSS-only and cannot play audio, so sounds are handled by `Retroless`, a small Vencord userplugin in `plugin/retroless`. It replaces Discord's own sounds (messages, mentions, mute, deafen, join, leave, calls, streams, camera, push-to-talk, activities) with the RETROLESS signal pack and adds interface sounds: hover ticks, select, back, navigation, toggles, menu open and close, typing and send.
 
 The pack in `sounds/` is original synthesized audio inspired by REPLACED. No game audio is bundled or redistributed. It is CC0; replace any WAV with your own using the same filename.
 
@@ -122,16 +132,22 @@ The pack in `sounds/` is original synthesized audio inspired by REPLACED. No gam
 ```bash
 git clone https://github.com/leriart/Retroless.git
 cd Retroless
-./scripts/install-sounds.sh
+./scripts/install-plugin.sh
 ```
 
-The script builds Vencord with the plugin and points Vesktop at that build. Restart Vesktop and enable `RetrolessSounds` in `Settings` -> `Plugins`. Run it again to update, or with `--uninstall` to go back to the stock build.
+The script builds Vencord with the plugin and points Vesktop at that build. Restart Vesktop and enable `Retroless` in `Settings` -> `Plugins`. Run it again to update, or with `--uninstall` to go back to the stock build.
+
+### Your own sounds
+
+The plugin settings show a `retroless-sounds` folder with an `Open folder` button. Any audio file you put there replaces the bundled sound with the same name: use a pack name (`mention`, `receive`, `hover`, `select`, `back`...) or a Discord event name (`message1`, `user_join`, `call_ringing`...). WAV, OGG, MP3, FLAC and M4A work. Press `Reload sounds` after changing files.
+
+This is the way to use audio you have the rights to use, such as files from a game you own. This repository does not include or distribute game audio.
 
 ### Any Vencord built from source
 
-Copy `plugin/retrolessSounds` into `src/userplugins/` of your Vencord checkout, then `pnpm build` and `pnpm inject`.
+Copy `plugin/retroless` into `src/userplugins/` of your Vencord checkout, then `pnpm build` and `pnpm inject`.
 
-Plugin settings let you turn off replaced Discord sounds, interface sounds, hover ticks, typing ticks and the boot signal, and set the interface volume. The event mapping lives in `sounds/manifest.json`; a browser preview is at `docs/sounds.html`. Equicord users can instead upload the WAV files in its `CustomSounds` plugin.
+Besides the theme controls, plugin settings let you turn off replaced Discord sounds, interface sounds, hover ticks, typing ticks and the boot signal, and set the interface volume. The event mapping lives in `sounds/manifest.json`; a browser preview is at `docs/sounds.html`. Equicord users can instead upload the WAV files in its `CustomSounds` plugin.
 
 ## Palette
 
