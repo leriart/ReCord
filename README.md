@@ -13,6 +13,7 @@ RETROLESS takes the visual language of REPLACED's menus and translates it into a
 - Square geometry with one-pixel rules and notched accents
 - A fixed CRT layer: scanlines, film grain, vignette, corner brackets
 - Full Discord coverage: chat, guild rail, member list, profiles, settings, modals, menus, pickers, voice, and Vencord settings
+- REPLACED-style menu motion: left-to-right terminal wipe, staggered entries, glitch hover, scan sweep and badge pulse
 - Modular CSS, loaded directly from GitHub raw
 - Reduced-motion support
 
@@ -70,6 +71,18 @@ Run RETROLESS as the only theme. ClearVision, Midnight, System24, Ryoku, Selene,
 Also use Discord's `Dark` or `Darker` appearance. RETROLESS forces dark surfaces, but a light Discord appearance can still leak into native components.
 
 Install RETROLESS through `Online Themes` or `Local Themes`. Do not paste the whole theme into QuickCSS; use QuickCSS only for token overrides.
+
+## Motion
+
+Context menus and modals open with a stepped CRT wipe. Menu items arrive in sequence, glitch on hover and receive a short scan sweep. Selected channels and servers flash once, and unread badges pulse. Everything is disabled automatically under `prefers-reduced-motion: reduce`.
+
+```css
+:root {
+    --rl-menu-duration: 190ms;
+    --rl-item-duration: 150ms;
+    --rl-glitch-duration: 220ms;
+}
+```
 
 ## Palette
 
@@ -153,7 +166,8 @@ Retroless/
 │   ├── 09-overlays.css
 │   ├── 10-settings.css
 │   ├── 11-effects.css
-│   └── 12-priority.css
+│   ├── 12-priority.css
+│   └── 13-motion.css
 ├── assets/
 │   ├── brand/               mark, corners, grain, skyline
 │   └── fonts/               Pixel Operator (CC0)

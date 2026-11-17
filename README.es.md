@@ -13,6 +13,7 @@ RETROLESS traslada el lenguaje visual de los menús de REPLACED a Discord:
 - Geometría recta, reglas de un píxel y esquinas marcadas
 - Capa CRT fija: scanlines, grano, viñeta y corchetes
 - Cobertura completa: chat, servidores, miembros, perfiles, ajustes, modales, menús, pickers, voz y ajustes de Vencord
+- Animación de menús estilo REPLACED: barrido de terminal de izquierda a derecha, entrada escalonada, glitch al pasar el cursor, barrido y pulso de badges
 - CSS modular cargado directamente desde GitHub raw
 - Soporte para movimiento reducido
 
@@ -68,6 +69,18 @@ Usa RETROLESS como único tema. ClearVision, Midnight, System24, Ryoku, Selene y
 Usa también la apariencia `Dark` o `Darker` de Discord. RETROLESS fuerza superficies oscuras, pero el modo claro puede filtrarse en componentes nativos.
 
 Instala RETROLESS desde `Online Themes` o `Local Themes`. No pegues el tema completo en QuickCSS; usa QuickCSS solo para sobrescribir tokens.
+
+## Movimiento
+
+Los menús contextuales y modales abren con un barrido CRT por pasos. Los elementos del menú entran en secuencia, hacen glitch al pasar el cursor y reciben un barrido corto. Los canales y servidores seleccionados parpadean una vez, y los badges de no leídos pulsan. Todo se desactiva automáticamente con `prefers-reduced-motion: reduce`.
+
+```css
+:root {
+    --rl-menu-duration: 190ms;
+    --rl-item-duration: 150ms;
+    --rl-glitch-duration: 220ms;
+}
+```
 
 ## Paleta
 
@@ -151,7 +164,8 @@ Retroless/
 │   ├── 09-overlays.css
 │   ├── 10-settings.css
 │   ├── 11-effects.css
-│   └── 12-priority.css
+│   ├── 12-priority.css
+│   └── 13-motion.css
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
 │   └── fonts/               Pixel Operator (CC0)

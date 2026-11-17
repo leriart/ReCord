@@ -8,6 +8,15 @@ html.theme-midnight.theme-midnight,
 html.theme-light.theme-light {
     color-scheme: dark !important;
 
+    --radius-none: 0px !important;
+    --radius-xs: 0px !important;
+    --radius-sm: 0px !important;
+    --radius-md: 0px !important;
+    --radius-lg: 0px !important;
+    --radius-xl: 0px !important;
+    --radius-xxl: 0px !important;
+    --radius-round: 0px !important;
+
     --font-primary: var(--rl-font) !important;
     --font-display: var(--rl-font-display) !important;
     --font-headline: var(--rl-font-display) !important;
@@ -331,12 +340,10 @@ html body {
 #app-mount [data-list-item-id^="guildsnav___"][class*="selected"] [class*="childWrapper"],
 #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"][class*="selected"],
 #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"]:hover {
-    background-color: var(--rl-signal) !important;
+    background-color: var(--rl-raised) !important;
     border-color: var(--rl-signal) !important;
-    color: var(--rl-void) !important;
-    outline: 1px solid var(--rl-signal);
-    outline-offset: 2px;
-    box-shadow: 0 0 14px rgba(233, 66, 33, 0.28) !important;
+    color: var(--rl-signal) !important;
+    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.35), 0 0 10px rgba(233, 66, 33, 0.12) !important;
 }
 
 #app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] {
@@ -362,8 +369,7 @@ html body {
     background-color: var(--rl-panel) !important;
     border-color: var(--rl-signal) !important;
     background-image: url("../assets/brand/mark.svg") !important;
-    outline: 1px solid var(--rl-signal);
-    outline-offset: 2px;
+    box-shadow: inset 0 0 0 1px var(--rl-signal) !important;
 }
 
 #app-mount [class*="newBadge"],
@@ -469,4 +475,66 @@ html body {
 #app-mount [class*="avatar"] img {
     opacity: 1 !important;
     filter: none !important;
+}
+
+
+#app-mount [class*="guilds"] * {
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="folderIcon"],
+#app-mount [class*="folderButton"],
+#app-mount [class*="folderPreviewWrapper"],
+#app-mount [class*="folderPreviewGuildIcon"],
+#app-mount [class*="folderGroupBackground"] {
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="folderPreview"] {
+    overflow: visible !important;
+    background-color: transparent !important;
+}
+
+#app-mount [class*="folderPreviewWrapper"] {
+    background-color: rgba(212, 180, 150, 0.06) !important;
+    border: 1px solid var(--rl-line) !important;
+}
+
+#app-mount [class*="folderPreview"] img,
+#app-mount [class*="folderPreviewGuildIcon"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+    filter: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="folderPreview"] img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+#app-mount [class*="folderPreviewGuildIcon"] {
+    overflow: hidden !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+#app-mount [class*="replyBar"],
+#app-mount [class*="repliedMessage"],
+#app-mount [class*="reply"] {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+#app-mount [data-list-item-id^="guildsnav___"] [class*="pill_"] {
+    width: 2px !important;
+    background: var(--rl-signal) !important;
+    box-shadow: 0 0 6px rgba(233, 66, 33, 0.3) !important;
 }

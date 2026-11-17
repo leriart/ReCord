@@ -1,0 +1,260 @@
+/* menu motion */
+
+:root {
+    --rl-menu-duration: 190ms;
+    --rl-item-duration: 150ms;
+    --rl-glitch-duration: 220ms;
+}
+
+@keyframes rl-menu-in {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        filter: brightness(2) saturate(1.4);
+    }
+    22% {
+        opacity: 0.4;
+        clip-path: inset(0 72% 0 0);
+    }
+    48% {
+        opacity: 0.8;
+        clip-path: inset(0 34% 0 0);
+    }
+    72% {
+        opacity: 1;
+        clip-path: inset(0 8% 0 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0);
+        filter: none;
+    }
+}
+
+@keyframes rl-modal-in {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        filter: brightness(1.9);
+    }
+    35% {
+        opacity: 0.55;
+        clip-path: inset(0 0 54% 0);
+    }
+    70% {
+        opacity: 1;
+        clip-path: inset(0 0 12% 0);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(0);
+        filter: none;
+    }
+}
+
+@keyframes rl-pop-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-3px);
+        filter: brightness(1.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: none;
+    }
+}
+
+@keyframes rl-item-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rl-glitch {
+    0%,
+    100% {
+        transform: translateX(0);
+        text-shadow: none;
+    }
+    20% {
+        transform: translateX(1px);
+        text-shadow: 1px 0 var(--rl-signal), -1px 0 var(--rl-teal);
+    }
+    45% {
+        transform: translateX(-1px);
+        text-shadow: -1px 0 var(--rl-signal), 1px 0 var(--rl-teal);
+    }
+    70% {
+        transform: translateX(1px);
+        text-shadow: 1px 0 var(--rl-signal-soft), -1px 0 var(--rl-teal);
+    }
+}
+
+@keyframes rl-sweep {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes rl-channel-on {
+    0% {
+        filter: brightness(1.8);
+        box-shadow: inset 2px 0 var(--rl-signal);
+    }
+    100% {
+        filter: none;
+        box-shadow: inset 2px 0 var(--rl-signal);
+    }
+}
+
+@keyframes rl-icon-on {
+    0% {
+        filter: brightness(2);
+        transform: scale(0.96);
+    }
+    100% {
+        filter: none;
+        transform: scale(1);
+    }
+}
+
+@keyframes rl-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.72;
+    }
+}
+
+[role="menu"] {
+    transform-origin: top left;
+    animation: rl-menu-in var(--rl-menu-duration) steps(4, end) both;
+}
+
+[role="menu"] [role="menuitem"] {
+    position: relative;
+    overflow: hidden;
+    font-family: var(--rl-font-display);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    animation: rl-item-in var(--rl-item-duration) steps(3, end) both;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(1) {
+    animation-delay: 15ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(2) {
+    animation-delay: 30ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(3) {
+    animation-delay: 45ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(4) {
+    animation-delay: 60ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(5) {
+    animation-delay: 75ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(6) {
+    animation-delay: 90ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(7) {
+    animation-delay: 105ms;
+}
+
+[role="menu"] [role="menuitem"]:nth-child(8) {
+    animation-delay: 120ms;
+}
+
+[role="menu"] [role="menuitem"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(240, 222, 198, 0.16), transparent);
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+[role="menu"] [role="menuitem"]:hover,
+[role="menu"] [role="menuitem"]:focus-visible {
+    animation: rl-glitch var(--rl-glitch-duration) steps(2, end) both;
+    box-shadow: inset 2px 0 var(--rl-signal);
+}
+
+[role="menu"] [role="menuitem"]:hover::after,
+[role="menu"] [role="menuitem"]:focus-visible::after {
+    animation: rl-sweep 240ms steps(4, end) both;
+}
+
+[role="dialog"],
+[class*="modal_"] {
+    animation: rl-modal-in var(--rl-menu-duration) steps(4, end) both;
+}
+
+[class*="popout_"],
+[class*="popover_"],
+[class*="autocomplete_"] {
+    transform-origin: top left;
+    animation: rl-pop-in 150ms steps(3, end) both;
+}
+
+[role="tooltip"],
+[class*="tooltip_"] {
+    animation: rl-pop-in 110ms steps(2, end) both;
+}
+
+[data-list-item-id^="channels___"][class*="modeSelected"] {
+    animation: rl-channel-on 160ms steps(3, end) both;
+}
+
+[data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"] {
+    animation: rl-icon-on 160ms steps(3, end) both;
+}
+
+[class*="numberBadge"],
+[class*="mentionBadge"] {
+    animation: rl-pulse 2.4s steps(2, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [role="menu"],
+    [role="menu"] [role="menuitem"],
+    [role="menu"] [role="menuitem"]::after,
+    [role="dialog"],
+    [class*="modal_"],
+    [class*="popout_"],
+    [class*="popover_"],
+    [class*="autocomplete_"],
+    [role="tooltip"],
+    [class*="tooltip_"],
+    [data-list-item-id^="channels___"][class*="modeSelected"],
+    [data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"],
+    [class*="numberBadge"],
+    [class*="mentionBadge"] {
+        animation: none !important;
+    }
+}
