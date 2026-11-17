@@ -898,12 +898,45 @@ button {
         width: min(100% - 28px, 1240px);
     }
 
-    .topnav {
-        display: none;
+    .topbar-inner {
+        flex-wrap: wrap;
+        row-gap: 8px;
     }
 
-    .top-version {
+    .topnav {
+        order: 3;
+        flex: 1 0 100%;
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+    }
+
+    .topnav a {
+        flex: 0 0 auto;
+    }
+
+    .lang-toggle {
         margin-left: auto;
+    }
+
+    .accent-range {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .accent-toggles {
+        grid-template-columns: 1fr;
+    }
+
+    .accent-actions .btn {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .steps li {
+        padding-right: 0;
     }
 
     .hero-inner {
@@ -1224,4 +1257,76 @@ button {
 .lang-toggle:focus-visible {
     background: var(--rl-signal);
     color: var(--rl-void);
+}
+
+/* keep every column inside the viewport: grid and flex children may shrink */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.hero-inner > *,
+.install > *,
+.tree > *,
+.feature-grid > *,
+.palette-grid > *,
+.accent-body > *,
+.accent-range > *,
+.section-head > * {
+    min-width: 0;
+}
+
+.code-card,
+.terminal-card,
+.raw-line {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.code-card pre,
+.tree pre,
+.accent-output {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.raw-line code {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.accent-range input,
+.accent-range select {
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.accent-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--rl-bone);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+}
+
+.accent-check input {
+    accent-color: var(--rl-signal);
+}
+
+.accent-range input[type="color"] {
+    width: 44px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid var(--rl-line-hot);
+    background: var(--rl-void);
+    cursor: pointer;
 }

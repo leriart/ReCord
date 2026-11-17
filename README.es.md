@@ -54,6 +54,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | --- | --- |
 | Modo de color | Seguir la apariencia de Discord, terminal oscuro, papel claro |
 | Acento | Cualquier color; todos los tonos de acento salen de él |
+| Colores libres | Tu propio color de fondo y de texto; paneles, bordes y texto secundario los siguen |
 | Imagen de fondo | Tu propia imagen, con oscurecido y opacidad de paneles |
 | Animaciones | Completas, sutiles (solo menús y diálogos), desactivadas |
 | Tipografía | Pixel Operator, Pixel Operator Mono, monoespaciada del sistema, la de Discord |
@@ -93,6 +94,7 @@ El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en Q
 - **Panel de ajustes** con todas las opciones de arriba.
 - **Sonidos de Discord sustituidos**: mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades.
 - **Sonidos de interfaz**: cursor, seleccionar, volver, navegar, interruptores, abrir y cerrar menús, teclear, enviar, arranque.
+- **Control de sonidos**: una lista con cada sonido, su interruptor y un botón para oírlo; un volumen para los sonidos de interfaz y otro para los sonidos de Discord sustituidos.
 - **Tus propios sonidos**: cualquier audio en la carpeta `record-sounds` (hay un botón en los ajustes) sustituye al sonido incluido del mismo nombre, sea un nombre del pack (`mention`, `hover`...) o un evento de Discord (`message1`, `user_join`...). WAV, OGG, MP3, FLAC y M4A.
 
 El instalador compila Vencord con el plugin y apunta Vesktop a esa compilación, así que ahí Vencord deja de actualizarse solo; vuelve a ejecutar el instalador para actualizar. En cualquier otro Vencord compilado desde el código, copia `plugin/record` en `src/userplugins/` y ejecuta `pnpm build && pnpm inject`.

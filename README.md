@@ -54,6 +54,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | --- | --- |
 | Color mode | Follow Discord appearance, dark terminal, light paper |
 | Accent | Any color; every accent shade derives from it |
+| Free colors | Your own background and text colors; panels, borders and secondary text follow |
 | Background image | Your own picture, with darkening and panel opacity |
 | Animations | Full, subtle (menus and dialogs only), off |
 | Typeface | Pixel Operator, Pixel Operator Mono, system monospace, Discord default |
@@ -93,6 +94,7 @@ Light mode follows Discord's own `Appearance` -> `Light`. A background URL in Qu
 - **Settings panel** for every option above.
 - **Replaced Discord sounds**: messages, mentions, mute, deafen, join, leave, calls, streams, camera, push-to-talk, activities.
 - **Interface sounds**: hover, select, back, navigation, toggles, menu open and close, typing, send, boot.
+- **Sound control**: a list of every sound with a switch and a Play button, one volume for interface sounds and another for the replaced Discord sounds.
 - **Your own sounds**: any audio file in the `record-sounds` folder (button in the settings) replaces the bundled sound with the same name, either a pack name (`mention`, `hover`...) or a Discord event (`message1`, `user_join`...). WAV, OGG, MP3, FLAC and M4A.
 
 The installer builds Vencord with the plugin and points Vesktop at that build, so Vencord stops updating itself there; run the installer again to update. For any other Vencord built from source, copy `plugin/record` into `src/userplugins/` and run `pnpm build && pnpm inject`.

@@ -41,7 +41,7 @@
                 <a href="sounds.html">SOUNDS</a>
             </nav>
             <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
-            <span class="top-version">V3.3.0</span>
+            <span class="top-version">V3.4.0</span>
         </div>
     </header>
 
@@ -263,6 +263,9 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                                         <button type="button" data-accent="#b58cff" style="--swatch: #b58cff" aria-label="Violet"></button>
                                         <button type="button" data-accent="#ff5fa2" style="--swatch: #ff5fa2" aria-label="Pink"></button>
                                     </div>
+                                    <label class="accent-check"><input type="checkbox" id="custom"> <span>CUSTOM COLORS</span></label>
+                                    <label class="accent-range"><span>BG COLOR</span><input type="color" id="bg-color" value="#050605"></label>
+                                    <label class="accent-range"><span>TEXT COLOR</span><input type="color" id="fg-color" value="#f0dec6"></label>
                                     <label class="accent-range"><span>MODE</span>
                                         <select id="mode">
                                             <option value="auto">Follow Discord appearance</option>
@@ -330,10 +333,10 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 
                     <div class="tree">
                         <pre><b>ReCord/</b>
-├── <b>ReCord.theme.css</b>      built theme, one file
+├── <b>ReCord.theme.css</b>      <span>built theme, one file</span>
 ├── src/
-│   ├── 00-tokens.css       palette + surface
-│   ├── 01-fonts.css        pixel operator faces
+│   ├── 00-tokens.css       <span>palette + surface</span>
+│   ├── 01-fonts.css        <span>pixel operator faces</span>
 │   ├── 02-tokens-discord.css
 │   ├── 03-base.css
 │   ├── 04-shell.css
@@ -350,10 +353,10 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 │   ├── 15-boot.css
 │   └── 16-replaced.css
 ├── assets/
-│   ├── brand/              mark, corners, grain
-│   ├── icons/              16x16 pixel icons
-│   └── fonts/              pixel operator (CC0)
-└── docs/                   preview + landing page</pre>
+│   ├── brand/              <span>mark, corners, grain</span>
+│   ├── icons/              <span>16x16 pixel icons</span>
+│   └── fonts/              <span>pixel operator (CC0)</span>
+└── docs/                   <span>preview + landing page</span></pre>
 
                         <div>
                             <p>
@@ -490,7 +493,22 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                 lines.push(`--rl-background-image: url("${background}")`, `--rl-background-dim: ${$("bg-dim").value}%`, `--rl-surface: ${$("surface").value}%`);
             }
 
-            const mode = $("mode").value;
+            if ($("custom").checked) {
+                const bg = $("bg-color").value;
+                const fg = $("fg-color").value;
+                const surface = amount => `color-mix(in srgb, ${fg} ${amount}%, ${bg})`;
+                const channel = offset => parseInt(bg.slice(offset, offset + 2), 16);
+                const light = channel(1) * 0.299 + channel(3) * 0.587 + channel(5) * 0.114 > 140;
+                lines.push(
+                    `color-scheme: ${light ? "light" : "dark"}`, `--rl-tint: ${fg}`, `--rl-void: ${bg}`,
+                    `--rl-ink-base: ${surface(2)}`, `--rl-coal-base: ${surface(4)}`, `--rl-panel-base: ${surface(6)}`,
+                    `--rl-raised-base: ${surface(9)}`, `--rl-high-base: ${surface(13)}`, `--rl-higher-base: ${surface(17)}`,
+                    `--rl-line: ${surface(24)}`, `--rl-cream: ${fg}`, `--rl-bone: ${surface(90)}`, `--rl-paper: ${surface(82)}`,
+                    `--rl-smoke: ${surface(62)}`, `--rl-ash: ${surface(50)}`, `--rl-faint: ${surface(38)}`
+                );
+            }
+
+            const mode = $("custom").checked ? "auto" : $("mode").value;
             const palette = mode === "auto" ? [] : palettes[mode].filter(([name]) => !["--rl-scanline-opacity", "--rl-vignette-opacity"].includes(name)).map(([name, value]) => `${name}: ${value}`);
             return `html:root:root {\n${[...palette, ...lines].map(line => `    ${line};`).join("\n")}\n}`;
         }

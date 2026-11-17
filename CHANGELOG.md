@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.4.0
+
+- Free colors: besides the accent, you can now pick your own background and text colors; panels, borders and secondary text are derived from them (plugin and configurator)
+- Plugin: a list of every sound with a switch and a Play button, so you choose which ones you want
+- Plugin: separate volume for the replaced Discord sounds, next to the interface volume
+- Website: remaining strings translated, including install comments, the file tree and page titles
+- Website: fits phones. The menu becomes a scrollable row, code blocks scroll inside their card and the configurator stacks
+
 ## 3.3.0
 
 Performance pass. Same look, less work for the browser.

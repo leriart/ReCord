@@ -49,6 +49,69 @@ function AccentPicker() {
     );
 }
 
+function colorSetting(key: "backgroundColor" | "textColor", title: string, note: string) {
+    return function ColorSetting() {
+        const store = settings.use([key, "customColors"]);
+        return (
+            <section>
+                <Heading>{title}</Heading>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, opacity: store.customColors ? 1 : 0.5 }}>
+                    <input
+                        type="color"
+                        value={store[key]}
+                        disabled={!store.customColors}
+                        onChange={event => { settings.store[key] = event.currentTarget.value; applyTheme(); }}
+                        style={{ width: 48, height: 32, padding: 0, border: "1px solid var(--border-subtle)", background: "none", cursor: "pointer" }}
+                    />
+                    <Paragraph>{store[key]} {note}</Paragraph>
+                </div>
+            </section>
+        );
+    };
+}
+
+function SoundList() {
+    const { disabledSounds } = settings.use(["disabledSounds"]);
+    const [, refresh] = React.useReducer((count: number) => count + 1, 0);
+    React.useEffect(() => {
+        const timer = setInterval(() => { if (manifest) { clearInterval(timer); refresh(); } }, 500);
+        return () => clearInterval(timer);
+    }, []);
+
+    if (!manifest) return <Paragraph>The sound pack is still loading.</Paragraph>;
+
+    const disabled = new Set(disabledSounds.split(",").filter(Boolean));
+    const flip = (key: string) => {
+        if (disabled.has(key)) disabled.delete(key); else disabled.add(key);
+        settings.store.disabledSounds = [...disabled].join(",");
+    };
+
+    const events = new Map<string, string[]>();
+    for (const [event, file] of Object.entries(manifest.customSounds)) {
+        events.set(file, [...(events.get(file) ?? []), event]);
+    }
+
+    const row = (key: string, label: string, detail: string, file: string) => (
+        <label key={key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "4px 0", cursor: "pointer" }}>
+            <input type="checkbox" checked={!disabled.has(key)} onChange={() => flip(key)} />
+            <span style={{ flex: "0 0 110px", color: "var(--text-default)" }}>{label}</span>
+            <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "var(--text-muted)", fontSize: 12 }}>{detail}</span>
+            <Button size="small" variant="secondary" onClick={event => { event.preventDefault(); preview(file); }}>Play</Button>
+        </label>
+    );
+
+    return (
+        <section>
+            <Heading>Interface sounds</Heading>
+            <Paragraph>Untick a sound to silence it.</Paragraph>
+            {Object.entries(manifest.ui).map(([name, file]) => row(`ui:${name}`, name, file, file))}
+            <Heading style={{ marginTop: 16 }}>Discord sounds</Heading>
+            <Paragraph>Untick a sound to get Discord's original back for those events.</Paragraph>
+            {[...events].map(([file, names]) => row(`discord:${stem(file)}`, stem(file), names.join(", "), file))}
+        </section>
+    );
+}
+
 function BackgroundPicker() {
     const [busy, setBusy] = React.useState(false);
     const [, refresh] = React.useReducer((count: number) => count + 1, 0);
@@ -137,6 +200,17 @@ const settings = definePluginSettings({
         default: "#e94221",
         component: AccentPicker
     },
+    customColors: toggle("Use my own background and text colors instead of the dark or light palette", false),
+    backgroundColor: {
+        type: OptionType.COMPONENT,
+        default: "#050605",
+        component: colorSetting("backgroundColor", "Background color", "(panels are derived from it)")
+    },
+    textColor: {
+        type: OptionType.COMPONENT,
+        default: "#f0dec6",
+        component: colorSetting("textColor", "Text color", "(secondary text and borders are derived from it)")
+    },
     background: {
         type: OptionType.COMPONENT,
         component: BackgroundPicker
@@ -188,6 +262,24 @@ const settings = definePluginSettings({
         description: "Play the boot signal when Discord starts",
         default: true
     },
+    soundList: {
+        type: OptionType.COMPONENT,
+        component: SoundList
+    },
+    disabledSounds: {
+        type: OptionType.STRING,
+        description: "Disabled sounds (managed by the list above)",
+        default: "",
+        hidden: true
+    },
+    discordVolume: {
+        type: OptionType.SLIDER,
+        description: "Volume of the replaced Discord sounds",
+        default: 100,
+        markers: [0, 25, 50, 75, 100],
+        stickToMarkers: false,
+        onChange: () => rebuildBlobs()
+    },
     volume: {
         type: OptionType.SLIDER,
         description: "Interface sound volume",
@@ -234,6 +326,33 @@ function applyTheme() {
         `--rl-surface: ${store.panelOpacity}%`
     ];
     if (backgroundUrl) rules.push(`--rl-background-image: url("${backgroundUrl}")`);
+
+    const hex = /^#[0-9a-f]{6}$/i;
+    if (store.customColors && hex.test(store.backgroundColor) && hex.test(store.textColor)) {
+        const bg = store.backgroundColor;
+        const fg = store.textColor;
+        const surface = (amount: number) => `color-mix(in srgb, ${fg} ${amount}%, ${bg})`;
+        const channel = (offset: number) => parseInt(bg.slice(offset, offset + 2), 16);
+        const light = channel(1) * 0.299 + channel(3) * 0.587 + channel(5) * 0.114 > 140;
+        rules.push(
+            `color-scheme: ${light ? "light" : "dark"}`,
+            `--rl-tint: ${fg}`,
+            `--rl-void: ${bg}`,
+            `--rl-ink-base: ${surface(2)}`,
+            `--rl-coal-base: ${surface(4)}`,
+            `--rl-panel-base: ${surface(6)}`,
+            `--rl-raised-base: ${surface(9)}`,
+            `--rl-high-base: ${surface(13)}`,
+            `--rl-higher-base: ${surface(17)}`,
+            `--rl-line: ${surface(24)}`,
+            `--rl-cream: ${fg}`,
+            `--rl-bone: ${surface(90)}`,
+            `--rl-paper: ${surface(82)}`,
+            `--rl-smoke: ${surface(62)}`,
+            `--rl-ash: ${surface(50)}`,
+            `--rl-faint: ${surface(38)}`
+        );
+    }
     if (!store.avatarFilter) rules.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");
 
     style.textContent = `:root:root {\n${rules.map(rule => `    ${rule};`).join("\n")}\n}`;
@@ -265,27 +384,69 @@ function fileFor(name: string) {
 
 const stem = (file: string) => file.replace(/\.[^.]+$/, "").toLowerCase();
 
+const isDisabled = (key: string) => settings.store.disabledSounds.split(",").includes(key);
+
 function resolveSound(key: string) {
     if (!settings.store.replaceDiscord) return null;
     const name = key.replace(/^\.\//, "").replace(/\.mp3$/, "");
     const file = fileFor(name);
+    if (file && isDisabled(`discord:${stem(file)}`)) return null;
     return localBlobs.get(name) ?? (file && (localBlobs.get(stem(file)) ?? blobs.get(file))) ?? null;
 }
 
-async function reloadSounds() {
-    for (const url of localBlobs.values()) URL.revokeObjectURL(url);
-    localBlobs.clear();
-    localBuffers.clear();
+// Discord plays its sounds through its own Audio element, so the only way to
+// set their level is to hand it audio that is already scaled.
+function encodeWav(buffer: AudioBuffer, gain: number) {
+    const channels = buffer.numberOfChannels;
+    const frames = buffer.length;
+    const view = new DataView(new ArrayBuffer(44 + frames * channels * 2));
+    const text = (offset: number, value: string) => { for (let i = 0; i < value.length; i++) view.setUint8(offset + i, value.charCodeAt(i)); };
 
+    text(0, "RIFF");
+    view.setUint32(4, 36 + frames * channels * 2, true);
+    text(8, "WAVEfmt ");
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, channels, true);
+    view.setUint32(24, buffer.sampleRate, true);
+    view.setUint32(28, buffer.sampleRate * channels * 2, true);
+    view.setUint16(32, channels * 2, true);
+    view.setUint16(34, 16, true);
+    text(36, "data");
+    view.setUint32(40, frames * channels * 2, true);
+
+    const data = Array.from({ length: channels }, (_, channel) => buffer.getChannelData(channel));
+    let offset = 44;
+    for (let frame = 0; frame < frames; frame++) {
+        for (let channel = 0; channel < channels; channel++) {
+            const sample = Math.max(-1, Math.min(1, data[channel][frame] * gain));
+            view.setInt16(offset, sample * 32767, true);
+            offset += 2;
+        }
+    }
+    return new Blob([view.buffer], { type: "audio/wav" });
+}
+
+function rebuildBlobs() {
+    const gain = settings.store.discordVolume / 100;
+    for (const [source, target] of [[buffers, blobs], [localBuffers, localBlobs]] as const) {
+        for (const url of target.values()) URL.revokeObjectURL(url);
+        target.clear();
+        for (const [name, buffer] of source) target.set(name, URL.createObjectURL(encodeWav(buffer, gain)));
+    }
+}
+
+async function reloadSounds() {
+    localBuffers.clear();
     try {
         for (const sound of await Native.readLocalSounds()) {
             const bytes = new Uint8Array(sound.data);
-            localBlobs.set(sound.name, URL.createObjectURL(new Blob([bytes], { type: sound.type })));
             if (audio) localBuffers.set(sound.name, await audio.decodeAudioData(bytes.buffer.slice(0)));
         }
     } catch (error) {
         console.error("[ReCord] could not read the local sound folder", error);
     }
+    rebuildBlobs();
 }
 
 async function load() {
@@ -298,22 +459,13 @@ async function load() {
         try {
             const response = await fetch(base + file);
             if (!response.ok) return;
-            const data = await response.arrayBuffer();
-            blobs.set(file, URL.createObjectURL(new Blob([data], { type: "audio/wav" })));
-            buffers.set(file, await audio!.decodeAudioData(data.slice(0)));
+            buffers.set(file, await audio!.decodeAudioData(await response.arrayBuffer()));
         } catch { }
     }));
 }
 
-function play(name: string, gap = 0) {
-    const file = manifest?.ui[name];
-    const buffer = localBuffers.get(name) ?? (file && (localBuffers.get(stem(file)) ?? buffers.get(file)));
-    if (!buffer || !audio || !settings.store.interfaceSounds) return;
-
-    const now = performance.now();
-    if (gap && now - (lastPlayed.get(name) ?? 0) < gap) return;
-    lastPlayed.set(name, now);
-
+function output(buffer: AudioBuffer) {
+    if (!audio) return;
     if (audio.state === "suspended") void audio.resume();
     const source = audio.createBufferSource();
     const gain = audio.createGain();
@@ -321,6 +473,23 @@ function play(name: string, gap = 0) {
     source.buffer = buffer;
     source.connect(gain).connect(audio.destination);
     source.start();
+}
+
+function preview(file: string) {
+    const buffer = localBuffers.get(stem(file)) ?? buffers.get(file);
+    if (buffer) output(buffer);
+}
+
+function play(name: string, gap = 0) {
+    if (!settings.store.interfaceSounds || isDisabled(`ui:${name}`)) return;
+    const file = manifest?.ui[name];
+    const buffer = localBuffers.get(name) ?? (file && (localBuffers.get(stem(file)) ?? buffers.get(file)));
+    if (!buffer) return;
+
+    const now = performance.now();
+    if (gap && now - (lastPlayed.get(name) ?? 0) < gap) return;
+    lastPlayed.set(name, now);
+    output(buffer);
 }
 
 function hookDiscordSounds() {

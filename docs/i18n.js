@@ -29,7 +29,6 @@ const ES = {
     "TOKEN DRIVEN": "BASADO EN VARIABLES",
     "Override": "Sobrescribe las",
     "variables in QuickCSS to retune the signal, surfaces or scanline density.": "variables en QuickCSS para ajustar el color, las superficies o la densidad de scanlines.",
-    "COLOR": "COLOR",
     "SIGNAL PALETTE": "PALETA DE SEÑAL",
     "The orange is sampled directly from the REPLACED pause menu and logo. Paper and teal are taken from the Wingman device and the game's shadow tones.": "El naranja está muestreado del menú de pausa y el logo de REPLACED. El papel y el verde azulado salen del dispositivo Wingman y de las sombras del juego.",
     "SIGNAL ORANGE": "NARANJA DE SEÑAL",
@@ -88,7 +87,6 @@ const ES = {
     "OR FILE": "O ARCHIVO",
     "BG DIM": "OSCURECER",
     "PANELS": "PANELES",
-    "SCANLINES": "SCANLINES",
     "GRAIN": "GRANO",
     "VIGNETTE": "VIÑETA",
     "PIXEL ICONS": "ICONOS PIXEL",
@@ -148,7 +146,6 @@ const ES = {
     "Call ringing loop fragment.": "Fragmento del tono de llamada.",
     "Success": "Éxito",
     "Confirmation chime for completed actions.": "Campanilla de confirmación.",
-    "Error": "Error",
     "Low clipped buzz for failed actions.": "Zumbido grave y recortado para acciones fallidas.",
     "Boot": "Arranque",
     "CRT power-on sweep for theme or plugin startup.": "Barrido de encendido CRT al iniciar.",
@@ -166,7 +163,6 @@ const ES = {
     "Rising sweep when video starts.": "Barrido ascendente al iniciar el vídeo.",
     "Camera off": "Cámara apagada",
     "Falling sweep when video stops.": "Barrido descendente al parar el vídeo.",
-    "Clip": "Clip",
     "Clip saved.": "Clip guardado.",
     "Stage": "Escenario",
     "Three-note waiting cue for stages.": "Señal de espera de tres notas para escenarios.",
@@ -181,7 +177,36 @@ const ES = {
     "Fetching theme...": "Descargando el tema...",
     "Could not fetch the theme. Use the raw link instead.": "No se pudo descargar el tema. Usa el enlace directo.",
     "Downloaded with these settings. Drop it into your themes folder.": "Descargado con esta configuración. Suéltalo en tu carpeta de temas.",
-    "Image attached. It is embedded when you download the CSS.": "Imagen adjuntada. Se incrusta al descargar el CSS."
+    "Image attached. It is embedded when you download the CSS.": "Imagen adjuntada. Se incrusta al descargar el CSS.",
+    "RECORD / REPLACED-inspired Discord theme": "RECORD / Tema de Discord inspirado en REPLACED",
+    "RECORD / pixel icon set": "RECORD / iconos pixel",
+    "RECORD / signal pack": "RECORD / pack de sonido",
+    "Language": "Idioma",
+    "RECORD // BOOT": "RECORD // ARRANQUE",
+    "scanline 25% / grain 18%": "scanlines 25% / grano 18%",
+    "mount --theme record": "montar --tema record",
+    "node 04": "nodo 04",
+    "NODE 04": "NODO 04",
+    "R.E.A.C.H. ONLINE": "R.E.A.C.H. EN LÍNEA",
+    "PHOENIX-CITY RELAY / 2087": "REPETIDOR PHOENIX-CITY / 2087",
+    "PHOENIX-CITY // NODE 04": "PHOENIX-CITY // NODO 04",
+    "RECORD / CHANNEL VIEW": "RECORD / VISTA DE CANAL",
+    "1440 x 900 / SIGNAL LOCKED": "1440 x 900 / SEÑAL FIJADA",
+    "// with in-app settings and sounds (Vesktop)": "// con ajustes dentro de Discord y sonidos (Vesktop)",
+    "// remove everything": "// quitarlo todo",
+    "RAW": "DIRECTO",
+    "RECORD / PIXEL ICON SET": "RECORD / ICONOS PIXEL",
+    "16 x 16 / SVG MASKS": "16 x 16 / MÁSCARAS SVG",
+    "RECORD / SIGNAL PACK": "RECORD / PACK DE SONIDO",
+    "built theme, one file": "tema compilado, un archivo",
+    "palette + surface": "paleta y superficies",
+    "pixel operator faces": "fuentes pixel operator",
+    "mark, corners, grain": "marca, esquinas, grano",
+    "16x16 pixel icons": "iconos pixel 16x16",
+    "preview + landing page": "vista previa y página",
+    "BG COLOR": "COLOR DE FONDO",
+    "TEXT COLOR": "COLOR DE TEXTO",
+    "CUSTOM COLORS": "COLORES PROPIOS"
 };
 
 const clean = text => text.replace(/\s+/g, " ").trim();
@@ -195,7 +220,7 @@ function collect() {
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     while (walker.nextNode()) {
         const node = walker.currentNode;
-        if (node.parentElement.closest("script, style, pre, code")) continue;
+        if (node.parentElement.closest("script, style, code")) continue;
         const key = clean(node.nodeValue);
         if (ES[key]) nodes.push({ node, key, original: node.nodeValue });
     }
@@ -207,8 +232,11 @@ function collect() {
     }
 }
 
+const title = document.title;
+
 function apply(next) {
     language = next;
+    document.title = (next === "es" && ES[title]) || title;
     document.documentElement.lang = next;
     for (const { node, key, original } of nodes) {
         node.nodeValue = next === "es" ? original.replace(original.trim(), ES[key]) : original;
