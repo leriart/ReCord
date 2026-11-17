@@ -39,7 +39,7 @@
                 <a href="icons.html">ICONS</a>
                 <a href="sounds.html">SOUNDS</a>
             </nav>
-            <span class="top-version">V1.1.0</span>
+            <span class="top-version">V2.0.0</span>
         </div>
     </header>
 
@@ -53,7 +53,7 @@
                     <p>
                         A terminal-grade theme built around the visual language of REPLACED:
                         signal orange, dark glass, pixel typography and a persistent scanline.
-                        Modular CSS loads raw from the repository.
+                        One self-contained CSS file with your own accent color, straight from the repository.
                     </p>
 
                     <div class="hero-actions">
@@ -206,7 +206,7 @@
                         </div>
                         <p class="section-note">
                             Tested with Vencord and Equicord on Discord desktop and Vesktop.
-                            The online theme loads CSS and fonts from GitHub raw.
+                            One self-contained CSS file: paste the link or download it.
                         </p>
                     </div>
 
@@ -228,18 +228,33 @@
 
                         <div>
                             <div class="code-card">
-                                <div class="code-card-head"><span>ONLINE THEME URL</span><span>READY</span></div>
+                                <div class="code-card-head"><span>ONLINE THEME URL</span><span>AUTO-UPDATE</span></div>
                                 <pre><span class="c">// Vencord &gt; Themes &gt; Online Themes</span>
-<span class="a">https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css</span>
-
-<span class="c">// local use: clone the repository</span>
-git clone https://github.com/leriart/Retroless.git
-<span class="c">// then load Retroless.theme.css as a local theme</span>
-<span class="g">online imports stay active; keep the repo path intact</span></pre>
+<span class="a">https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css</span></pre>
+                            </div>
+                            <div class="code-card accent-card">
+                                <div class="code-card-head"><span>DOWNLOAD</span><span>OFFLINE</span></div>
+                                <div class="accent-body">
+                                    <label class="accent-field" for="accent">
+                                        <span>ACCENT</span>
+                                        <input type="color" id="accent" value="#e94221">
+                                        <code id="accent-value">#e94221</code>
+                                    </label>
+                                    <div class="accent-swatches" role="group" aria-label="Accent presets">
+                                        <button type="button" data-accent="#e94221" style="--swatch: #e94221" aria-label="Signal orange"></button>
+                                        <button type="button" data-accent="#dda052" style="--swatch: #dda052" aria-label="Amber"></button>
+                                        <button type="button" data-accent="#3ddc97" style="--swatch: #3ddc97" aria-label="Phosphor green"></button>
+                                        <button type="button" data-accent="#4fb8c9" style="--swatch: #4fb8c9" aria-label="Teal"></button>
+                                        <button type="button" data-accent="#b58cff" style="--swatch: #b58cff" aria-label="Violet"></button>
+                                        <button type="button" data-accent="#ff5fa2" style="--swatch: #ff5fa2" aria-label="Pink"></button>
+                                    </div>
+                                    <button type="button" class="btn" id="download">DOWNLOAD RETROLESS.THEME.CSS</button>
+                                    <p class="accent-help" id="download-status">Drop the file into <code>Themes</code> &gt; <code>Local Themes</code> &gt; <code>Open Themes Folder</code>.</p>
+                                </div>
                             </div>
                             <div class="note">
-                                <b>NO BUILD REQUIRED.</b> The entry file imports sixteen modules and four font
-                                files from the same repository. An internet connection is needed while the theme is active.
+                                <b>ONE FILE.</b> Fonts, icons and textures are embedded. To recolor an online install, add
+                                <code>:root { --rl-accent: #3ddc97; }</code> to QuickCSS.
                             </div>
                         </div>
                     </div>
@@ -277,7 +292,8 @@ git clone https://github.com/leriart/Retroless.git
 │   ├── 12-priority.css
 │   ├── 13-motion.css
 │   ├── 14-icons.css
-│   └── 15-boot.css
+│   ├── 15-boot.css
+│   └── 16-replaced.css
 ├── assets/
 │   ├── brand/              mark, corners, grain
 │   ├── icons/              16x16 pixel icons
@@ -365,6 +381,45 @@ git clone https://github.com/leriart/Retroless.git
                 copyButton.textContent = previous;
                 copyButton.classList.remove("copied");
             }, 1600);
+        });
+    </script>
+    <script>
+        const picker = document.getElementById("accent");
+        const label = document.getElementById("accent-value");
+        const status = document.getElementById("download-status");
+        const raw = "https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css";
+
+        function setAccent(value) {
+            picker.value = value;
+            label.textContent = value;
+            document.documentElement.style.setProperty("--rl-accent", value);
+        }
+
+        picker.addEventListener("input", () => setAccent(picker.value));
+        for (const swatch of document.querySelectorAll("[data-accent]")) {
+            swatch.addEventListener("click", () => setAccent(swatch.dataset.accent));
+        }
+
+        document.getElementById("download").addEventListener("click", async () => {
+            status.textContent = "Fetching theme...";
+            let css = null;
+            for (const url of ["../Retroless.theme.css", raw]) {
+                try {
+                    const response = await fetch(url, { cache: "no-store" });
+                    if (response.ok) { css = await response.text(); break; }
+                } catch {}
+            }
+            if (!css) {
+                status.textContent = "Could not fetch the theme. Use the raw link instead.";
+                return;
+            }
+            css = css.replace(/--rl-accent:\s*#[0-9a-fA-F]{3,8};/, `--rl-accent: ${picker.value};`);
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(new Blob([css], { type: "text/css" }));
+            link.download = "Retroless.theme.css";
+            link.click();
+            URL.revokeObjectURL(link.href);
+            status.textContent = `Downloaded with accent ${picker.value}. Drop it into your themes folder.`;
         });
     </script>
 </body>

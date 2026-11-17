@@ -66,7 +66,7 @@
 }
 
 [class*="lookOutlined_"]:hover {
-    background: rgba(233, 66, 33, 0.08) !important;
+    background: color-mix(in srgb, var(--rl-signal) 8%, transparent) !important;
     border-color: var(--rl-signal) !important;
     color: var(--rl-cream) !important;
 }
@@ -108,7 +108,7 @@ button[class*="button_"] {
 [class*="textInput_"]:hover,
 [class*="input_"]:hover,
 [class*="searchBar_"]:hover {
-    border-color: rgba(233, 66, 33, 0.35) !important;
+    border-color: color-mix(in srgb, var(--rl-signal) 35%, transparent) !important;
 }
 
 [class*="textInput_"]:focus,
@@ -116,7 +116,7 @@ button[class*="button_"] {
 [class*="input_"]:focus,
 [class*="searchBar_"]:focus-within {
     border-color: var(--rl-signal) !important;
-    box-shadow: 0 0 0 1px rgba(233, 66, 33, 0.14) !important;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
 }
 
 [class*="textInput_"] [class*="input_"],

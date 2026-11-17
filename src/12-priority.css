@@ -41,11 +41,11 @@ html.theme-light.theme-light {
     --background-mod-subtle: rgba(212, 180, 150, 0.07) !important;
     --background-mod-normal: rgba(212, 180, 150, 0.11) !important;
     --background-mod-strong: rgba(212, 180, 150, 0.16) !important;
-    --background-modifier-hover: rgba(233, 66, 33, 0.07) !important;
-    --background-modifier-active: rgba(233, 66, 33, 0.12) !important;
-    --background-modifier-selected: rgba(233, 66, 33, 0.16) !important;
+    --background-modifier-hover: color-mix(in srgb, var(--rl-signal) 7%, transparent) !important;
+    --background-modifier-active: color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
+    --background-modifier-selected: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
     --background-brand: var(--rl-signal) !important;
-    --background-gradient-chat: linear-gradient(180deg, rgba(233, 66, 33, 0.045), transparent 240px), var(--rl-ink) !important;
+    --background-gradient-chat: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 4.5%, transparent), transparent 240px), var(--rl-ink) !important;
     --background-gradient-lowest: var(--rl-void) !important;
     --background-gradient-lower: var(--rl-ink) !important;
     --background-gradient-low: var(--rl-panel) !important;
@@ -98,7 +98,7 @@ html.theme-light.theme-light {
 
     --input-background-default: var(--rl-void) !important;
     --input-border-default: var(--rl-line) !important;
-    --input-border-hover: rgba(233, 66, 33, 0.35) !important;
+    --input-border-hover: color-mix(in srgb, var(--rl-signal) 35%, transparent) !important;
     --input-border-active: var(--rl-signal) !important;
     --input-text-default: var(--rl-bone) !important;
     --input-placeholder-text-default: var(--rl-faint) !important;
@@ -116,7 +116,7 @@ html.theme-light.theme-light {
     --channel-muted: var(--rl-ash) !important;
     --channel-hover: var(--rl-cream) !important;
     --channel-selected: var(--rl-cream) !important;
-    --channel-selected-bg: rgba(233, 66, 33, 0.16) !important;
+    --channel-selected-bg: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
     --channel-unread: var(--rl-signal-soft) !important;
 
     --text-0: var(--rl-void) !important;
@@ -135,28 +135,28 @@ html.theme-light.theme-light {
     --accent-4: var(--rl-signal-hot) !important;
     --accent-5: var(--rl-signal-deep) !important;
     --border-light: rgba(212, 180, 150, 0.1) !important;
-    --border: rgba(233, 66, 33, 0.22) !important;
-    --border-hover: rgba(233, 66, 33, 0.42) !important;
+    --border: color-mix(in srgb, var(--rl-signal) 22%, transparent) !important;
+    --border-hover: color-mix(in srgb, var(--rl-signal) 42%, transparent) !important;
     --button-border: rgba(212, 180, 150, 0.18) !important;
-    --hover: rgba(233, 66, 33, 0.07) !important;
-    --active: rgba(233, 66, 33, 0.12) !important;
-    --message-hover: rgba(233, 66, 33, 0.045) !important;
-    --mention: rgba(233, 66, 33, 0.16) !important;
-    --mention-hover: rgba(233, 66, 33, 0.22) !important;
+    --hover: color-mix(in srgb, var(--rl-signal) 7%, transparent) !important;
+    --active: color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
+    --message-hover: color-mix(in srgb, var(--rl-signal) 4.5%, transparent) !important;
+    --mention: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
+    --mention-hover: color-mix(in srgb, var(--rl-signal) 22%, transparent) !important;
     --reply: rgba(212, 180, 150, 0.06) !important;
     --reply-hover: rgba(212, 180, 150, 0.09) !important;
 }
 
 html body {
     background:
-        radial-gradient(1200px 700px at 72% -12%, rgba(233, 66, 33, 0.07), transparent 62%),
+        radial-gradient(1200px 700px at 72% -12%, color-mix(in srgb, var(--rl-signal) 7%, transparent), transparent 62%),
         radial-gradient(900px 500px at -10% 40%, rgba(20, 50, 42, 0.35), transparent 62%),
         var(--rl-void) !important;
 }
 
 #app-mount {
     background:
-        radial-gradient(1150px 620px at 74% -18%, rgba(233, 66, 33, 0.075), transparent 62%),
+        radial-gradient(1150px 620px at 74% -18%, color-mix(in srgb, var(--rl-signal) 7.5%, transparent), transparent 62%),
         radial-gradient(900px 520px at -12% 112%, rgba(20, 50, 42, 0.45), transparent 64%),
         var(--rl-void) !important;
 }
@@ -182,7 +182,7 @@ html body {
 #app-mount [class*="messagesWrapper"],
 #app-mount [data-list-id="chat-messages"] {
     background-color: var(--rl-ink) !important;
-    background-image: linear-gradient(180deg, rgba(233, 66, 33, 0.035), transparent 240px) !important;
+    background-image: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3.5%, transparent), transparent 240px) !important;
 }
 
 #app-mount [class*="subtitleContainer"] {
@@ -225,7 +225,7 @@ html body {
 #app-mount [class*="privateChannels"] [class*="channel"]:hover,
 #app-mount [class*="privateChannels"] [class*="interactive"]:hover,
 #app-mount [data-list-item-id^="private-channels"]:hover {
-    background-color: rgba(233, 66, 33, 0.08) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 8%, transparent) !important;
 }
 
 #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
@@ -233,8 +233,8 @@ html body {
 #app-mount [data-list-item-id^="private-channels"][class*="selected"],
 #app-mount [class*="privateChannels"] [class*="channel"]:has([class*="selected"]),
 #app-mount [class*="privateChannels"] [class*="interactive"]:has([class*="selected"]) {
-    background-color: rgba(233, 66, 33, 0.14) !important;
-    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.22), transparent 72%) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 22%, transparent), transparent 72%) !important;
     border-left-color: var(--rl-signal) !important;
     color: var(--rl-cream) !important;
 }
@@ -308,7 +308,7 @@ html body {
 
 #app-mount [class*="panels"] button:hover,
 #app-mount [class*="panels"] [class*="button"]:hover {
-    background-color: rgba(233, 66, 33, 0.1) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
 }
 
 #app-mount [class*="panels"] [class*="redGlow"],
@@ -343,21 +343,25 @@ html body {
     background-color: var(--rl-raised) !important;
     border-color: var(--rl-signal) !important;
     color: var(--rl-signal) !important;
-    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.35), 0 0 10px rgba(233, 66, 33, 0.12) !important;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 35%, transparent), 0 0 10px color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
 }
 
 #app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] {
     background-color: var(--rl-panel) !important;
-    background-image: url("../assets/brand/mark.svg") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 24px 24px !important;
+    background-image: none !important;
+    color: var(--rl-signal) !important;
     border-color: var(--rl-line-hot) !important;
 }
 
-#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] > svg,
-#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"]::before {
+#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] > svg {
     display: none !important;
+}
+
+#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"]::before {
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: currentColor !important;
 }
 
 #app-mount [data-list-item-id="guildsnav___home"]:hover [class*="childWrapper"] {
@@ -368,7 +372,6 @@ html body {
 #app-mount [data-list-item-id="guildsnav___home"] [class*="selected"] [class*="childWrapper"] {
     background-color: var(--rl-panel) !important;
     border-color: var(--rl-signal) !important;
-    background-image: url("../assets/brand/mark.svg") !important;
     box-shadow: inset 0 0 0 1px var(--rl-signal) !important;
 }
 
@@ -410,14 +413,14 @@ html body {
 }
 
 #app-mount [data-list-item-id^="channels___"]:hover {
-    background-color: rgba(233, 66, 33, 0.065) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 6.5%, transparent) !important;
 }
 
 #app-mount [data-list-item-id^="channels___"][class*="modeSelected"],
 #app-mount [data-list-item-id^="channels___"] [class*="modeSelected"],
 #app-mount [data-list-item-id^="channels___"][class*="modeConnected"] {
-    background-color: rgba(233, 66, 33, 0.14) !important;
-    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.2), transparent 72%) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 20%, transparent), transparent 72%) !important;
     color: var(--rl-cream) !important;
 }
 
@@ -433,10 +436,6 @@ html body {
     border-radius: 0 !important;
 }
 
-#app-mount [class*="avatar"] img,
-#app-mount img[class*="avatar"] {
-    border-radius: 0 !important;
-}
 
 #app-mount [class*="membersGroup"] {
     color: var(--rl-signal-soft) !important;
@@ -467,15 +466,7 @@ html body {
     opacity: 1 !important;
 }
 
-#app-mount [class*="imageWrapper"] img,
-#app-mount [class*="attachment"] img {
-    opacity: 1 !important;
-}
 
-#app-mount [class*="avatar"] img {
-    opacity: 1 !important;
-    filter: none !important;
-}
 
 
 #app-mount [class*="guilds"] * {
@@ -536,7 +527,7 @@ html body {
 #app-mount [data-list-item-id^="guildsnav___"] [class*="pill_"] {
     width: 2px !important;
     background: var(--rl-signal) !important;
-    box-shadow: 0 0 6px rgba(233, 66, 33, 0.3) !important;
+    box-shadow: 0 0 6px color-mix(in srgb, var(--rl-signal) 30%, transparent) !important;
 }
 
 #app-mount [class*="guilds"] *,
@@ -550,7 +541,7 @@ html body {
 #app-mount [class*="folderIcon"],
 #app-mount [class*="folderPreviewWrapper"] {
     background-color: var(--rl-panel) !important;
-    border: 1px solid rgba(233, 66, 33, 0.22) !important;
+    border: 1px solid color-mix(in srgb, var(--rl-signal) 22%, transparent) !important;
 }
 
 #app-mount [class*="folderPreview"] {
@@ -567,7 +558,7 @@ html body {
 }
 
 #app-mount li[id^="chat-messages"]:has([class*="mentioned"]) {
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.1), rgba(233, 66, 33, 0.02) 55%, transparent) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 10%, transparent), color-mix(in srgb, var(--rl-signal) 2%, transparent) 55%, transparent) !important;
 }
 
 #app-mount [class*="replyBar"],
@@ -582,8 +573,8 @@ html body {
 #app-mount [class*="privateChannels"] [class*="selected"],
 #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
 #app-mount [data-list-item-id^="private-channels"][class*="selected"] {
-    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.18), transparent 70%) !important;
-    background-color: rgba(233, 66, 33, 0.1) !important;
+    background-image: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 18%, transparent), transparent 70%) !important;
+    background-color: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
 }
 
 #app-mount [class*="subtitleContainer"] {
@@ -647,124 +638,4 @@ html body {
 #app-mount [class*="unreadMentionsIndicatorTop"],
 #app-mount [class*="unreadMentionsIndicatorBottom"] {
     display: none !important;
-}
-
-html body #app-mount [class*="avatar"]:not([class*="decoration"]),
-html body #app-mount [class*="avatarWrapper"] {
-    position: relative;
-    border-radius: 0 !important;
-    clip-path: none !important;
-    -webkit-mask: none !important;
-    mask: none !important;
-    box-shadow: 0 0 0 1px var(--rl-line);
-}
-
-html body #app-mount [class*="avatar"]:not([class*="decoration"]) img,
-html body #app-mount [class*="avatarWrapper"] img,
-html body #app-mount img[class*="avatar"] {
-    border-radius: 0 !important;
-    clip-path: none !important;
-    -webkit-mask: none !important;
-    mask: none !important;
-    object-fit: cover !important;
-    filter: var(--rl-avatar-filter) !important;
-    image-rendering: pixelated;
-}
-
-html body #app-mount [class*="avatar"]:not([class*="decoration"])::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-        linear-gradient(180deg, rgba(233, 66, 33, 0.12), rgba(5, 6, 5, 0.2)),
-        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
-    opacity: var(--rl-avatar-scanline);
-    mix-blend-mode: multiply;
-}
-
-html body #app-mount [class*="privateChannels"] [class*="selected"] [class*="avatar"],
-html body #app-mount [class*="members"] [class*="member"]:hover [class*="avatar"],
-html body #app-mount [class*="avatar"]:hover {
-    box-shadow: 0 0 0 1px var(--rl-signal) !important;
-}
-
-html body #app-mount [class*="avatar"]:hover img {
-    filter: saturate(0.95) contrast(1.04) sepia(0.06) brightness(1.03) !important;
-}
-
-html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"] img,
-html body #app-mount [data-list-item-id^="guildsnav___"] img {
-    border-radius: 0 !important;
-    object-fit: cover !important;
-    filter: saturate(0.78) contrast(1.1) sepia(0.16) brightness(0.96) !important;
-    image-rendering: pixelated;
-}
-
-html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"] {
-    position: relative;
-    overflow: hidden !important;
-    background-color: var(--rl-coal) !important;
-    border: 1px solid var(--rl-line-hot) !important;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
-}
-
-html body #app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"]::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.55) 2px 3px);
-    opacity: 0.16;
-    mix-blend-mode: multiply;
-}
-
-html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"],
-html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
-html body #app-mount #app-mount [class*="privateChannels"] [aria-current="page"],
-html body #app-mount #app-mount [class*="privateChannels"] [aria-selected="true"],
-html body #app-mount #app-mount [data-list-item-id^="private-channels"][class*="selected"] {
-    background: var(--rl-raised) !important;
-    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.14), transparent 72%) !important;
-    box-shadow: inset 2px 0 var(--rl-signal) !important;
-    color: var(--rl-cream) !important;
-}
-
-html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"]::before,
-html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"]::after,
-html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"]::before,
-html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"]::after {
-    background: none !important;
-    box-shadow: none !important;
-}
-
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"],
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"] {
-    background-color: transparent !important;
-    background-image: none !important;
-}
-
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"][class*="selected"],
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"][class*="selected"],
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="channel"][aria-current="page"],
-html body #app-mount #app-mount [class*="privateChannels"] a[class*="link"][aria-current="page"] {
-    background: var(--rl-raised) !important;
-    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.14), transparent 72%) !important;
-    box-shadow: inset 2px 0 var(--rl-signal) !important;
-    color: var(--rl-cream) !important;
-}
-
-html body #app-mount #app-mount [class*="privateChannels"] [class*="selected"] *,
-html body #app-mount #app-mount [class*="privateChannels"] [class*="interactiveSelected"] * {
-    background-image: none !important;
-}
-
-html body #app-mount li[id^="chat-messages"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]) {
-    position: absolute !important;
-}
-
-html body #app-mount li[id^="chat-messages"][class*="compact"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]),
-html body #app-mount li[id^="chat-messages"] [class*="compact"] [class*="avatar"]:not([class*="reply"]):not([class*="decoration"]) {
-    position: relative !important;
 }

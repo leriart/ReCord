@@ -4,11 +4,11 @@
     0%,
     100% {
         opacity: 1;
-        filter: drop-shadow(0 0 14px rgba(233, 66, 33, 0.22));
+        filter: drop-shadow(0 0 14px color-mix(in srgb, var(--rl-signal) 22%, transparent));
     }
     50% {
         opacity: 0.72;
-        filter: drop-shadow(0 0 24px rgba(233, 66, 33, 0.38));
+        filter: drop-shadow(0 0 24px color-mix(in srgb, var(--rl-signal) 38%, transparent));
     }
 }
 

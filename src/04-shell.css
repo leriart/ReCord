@@ -2,7 +2,7 @@
 
 #app-mount {
     background:
-        radial-gradient(1150px 620px at 74% -18%, rgba(233, 66, 33, 0.085), transparent 62%),
+        radial-gradient(1150px 620px at 74% -18%, color-mix(in srgb, var(--rl-signal) 8.5%, transparent), transparent 62%),
         radial-gradient(900px 520px at -12% 112%, rgba(20, 50, 42, 0.5), transparent 64%),
         var(--rl-void) !important;
 }
@@ -88,7 +88,7 @@
     width: 3px !important;
     border-radius: 0 !important;
     background: var(--rl-signal) !important;
-    box-shadow: 0 0 10px rgba(233, 66, 33, 0.45);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--rl-signal) 45%, transparent);
 }
 
 [data-list-item-id^="guildsnav___"] [class*="numberBadge_"],
@@ -99,7 +99,7 @@
     font-family: var(--rl-font);
     font-size: 11px;
     font-weight: 700;
-    box-shadow: 0 0 0 1px var(--rl-void), 0 0 12px rgba(233, 66, 33, 0.25);
+    box-shadow: 0 0 0 1px var(--rl-void), 0 0 12px color-mix(in srgb, var(--rl-signal) 25%, transparent);
 }
 
 [class*="unreadMentionsIndicator"] {
@@ -145,18 +145,18 @@
 
 [class*="chatContent_"] {
     background:
-        linear-gradient(180deg, rgba(233, 66, 33, 0.045), transparent 160px),
+        linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 4.5%, transparent), transparent 160px),
         var(--rl-ink) !important;
     border: 1px solid var(--rl-line);
     border-right: 0;
     border-left: 0;
-    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.035);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 3.5%, transparent);
 }
 
 [class*="subtitleContainer_"] {
     background: var(--rl-ink) !important;
     border-bottom: 1px solid var(--rl-line);
-    box-shadow: 0 1px 0 rgba(233, 66, 33, 0.06);
+    box-shadow: 0 1px 0 color-mix(in srgb, var(--rl-signal) 6%, transparent);
 }
 
 [class*="subtitleContainer_"] [class*="title_"],
@@ -212,7 +212,7 @@
 }
 
 [class*="sidebar_"] > [class*="panels_"] {
-    box-shadow: 0 -1px 0 rgba(233, 66, 33, 0.08);
+    box-shadow: 0 -1px 0 color-mix(in srgb, var(--rl-signal) 8%, transparent);
 }
 
 [class*="resizeHandle_"] {

@@ -7,7 +7,7 @@
 
 [class*="chatContent_"] [class*="scroller_"] {
     background:
-        linear-gradient(180deg, rgba(233, 66, 33, 0.025), transparent 240px),
+        linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 2.5%, transparent), transparent 240px),
         transparent;
 }
 
@@ -23,7 +23,7 @@ li[id^="chat-messages-"] {
 
 li[id^="chat-messages-"]:hover {
     background: var(--message-background-hover) !important;
-    border-left-color: rgba(233, 66, 33, 0.28);
+    border-left-color: color-mix(in srgb, var(--rl-signal) 28%, transparent);
 }
 
 li[id^="chat-messages-"][class*="mentioned"],
@@ -45,17 +45,7 @@ li[id^="chat-messages-"]:has([class*="replying"]) {
 
 li[id^="chat-messages-"][class*="ephemeral"],
 li[id^="chat-messages-"]:has([class*="ephemeral"]) {
-    background: rgba(233, 66, 33, 0.05) !important;
-}
-
-li[id^="chat-messages-"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
-    box-shadow: 0 0 0 1px var(--rl-void);
-}
-
-li[id^="chat-messages-"] [class*="avatar_"]:hover {
-    border-color: var(--rl-signal);
+    background: color-mix(in srgb, var(--rl-signal) 5%, transparent) !important;
 }
 
 li[id^="chat-messages-"] [class*="username_"] {
@@ -63,7 +53,7 @@ li[id^="chat-messages-"] [class*="username_"] {
     font-size: 0.94em;
     font-weight: 700;
     letter-spacing: 0.035em;
-    text-shadow: 0 0 10px rgba(233, 66, 33, 0.08);
+    text-shadow: 0 0 10px color-mix(in srgb, var(--rl-signal) 8%, transparent);
 }
 
 li[id^="chat-messages-"] [class*="username_"]:hover {
@@ -102,7 +92,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 
 [id^="message-content-"] blockquote {
     border-left: 2px solid var(--rl-signal-dim);
-    background: rgba(233, 66, 33, 0.035);
+    background: color-mix(in srgb, var(--rl-signal) 3.5%, transparent);
     margin: 4px 0;
     padding: 4px 10px;
 }
@@ -125,7 +115,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 [id^="message-content-"] a {
     color: var(--rl-signal-soft);
     text-decoration: underline;
-    text-decoration-color: rgba(255, 147, 104, 0.35);
+    text-decoration-color: color-mix(in srgb, var(--rl-signal-soft) 35%, transparent);
 }
 
 [id^="message-content-"] a:hover {
@@ -199,7 +189,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
     border: 1px solid var(--rl-line) !important;
     border-left: 2px solid var(--rl-signal) !important;
     border-radius: 0 !important;
-    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.04);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 4%, transparent);
 }
 
 [class*="embedFull_"] [class*="embedTitle_"],
@@ -298,14 +288,14 @@ li[id^="chat-messages-"] [class*="edited_"] {
 
 [class*="reactionBtn"]:hover {
     border-color: var(--rl-signal) !important;
-    background: rgba(233, 66, 33, 0.06) !important;
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
 }
 
 .mention,
 [class*="roleMention_"] {
     background: var(--mention-background) !important;
     color: var(--mention-foreground) !important;
-    border: 1px solid rgba(233, 66, 33, 0.26);
+    border: 1px solid color-mix(in srgb, var(--rl-signal) 26%, transparent);
     border-radius: 0 !important;
     font-weight: 700;
     padding: 0 3px;
@@ -313,7 +303,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
 
 .mention:hover,
 [class*="roleMention_"]:hover {
-    background: rgba(233, 66, 33, 0.24) !important;
+    background: color-mix(in srgb, var(--rl-signal) 24%, transparent) !important;
     color: var(--rl-cream) !important;
 }
 
@@ -367,7 +357,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
     background: var(--rl-signal) !important;
     border-radius: 0 !important;
     color: var(--rl-void) !important;
-    box-shadow: 0 0 18px rgba(233, 66, 33, 0.25);
+    box-shadow: 0 0 18px color-mix(in srgb, var(--rl-signal) 25%, transparent);
 }
 
 [class*="jumpToPresentBar"] button {
@@ -387,7 +377,7 @@ li[id^="chat-messages-"] [class*="edited_"] {
     border-radius: 0 !important;
     border: 1px solid var(--rl-line) !important;
     background: var(--rl-void) !important;
-    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.03);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 3%, transparent);
     transition:
         border-color 120ms var(--rl-ease),
         box-shadow 120ms var(--rl-ease);
@@ -396,9 +386,9 @@ li[id^="chat-messages-"] [class*="edited_"] {
 [class*="channelTextArea"]:focus-within {
     border-color: var(--rl-signal) !important;
     box-shadow:
-        inset 0 0 0 1px rgba(233, 66, 33, 0.12),
-        0 0 0 1px rgba(233, 66, 33, 0.12),
-        0 0 24px rgba(233, 66, 33, 0.07);
+        inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 12%, transparent),
+        0 0 0 1px color-mix(in srgb, var(--rl-signal) 12%, transparent),
+        0 0 24px color-mix(in srgb, var(--rl-signal) 7%, transparent);
 }
 
 [class*="channelTextArea"]::before {

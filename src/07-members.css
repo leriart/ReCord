@@ -33,13 +33,8 @@
 }
 
 [class*="members_"] [class*="member_"]:hover {
-    background: rgba(233, 66, 33, 0.06) !important;
-    border-left-color: rgba(233, 66, 33, 0.28);
-}
-
-[class*="members_"] [class*="member_"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
+    border-left-color: color-mix(in srgb, var(--rl-signal) 28%, transparent);
 }
 
 [class*="members_"] [class*="member_"] [class*="username_"],
@@ -85,12 +80,6 @@
     background-color: var(--rl-offline) !important;
 }
 
-[class*="panels_"] [class*="avatarWrapper_"] [class*="avatar_"],
-[class*="panels_"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
-}
-
 [class*="panels_"] [class*="nameTag_"] {
     color: var(--rl-cream);
     font-family: var(--rl-font-display);
@@ -111,7 +100,7 @@
 }
 
 [class*="panels_"] [class*="button_"]:hover {
-    background: rgba(233, 66, 33, 0.1) !important;
+    background: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
     color: var(--rl-signal-hot);
 }
 
@@ -153,7 +142,7 @@
     box-shadow:
         0 0 0 1px var(--rl-void),
         0 16px 48px rgba(0, 0, 0, 0.65),
-        0 0 30px rgba(233, 66, 33, 0.06) !important;
+        0 0 30px color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
 }
 
 [class*="profileBanner_"],
@@ -195,7 +184,7 @@
 }
 
 [class*="profileBadges_"] [class*="badge_"]:hover {
-    background: rgba(233, 66, 33, 0.08);
+    background: color-mix(in srgb, var(--rl-signal) 8%, transparent);
 }
 
 [class*="rolePill_"] {

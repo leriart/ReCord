@@ -31,13 +31,13 @@
 }
 
 [class*="side_"] [class*="item_"]:hover {
-    background: rgba(233, 66, 33, 0.06) !important;
-    border-left-color: rgba(233, 66, 33, 0.3);
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
+    border-left-color: color-mix(in srgb, var(--rl-signal) 30%, transparent);
     color: var(--rl-bone) !important;
 }
 
 [class*="side_"] [class*="item_"][class*="selected_"] {
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.18), transparent) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 18%, transparent), transparent) !important;
     border-left-color: var(--rl-signal);
     color: var(--rl-cream) !important;
 }
@@ -101,7 +101,7 @@
 [class*="radioBar_"][class*="selected_"],
 [class*="radioBar_"]:has(input:checked) {
     border-color: var(--rl-signal) !important;
-    background: rgba(233, 66, 33, 0.06) !important;
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
 }
 
 [class*="radioBar_"] [class*="radio_"] {
@@ -140,13 +140,8 @@
 }
 
 [class*="peopleListItem_"]:hover {
-    background: rgba(233, 66, 33, 0.06) !important;
-    border-left-color: rgba(233, 66, 33, 0.3);
-}
-
-[class*="peopleListItem_"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
+    border-left-color: color-mix(in srgb, var(--rl-signal) 30%, transparent);
 }
 
 [class*="peopleListItem_"] [class*="username_"] {
@@ -172,7 +167,7 @@
 [class*="peopleListItem_"] [class*="actionButton_"]:hover,
 [class*="peopleListItem_"] [class*="button_"]:hover {
     border-color: var(--rl-signal) !important;
-    background: rgba(233, 66, 33, 0.1) !important;
+    background: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
     color: var(--rl-signal-hot) !important;
 }
 
@@ -185,7 +180,7 @@
 
 [class*="addFriend_"]:hover {
     border-color: var(--rl-signal) !important;
-    background: rgba(233, 66, 33, 0.05) !important;
+    background: color-mix(in srgb, var(--rl-signal) 5%, transparent) !important;
 }
 
 [class*="addFriend_"] [class*="input_"] {
@@ -240,7 +235,7 @@
 [class*="discovery"] [class*="card_"]:hover,
 [class*="guildCard"]:hover {
     border-color: var(--rl-signal) !important;
-    box-shadow: 0 0 24px rgba(233, 66, 33, 0.08);
+    box-shadow: 0 0 24px color-mix(in srgb, var(--rl-signal) 8%, transparent);
 }
 
 [class*="discovery"] [class*="category_"],
@@ -298,7 +293,7 @@
 }
 
 [class*="vc-settings"] [class*="selected_"] {
-    background: rgba(233, 66, 33, 0.12) !important;
+    background: color-mix(in srgb, var(--rl-signal) 12%, transparent) !important;
     color: var(--rl-cream) !important;
 }
 

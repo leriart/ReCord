@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0
+
+- Fixed attachments, GIFs and embeds staying hidden: a forced `opacity: 1` kept Discord's blurred placeholder on top of the loaded image
+- `Retroless.theme.css` is now one self-contained file with embedded fonts, icons and textures; it can be used as an online link or downloaded and dropped into the themes folder, and works offline
+- Added `--rl-accent`: one variable recolors the whole interface, including Discord's brand tokens
+- Added the `RetrolessSounds` userplugin: replaces Discord's sounds with the signal pack and adds hover, select, back, navigation, toggle, menu, typing and send sounds; `scripts/install-sounds.sh` installs it for Vesktop
+- Added nine sounds (type, open, close, navigate, toggle, camera on/off, clip, stage)
+- New interface layer checked against the live client: inverted solid selections for channels, DMs, menus and settings, like REPLACED's menus
+- Rebuilt avatar styling on Discord's real avatar markup: square portraits without layout side effects, no boxes around navigation icons
+- Rebuilt icon replacement: only mapped buttons are replaced, unmapped ones keep their native glyph instead of a fallback diamond
+- Landing page: accent picker with a download button that bakes the chosen color into the file
+
 ## 1.1.0
 
 - Added 61 original 16 x 16 pixel icons and CSS mask replacements for toolbar, panel, chat bar, channel and sidebar actions

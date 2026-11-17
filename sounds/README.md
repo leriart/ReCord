@@ -4,6 +4,10 @@ Original synthesized terminal sounds inspired by REPLACED's interface. No audio 
 
 All files are CC0 1.0. Replace any WAV with your own capture using the same filename and the mapping in `manifest.json` keeps working.
 
+## RetrolessSounds plugin
+
+`plugin/retrolessSounds` is a Vencord userplugin that loads this folder, replaces Discord's sounds using the `customSounds` map in `manifest.json` and plays the `ui` sounds on hover, select, back, navigation, toggles, menus, typing and send. Seasonal variants such as `halloween_mute` or `winter_user_join` resolve to the same file as the base event. Install it on Vesktop with `./scripts/install-sounds.sh`.
+
 ## Mapping for Equicord CustomSounds
 
 Enable `CustomSounds` in Equicord, open its settings, enable each event you want and upload the matching file as a custom sound.
@@ -24,7 +28,7 @@ Enable `CustomSounds` in Equicord, open its settings, enable each event you want
 | Stream Started / Ended | `stream-on.wav` / `stream-off.wav` |
 | PTT Start / Stop | `ptt-on.wav` / `ptt-off.wav` |
 
-`hover.wav`, `select.wav`, `back.wav`, `send.wav` and `boot.wav` are interface sounds for a sound-aware plugin. Vencord themes are CSS-only and cannot play audio by themselves.
+`hover.wav`, `select.wav`, `back.wav`, `send.wav`, `type.wav`, `open.wav`, `close.wav`, `navigate.wav`, `toggle.wav` and `boot.wav` are interface sounds played by the plugin.
 
 ## Regenerate
 

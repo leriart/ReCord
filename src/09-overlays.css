@@ -8,7 +8,7 @@
     box-shadow:
         0 0 0 1px var(--rl-void),
         0 24px 70px rgba(0, 0, 0, 0.7),
-        0 0 40px rgba(233, 66, 33, 0.05) !important;
+        0 0 40px color-mix(in srgb, var(--rl-signal) 5%, transparent) !important;
     color: var(--rl-bone);
 }
 
@@ -172,7 +172,7 @@
 }
 
 [class*="searchResultsWrap"] [class*="searchResult_"]:hover {
-    background: rgba(233, 66, 33, 0.06) !important;
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
     border-left-color: var(--rl-signal);
 }
 
@@ -198,7 +198,7 @@
 }
 
 [class*="messageGroupWrapper_"] [class*="message_"]:hover {
-    background: rgba(233, 66, 33, 0.06) !important;
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent) !important;
 }
 
 [class*="contentWrapper_"] {
@@ -226,7 +226,7 @@
 [class*="emojiPicker_"] [class*="categoryItem_"][class*="selected_"],
 [class*="expressionPicker_"] [class*="categoryItem_"]:hover,
 [class*="emojiPicker_"] [class*="categoryItem_"]:hover {
-    background: rgba(233, 66, 33, 0.1) !important;
+    background: color-mix(in srgb, var(--rl-signal) 10%, transparent) !important;
     color: var(--rl-signal-hot);
 }
 
@@ -236,7 +236,7 @@
 
 [class*="emojiItem_"][class*="selected_"],
 [class*="emojiItem_"]:hover {
-    background: rgba(233, 66, 33, 0.14) !important;
+    background: color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
     box-shadow: inset 0 0 0 1px var(--rl-signal);
 }
 
@@ -336,7 +336,7 @@
 [class*="participant_"] [class*="speaking_"],
 [class*="videoTile_"] [class*="speaking_"] {
     border-color: var(--rl-signal) !important;
-    box-shadow: 0 0 0 1px var(--rl-signal), 0 0 18px rgba(233, 66, 33, 0.18) !important;
+    box-shadow: 0 0 0 1px var(--rl-signal), 0 0 18px color-mix(in srgb, var(--rl-signal) 18%, transparent) !important;
 }
 
 [class*="streamPreview_"],

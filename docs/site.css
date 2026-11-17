@@ -9,7 +9,7 @@ html {
 body {
     margin: 0;
     background:
-        radial-gradient(1200px 700px at 76% -12%, rgba(233, 66, 33, 0.07), transparent 62%),
+        radial-gradient(1200px 700px at 76% -12%, color-mix(in srgb, var(--rl-signal) 7%, transparent), transparent 62%),
         radial-gradient(900px 500px at -10% 30%, rgba(20, 50, 42, 0.35), transparent 62%),
         #040504;
     color: var(--rl-bone);
@@ -136,7 +136,7 @@ button {
     overflow: hidden;
     border-bottom: 1px solid var(--rl-line);
     background:
-        linear-gradient(90deg, rgba(233, 66, 33, 0.03), transparent 36%),
+        linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 3%, transparent), transparent 36%),
         repeating-linear-gradient(90deg, transparent 0 78px, rgba(212, 180, 150, 0.025) 78px 79px);
 }
 
@@ -187,7 +187,7 @@ button {
     width: 22px;
     height: 1px;
     background: var(--rl-signal);
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.5);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 50%, transparent);
 }
 
 .hero h1 {
@@ -200,9 +200,9 @@ button {
     letter-spacing: -0.035em;
     text-transform: uppercase;
     text-shadow:
-        3px 0 0 rgba(233, 66, 33, 0.14),
+        3px 0 0 color-mix(in srgb, var(--rl-signal) 14%, transparent),
         -3px 0 0 rgba(20, 50, 42, 0.5),
-        0 0 60px rgba(233, 66, 33, 0.08);
+        0 0 60px color-mix(in srgb, var(--rl-signal) 8%, transparent);
 }
 
 .hero h1 span {
@@ -270,7 +270,7 @@ button {
 }
 
 .btn--ghost:hover {
-    background: rgba(233, 66, 33, 0.08);
+    background: color-mix(in srgb, var(--rl-signal) 8%, transparent);
     border-color: var(--rl-signal);
     color: var(--rl-cream);
 }
@@ -342,7 +342,7 @@ button {
     box-shadow:
         0 0 0 1px #020302,
         0 24px 70px rgba(0, 0, 0, 0.6),
-        0 0 50px rgba(233, 66, 33, 0.05);
+        0 0 50px color-mix(in srgb, var(--rl-signal) 5%, transparent);
 }
 
 .terminal-card::before {
@@ -503,7 +503,7 @@ button {
     box-shadow:
         0 0 0 1px #020302,
         0 28px 90px rgba(0, 0, 0, 0.65),
-        0 0 60px rgba(233, 66, 33, 0.05);
+        0 0 60px color-mix(in srgb, var(--rl-signal) 5%, transparent);
 }
 
 .preview-frame::before {
@@ -599,7 +599,7 @@ button {
     min-height: 170px;
     padding: 18px;
     border: 1px solid var(--rl-line);
-    background: linear-gradient(180deg, rgba(233, 66, 33, 0.03), transparent 70%), var(--rl-ink);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3%, transparent), transparent 70%), var(--rl-ink);
 }
 
 .feature-num {
@@ -740,7 +740,7 @@ button {
     padding: 11px 13px;
     border: 1px solid var(--rl-line);
     border-left: 2px solid var(--rl-signal-dim);
-    background: rgba(233, 66, 33, 0.035);
+    background: color-mix(in srgb, var(--rl-signal) 3.5%, transparent);
     color: var(--rl-smoke);
     font-size: 12px;
     line-height: 1.55;
@@ -984,7 +984,7 @@ button {
 .sound-card {
     padding: 14px;
     border: 1px solid var(--rl-line);
-    background: linear-gradient(180deg, rgba(233, 66, 33, 0.03), transparent 60%), var(--rl-ink);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3%, transparent), transparent 60%), var(--rl-ink);
 }
 
 .sound-card h3 {
@@ -1089,4 +1089,61 @@ button {
     .icon-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
+
+.accent-card {
+    margin-top: 16px;
+}
+
+.accent-body {
+    display: grid;
+    gap: 14px;
+    padding: 16px;
+}
+
+.accent-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--rl-smoke);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+}
+
+.accent-field input {
+    width: 44px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid var(--rl-line-hot);
+    background: var(--rl-void);
+    cursor: pointer;
+}
+
+.accent-field code {
+    color: var(--rl-signal);
+}
+
+.accent-swatches {
+    display: flex;
+    gap: 8px;
+}
+
+.accent-swatches button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--rl-line);
+    background: var(--swatch);
+    cursor: pointer;
+}
+
+.accent-swatches button:hover,
+.accent-swatches button:focus-visible {
+    outline: 1px solid var(--rl-cream);
+    outline-offset: 2px;
+}
+
+.accent-help {
+    margin: 0;
+    color: var(--rl-ash);
+    font-size: 12px;
 }

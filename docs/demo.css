@@ -33,13 +33,13 @@ button {
     grid-template-columns: 64px 238px minmax(0, 1fr) 236px;
     overflow: hidden;
     background:
-        radial-gradient(900px 500px at 75% -20%, rgba(233, 66, 33, 0.08), transparent 60%),
+        radial-gradient(900px 500px at 75% -20%, color-mix(in srgb, var(--rl-signal) 8%, transparent), transparent 60%),
         var(--rl-void);
     border: 1px solid var(--rl-line-hot);
     box-shadow:
         0 0 0 1px #020302,
         0 34px 100px rgba(0, 0, 0, 0.82),
-        0 0 80px rgba(233, 66, 33, 0.045);
+        0 0 80px color-mix(in srgb, var(--rl-signal) 4.5%, transparent);
     isolation: isolate;
 }
 
@@ -58,7 +58,7 @@ button {
     background-size: 12px 12px;
     background-repeat: no-repeat;
     opacity: 0.55;
-    filter: drop-shadow(0 0 5px rgba(233, 66, 33, 0.2));
+    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--rl-signal) 20%, transparent));
 }
 
 .app::after {
@@ -95,7 +95,7 @@ button {
     color: var(--rl-signal);
     background: var(--rl-panel);
     border: 1px solid var(--rl-line-hot);
-    box-shadow: inset 0 0 14px rgba(233, 66, 33, 0.06);
+    box-shadow: inset 0 0 14px color-mix(in srgb, var(--rl-signal) 6%, transparent);
 }
 
 .rail-logo svg {
@@ -139,7 +139,7 @@ button {
     width: 3px;
     height: 22px;
     background: var(--rl-signal);
-    box-shadow: 0 0 10px rgba(233, 66, 33, 0.5);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--rl-signal) 50%, transparent);
 }
 
 .server--dim {
@@ -180,7 +180,7 @@ button {
 .server-head {
     padding: 15px 16px 12px;
     border-bottom: 1px solid var(--rl-line-soft);
-    background: linear-gradient(180deg, rgba(233, 66, 33, 0.04), transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 4%, transparent), transparent);
 }
 
 .server-name {
@@ -246,7 +246,7 @@ button {
 
 .channel.active {
     color: var(--rl-cream);
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.19), rgba(233, 66, 33, 0.045) 72%, transparent);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 19%, transparent), color-mix(in srgb, var(--rl-signal) 4.5%, transparent) 72%, transparent);
     border-left-color: var(--rl-signal);
 }
 
@@ -271,7 +271,7 @@ button {
     height: 7px;
     margin-left: auto;
     background: var(--rl-signal);
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.45);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 45%, transparent);
 }
 
 .channel.voice {
@@ -435,7 +435,7 @@ button {
     flex-direction: column;
     min-width: 0;
     background:
-        radial-gradient(700px 320px at 78% -10%, rgba(233, 66, 33, 0.055), transparent 64%),
+        radial-gradient(700px 320px at 78% -10%, color-mix(in srgb, var(--rl-signal) 5.5%, transparent), transparent 64%),
         var(--rl-ink);
 }
 
@@ -496,7 +496,7 @@ button {
     width: 5px;
     height: 5px;
     background: var(--rl-signal);
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.7);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 70%, transparent);
 }
 
 .chat-actions {
@@ -566,7 +566,7 @@ button {
 }
 
 .msg--mention {
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.16), rgba(233, 66, 33, 0.03) 58%, transparent);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 16%, transparent), color-mix(in srgb, var(--rl-signal) 3%, transparent) 58%, transparent);
     border-left-color: var(--rl-signal);
 }
 
@@ -667,8 +667,8 @@ button {
 
 .mention {
     padding: 0 3px;
-    border: 1px solid rgba(233, 66, 33, 0.28);
-    background: rgba(233, 66, 33, 0.17);
+    border: 1px solid color-mix(in srgb, var(--rl-signal) 28%, transparent);
+    background: color-mix(in srgb, var(--rl-signal) 17%, transparent);
     color: var(--rl-signal-soft);
     font-weight: 700;
 }
@@ -739,7 +739,7 @@ button {
 
 .reaction.active {
     border-color: var(--rl-signal);
-    background: rgba(233, 66, 33, 0.14);
+    background: color-mix(in srgb, var(--rl-signal) 14%, transparent);
     color: var(--rl-cream);
 }
 
@@ -805,7 +805,7 @@ button {
     padding: 0 10px;
     border: 1px solid var(--rl-line);
     background: var(--rl-void);
-    box-shadow: inset 0 0 0 1px rgba(233, 66, 33, 0.03);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--rl-signal) 3%, transparent);
 }
 
 .composer-box::before {
@@ -1005,7 +1005,7 @@ button {
     display: block;
     height: 100%;
     background: var(--rl-signal);
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.25);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 25%, transparent);
 }
 
 .signal-foot {

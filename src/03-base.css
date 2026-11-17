@@ -67,7 +67,7 @@ select,
 
 a {
     color: var(--rl-signal-soft);
-    text-decoration-color: rgba(255, 147, 104, 0.4);
+    text-decoration-color: color-mix(in srgb, var(--rl-signal-soft) 40%, transparent);
     text-underline-offset: 2px;
 }
 

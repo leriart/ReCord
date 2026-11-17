@@ -1,0 +1,190 @@
+/* REPLACED interface layer: square portraits, inverted selections, terminal controls */
+
+/* portraits */
+
+#app-mount svg[class*="mask_"] > foreignObject[mask] {
+    mask: none !important;
+    -webkit-mask: none !important;
+}
+
+#app-mount img[class*="avatar_"],
+#app-mount [class*="avatarStack_"],
+#app-mount [class*="avatarStack_"] img,
+#app-mount [class*="userAvatar_"],
+#app-mount [class*="replyAvatar_"] {
+    border-radius: 0 !important;
+}
+
+#app-mount img[class*="avatar_"],
+#app-mount [class*="avatarStack_"] img {
+    filter: var(--rl-avatar-filter);
+    image-rendering: pixelated;
+    outline: 1px solid var(--rl-line);
+    outline-offset: -1px;
+}
+
+#app-mount [class*="avatarStack_"] {
+    position: relative;
+}
+
+#app-mount [class*="avatarStack_"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, var(--rl-a12), rgba(5, 6, 5, 0.2)),
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
+    opacity: var(--rl-avatar-scanline);
+}
+
+#app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover,
+#app-mount [class*="member_"]:hover [class*="avatarStack_"] img,
+#app-mount [class*="interactiveSelected_"] [class*="avatarStack_"] img,
+#app-mount [class*="interactive_"]:hover [class*="avatarStack_"] img {
+    filter: none;
+    outline-color: var(--rl-signal);
+}
+
+#app-mount svg[class*="mask_"] rect[mask],
+#app-mount svg[class*="mask_"] svg[class*="dotsContainer"] {
+    rx: 0;
+}
+
+#app-mount [class*="avatarDecoration_"],
+#app-mount svg[class*="avatarDecorationContainer_"] {
+    display: none !important;
+}
+
+/* inverted selection: the active row is a solid signal block with dark type */
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] > div > a[class*="link_"],
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] a[class*="link_"],
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] {
+    background: var(--rl-signal) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    color: var(--rl-void) !important;
+}
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"],
+#app-mount [class*="sidebarList_"] li[class*="selected_"] {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] a[class*="link_"] :is([class*="name_"], [class*="name_"] *, [class*="iconContainer_"], [class*="icon_"]),
+#app-mount [class*="privateChannels_"] [class*="interactiveSelected_"] :is([class*="name_"], [class*="name_"] *, [class*="subText_"], [class*="subText_"] *, [class*="linkButtonIcon_"]) {
+    color: var(--rl-void) !important;
+    -webkit-text-fill-color: var(--rl-void) !important;
+    text-shadow: none !important;
+}
+
+#app-mount [class*="sidebarList_"] [class*="modeSelected_"] a[class*="link_"] [class*="children_"] :is(svg, [role="button"]) {
+    color: var(--rl-void) !important;
+}
+
+#app-mount [class*="sidebarList_"] a[class*="link_"],
+#app-mount [class*="privateChannels_"] [class*="interactive_"] {
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="sidebarList_"] [class*="wrapper_"]:not([class*="modeSelected_"]):hover a[class*="link_"],
+#app-mount [class*="privateChannels_"] [class*="interactive_"]:not([class*="interactiveSelected_"]):hover {
+    background: var(--rl-a10) !important;
+    box-shadow: inset 2px 0 var(--rl-signal) !important;
+}
+
+#app-mount [class*="privateChannels_"] [class*="avatar_"] {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* menus */
+
+[class*="menu_"] [class*="item_"][class*="focused_"],
+[class*="menu_"] [class*="item_"]:active {
+    background: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    border-radius: 0 !important;
+}
+
+[class*="menu_"] [class*="item_"][class*="focused_"] * {
+    color: var(--rl-void) !important;
+}
+
+[class*="menu_"] [class*="item_"][class*="colorDanger_"][class*="focused_"] {
+    background: var(--rl-red) !important;
+}
+
+/* user panel */
+
+#app-mount [class*="panels_"] button[class*="button_"] {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: var(--rl-smoke) !important;
+}
+
+#app-mount [class*="panels_"] button[class*="button_"]:hover {
+    background: var(--rl-a12) !important;
+    color: var(--rl-signal-hot) !important;
+}
+
+#app-mount [class*="panels_"] button[class*="redGlow_"],
+#app-mount [class*="panels_"] button[aria-checked="true"] {
+    color: var(--rl-red) !important;
+    background: rgba(255, 70, 38, 0.1) !important;
+}
+
+#app-mount [class*="panels_"] [class*="audioButtonParent_"] {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: inset 0 0 0 1px var(--rl-line) !important;
+}
+
+#app-mount [class*="panels_"] [class*="audioButtonParent_"]::before,
+#app-mount [class*="panels_"] [class*="audioButtonParent_"]::after {
+    display: none !important;
+}
+
+/* guild rail */
+
+#app-mount nav[class*="guilds_"] [class*="listItem_"] > [class*="wrapper_"] > span[class*="item_"] {
+    background: var(--rl-signal) !important;
+    border-radius: 0 !important;
+    width: 3px !important;
+    margin-inline-start: 0 !important;
+}
+
+/* media */
+
+#app-mount [class*="imageWrapper_"],
+#app-mount [class*="imageWrapper_"] :is(img, video),
+#app-mount [class*="mosaicItem_"],
+#app-mount [class*="oneByOneGrid_"],
+#app-mount [class*="wrapperPaused_"],
+#app-mount [class*="wrapperPlaying_"] {
+    border-radius: 0 !important;
+}
+
+/* settings */
+
+[role="dialog"] nav [class*="item_"][class*="active_"][role="link"] {
+    background: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    border-radius: 0 !important;
+}
+
+[role="dialog"] nav [class*="item_"][class*="active_"][role="link"] * {
+    color: var(--rl-void) !important;
+}
+
+[role="dialog"] nav [class*="item_"][role="link"]:not([class*="active_"]):hover {
+    background: var(--rl-a10) !important;
+    box-shadow: inset 2px 0 var(--rl-signal);
+    border-radius: 0 !important;
+}

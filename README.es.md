@@ -34,43 +34,41 @@ Esas observaciones guían la paleta, la escala tipográfica, la geometría de pa
 
 ## Instalación
 
-### Vencord / Equicord
+`Retroless.theme.css` es un único archivo autocontenido: las fuentes, los iconos y las texturas van embebidos, así que no carga nada más.
+
+### Online (se actualiza solo)
 
 1. Abre los ajustes de Discord.
-2. Entra en `Vencord` -> `Themes`.
-3. Abre `Online Themes`.
-4. Pega esta URL en una línea:
+2. Ve a `Vencord` -> `Themes` -> `Online Themes`.
+3. Pega esta URL en una línea:
 
 ```text
 https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css
 ```
 
-5. Activa `RETROLESS`. Reinicia Discord si la interfaz no se actualiza.
+4. Activa `RETROLESS`. Reinicia Discord si la interfaz no se refresca.
 
-El archivo de entrada importa todos los módulos desde `raw.githubusercontent.com`. Vencord permite ese dominio para temas y fuentes.
+Si una actualización no aparece, añade una versión a la URL, por ejemplo `?v=2.0.0`, o cierra Discord por completo desde la bandeja y vuelve a abrirlo.
 
-Si una actualización de CSS no aparece, elimina el tema online y vuelve a agregarlo con un query de versión, o cierra Discord por completo desde la bandeja y vuelve a abrirlo:
+### Descarga
 
-```text
-https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.1.0
+1. Descarga [`Retroless.theme.css`](https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css) (clic derecho -> `Guardar enlace como`), o usa el botón de descarga de la página, que además puede dejar tu color de acento ya aplicado.
+2. Abre `Vencord` -> `Themes` -> `Local Themes` -> `Open Themes Folder` y suelta ahí el archivo.
+3. Activa `RETROLESS`. Funciona sin conexión.
+
+## Color de acento
+
+Todo el naranja de la interfaz sale de una sola variable. Pon esto en `Vencord` -> `Themes` -> `QuickCSS` para recolorear el tema entero:
+
+```css
+:root {
+    --rl-accent: #3ddc97;
+}
 ```
 
-Los imports de módulos también incluyen ese query, así que una entrada nueva carga módulos nuevos.
+Selecciones, bordes, brillos, iconos, insignias, la marca de arranque y los tokens de marca de Discord la siguen.
 
-### Local
-
-Clona el repositorio y carga `Retroless.theme.css` desde `Vencord` -> `Themes` -> `Local Themes`. Las importaciones online siguen activas, así que necesita conexión.
-
-### Paquete offline
-
-```bash
-npm install
-npm run build
-```
-
-Carga `dist/Retroless.theme.css` como tema local. El paquete incluye todos los módulos y copia las fuentes y los assets a su lado.
-
-### Conflictos entre temas
+## Conflictos entre temas
 
 Usa RETROLESS como único tema. ClearVision, Midnight, System24, Ryoku, Selene y otros temas completos sobrescriben las mismas variables de Discord y se mezclan con este, produciendo texto oscuro sobre fondos oscuros, buscadores claros o iconos redondeados.
 
@@ -113,17 +111,25 @@ El tema también reemplaza la pantalla de carga interna de Discord: oculta el lo
 
 ## Sonidos
 
-Los temas de Vencord son solo CSS, así que el tema no puede reproducir audio por sí solo. El repositorio incluye un signal pack opcional en `sounds/` con sonidos de terminal originales inspirados en REPLACED. No incluye ni redistribuye audio del juego.
+Los temas son solo CSS y no pueden reproducir audio, así que de los sonidos se encarga `RetrolessSounds`, un pequeño userplugin de Vencord en `plugin/retrolessSounds`. Sustituye los sonidos propios de Discord (mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades) por el pack de señal de RETROLESS y añade sonidos de interfaz: ticks al pasar el cursor, seleccionar, volver, navegar, interruptores, abrir y cerrar menús, teclear y enviar.
 
-La forma más sencilla de usarlo es el plugin `CustomSounds` de Equicord:
+El pack de `sounds/` es audio original sintetizado e inspirado en REPLACED. No incluye ni redistribuye audio del juego. Es CC0; cambia cualquier WAV por el tuyo usando el mismo nombre.
 
-1. Activa `CustomSounds` en Equicord.
-2. Abre sus ajustes y activa los eventos que quieras.
-3. Elige `Custom` y sube el WAV correspondiente de `sounds/`.
+### Vesktop (Linux)
 
-El mapeo completo está en `sounds/README.md` y `sounds/manifest.json`. El pack es CC0; puedes reemplazar cualquier WAV por tu propia captura usando el mismo nombre. Hay una vista previa en `docs/sounds.html`.
+```bash
+git clone https://github.com/leriart/Retroless.git
+cd Retroless
+./scripts/install-sounds.sh
+```
 
-`hover.wav`, `select.wav`, `back.wav`, `send.wav` y `boot.wav` son sonidos de interfaz para un plugin que sepa reproducirlos. Vencord por sí solo no puede dispararlos.
+El script compila Vencord con el plugin y apunta Vesktop a esa compilación. Reinicia Vesktop y activa `RetrolessSounds` en `Ajustes` -> `Plugins`. Ejecútalo otra vez para actualizar, o con `--uninstall` para volver a la compilación original.
+
+### Cualquier Vencord compilado desde el código
+
+Copia `plugin/retrolessSounds` en `src/userplugins/` de tu copia de Vencord y ejecuta `pnpm build` y `pnpm inject`.
+
+En los ajustes del plugin puedes desactivar los sonidos sustituidos de Discord, los de interfaz, los ticks de cursor, los de teclado y la señal de arranque, y ajustar el volumen. El mapeo de eventos está en `sounds/manifest.json`; hay una vista previa en `docs/sounds.html`. En Equicord puedes subir los WAV en su plugin `CustomSounds`.
 
 ## Paleta
 
@@ -195,7 +201,7 @@ Para quitar el efecto CRT:
 
 ```text
 Retroless/
-├── Retroless.theme.css      entrada / imports raw
+├── Retroless.theme.css      tema compilado, autocontenido
 ├── src/
 │   ├── 00-tokens.css        paleta, tipografía, efectos
 │   ├── 01-fonts.css         fuentes Pixel Operator
@@ -212,7 +218,8 @@ Retroless/
 │   ├── 12-priority.css
 │   ├── 13-motion.css
 │   ├── 14-icons.css
-│   └── 15-boot.css
+│   ├── 15-boot.css
+│   └── 16-replaced.css
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
 │   ├── fonts/               Pixel Operator (CC0)
@@ -232,8 +239,8 @@ npm run build
 npm run serve
 ```
 
-- `npm run check` valida imports raw, assets y sintaxis CSS.
-- `npm run build` genera el paquete offline en `dist/`.
+- `npm run check` valida assets y sintaxis CSS, y que `Retroless.theme.css` coincida con `src/`.
+- `npm run build` empaqueta `src/` e incrusta fuentes, iconos y texturas en `Retroless.theme.css`. Ejecútalo tras cada cambio en `src/`.
 - `npm run serve` sirve el repositorio en `http://127.0.0.1:8123`.
 - Preview: `http://127.0.0.1:8123/docs/preview.html`
 - Landing: `http://127.0.0.1:8123/docs/index.html`

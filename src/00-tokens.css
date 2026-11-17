@@ -1,5 +1,6 @@
 /*
  * RETROLESS / tokens
+ * Change --rl-accent to recolor the whole interface.
  * Palette derived from REPLACED menu captures: signal orange #E94221,
  * oxide #A8231B, wingman paper #D4B496, channel teal #14322A.
  */
@@ -7,12 +8,14 @@
 :root {
     color-scheme: dark;
 
-    --rl-signal: #e94221;
-    --rl-signal-hot: #ff6a3d;
-    --rl-signal-soft: #ff9368;
-    --rl-signal-dim: #b7472a;
-    --rl-signal-deep: #7a2c1a;
-    --rl-oxide: #a8231b;
+    --rl-accent: #e94221;
+
+    --rl-signal: var(--rl-accent);
+    --rl-signal-hot: color-mix(in srgb, var(--rl-accent) 80%, #fff3d6);
+    --rl-signal-soft: color-mix(in srgb, var(--rl-accent) 58%, #fff3d6);
+    --rl-signal-dim: color-mix(in srgb, var(--rl-accent) 76%, #000);
+    --rl-signal-deep: color-mix(in srgb, var(--rl-accent) 50%, #000);
+    --rl-oxide: color-mix(in srgb, var(--rl-accent) 70%, #300);
 
     --rl-void: #050605;
     --rl-ink: #080907;
@@ -23,7 +26,7 @@
     --rl-higher: #1f221b;
 
     --rl-line: #2c241d;
-    --rl-line-hot: rgba(233, 66, 33, 0.34);
+    --rl-line-hot: color-mix(in srgb, var(--rl-signal) 34%, transparent);
     --rl-line-soft: rgba(212, 180, 150, 0.12);
 
     --rl-paper: #d4b496;
@@ -61,6 +64,9 @@
 
     --rl-dither: conic-gradient(from 0deg, var(--rl-signal) 25%, transparent 0 50%, var(--rl-signal) 0 75%, transparent 0);
     --rl-dither-size: 2px 2px;
+
+    --rl-a10: color-mix(in srgb, var(--rl-signal) 10%, transparent);
+    --rl-a12: color-mix(in srgb, var(--rl-signal) 12%, transparent);
 
     --rl-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }

@@ -140,11 +140,66 @@
                         <p>CRT power-on sweep for theme or plugin startup.</p>
                         <audio controls preload="none" src="../sounds/boot.wav"></audio>
                     </article>
+                    <article class="sound-card">
+                        <h3>Type</h3>
+                        <span class="sound-file">type.wav</span>
+                        <p>Key tick while writing a message.</p>
+                        <audio controls preload="none" src="../sounds/type.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Open</h3>
+                        <span class="sound-file">open.wav</span>
+                        <p>Menu or modal powering on.</p>
+                        <audio controls preload="none" src="../sounds/open.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Close</h3>
+                        <span class="sound-file">close.wav</span>
+                        <p>Menu or modal collapsing.</p>
+                        <audio controls preload="none" src="../sounds/close.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Navigate</h3>
+                        <span class="sound-file">navigate.wav</span>
+                        <p>Two-step blip when switching channel, server or tab.</p>
+                        <audio controls preload="none" src="../sounds/navigate.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Toggle</h3>
+                        <span class="sound-file">toggle.wav</span>
+                        <p>Switches and checkboxes.</p>
+                        <audio controls preload="none" src="../sounds/toggle.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Camera on</h3>
+                        <span class="sound-file">camera-on.wav</span>
+                        <p>Rising sweep when video starts.</p>
+                        <audio controls preload="none" src="../sounds/camera-on.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Camera off</h3>
+                        <span class="sound-file">camera-off.wav</span>
+                        <p>Falling sweep when video stops.</p>
+                        <audio controls preload="none" src="../sounds/camera-off.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Clip</h3>
+                        <span class="sound-file">clip.wav</span>
+                        <p>Clip saved.</p>
+                        <audio controls preload="none" src="../sounds/clip.wav"></audio>
+                    </article>
+                    <article class="sound-card">
+                        <h3>Stage</h3>
+                        <span class="sound-file">stage.wav</span>
+                        <p>Three-note waiting cue for stages.</p>
+                        <audio controls preload="none" src="../sounds/stage.wav"></audio>
+                    </article>
                 </div>
 
                 <div class="note sound-note">
-                    <b>PLAYING THEM IN DISCORD:</b> Vencord themes are CSS-only and cannot play audio by themselves.
-                    Use Equicord's <code>CustomSounds</code> plugin, or any sound plugin that accepts local WAV files.
+                    <b>PLAYING THEM IN DISCORD:</b> Themes are CSS-only and cannot play audio, so the
+                    <code>RetrolessSounds</code> userplugin does it: it replaces Discord's sounds and adds interface sounds.
+                    On Vesktop run <code>./scripts/install-sounds.sh</code> from the repository.
                     The event mapping is in <a href="../sounds/README.md">sounds/README.md</a> and
                     <a href="../sounds/manifest.json">sounds/manifest.json</a>.
                 </div>

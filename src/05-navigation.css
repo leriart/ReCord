@@ -12,8 +12,8 @@
 }
 
 [data-list-item-id^="channels___"]:hover {
-    background-color: rgba(233, 66, 33, 0.065) !important;
-    border-left-color: rgba(233, 66, 33, 0.34);
+    background-color: color-mix(in srgb, var(--rl-signal) 6.5%, transparent) !important;
+    border-left-color: color-mix(in srgb, var(--rl-signal) 34%, transparent);
 }
 
 [data-list-item-id^="channels___"] [class*="name_"],
@@ -34,7 +34,7 @@
 
 [data-list-item-id^="channels___"][class*="modeSelected_"],
 [data-list-item-id^="channels___"] [class*="modeSelected_"] {
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.19), rgba(233, 66, 33, 0.05) 72%, transparent) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 19%, transparent), color-mix(in srgb, var(--rl-signal) 5%, transparent) 72%, transparent) !important;
     border-left-color: var(--rl-signal) !important;
 }
 
@@ -63,7 +63,7 @@
 [data-list-item-id^="channels___"] [class*="unread_"] {
     background-color: var(--rl-signal) !important;
     border-radius: 0 !important;
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.5);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 50%, transparent);
 }
 
 [data-list-item-id^="channels___"] [class*="numberBadge_"] {
@@ -124,19 +124,14 @@
 
 [class*="privateChannels_"] [class*="channel_"]:hover,
 [class*="privateChannels_"] [class*="link_"]:hover {
-    background: rgba(233, 66, 33, 0.065) !important;
-    border-left-color: rgba(233, 66, 33, 0.34);
+    background: color-mix(in srgb, var(--rl-signal) 6.5%, transparent) !important;
+    border-left-color: color-mix(in srgb, var(--rl-signal) 34%, transparent);
 }
 
 [class*="privateChannels_"] [class*="interactiveSelected_"],
 [class*="privateChannels_"] [class*="selected_"] {
-    background: linear-gradient(90deg, rgba(233, 66, 33, 0.19), rgba(233, 66, 33, 0.05) 72%, transparent) !important;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 19%, transparent), color-mix(in srgb, var(--rl-signal) 5%, transparent) 72%, transparent) !important;
     border-left-color: var(--rl-signal) !important;
-}
-
-[class*="privateChannels_"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
 }
 
 [class*="privateChannels_"] [class*="name_"] {
@@ -154,7 +149,7 @@
 [class*="privateChannels_"] [class*="unread_"] {
     background: var(--rl-signal) !important;
     border-radius: 0 !important;
-    box-shadow: 0 0 8px rgba(233, 66, 33, 0.5);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--rl-signal) 50%, transparent);
 }
 
 [class*="voiceBar_"],
@@ -175,12 +170,7 @@
 }
 
 [class*="voiceUser_"]:hover {
-    background: rgba(233, 66, 33, 0.06);
-}
-
-[class*="voiceUser_"] [class*="avatar_"] {
-    border-radius: 0 !important;
-    border: 1px solid var(--rl-line);
+    background: color-mix(in srgb, var(--rl-signal) 6%, transparent);
 }
 
 [class*="unreadBottom_"],
