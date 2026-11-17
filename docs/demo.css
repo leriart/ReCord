@@ -61,7 +61,6 @@ button {
     background-size: 12px 12px;
     background-repeat: no-repeat;
     opacity: 0.55;
-    filter: drop-shadow(0 0 5px color-mix(in srgb, var(--rl-signal) 20%, transparent));
 }
 
 .app::after {
@@ -71,11 +70,10 @@ button {
     z-index: 29;
     pointer-events: none;
     background:
-        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.22) 2px 3px),
+        url("../assets/brand/scanlines.png"),
         url("../assets/brand/grain.png");
-    background-size: auto, 128px 128px;
-    opacity: 0.26;
-    mix-blend-mode: multiply;
+    background-size: 64px 48px, 128px 128px;
+    opacity: 0.2;
 }
 
 .rail {

@@ -70,6 +70,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | Tipografía | Pixel Operator, Pixel Operator Mono, monoespaciada del sistema, la de Discord |
 | Capa CRT | Scanlines, grano, viñeta, parpadeo, haz de barrido, marco de esquinas |
 | Iconos pixel | Activados, o los iconos nativos de Discord |
+| Bajo consumo | Apaga el haz de barrido, el grano, el parpadeo y las animaciones continuas, para equipos donde Discord va sin aceleración por GPU |
 | Avatares | Filtro cálido y scanlines, sí o no |
 
 Tres formas de cambiarlas:

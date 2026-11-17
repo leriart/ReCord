@@ -261,7 +261,8 @@ const ES = {
     "Installs the theme and the startup splash, and leaves Vencord as it is.": "Instala el tema y el splash de arranque, y deja Vencord como está.",
     "Removes the theme, the splash and the plugin, and restores your settings.": "Quita el tema, el splash y el plugin, y restaura tus ajustes.",
     "Discord on phones does not load themes. Run this on the computer where you use Discord.": "Discord en el teléfono no carga temas. Ejecuta esto en el ordenador donde uses Discord.",
-    "userplugin does it: it replaces Discord's sounds and adds interface sounds. The installer sets it up on Vesktop by default. The event mapping is in": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. El instalador lo deja listo en Vesktop por defecto. El mapeo de eventos está en"
+    "userplugin does it: it replaces Discord's sounds and adds interface sounds. The installer sets it up on Vesktop by default. The event mapping is in": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. El instalador lo deja listo en Vesktop por defecto. El mapeo de eventos está en",
+    "LOW POWER": "BAJO CONSUMO"
 };
 
 const clean = text => text.replace(/\s+/g, " ").trim();

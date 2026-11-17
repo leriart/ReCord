@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.1.0
+
+Performance of the website, measured in Firefox, where it was slow.
+
+- Scanlines are a tiled image instead of a repeating gradient. Firefox re-rasterized the 3px gradient over the whole viewport on every scroll frame. Average frame while scrolling: 42 to 44 ms before, 16.5 ms after (the 60 fps cap); worst frame 134 to 146 ms before, 23 to 29 ms after
+- Removed `mix-blend-mode: multiply` from the scanline overlay and `backdrop-filter: blur()` from the top bar, and two color filters on large elements
+- The demo page and the theme's full-screen CRT layer use the same tiled image
+- Measured by removing one suspect at a time: the demo iframe, the skyline and the shadows were not the cause, and neither was the layer being fixed
+
+Theme
+
+- Low power option in the plugin and the configurator: turns off the scan beam, grain, flicker and the constant animations, for clients that composite on the CPU
+
 ## 4.0.0
 
 Installing

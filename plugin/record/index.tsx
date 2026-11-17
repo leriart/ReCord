@@ -313,6 +313,7 @@ const settings = definePluginSettings({
     scanlines: percent("Scanline strength", 25),
     grain: percent("Film grain", 18),
     vignette: percent("Vignette", 55),
+    lowPower: toggle("Low power / Bajo consumo: no scan beam, grain, flicker or constant animations (for PCs without GPU acceleration)", false),
     flicker: toggle("CRT flicker", false),
     beam: toggle("Rolling scan beam"),
     frame: toggle("Corner brackets and screen frame"),
@@ -444,6 +445,18 @@ function applyTheme() {
         `--rl-background-dim: ${store.backgroundDim}%`,
         `--rl-surface: ${store.panelOpacity}%`
     ];
+    // Low power keeps the look but drops everything that repaints all the time,
+    // which is what hurts when the client composites on the CPU.
+    if (store.lowPower) {
+        rules.push(
+            "--rl-beam-duration: 0s",
+            "--rl-beam-opacity: 0",
+            "--rl-flicker-duration: 0s",
+            "--rl-grain-opacity: 0",
+            `--rl-motion: ${store.motionLevel === "off" ? "off" : "subtle"}`
+        );
+    }
+
     if (backgroundUrl) rules.push(`--rl-background-image: url("${backgroundUrl}")`);
 
     const hex = /^#[0-9a-f]{6}$/i;

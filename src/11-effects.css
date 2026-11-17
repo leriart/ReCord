@@ -6,9 +6,10 @@ body::before {
     inset: 0;
     z-index: 9999;
     pointer-events: none;
+    /* tiled images: cheaper to composite than a full-screen repeating gradient */
     background:
         url("../assets/brand/grain-soft.png") 0 0 / 128px 128px,
-        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.32) 2px 3px);
+        url("../assets/brand/scanlines.png") 0 0 / 64px 48px;
     opacity: calc(var(--rl-scanline-opacity) + var(--rl-grain-opacity) * 0.22);
     contain: strict;
     will-change: opacity;

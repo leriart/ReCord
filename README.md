@@ -70,6 +70,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | Typeface | Pixel Operator, Pixel Operator Mono, system monospace, Discord default |
 | CRT layer | Scanlines, grain, vignette, flicker, rolling scan beam, corner frame |
 | Pixel icons | On, or Discord's native icons |
+| Low power | Turns off the scan beam, grain, flicker and constant animations, for PCs where Discord runs without GPU acceleration |
 | Avatars | Warm filter and scanlines on or off |
 
 Three ways to change them:

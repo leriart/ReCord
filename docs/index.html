@@ -42,7 +42,7 @@
                 <a href="sounds.html">SOUNDS</a>
             </nav>
             <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
-            <span class="top-version">V4.0.0</span>
+            <span class="top-version">V4.1.0</span>
         </div>
     </header>
 
@@ -326,6 +326,7 @@
                                         <label><input type="checkbox" id="avatars" checked> AVATAR FILTER</label>
                                         <label><input type="checkbox" id="flicker"> CRT FLICKER</label>
                                         <label><input type="checkbox" id="beam" checked> SCAN BEAM</label>
+                                        <label><input type="checkbox" id="lowpower"> LOW POWER</label>
                                     </div>
                                     <pre class="accent-output" id="snippet"></pre>
                                     <div class="accent-actions">
@@ -575,6 +576,9 @@
                 `--rl-frame-opacity: ${$("frame").checked ? 0.6 : 0}`,
                 `--rl-beam-opacity: ${$("beam").checked ? 0.5 : 0}`
             ];
+            if ($("lowpower").checked) {
+                lines.push("--rl-beam-duration: 0s", "--rl-beam-opacity: 0", "--rl-flicker-duration: 0s", "--rl-grain-opacity: 0", `--rl-motion: ${$("motion").value === "off" ? "off" : "subtle"}`);
+            }
             if ($("font").value !== "pixel") lines.push(`--rl-font: ${fonts[$("font").value]}`, `--rl-font-display: ${fonts[$("font").value]}`);
             if (!$("avatars").checked) lines.push("--rl-avatar-filter: none", "--rl-avatar-scanline: 0");
 
