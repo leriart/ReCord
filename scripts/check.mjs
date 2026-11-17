@@ -34,7 +34,7 @@ for (const url of imports) {
         continue;
     }
 
-    const relative = url.slice(rawBase.length);
+    const relative = url.slice(rawBase.length).split("?")[0];
     if (!(await exists(relative))) errors.push(`Imported module is missing: ${relative}`);
 }
 

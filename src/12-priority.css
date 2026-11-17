@@ -538,3 +538,106 @@ html body {
     background: var(--rl-signal) !important;
     box-shadow: 0 0 6px rgba(233, 66, 33, 0.3) !important;
 }
+
+#app-mount [class*="guilds"] *,
+#app-mount [class*="folder"] * {
+    clip-path: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+}
+
+#app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"],
+#app-mount [class*="folderIcon"],
+#app-mount [class*="folderPreviewWrapper"] {
+    background-color: var(--rl-panel) !important;
+    border: 1px solid rgba(233, 66, 33, 0.22) !important;
+}
+
+#app-mount [class*="folderPreview"] {
+    border: 0 !important;
+}
+
+#app-mount [class*="folderPreviewGuildIcon"] {
+    border: 0 !important;
+}
+
+#app-mount li[id^="chat-messages"] {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+#app-mount li[id^="chat-messages"]:has([class*="mentioned"]) {
+    background: linear-gradient(90deg, rgba(233, 66, 33, 0.1), rgba(233, 66, 33, 0.02) 55%, transparent) !important;
+}
+
+#app-mount [class*="replyBar"],
+#app-mount [class*="repliedMessage"],
+#app-mount [class*="reply"] {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="selected"],
+#app-mount [class*="privateChannels"] [class*="interactiveSelected"],
+#app-mount [data-list-item-id^="private-channels"][class*="selected"] {
+    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.18), transparent 70%) !important;
+    background-color: rgba(233, 66, 33, 0.1) !important;
+}
+
+#app-mount [class*="subtitleContainer"] {
+    border-bottom: 1px solid var(--rl-line) !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="panels"] [class*="redGlow"],
+#app-mount [class*="panels"] [class*="danger"] {
+    background-color: rgba(255, 70, 38, 0.1) !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="unreadTop"],
+#app-mount [class*="unreadBottom"],
+#app-mount [class*="unreadMentionsIndicatorTop"],
+#app-mount [class*="unreadMentionsIndicatorBottom"],
+#app-mount [class*="newMessagesBar"] {
+    background: var(--rl-void) !important;
+    background-image: none !important;
+    border-top: 1px solid var(--rl-line);
+    border-bottom: 1px solid var(--rl-line);
+    border-radius: 0 !important;
+    color: var(--rl-signal-soft) !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    box-shadow: none !important;
+}
+
+#app-mount [class*="unreadTop"] *,
+#app-mount [class*="unreadBottom"] *,
+#app-mount [class*="unreadMentionsIndicatorTop"] *,
+#app-mount [class*="unreadMentionsIndicatorBottom"] *,
+#app-mount [class*="newMessagesBar"] * {
+    background-image: none !important;
+    color: var(--rl-signal-soft) !important;
+}
+
+#app-mount [class*="unreadTop"]::before,
+#app-mount [class*="unreadTop"]::after,
+#app-mount [class*="unreadBottom"]::before,
+#app-mount [class*="unreadBottom"]::after {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#app-mount li[id^="chat-messages"],
+#app-mount [class*="messageGroup"],
+#app-mount [class*="groupStart"],
+#app-mount [class*="groupEnd"] {
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}

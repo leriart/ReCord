@@ -23,7 +23,7 @@ for (const match of imports) {
         throw new Error(`Import does not use the repository raw base: ${url}`);
     }
 
-    const relative = url.slice(rawBase.length);
+    const relative = url.slice(rawBase.length).split("?")[0];
     const modulePath = path.join(root, relative);
     const css = await readFile(modulePath, "utf8");
     modules.push({ relative, css });

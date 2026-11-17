@@ -102,12 +102,6 @@
     box-shadow: 0 0 0 1px var(--rl-void), 0 0 12px rgba(233, 66, 33, 0.25);
 }
 
-[data-list-item-id^="guildsnav___"] [class*="folder"] {
-    border-radius: 0 !important;
-    background: var(--rl-panel) !important;
-    border: 1px solid var(--rl-line);
-}
-
 [class*="unreadMentionsIndicator"] {
     background: var(--rl-void);
     border: 1px solid var(--rl-line);

@@ -49,6 +49,14 @@ https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css
 
 El archivo de entrada importa todos los módulos desde `raw.githubusercontent.com`. Vencord permite ese dominio para temas y fuentes.
 
+Si una actualización de CSS no aparece, elimina el tema online y vuelve a agregarlo con un query de versión, o cierra Discord por completo desde la bandeja y vuelve a abrirlo:
+
+```text
+https://raw.githubusercontent.com/leriart/Retroless/main/Retroless.theme.css?v=1.0.3
+```
+
+Los imports de módulos también incluyen ese query, así que una entrada nueva carga módulos nuevos.
+
 ### Local
 
 Clona el repositorio y carga `Retroless.theme.css` desde `Vencord` -> `Themes` -> `Local Themes`. Las importaciones online siguen activas, así que necesita conexión.
