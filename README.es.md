@@ -90,6 +90,20 @@ Los menús contextuales y modales abren con un barrido CRT por pasos. Los elemen
 }
 ```
 
+## Sonidos
+
+Los temas de Vencord son solo CSS, así que el tema no puede reproducir audio por sí solo. El repositorio incluye un signal pack opcional en `sounds/` con sonidos de terminal originales inspirados en REPLACED. No incluye ni redistribuye audio del juego.
+
+La forma más sencilla de usarlo es el plugin `CustomSounds` de Equicord:
+
+1. Activa `CustomSounds` en Equicord.
+2. Abre sus ajustes y activa los eventos que quieras.
+3. Elige `Custom` y sube el WAV correspondiente de `sounds/`.
+
+El mapeo completo está en `sounds/README.md` y `sounds/manifest.json`. El pack es CC0; puedes reemplazar cualquier WAV por tu propia captura usando el mismo nombre. Hay una vista previa en `docs/sounds.html`.
+
+`hover.wav`, `select.wav`, `back.wav`, `send.wav` y `boot.wav` son sonidos de interfaz para un plugin que sepa reproducirlos. Vencord por sí solo no puede dispararlos.
+
 ## Paleta
 
 | Token | Hex | Origen |
@@ -177,8 +191,9 @@ Retroless/
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
 │   └── fonts/               Pixel Operator (CC0)
+├── sounds/                  signal pack (CC0) + manifest
 ├── docs/                    landing y preview
-├── scripts/                 validación y bundle
+├── scripts/                 validación, bundle, generador de sonidos
 └── LICENSE
 ```
 
@@ -196,6 +211,7 @@ npm run serve
 - `npm run serve` sirve el repositorio en `http://127.0.0.1:8123`.
 - Preview: `http://127.0.0.1:8123/docs/preview.html`
 - Landing: `http://127.0.0.1:8123/docs/index.html`
+- Sonidos: `http://127.0.0.1:8123/docs/sounds.html`
 
 La base raw está definida en `Retroless.theme.css` y `scripts/build.mjs`. Cambia ambas si haces un fork.
 

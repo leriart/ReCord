@@ -7,6 +7,7 @@ on:
             - "docs/**"
             - "src/**"
             - "assets/**"
+            - "sounds/**"
             - "index.html"
             - ".github/workflows/pages.yml"
     workflow_dispatch:
@@ -34,6 +35,7 @@ jobs:
                   cp -r docs/. _site/docs/
                   cp -r src/. _site/src/
                   cp -r assets _site/assets
+                  cp -r sounds _site/sounds
                   cp index.html _site/index.html
             - uses: actions/configure-pages@v5
             - uses: actions/upload-pages-artifact@v3

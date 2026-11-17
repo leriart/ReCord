@@ -1,0 +1,43 @@
+{
+    "name": "RETROLESS Signal Pack",
+    "version": "1.0.0",
+    "license": "CC0-1.0",
+    "description": "Original terminal interface sounds for RETROLESS. Not ripped game audio.",
+    "customSounds": {
+        "message1": "receive.wav",
+        "message2": "reply.wav",
+        "message3": "receive.wav",
+        "mention1": "mention.wav",
+        "mention2": "mention.wav",
+        "mention3": "mention.wav",
+        "mute": "mute.wav",
+        "unmute": "unmute.wav",
+        "deafen": "deafen.wav",
+        "undeafen": "undeafen.wav",
+        "user_join": "join.wav",
+        "user_leave": "leave.wav",
+        "user_moved": "select.wav",
+        "disconnect": "disconnect.wav",
+        "reconnect": "reconnect.wav",
+        "call_ringing": "ring.wav",
+        "call_calling": "ring.wav",
+        "success": "success.wav",
+        "clip_error": "error.wav",
+        "stream_started": "stream-on.wav",
+        "stream_ended": "stream-off.wav",
+        "stream_user_joined": "join.wav",
+        "stream_user_left": "leave.wav",
+        "ptt_start": "ptt-on.wav",
+        "ptt_stop": "ptt-off.wav",
+        "activity_launch": "stream-on.wav",
+        "activity_end": "stream-off.wav",
+        "overlayunlock": "boot.wav"
+    },
+    "ui": {
+        "hover": "hover.wav",
+        "select": "select.wav",
+        "back": "back.wav",
+        "boot": "boot.wav",
+        "send": "send.wav"
+    }
+}

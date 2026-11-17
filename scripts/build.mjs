@@ -41,6 +41,7 @@ const bundle = [
 await rm(distPath, { recursive: true, force: true });
 await mkdir(distPath, { recursive: true });
 await cp(path.join(root, "assets"), path.join(distPath, "assets"), { recursive: true });
+await cp(path.join(root, "sounds"), path.join(distPath, "sounds"), { recursive: true });
 await cp(path.join(root, "LICENSE"), path.join(distPath, "LICENSE"));
 await writeFile(path.join(distPath, "Retroless.theme.css"), bundle);
 await writeFile(
@@ -57,4 +58,4 @@ await writeFile(
 
 const total = modules.reduce((sum, module) => sum + module.css.length, 0);
 console.log(`Built dist/Retroless.theme.css (${modules.length} modules, ${(total / 1024).toFixed(1)} KiB CSS)`);
-console.log(`Copied assets and fonts (${(await readdir(path.join(distPath, "assets", "fonts"))).length} font files)`);
+console.log(`Copied assets, fonts and sound pack (${(await readdir(path.join(distPath, "sounds"))).length} sound files)`);

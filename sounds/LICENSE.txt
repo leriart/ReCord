@@ -1,0 +1,9 @@
+RETROLESS Signal Pack
+
+Copyright 2026 leriart
+
+The WAV files in this directory are dedicated to the public domain under
+CC0 1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/).
+
+They are original synthesized audio. They do not contain audio extracted
+from REPLACED or any other game.
