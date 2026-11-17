@@ -222,8 +222,8 @@ every = [path for _, paths in SIGNATURES for path in paths]
 out += [
     f"#app-mount :is(\n{signature(every)}\n) {{",
     "    background: currentColor !important;",
-    "    -webkit-mask: var(--rl-glyph) center / contain no-repeat;",
-    "    mask: var(--rl-glyph) center / contain no-repeat;",
+    "    -webkit-mask: var(--rl-glyph) center / contain no-repeat !important;",
+    "    mask: var(--rl-glyph) center / contain no-repeat !important;",
     "}",
     "",
     f"#app-mount :is(\n{signature(every)}\n) > * {{",

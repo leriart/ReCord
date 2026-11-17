@@ -548,8 +548,8 @@ svg:has(> path[d^="M10.67 1.33a9.33 9.33 0 0 1 8.05 1"]),
 svg:has(> path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"])
 ) {
         background: currentColor !important;
-        -webkit-mask: var(--rl-glyph) center / contain no-repeat;
-        mask: var(--rl-glyph) center / contain no-repeat;
+        -webkit-mask: var(--rl-glyph) center / contain no-repeat !important;
+        mask: var(--rl-glyph) center / contain no-repeat !important;
     }
 
     #app-mount :is(
