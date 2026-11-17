@@ -467,7 +467,7 @@ html body {
 
 
 
-#app-mount [class*="guilds"] * {
+#app-mount [data-list-item-id^="guildsnav___"] :is([class*="childWrapper"], [class*="wrapper"], [class*="listItemWrapper"], [class*="blobContainer"], img) {
     border-radius: 0 !important;
 }
 
@@ -513,14 +513,7 @@ html body {
     background-size: cover !important;
 }
 
-#app-mount [class*="replyBar"],
-#app-mount [class*="repliedMessage"],
-#app-mount [class*="reply"] {
-    border-top: 0 !important;
-    border-right: 0 !important;
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-}
+
 
 #app-mount [data-list-item-id^="guildsnav___"] [class*="pill_"] {
     width: 2px !important;
@@ -528,8 +521,12 @@ html body {
     box-shadow: 0 0 6px color-mix(in srgb, var(--rl-signal) 30%, transparent) !important;
 }
 
-#app-mount [class*="guilds"] *,
-#app-mount [class*="folder"] * {
+#app-mount :is(
+    [data-list-item-id^="guildsnav___"] [class*="childWrapper"],
+    [class*="folderIcon"],
+    [class*="folderPreviewWrapper"],
+    [class*="folderPreviewGuildIcon"]
+) {
     clip-path: none !important;
     -webkit-mask: none !important;
     mask: none !important;
@@ -636,4 +633,18 @@ html body {
 #app-mount [class*="unreadMentionsIndicatorTop"],
 #app-mount [class*="unreadMentionsIndicatorBottom"] {
     display: none !important;
+}
+
+/* paint isolation for long lists: keeps scrolling inside the list */
+
+#app-mount li[id^="chat-messages"] {
+    contain: layout paint style;
+}
+
+#app-mount [class*="members_"] [class*="member_"] {
+    contain: layout paint style;
+}
+
+[data-list-item-id^="guildsnav___"] {
+    contain: layout paint style;
 }

@@ -53,7 +53,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | Opción | Valores |
 | --- | --- |
 | Modo de color | Seguir la apariencia de Discord, terminal oscuro, papel claro |
-| Acento | Cualquier color; todos los tonos de acento salen de él |
+| Acento | Cualquier color; todos los tonos de acento salen de él. Preajustes: ámbar, fósforo, hielo, papel, terminal |
 | Colores libres | Tu propio color de fondo y de texto; paneles, bordes y texto secundario los siguen |
 | Imagen de fondo | Tu propia imagen, con oscurecido y opacidad de paneles |
 | Animaciones | Completas, sutiles (solo menús y diálogos), desactivadas |
@@ -64,7 +64,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 
 Tres formas de cambiarlas:
 
-1. **Dentro de Discord**, con el plugin: `Ajustes` -> `Plugins` -> `ReCord`. Los cambios se aplican al momento.
+1. **Dentro de Discord**, con el plugin: `Ajustes` -> `Plugins` -> `ReCord`. Los cambios se aplican al momento. Los preajustes cambian la paleta entera de una vez, y `Export`/`Import` guardan tu configuración en un archivo JSON.
 2. **En la [página](https://leriart.github.io/ReCord/)** (en inglés y español): la tarjeta `CONFIGURE` descarga el tema con tu configuración incluida, o copia un bloque para QuickCSS.
 3. **A mano** en `Vencord` -> `Themes` -> `QuickCSS`:
 
@@ -122,6 +122,14 @@ ReCord/
 ├── sounds/              signal pack (CC0) and manifest
 ├── docs/                landing page, configurator, galleries
 └── scripts/             build, check, icon and sound generators
+```
+
+## Versiones
+
+Al empujar una etiqueta como `v3.5.0` se publica una versión en GitHub con `ReCord.theme.css` adjunto, para poder fijar una versión concreta:
+
+```text
+https://github.com/leriart/ReCord/releases/download/v3.5.0/ReCord.theme.css
 ```
 
 ## Desarrollo

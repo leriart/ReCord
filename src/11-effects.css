@@ -7,14 +7,9 @@ body::before {
     z-index: 9999;
     pointer-events: none;
     background:
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 2px,
-            rgba(0, 0, 0, 0.32) 2px,
-            rgba(0, 0, 0, 0.32) 3px
-        );
-    opacity: var(--rl-scanline-opacity);
+        url("../assets/brand/grain-soft.png") 0 0 / 128px 128px,
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.32) 2px 3px);
+    opacity: calc(var(--rl-scanline-opacity) + var(--rl-grain-opacity) * 0.22);
     contain: strict;
     will-change: opacity;
     animation: rl-flicker var(--rl-flicker-duration) steps(1, end) infinite;
@@ -26,48 +21,22 @@ body::after {
     inset: 0;
     z-index: 9998;
     pointer-events: none;
+    --rl-corner: linear-gradient(color-mix(in srgb, var(--rl-signal) calc(var(--rl-frame-opacity) * 100%), transparent) 0 0);
     background:
+        var(--rl-corner) left top / 12px 1px no-repeat,
+        var(--rl-corner) left top / 1px 12px no-repeat,
+        var(--rl-corner) right top / 12px 1px no-repeat,
+        var(--rl-corner) right top / 1px 12px no-repeat,
+        var(--rl-corner) left bottom / 12px 1px no-repeat,
+        var(--rl-corner) left bottom / 1px 12px no-repeat,
+        var(--rl-corner) right bottom / 12px 1px no-repeat,
+        var(--rl-corner) right bottom / 1px 12px no-repeat,
         radial-gradient(ellipse at 50% 48%, transparent 52%, rgba(0, 0, 0, 0.48) 100%),
         radial-gradient(ellipse at 72% 0%, color-mix(in srgb, var(--rl-signal) 5.5%, transparent), transparent 46%);
     opacity: var(--rl-vignette-opacity);
     contain: strict;
     transform: translateZ(0);
-}
-
-#app-mount::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9996;
-    pointer-events: none;
-    background: url("../assets/brand/grain.png") 0 0 / 128px 128px;
-    opacity: calc(var(--rl-grain-opacity) * 0.55);
-    contain: strict;
-    transform: translateZ(0);
-}
-
-#app-mount::after {
-    content: "";
-    position: fixed;
-    inset: 5px;
-    z-index: 9997;
-    pointer-events: none;
-    border: 1px solid color-mix(in srgb, var(--rl-signal) 9%, transparent);
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.32);
-    --rl-corner: linear-gradient(var(--rl-signal) 0 0);
-    background:
-        var(--rl-corner) left top / 12px 1px,
-        var(--rl-corner) left top / 1px 12px,
-        var(--rl-corner) right top / 12px 1px,
-        var(--rl-corner) right top / 1px 12px,
-        var(--rl-corner) left bottom / 12px 1px,
-        var(--rl-corner) left bottom / 1px 12px,
-        var(--rl-corner) right bottom / 12px 1px,
-        var(--rl-corner) right bottom / 1px 12px;
-    background-repeat: no-repeat;
-    opacity: var(--rl-frame-opacity);
-    contain: strict;
-    transform: translateZ(0);
+    mix-blend-mode: normal;
 }
 
 html::before {
@@ -90,47 +59,6 @@ html::before {
     to {
         transform: translate3d(0, calc(100vh + 160px), 0);
     }
-}
-
-@keyframes rl-flicker {
-    0%,
-    93%,
-    100% {
-        opacity: var(--rl-scanline-opacity);
-    }
-    94% {
-        opacity: calc(var(--rl-scanline-opacity) * 0.55);
-    }
-    95% {
-        opacity: calc(var(--rl-scanline-opacity) * 0.9);
-    }
-    96% {
-        opacity: calc(var(--rl-scanline-opacity) * 0.62);
-    }
-}
-
-@keyframes rl-blink {
-    0%,
-    49% {
-        opacity: 1;
-    }
-    50%,
-    100% {
-        opacity: 0.15;
-    }
-}
-
-[class*="typing_"] [class*="dots_"] {
-    animation: rl-blink 1.2s steps(1, end) infinite;
-}
-
-[class*="voiceBar_"],
-[class*="statusSpeaking"] {
-    box-shadow: inset 2px 0 var(--rl-signal);
-}
-
-[class*="message_"] [class*="reaction_"]:hover {
-    box-shadow: 0 0 10px color-mix(in srgb, var(--rl-signal) 12%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

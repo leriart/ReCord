@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.5.0
+
+- Settings: palette presets (amber, phosphor, ice, paper, terminal) with one click
+- Settings: export and import every ReCord setting as a JSON file
+- Settings: widget labels are bilingual, theme descriptions in English and Spanish
+- Performance: the three CRT overlays are now one layer and one grain layer instead of five full-screen layers; long lists (messages, members, server rail) are paint-isolated; two broad descendant selectors replaced with concrete ones
+- Plugin license file added (GPL-3.0-or-later)
+- Release workflow: pushing a tag like `v3.5.0` publishes a GitHub release with the theme attached
+- Replaced the last game-specific place names in the website and preview with original ones
+
 ## 3.4.0
 
 - Free colors: besides the accent, you can now pick your own background and text colors; panels, borders and secondary text are derived from them (plugin and configurator)

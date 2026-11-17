@@ -4,7 +4,7 @@
  */
 
 import { app, dialog, IpcMainInvokeEvent, shell } from "electron";
-import { copyFile, mkdir, readdir, readFile, rm } from "fs/promises";
+import { copyFile, mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import { extname, join } from "path";
 
 const TYPES: Record<string, string> = {
@@ -85,4 +85,25 @@ export async function pickBackground(event: IpcMainInvokeEvent) {
     await clearBackground(event);
     await copyFile(source, backgroundBase() + extension);
     return findBackground();
+}
+
+export async function exportSettings(event: IpcMainInvokeEvent, json: string) {
+    const result = await dialog.showSaveDialog({
+        title: "ReCord settings",
+        defaultPath: "record-settings.json",
+        filters: [{ name: "JSON", extensions: ["json"] }]
+    });
+    if (result.canceled || !result.filePath) return false;
+    await writeFile(result.filePath, json, "utf8");
+    return true;
+}
+
+export async function importSettings(_: IpcMainInvokeEvent) {
+    const result = await dialog.showOpenDialog({
+        title: "ReCord settings",
+        properties: ["openFile"],
+        filters: [{ name: "JSON", extensions: ["json"] }]
+    });
+    if (result.canceled || !result.filePaths[0]) return null;
+    return readFile(result.filePaths[0], "utf8");
 }

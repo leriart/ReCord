@@ -1,0 +1,37 @@
+name: Release
+
+on:
+    push:
+        tags: ["v*"]
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 22
+                cache: npm
+            - run: npm ci
+            - run: npm run check
+            - name: Read version
+              id: version
+              run: echo "value=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+            - uses: softprops/action-gh-release@v2
+              with:
+                  name: ReCord ${{ steps.version.outputs.value }}
+                  files: ReCord.theme.css
+                  generate_release_notes: true
+                  body: |
+                      Install with one command:
+
+                      ```bash
+                      curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash
+                      ```
+
+                      Or download `ReCord.theme.css` below and drop it into `Vencord` -> `Themes` -> `Local Themes`.

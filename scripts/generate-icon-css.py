@@ -123,6 +123,10 @@ SIGNATURES = [
     ("eye", ["M15.56 11.77c.2-.1.44.02.44.23a4 4"]),
     ("shield", ["M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"]),
     ("lock", ["M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"]),
+    ("emoji", ["M8.49999 3.7998L4.85999 7.4398V12."]),
+    ("sync", ["M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"]),
+    ("brush", ["m15.93 3.04-1.82 1.83-.58-.58a2.74"]),
+    ("logout", ["M18.46 20.9a12.65 12.65 0 0 1-1.46"]),
 ]
 
 # Discord paints each status as a rect with a per-avatar mask, so the fill color

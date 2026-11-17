@@ -21,7 +21,7 @@ type SoundContext = ((key: string) => string) & { keys(): string[]; resolve(key:
 
 const Native = VencordNative.pluginHelpers.ReCord as PluginNative<typeof import("./native")>;
 
-const PRESETS = ["#e94221", "#dda052", "#3ddc97", "#4fb8c9", "#b58cff", "#ff5fa2"];
+const ACCENT_PRESETS = ["#e94221", "#dda052", "#3ddc97", "#4fb8c9", "#b58cff", "#ff5fa2"];
 
 function AccentPicker() {
     const { accent } = settings.use(["accent"]);
@@ -35,7 +35,7 @@ function AccentPicker() {
                     onChange={event => { settings.store.accent = event.currentTarget.value; applyTheme(); }}
                     style={{ width: 48, height: 32, padding: 0, border: "1px solid var(--border-subtle)", background: "none", cursor: "pointer" }}
                 />
-                {PRESETS.map(color => (
+                {ACCENT_PRESETS.map(color => (
                     <button
                         key={color}
                         aria-label={color}
@@ -108,6 +108,71 @@ function SoundList() {
             <Heading style={{ marginTop: 16 }}>Discord sounds</Heading>
             <Paragraph>Untick a sound to get Discord's original back for those events.</Paragraph>
             {[...events].map(([file, names]) => row(`discord:${stem(file)}`, stem(file), names.join(", "), file))}
+        </section>
+    );
+}
+
+const PRESETS: Record<string, { accent: string; mode: string; customColors: boolean; backgroundColor?: string; textColor?: string; }> = {
+    amber: { accent: "#e94221", mode: "dark", customColors: false },
+    phosphor: { accent: "#3ddc97", mode: "dark", customColors: false },
+    ice: { accent: "#4fb8c9", mode: "dark", customColors: false },
+    paper: { accent: "#b8401f", mode: "light", customColors: false },
+    terminal: { accent: "#3ddc97", mode: "dark", customColors: true, backgroundColor: "#020a05", textColor: "#b8f5cf" },
+    custom: { accent: "#e94221", mode: "auto", customColors: false }
+};
+
+function Presets() {
+    const [name, setName] = React.useState("amber");
+    return (
+        <section>
+            <Heading>Palette presets / Paletas listas</Heading>
+            <Paragraph>One click sets the accent, the dark or light mode, and the custom colors.</Paragraph>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 8 }}>
+                {Object.keys(PRESETS).map(key => (
+                    <Button
+                        key={key}
+                        size="small"
+                        variant={key === name ? "primary" : "secondary"}
+                        onClick={() => {
+                            setName(key);
+                            Object.assign(settings.store, PRESETS[key]);
+                            applyTheme();
+                        }}
+                    >
+                        {key}
+                    </Button>
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function SettingsFile() {
+    const [message, setMessage] = React.useState("");
+    return (
+        <section>
+            <Heading>Backup / Copia de seguridad</Heading>
+            <Paragraph>Save every ReCord setting to a file, or load them on another computer.</Paragraph>
+            <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+                <Button size="small" onClick={async () => {
+                    const keys = Object.keys(settings.def);
+                    const data = Object.fromEntries(keys.map(key => [key, settings.store[key]]));
+                    setMessage(await Native.exportSettings(JSON.stringify(data, null, 4)) ? "Saved / Guardado" : "Cancelled / Cancelado");
+                }}>Export / Exportar</Button>
+                <Button size="small" variant="secondary" onClick={async () => {
+                    const text = await Native.importSettings();
+                    if (!text) return setMessage("Cancelled / Cancelado");
+                    try {
+                        const data = JSON.parse(text);
+                        for (const [key, value] of Object.entries(data)) if (key in settings.def) (settings.store as any)[key] = value;
+                        applyTheme();
+                        setMessage("Imported / Importado");
+                    } catch {
+                        setMessage("Invalid file / Archivo no válido");
+                    }
+                }}>Import / Importar</Button>
+                <Paragraph>{message}</Paragraph>
+            </div>
         </section>
     );
 }
@@ -194,13 +259,21 @@ const FONTS: Record<string, string> = {
 };
 
 const settings = definePluginSettings({
-    mode: choice("Color mode", [["Follow Discord appearance", "auto"], ["Dark (terminal)", "dark"], ["Light (paper)", "light"]], "auto"),
+    presets: {
+        type: OptionType.COMPONENT,
+        component: Presets
+    },
+    settingsFile: {
+        type: OptionType.COMPONENT,
+        component: SettingsFile
+    },
+    mode: choice("Color mode / Modo de color", [["Follow Discord appearance", "auto"], ["Dark (terminal)", "dark"], ["Light (paper)", "light"]], "auto"),
     accent: {
         type: OptionType.COMPONENT,
         default: "#e94221",
         component: AccentPicker
     },
-    customColors: toggle("Use my own background and text colors instead of the dark or light palette", false),
+    customColors: toggle("Custom colors / Colores propios en vez de la paleta oscura o clara", false),
     backgroundColor: {
         type: OptionType.COMPONENT,
         default: "#050605",
@@ -215,10 +288,10 @@ const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component: BackgroundPicker
     },
-    backgroundDim: percent("Background darkening (with an image)", 70),
-    panelOpacity: percent("Panel opacity (lower shows more background)", 100),
-    motionLevel: choice("Animations", [["Full (everything moves in steps)", "full"], ["Subtle (menus and dialogs only)", "subtle"], ["Off", "off"]], "full"),
-    font: choice("Typeface", [["Pixel Operator", "pixel"], ["Pixel Operator Mono", "mono"], ["System monospace", "system"], ["Discord default", "discord"]], "pixel"),
+    backgroundDim: percent("Background darkening / Oscurecer el fondo (con imagen)", 70),
+    panelOpacity: percent("Panel opacity / Opacidad de paneles (menos, más fondo)", 100),
+    motionLevel: choice("Animations / Animaciones", [["Full (everything moves in steps)", "full"], ["Subtle (menus and dialogs only)", "subtle"], ["Off", "off"]], "full"),
+    font: choice("Typeface / Tipografía", [["Pixel Operator", "pixel"], ["Pixel Operator Mono", "mono"], ["System monospace", "system"], ["Discord default", "discord"]], "pixel"),
     scanlines: percent("Scanline strength", 25),
     grain: percent("Film grain", 18),
     vignette: percent("Vignette", 55),
@@ -229,7 +302,7 @@ const settings = definePluginSettings({
     avatarFilter: toggle("Warm filter and scanlines on avatars"),
     baseUrl: {
         type: OptionType.STRING,
-        description: "Sound pack folder (manifest.json and audio files)",
+        description: "Sound pack folder / Carpeta del pack de sonidos",
         default: "https://raw.githubusercontent.com/leriart/ReCord/main/sounds/",
         restartNeeded: true
     },
@@ -239,27 +312,27 @@ const settings = definePluginSettings({
     },
     replaceDiscord: {
         type: OptionType.BOOLEAN,
-        description: "Replace Discord sounds (messages, mentions, calls, voice, streams)",
+        description: "Replace Discord sounds / Sustituir sonidos de Discord",
         default: true
     },
     interfaceSounds: {
         type: OptionType.BOOLEAN,
-        description: "Play interface sounds (hover, select, back, menus, navigation)",
+        description: "Interface sounds / Sonidos de interfaz",
         default: true
     },
     hoverSounds: {
         type: OptionType.BOOLEAN,
-        description: "Play a tick when the pointer enters a control",
+        description: "Hover tick / Tic al pasar el cursor",
         default: true
     },
     typingSounds: {
         type: OptionType.BOOLEAN,
-        description: "Play key ticks while typing a message",
+        description: "Typing ticks / Tics al escribir",
         default: true
     },
     bootSound: {
         type: OptionType.BOOLEAN,
-        description: "Play the boot signal when Discord starts",
+        description: "Boot signal / Señal de arranque",
         default: true
     },
     soundList: {
@@ -268,13 +341,13 @@ const settings = definePluginSettings({
     },
     disabledSounds: {
         type: OptionType.STRING,
-        description: "Disabled sounds (managed by the list above)",
+        description: "Disabled sounds / Sonidos desactivados (gestionados por la lista)",
         default: "",
         hidden: true
     },
     discordVolume: {
         type: OptionType.SLIDER,
-        description: "Volume of the replaced Discord sounds",
+        description: "Discord sounds volume / Volumen de los sonidos de Discord",
         default: 100,
         markers: [0, 25, 50, 75, 100],
         stickToMarkers: false,
@@ -282,7 +355,7 @@ const settings = definePluginSettings({
     },
     volume: {
         type: OptionType.SLIDER,
-        description: "Interface sound volume",
+        description: "Interface volume / Volumen de interfaz",
         default: 45,
         markers: [0, 25, 50, 75, 100],
         stickToMarkers: false

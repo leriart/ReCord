@@ -53,7 +53,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | Option | Values |
 | --- | --- |
 | Color mode | Follow Discord appearance, dark terminal, light paper |
-| Accent | Any color; every accent shade derives from it |
+| Accent | Any color; every accent shade derives from it. Presets: amber, phosphor, ice, paper, terminal |
 | Free colors | Your own background and text colors; panels, borders and secondary text follow |
 | Background image | Your own picture, with darkening and panel opacity |
 | Animations | Full, subtle (menus and dialogs only), off |
@@ -64,7 +64,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 
 Three ways to change them:
 
-1. **In Discord**, with the plugin: `Settings` -> `Plugins` -> `ReCord`. Changes apply live.
+1. **In Discord**, with the plugin: `Settings` -> `Plugins` -> `ReCord`. Changes apply live. Presets set a whole palette at once, and `Export`/`Import` saves your setup to a JSON file.
 2. **On the [landing page](https://leriart.github.io/ReCord/)** (English and Spanish): the `CONFIGURE` card downloads a theme with your settings baked in, or copies a block for QuickCSS.
 3. **By hand** in `Vencord` -> `Themes` -> `QuickCSS`:
 
@@ -122,6 +122,14 @@ ReCord/
 ├── sounds/              signal pack (CC0) and manifest
 ├── docs/                landing page, configurator, galleries
 └── scripts/             build, check, icon and sound generators
+```
+
+## Releases
+
+Pushing a tag such as `v3.5.0` publishes a GitHub release with `ReCord.theme.css` attached, so a specific version can be pinned:
+
+```text
+https://github.com/leriart/ReCord/releases/download/v3.5.0/ReCord.theme.css
 ```
 
 ## Development
