@@ -64,7 +64,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 Three ways to change them:
 
 1. **In Discord**, with the plugin: `Settings` -> `Plugins` -> `ReCord`. Changes apply live.
-2. **On the [landing page](https://leriart.github.io/ReCord/)**: the `CONFIGURE` card downloads a theme with your settings baked in, or copies a block for QuickCSS.
+2. **On the [landing page](https://leriart.github.io/ReCord/)** (English and Spanish): the `CONFIGURE` card downloads a theme with your settings baked in, or copies a block for QuickCSS.
 3. **By hand** in `Vencord` -> `Themes` -> `QuickCSS`:
 
 ```css

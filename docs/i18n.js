@@ -1,0 +1,226 @@
+const ES = {
+    "Sections": "Secciones",
+    "PREVIEW": "VISTA",
+    "PALETTE": "PALETA",
+    "INSTALL": "INSTALAR",
+    "SOURCE": "CÓDIGO",
+    "ICONS": "ICONOS",
+    "SOUNDS": "SONIDOS",
+    "DISCORD THEME // VENCORD": "TEMA DE DISCORD // VENCORD",
+    "AMBER PHOSPHOR. PIXEL TYPE. CRT GRAIN.": "FÓSFORO ÁMBAR. TIPO PIXEL. GRANO CRT.",
+    "A terminal-grade theme built around the visual language of REPLACED: signal orange, dark glass, pixel typography and a persistent scanline. One self-contained CSS file with your own accent color, straight from the repository.": "Un tema de terminal construido sobre el lenguaje visual de REPLACED: naranja de señal, cristal oscuro, tipografía pixel y scanlines permanentes. Un único archivo CSS autocontenido, con tu propio color de acento, directo del repositorio.",
+    "OPEN PREVIEW": "VER VISTA PREVIA",
+    "COPY RAW": "COPIAR ENLACE",
+    "ONE FILE": "UN ARCHIVO",
+    "REDUCED-MOTION SAFE": "RESPETA MOVIMIENTO REDUCIDO",
+    "loading interface modules": "cargando módulos de interfaz",
+    "SIGNAL ACQUIRED": "SEÑAL ADQUIRIDA",
+    "ONLINE": "EN LÍNEA",
+    "NO TRACE": "SIN RASTRO",
+    "SIGNAL 97%": "SEÑAL 97%",
+    "INTERFACE": "INTERFAZ",
+    "TERMINAL IN PRACTICE": "EL TERMINAL EN USO",
+    "Square panels, one-pixel rules, dithered edges and a warm black surface. The screenshot is a static interface study of the theme language.": "Paneles rectos, líneas de un píxel, bordes tramados y un negro cálido de fondo. La captura es un estudio estático del lenguaje del tema.",
+    "Fonts, icons and textures are embedded in a single CSS file. One command installs it, and it works offline.": "Fuentes, iconos y texturas van embebidos en un único archivo CSS. Se instala con un comando y funciona sin conexión.",
+    "PIXEL TYPE": "TIPO PIXEL",
+    "Pixel Operator, released under CC0, carries display, body and monospaced terminal text.": "Pixel Operator, publicada bajo CC0, cubre títulos, texto y monoespaciado de terminal.",
+    "CRT + MOTION": "CRT + MOVIMIENTO",
+    "Scanlines, grain and corner brackets. Menus wipe in from the left, glitch on hover and sweep like a terminal.": "Scanlines, grano y esquinas. Los menús entran con un barrido, parpadean al pasar el cursor y se redibujan como un terminal.",
+    "TOKEN DRIVEN": "BASADO EN VARIABLES",
+    "Override": "Sobrescribe las",
+    "variables in QuickCSS to retune the signal, surfaces or scanline density.": "variables en QuickCSS para ajustar el color, las superficies o la densidad de scanlines.",
+    "COLOR": "COLOR",
+    "SIGNAL PALETTE": "PALETA DE SEÑAL",
+    "The orange is sampled directly from the REPLACED pause menu and logo. Paper and teal are taken from the Wingman device and the game's shadow tones.": "El naranja está muestreado del menú de pausa y el logo de REPLACED. El papel y el verde azulado salen del dispositivo Wingman y de las sombras del juego.",
+    "SIGNAL ORANGE": "NARANJA DE SEÑAL",
+    "PAUSE MENU / LOGO": "MENÚ DE PAUSA / LOGO",
+    "OXIDE": "ÓXIDO",
+    "LOGO SHADOW": "SOMBRA DEL LOGO",
+    "WINGMAN PAPER": "PAPEL WINGMAN",
+    "DEVICE INTERFACE": "INTERFAZ DEL DISPOSITIVO",
+    "CHANNEL TEAL": "VERDE CANAL",
+    "SHADOW TONES": "TONOS DE SOMBRA",
+    "DEEP TEAL": "VERDE PROFUNDO",
+    "DEVICE BEZEL": "MARCO DEL DISPOSITIVO",
+    "VOID": "VACÍO",
+    "SURFACE BASE": "BASE DE SUPERFICIE",
+    "STATUS COLORS": "LOS COLORES DE ESTADO",
+    "keep their meaning while staying inside the palette:": "conservan su significado dentro de la paleta:",
+    "online,": "conectado,",
+    "idle,": "ausente,",
+    "do not disturb,": "no molestar,",
+    "offline.": "desconectado.",
+    "DEPLOY": "DESPLIEGUE",
+    "INSTALL THE SIGNAL": "INSTALA LA SEÑAL",
+    "For Vencord, Vesktop, Equicord, Equibop and BetterDiscord. One command, or one self-contained CSS file.": "Para Vencord, Vesktop, Equicord, Equibop y BetterDiscord. Un comando, o un único archivo CSS autocontenido.",
+    "RUN THE INSTALLER": "EJECUTA EL INSTALADOR",
+    "One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, copies the theme and switches it on.": "Un comando encuentra Vencord, Vesktop, Equicord, Equibop y BetterDiscord, copia el tema y lo activa.",
+    "RESTART DISCORD": "REINICIA DISCORD",
+    "Close it completely, also from the tray, and open it again.": "Ciérralo por completo, también desde la bandeja, y vuelve a abrirlo.",
+    "MAKE IT YOURS": "HAZLO TUYO",
+    "Pick dark or light, an accent, a background and the animation level here, or inside Discord with the plugin.": "Elige oscuro o claro, un acento, un fondo y el nivel de animación aquí, o dentro de Discord con el plugin.",
+    "ONE-LINE INSTALL": "INSTALACIÓN EN UNA LÍNEA",
+    "ALL SYSTEMS": "TODOS LOS SISTEMAS",
+    "ONLINE THEME URL": "URL DEL TEMA ONLINE",
+    "AUTO-UPDATE": "SE ACTUALIZA SOLO",
+    "CONFIGURE": "CONFIGURAR",
+    "LIVE": "EN VIVO",
+    "ACCENT": "ACENTO",
+    "Accent presets": "Acentos predefinidos",
+    "Signal orange": "Naranja de señal",
+    "Amber": "Ámbar",
+    "Phosphor green": "Verde fósforo",
+    "Teal": "Verde azulado",
+    "Violet": "Violeta",
+    "Pink": "Rosa",
+    "MODE": "MODO",
+    "Follow Discord appearance": "Seguir la apariencia de Discord",
+    "Dark (terminal)": "Oscuro (terminal)",
+    "Light (paper)": "Claro (papel)",
+    "ANIMATIONS": "ANIMACIONES",
+    "Full: everything moves in steps": "Completas: todo se mueve a saltos",
+    "Subtle: menus and dialogs only": "Sutiles: solo menús y diálogos",
+    "Off": "Desactivadas",
+    "TYPEFACE": "TIPOGRAFÍA",
+    "System monospace": "Monoespaciada del sistema",
+    "Discord default": "La de Discord",
+    "BACKGROUND": "FONDO",
+    "OR FILE": "O ARCHIVO",
+    "BG DIM": "OSCURECER",
+    "PANELS": "PANELES",
+    "SCANLINES": "SCANLINES",
+    "GRAIN": "GRANO",
+    "VIGNETTE": "VIÑETA",
+    "PIXEL ICONS": "ICONOS PIXEL",
+    "CORNER FRAME": "MARCO DE ESQUINAS",
+    "AVATAR FILTER": "FILTRO DE AVATARES",
+    "CRT FLICKER": "PARPADEO CRT",
+    "SCAN BEAM": "HAZ DE BARRIDO",
+    "DOWNLOAD CSS": "DESCARGAR CSS",
+    "COPY FOR QUICKCSS": "COPIAR PARA QUICKCSS",
+    "Download a file with these settings baked in, or paste the block into QuickCSS to adjust an online install.": "Descarga un archivo con esta configuración incluida, o pega el bloque en QuickCSS para ajustar una instalación online.",
+    "ONE FILE.": "UN ARCHIVO.",
+    "Fonts, icons and textures are embedded. To recolor an online install, add": "Fuentes, iconos y texturas van embebidos. Para recolorear una instalación online, añade",
+    "to QuickCSS.": "en QuickCSS.",
+    "MODULAR BY DESIGN": "MODULAR POR DISEÑO",
+    "Every layer is a separate file. Change one module, keep the rest of the system intact.": "Cada capa es un archivo aparte. Cambia un módulo y el resto del sistema queda intacto.",
+    "Customize:": "Personaliza:",
+    "override any token in QuickCSS. The accent, scanline opacity, grain, vignette and font stack are all plain custom properties.": "sobrescribe cualquier variable en QuickCSS. El acento, las scanlines, el grano, la viñeta y la tipografía son propiedades personalizadas normales.",
+    "QUICKCSS EXAMPLE": "EJEMPLO DE QUICKCSS",
+    "OVERRIDE": "SOBRESCRIBIR",
+    "REPOSITORY": "REPOSITORIO",
+    "THEME FILE": "ARCHIVO DEL TEMA",
+    "INTERFACE STUDY": "ESTUDIO DE INTERFAZ",
+    "PIXEL ICON SET": "ICONOS PIXEL",
+    "SIGNAL PACK": "PACK DE SONIDO",
+    "Unofficial fan theme. REPLACED is a game by Sad Cat Studios, published by Thunderful. This project is not affiliated with either company and bundles no game assets. Theme code is Apache-2.0. Pixel Operator is CC0.": "Tema de fans no oficial. REPLACED es un juego de Sad Cat Studios publicado por Thunderful. Este proyecto no tiene relación con ninguna de las dos empresas y no incluye assets del juego. El código del tema es Apache-2.0. Pixel Operator es CC0.",
+    "SIGNAL LOCKED": "SEÑAL FIJADA",
+    "ICON SET": "ICONOS",
+    "PIXELS": "PÍXELES",
+    "Original 16 x 16 terminal icons for the RECORD interface. They are applied through CSS masks to Discord buttons, channel rows, the user panel and the chat bar.": "Iconos de terminal originales de 16 x 16 para la interfaz de RECORD. Se aplican con máscaras CSS a los botones de Discord, las filas de canales, el panel de usuario y la barra del chat.",
+    "CONTACT ICONS:": "AVATARES:",
+    "avatars are user images, not SVG. RECORD forces them square, adds a thin frame, applies a restrained warm/contrast filter and a subtle scanline overlay. Tune it with": "los avatares son imágenes de usuario, no SVG. RECORD los hace cuadrados, les pone un marco fino, un filtro cálido y unas scanlines sutiles. Ajústalo con",
+    "and": "y",
+    "Original synthesized terminal sounds inspired by REPLACED. No game audio is included. Files are CC0 and can be replaced with your own captures using the same names.": "Sonidos de terminal originales y sintetizados, inspirados en REPLACED. No se incluye audio del juego. Los archivos son CC0 y puedes cambiarlos por los tuyos usando los mismos nombres.",
+    "Receive": "Recibir",
+    "Generic incoming message. Short descending terminal chirp.": "Mensaje entrante genérico. Un pitido corto y descendente.",
+    "Reply": "Respuesta",
+    "Reply in a server. Two-step up/down signal.": "Respuesta en un servidor. Señal de dos pasos, sube y baja.",
+    "Mention": "Mención",
+    "Mention alert. Three ascending square-wave pips.": "Aviso de mención. Tres pitidos ascendentes de onda cuadrada.",
+    "Send": "Enviar",
+    "Transmit click. Key press with a low terminal thump.": "Clic de transmisión. Una tecla con un golpe grave.",
+    "Hover": "Cursor",
+    "Menu cursor tick. Very short, low-volume phosphor blip.": "Tic del cursor en menús. Muy corto y a bajo volumen.",
+    "Select": "Seleccionar",
+    "Menu confirmation. Descending terminal pair.": "Confirmación de menú. Dos notas descendentes.",
+    "Back": "Volver",
+    "Menu back. Lower descending response.": "Volver en un menú. Respuesta descendente más grave.",
+    "Mute / Unmute": "Silenciar / Activar",
+    "Down and up toggle pair for microphone state.": "Par de bajada y subida para el micrófono.",
+    "Deafen / Undeafen": "Ensordecer / Activar audio",
+    "Heavier toggle pair with a short noise tail.": "Par más pesado con una cola corta de ruido.",
+    "Join / Leave": "Entrar / Salir",
+    "Voice channel arrival and departure sweeps.": "Barridos de entrada y salida del canal de voz.",
+    "Disconnect / Reconnect": "Desconectar / Reconectar",
+    "Signal loss and link restoration.": "Pérdida de señal y recuperación del enlace.",
+    "Ring": "Llamada",
+    "Call ringing loop fragment.": "Fragmento del tono de llamada.",
+    "Success": "Éxito",
+    "Confirmation chime for completed actions.": "Campanilla de confirmación.",
+    "Error": "Error",
+    "Low clipped buzz for failed actions.": "Zumbido grave y recortado para acciones fallidas.",
+    "Boot": "Arranque",
+    "CRT power-on sweep for theme or plugin startup.": "Barrido de encendido CRT al iniciar.",
+    "Type": "Teclear",
+    "Key tick while writing a message.": "Tic de tecla al escribir un mensaje.",
+    "Open": "Abrir",
+    "Menu or modal powering on.": "Un menú o diálogo que se enciende.",
+    "Close": "Cerrar",
+    "Menu or modal collapsing.": "Un menú o diálogo que se cierra.",
+    "Navigate": "Navegar",
+    "Two-step blip when switching channel, server or tab.": "Dos pitidos al cambiar de canal, servidor o pestaña.",
+    "Toggle": "Interruptor",
+    "Switches and checkboxes.": "Interruptores y casillas.",
+    "Camera on": "Cámara encendida",
+    "Rising sweep when video starts.": "Barrido ascendente al iniciar el vídeo.",
+    "Camera off": "Cámara apagada",
+    "Falling sweep when video stops.": "Barrido descendente al parar el vídeo.",
+    "Clip": "Clip",
+    "Clip saved.": "Clip guardado.",
+    "Stage": "Escenario",
+    "Three-note waiting cue for stages.": "Señal de espera de tres notas para escenarios.",
+    "PLAYING THEM IN DISCORD:": "CÓMO SUENAN EN DISCORD:",
+    "Themes are CSS-only and cannot play audio, so the": "Los temas son solo CSS y no pueden reproducir audio, así que el",
+    "userplugin does it: it replaces Discord's sounds and adds interface sounds. On Vesktop run": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. En Vesktop ejecuta",
+    "from the repository. The event mapping is in": "desde el repositorio. El mapeo de eventos está en",
+    "NO GAME AUDIO BUNDLED": "NO INCLUYE AUDIO DEL JUEGO",
+    "CC0 1.0 / ORIGINAL SYNTHESIS": "CC0 1.0 / SÍNTESIS ORIGINAL",
+    "RECORD Discord interface preview with orange terminal panels, pixel typography and a dark CRT scanline surface.": "Vista previa de la interfaz de RECORD en Discord: paneles de terminal naranjas, tipografía pixel y una superficie CRT oscura.",
+    "Copied. Paste it into Vencord > Themes > QuickCSS.": "Copiado. Pégalo en Vencord > Themes > QuickCSS.",
+    "Fetching theme...": "Descargando el tema...",
+    "Could not fetch the theme. Use the raw link instead.": "No se pudo descargar el tema. Usa el enlace directo.",
+    "Downloaded with these settings. Drop it into your themes folder.": "Descargado con esta configuración. Suéltalo en tu carpeta de temas.",
+    "Image attached. It is embedded when you download the CSS.": "Imagen adjuntada. Se incrusta al descargar el CSS."
+};
+
+const clean = text => text.replace(/\s+/g, " ").trim();
+const nodes = [];
+const attributes = [];
+let language = "en";
+
+window.t = text => (language === "es" && ES[text]) || text;
+
+function collect() {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (node.parentElement.closest("script, style, pre, code")) continue;
+        const key = clean(node.nodeValue);
+        if (ES[key]) nodes.push({ node, key, original: node.nodeValue });
+    }
+    for (const element of document.querySelectorAll("[aria-label], [alt], [placeholder]")) {
+        for (const name of ["aria-label", "alt", "placeholder"]) {
+            const key = element.getAttribute(name);
+            if (key && ES[key]) attributes.push({ element, name, key });
+        }
+    }
+}
+
+function apply(next) {
+    language = next;
+    document.documentElement.lang = next;
+    for (const { node, key, original } of nodes) {
+        node.nodeValue = next === "es" ? original.replace(original.trim(), ES[key]) : original;
+    }
+    for (const { element, name, key } of attributes) element.setAttribute(name, next === "es" ? ES[key] : key);
+    const toggle = document.getElementById("lang-toggle");
+    if (toggle) toggle.textContent = next === "es" ? "EN" : "ES";
+    try { localStorage.setItem("record-language", next); } catch {}
+}
+
+collect();
+let saved = null;
+try { saved = localStorage.getItem("record-language"); } catch {}
+apply(saved || (navigator.language.toLowerCase().startsWith("es") ? "es" : "en"));
+document.getElementById("lang-toggle")?.addEventListener("click", () => apply(language === "es" ? "en" : "es"));

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+- Website in English and Spanish: language switch in the top bar, follows the browser language and remembers the choice
+- Landing copy updated for the one-file theme and the installers; banner and interface study regenerated
+- Installer uses the local files when it runs from a checkout
+
 ## 3.1.0
 
 - Status indicators are now matched by fill color, so the pixel glyphs also apply in the DM list and wherever Discord uses per-avatar masks

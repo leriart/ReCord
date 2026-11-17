@@ -64,7 +64,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 Tres formas de cambiarlas:
 
 1. **Dentro de Discord**, con el plugin: `Ajustes` -> `Plugins` -> `ReCord`. Los cambios se aplican al momento.
-2. **En la [página](https://leriart.github.io/ReCord/)**: la tarjeta `CONFIGURE` descarga el tema con tu configuración incluida, o copia un bloque para QuickCSS.
+2. **En la [página](https://leriart.github.io/ReCord/)** (en inglés y español): la tarjeta `CONFIGURE` descarga el tema con tu configuración incluida, o copia un bloque para QuickCSS.
 3. **A mano** en `Vencord` -> `Themes` -> `QuickCSS`:
 
 ```css

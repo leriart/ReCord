@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../src/01-fonts.css">
     <link rel="stylesheet" href="../src/00-tokens.css">
     <link rel="stylesheet" href="site.css">
+    <script src="i18n.js" defer></script>
 </head>
 <body>
     <header class="topbar">
@@ -39,7 +40,8 @@
                 <a href="icons.html">ICONS</a>
                 <a href="sounds.html">SOUNDS</a>
             </nav>
-            <span class="top-version">V3.1.0</span>
+            <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
+            <span class="top-version">V3.2.0</span>
         </div>
     </header>
 
@@ -68,7 +70,7 @@
 
                     <div class="hero-meta">
                         <span>PIXEL OPERATOR CC0</span>
-                        <span>RAW MODULES</span>
+                        <span>ONE FILE</span>
                         <span>REDUCED-MOTION SAFE</span>
                     </div>
                 </div>
@@ -127,8 +129,8 @@
                     <div class="feature-grid">
                         <article class="feature">
                             <div class="feature-num">01</div>
-                            <h3>RAW MODULES</h3>
-                            <p>The entry file imports every CSS module directly from GitHub raw. No build step is required to install.</p>
+                            <h3>ONE FILE</h3>
+                            <p>Fonts, icons and textures are embedded in a single CSS file. One command installs it, and it works offline.</p>
                         </article>
                         <article class="feature">
                             <div class="feature-num">02</div>
@@ -328,7 +330,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 
                     <div class="tree">
                         <pre><b>ReCord/</b>
-├── <b>ReCord.theme.css</b>      entry / raw imports
+├── <b>ReCord.theme.css</b>      built theme, one file
 ├── src/
 │   ├── 00-tokens.css       palette + surface
 │   ├── 01-fonts.css        pixel operator faces
@@ -372,7 +374,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 
                             <div class="link-list" style="margin-top:18px">
                                 <a href="https://github.com/leriart/ReCord">REPOSITORY <span>GITHUB</span></a>
-                                <a href="https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.theme.css">ENTRY FILE <span>RAW</span></a>
+                                <a href="https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.theme.css">THEME FILE <span>RAW</span></a>
                                 <a href="preview.html">INTERFACE STUDY <span>LOCAL</span></a>
                                 <a href="icons.html">PIXEL ICON SET <span>SVG</span></a>
                                 <a href="sounds.html">SIGNAL PACK <span>AUDIO</span></a>
@@ -504,7 +506,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
             const file = $("bg-file").files[0];
             if (!file) { backgroundFile = null; return; }
             const reader = new FileReader();
-            reader.onload = () => { backgroundFile = reader.result; status.textContent = "Image attached. It is embedded when you download the CSS."; };
+            reader.onload = () => { backgroundFile = reader.result; status.textContent = t("Image attached. It is embedded when you download the CSS."); };
             reader.readAsDataURL(file);
         });
         loadPalettes();
@@ -515,11 +517,11 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 
         $("copy").addEventListener("click", async () => {
             await navigator.clipboard.writeText(snippet());
-            status.textContent = "Copied. Paste it into Vencord > Themes > QuickCSS.";
+            status.textContent = t("Copied. Paste it into Vencord > Themes > QuickCSS.");
         });
 
         $("download").addEventListener("click", async () => {
-            status.textContent = "Fetching theme...";
+            status.textContent = t("Fetching theme...");
             let css = null;
             for (const url of ["../ReCord.theme.css", raw]) {
                 try {
@@ -528,7 +530,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                 } catch {}
             }
             if (!css) {
-                status.textContent = "Could not fetch the theme. Use the raw link instead.";
+                status.textContent = t("Could not fetch the theme. Use the raw link instead.");
                 return;
             }
             const link = document.createElement("a");
@@ -536,7 +538,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
             link.download = "ReCord.theme.css";
             link.click();
             URL.revokeObjectURL(link.href);
-            status.textContent = "Downloaded with these settings. Drop it into your themes folder.";
+            status.textContent = t("Downloaded with these settings. Drop it into your themes folder.");
         });
     </script>
 </body>

@@ -1208,3 +1208,20 @@ button {
     max-height: 220px;
     overflow: auto;
 }
+
+.lang-toggle {
+    padding: 4px 10px;
+    border: 1px solid var(--rl-line-hot);
+    background: transparent;
+    color: var(--rl-signal);
+    font: inherit;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+    background: var(--rl-signal);
+    color: var(--rl-void);
+}
