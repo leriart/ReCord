@@ -648,3 +648,15 @@ html body {
 [data-list-item-id^="guildsnav___"] {
     contain: layout paint style;
 }
+
+/* server rail: Discord shapes every icon with an SVG mask on a foreignObject,
+   so the square frame needs that mask removed at its source */
+
+#app-mount nav[class*="guilds_"] foreignObject {
+    mask: none !important;
+    -webkit-mask: none !important;
+}
+
+#app-mount nav[class*="guilds_"] :is([class*="wrapper_"], [class*="childWrapper_"], [class*="icon_"], [class*="folderIconWrapper_"], [class*="expandedFolderBackground_"], img) {
+    border-radius: 0 !important;
+}

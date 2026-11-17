@@ -15,6 +15,7 @@ import { React } from "@webpack/common";
 interface Manifest {
     customSounds: Record<string, string>;
     ui: Record<string, string>;
+    sets?: Record<string, Record<string, string>>;
 }
 
 type SoundContext = ((key: string) => string) & { keys(): string[]; resolve(key: string): unknown; };
@@ -71,7 +72,7 @@ function colorSetting(key: "backgroundColor" | "textColor", title: string, note:
 }
 
 function SoundList() {
-    const { disabledSounds } = settings.use(["disabledSounds"]);
+    const { disabledSounds } = settings.use(["disabledSounds", "uiSet"]);
     const [, refresh] = React.useReducer((count: number) => count + 1, 0);
     React.useEffect(() => {
         const timer = setInterval(() => { if (manifest) { clearInterval(timer); refresh(); } }, 500);
@@ -104,7 +105,7 @@ function SoundList() {
         <section>
             <Heading>Interface sounds</Heading>
             <Paragraph>Untick a sound to silence it.</Paragraph>
-            {Object.entries(manifest.ui).map(([name, file]) => row(`ui:${name}`, name, file, file))}
+            {Object.keys(manifest.ui).map(name => row(`ui:${name}`, name, uiFile(name) ?? "", uiFile(name) ?? ""))}
             <Heading style={{ marginTop: 16 }}>Discord sounds</Heading>
             <Paragraph>Untick a sound to get Discord's original back for those events.</Paragraph>
             {[...events].map(([file, names]) => row(`discord:${stem(file)}`, stem(file), names.join(", "), file))}
@@ -335,6 +336,14 @@ const settings = definePluginSettings({
         description: "Boot signal / Señal de arranque",
         default: true
     },
+    uiSet: {
+        type: OptionType.SELECT,
+        description: "Interface sound set / Juego de sonidos de interfaz",
+        options: [
+            { label: "Synth (original, terminal blips)", value: "synth", default: true },
+            { label: "Kenney UI SFX (CC0, clicks and switches)", value: "kenney" }
+        ]
+    },
     soundList: {
         type: OptionType.COMPONENT,
         component: SoundList
@@ -457,6 +466,7 @@ function fileFor(name: string) {
 
 const stem = (file: string) => file.replace(/\.[^.]+$/, "").toLowerCase();
 
+const uiFile = (name: string) => manifest?.sets?.[settings.store.uiSet]?.[name] ?? manifest?.ui[name];
 const isDisabled = (key: string) => settings.store.disabledSounds.split(",").includes(key);
 
 function resolveSound(key: string) {
@@ -527,7 +537,11 @@ async function load() {
     manifest = await (await fetch(base + "manifest.json")).json() as Manifest;
     audio = new AudioContext();
 
-    const files = new Set([...Object.values(manifest.customSounds), ...Object.values(manifest.ui)]);
+    const files = new Set([
+        ...Object.values(manifest.customSounds),
+        ...Object.values(manifest.ui),
+        ...Object.values(manifest.sets ?? {}).flatMap(set => Object.values(set))
+    ]);
     await Promise.all([...files].map(async file => {
         try {
             const response = await fetch(base + file);
@@ -555,8 +569,8 @@ function preview(file: string) {
 
 function play(name: string, gap = 0) {
     if (!settings.store.interfaceSounds || isDisabled(`ui:${name}`)) return;
-    const file = manifest?.ui[name];
-    const buffer = localBuffers.get(name) ?? (file && (localBuffers.get(stem(file)) ?? buffers.get(file)));
+    const file = uiFile(name);
+    const buffer = localBuffers.get(name) ?? (file && buffers.get(file));
     if (!buffer) return;
 
     const now = performance.now();

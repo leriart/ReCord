@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.6.0
+
+- Fixed the server rail losing its square frames: Discord shapes those icons with an SVG mask on a `foreignObject`, which the 3.5.0 selector cleanup no longer removed
+- Second interface sound set: Kenney's UI SFX Set (CC0), selectable in the plugin next to the synthesized one. License included in `sounds/kenney/`
+
 ## 3.5.0
 
 - Settings: palette presets (amber, phosphor, ice, paper, terminal) with one click

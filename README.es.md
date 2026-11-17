@@ -99,7 +99,7 @@ El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en Q
 
 El instalador compila Vencord con el plugin y apunta Vesktop a esa compilación, así que ahí Vencord deja de actualizarse solo; vuelve a ejecutar el instalador para actualizar. En cualquier otro Vencord compilado desde el código, copia `plugin/record` en `src/userplugins/` y ejecuta `pnpm build && pnpm inject`.
 
-El pack de `sounds/` es audio original sintetizado (CC0). No se incluye ni distribuye audio del juego. Se puede escuchar en `docs/sounds.html`.
+El pack de `sounds/` es audio original sintetizado (CC0). Hay un segundo juego de sonidos de interfaz, el UI SFX Set de Kenney (CC0, de Kenney Vleugels, kenney.nl), en `sounds/kenney/`, que se elige en el plugin. No se incluye ni distribuye audio del juego. Se puede escuchar en `docs/sounds.html`.
 
 ## Qué cambia
 
@@ -151,6 +151,7 @@ Vencord, Vesktop, Equicord, Equibop y BetterDiscord en Discord de escritorio. De
 
 - Código del tema: Apache-2.0. Plugin: GPL-3.0-or-later, como exigen los plugins de Vencord.
 - Pixel Operator, de Jayvee Enaguas (HarvettFox96): CC0 1.0, licencia en `assets/fonts/LICENSE-PixelOperator.txt`.
+- UI SFX Set de Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/ui-audio)): CC0 1.0, licencia en `sounds/kenney/LICENSE.txt`.
 - Referencia visual: REPLACED, un juego de Sad Cat Studios publicado por Thunderful. [playreplaced.com](https://playreplaced.com/)
 - Proyecto de fans no oficial, sin relación con Sad Cat Studios ni Thunderful. No incluye assets del juego.
 

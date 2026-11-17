@@ -1,6 +1,6 @@
 {
     "name": "RECORD Signal Pack",
-    "version": "3.0.0",
+    "version": "3.6.0",
     "license": "CC0-1.0",
     "description": "Original terminal interface sounds for RECORD. Synthesized, not ripped game audio.",
     "customSounds": {
@@ -57,5 +57,21 @@
         "close": "close.wav",
         "navigate": "navigate.wav",
         "toggle": "toggle.wav"
+    },
+    "sets": {
+        "kenney": {
+            "hover": "kenney/rollover2.wav",
+            "type": "kenney/click5.wav",
+            "select": "kenney/click2.wav",
+            "navigate": "kenney/click1.wav",
+            "back": "kenney/switch12.wav",
+            "toggle": "kenney/switch13.wav",
+            "open": "kenney/switch7.wav",
+            "close": "kenney/rollover6.wav",
+            "send": "kenney/click3.wav"
+        }
+    },
+    "credits": {
+        "kenney": "UI SFX Set by Kenney Vleugels (kenney.nl), CC0 1.0. See sounds/kenney/LICENSE.txt"
     }
 }

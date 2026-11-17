@@ -99,7 +99,7 @@ Light mode follows Discord's own `Appearance` -> `Light`. A background URL in Qu
 
 The installer builds Vencord with the plugin and points Vesktop at that build, so Vencord stops updating itself there; run the installer again to update. For any other Vencord built from source, copy `plugin/record` into `src/userplugins/` and run `pnpm build && pnpm inject`.
 
-The bundled pack in `sounds/` is original synthesized audio (CC0). No game audio is included or distributed. Preview it at `docs/sounds.html`.
+The bundled pack in `sounds/` is original synthesized audio (CC0). A second interface set, Kenney's UI SFX Set (CC0, by Kenney Vleugels, kenney.nl), is in `sounds/kenney/` and can be chosen in the plugin. No game audio is included or distributed. Preview it at `docs/sounds.html`.
 
 ## What it changes
 
@@ -151,6 +151,7 @@ Vencord, Vesktop, Equicord, Equibop and BetterDiscord on Discord desktop. Develo
 
 - Theme code: Apache-2.0. Plugin: GPL-3.0-or-later, as required for Vencord plugins.
 - Pixel Operator by Jayvee Enaguas (HarvettFox96): CC0 1.0, license at `assets/fonts/LICENSE-PixelOperator.txt`.
+- Kenney UI SFX Set by Kenney Vleugels ([kenney.nl](https://kenney.nl/assets/ui-audio)): CC0 1.0, license at `sounds/kenney/LICENSE.txt`.
 - Visual reference: REPLACED, a game by Sad Cat Studios published by Thunderful. [playreplaced.com](https://playreplaced.com/)
 - Unofficial fan project, not affiliated with Sad Cat Studios or Thunderful. No game assets are included.
 

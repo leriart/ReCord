@@ -37,3 +37,7 @@ python3 scripts/generate-sounds.py
 ```
 
 The generator uses only the Python standard library.
+
+## Kenney set
+
+`kenney/` holds nine files from the UI SFX Set by Kenney Vleugels (kenney.nl), released under CC0 1.0; the license is in `kenney/LICENSE.txt`. They are mapped in the `sets.kenney` block of `manifest.json` and can be selected in the plugin as the interface sound set.
