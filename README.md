@@ -92,6 +92,21 @@ Context menus and modals open with a stepped CRT wipe. Menu items arrive in sequ
 }
 ```
 
+## Icons
+
+The theme ships with 61 original 16 x 16 pixel icons. They replace Discord's SVG glyphs in the channel list, chat toolbar, user panel, chat input, server controls and common message actions through CSS masks. A pixel diamond is used as the fallback for unmapped icon buttons. The gallery is at `docs/icons.html`.
+
+Contact avatars are user images, so they cannot be replaced by masks. RETROLESS forces them square, adds a one-pixel frame, applies a restrained warm/contrast filter and a subtle scanline overlay:
+
+```css
+:root {
+    --rl-avatar-filter: saturate(0.78) contrast(1.1) sepia(0.2) brightness(0.96);
+    --rl-avatar-scanline: 0.14;
+}
+```
+
+Set `--rl-avatar-filter: none` or `--rl-avatar-scanline: 0` to disable either effect.
+
 ## Sounds
 
 Vencord themes are CSS-only, so the theme cannot play audio by itself. The repository includes an optional signal pack in `sounds/` with original synthesized terminal sounds inspired by REPLACED. No game audio is bundled or redistributed.
@@ -159,6 +174,8 @@ Override tokens in Vencord QuickCSS. The full palette lives in `src/00-tokens.cs
 | `--rl-font` | Pixel Operator | Body and UI typeface |
 | `--rl-font-mono` | Pixel Operator Mono | Code and timestamps |
 | `--rl-radius` | `0px` | Radius for token-driven components |
+| `--rl-avatar-filter` | warm CRT filter | Filter applied to contact avatars |
+| `--rl-avatar-scanline` | `0.14` | Scanline overlay on avatars |
 
 To remove the CRT effect entirely:
 
@@ -189,10 +206,12 @@ Retroless/
 │   ├── 10-settings.css
 │   ├── 11-effects.css
 │   ├── 12-priority.css
-│   └── 13-motion.css
+│   ├── 13-motion.css
+│   └── 14-icons.css
 ├── assets/
 │   ├── brand/               mark, corners, grain, skyline
-│   └── fonts/               Pixel Operator (CC0)
+│   ├── fonts/               Pixel Operator (CC0)
+│   └── icons/               original 16x16 pixel icons
 ├── sounds/                  signal pack (CC0) + manifest
 ├── docs/                    landing page and preview
 ├── scripts/                 check, bundle, sound generator

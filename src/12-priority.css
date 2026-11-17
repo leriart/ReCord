@@ -648,3 +648,46 @@ html body {
 #app-mount [class*="unreadMentionsIndicatorBottom"] {
     display: none !important;
 }
+
+html body #app-mount [class*="avatar"]:not([class*="decoration"]),
+html body #app-mount [class*="avatarWrapper"] {
+    position: relative;
+    border-radius: 0 !important;
+    clip-path: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+    box-shadow: 0 0 0 1px var(--rl-line);
+}
+
+html body #app-mount [class*="avatar"]:not([class*="decoration"]) img,
+html body #app-mount [class*="avatarWrapper"] img,
+html body #app-mount img[class*="avatar"] {
+    border-radius: 0 !important;
+    clip-path: none !important;
+    -webkit-mask: none !important;
+    mask: none !important;
+    object-fit: cover !important;
+    filter: var(--rl-avatar-filter) !important;
+    image-rendering: pixelated;
+}
+
+html body #app-mount [class*="avatar"]:not([class*="decoration"])::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.5) 2px 3px);
+    opacity: var(--rl-avatar-scanline);
+    mix-blend-mode: multiply;
+}
+
+html body #app-mount [class*="privateChannels"] [class*="selected"] [class*="avatar"],
+html body #app-mount [class*="members"] [class*="member"]:hover [class*="avatar"],
+html body #app-mount [class*="avatar"]:hover {
+    box-shadow: 0 0 0 1px var(--rl-signal) !important;
+}
+
+html body #app-mount [class*="avatar"]:hover img {
+    filter: saturate(0.95) contrast(1.04) sepia(0.06) brightness(1.03) !important;
+}

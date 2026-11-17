@@ -90,6 +90,21 @@ Los menús contextuales y modales abren con un barrido CRT por pasos. Los elemen
 }
 ```
 
+## Iconos
+
+El tema incluye 61 iconos pixel originales de 16 x 16. Reemplazan los SVG de Discord en la lista de canales, barra del chat, panel de usuario, caja de mensaje, controles de servidor y acciones comunes mediante máscaras CSS. Si un botón no tiene icono mapeado, usa un diamante pixel como fallback. La galería está en `docs/icons.html`.
+
+Los avatares de contactos son imágenes del usuario, así que no se pueden reemplazar con máscaras. RETROLESS los fuerza a cuadrado, añade un marco de un píxel, aplica un filtro cálido de contraste moderado y una scanline sutil:
+
+```css
+:root {
+    --rl-avatar-filter: saturate(0.78) contrast(1.1) sepia(0.2) brightness(0.96);
+    --rl-avatar-scanline: 0.14;
+}
+```
+
+Pon `--rl-avatar-filter: none` o `--rl-avatar-scanline: 0` para desactivar cada efecto.
+
 ## Sonidos
 
 Los temas de Vencord son solo CSS, así que el tema no puede reproducir audio por sí solo. El repositorio incluye un signal pack opcional en `sounds/` con sonidos de terminal originales inspirados en REPLACED. No incluye ni redistribuye audio del juego.
@@ -157,6 +172,8 @@ Sobrescribe los tokens desde QuickCSS de Vencord. La paleta completa vive en `sr
 | `--rl-font` | Pixel Operator | Tipografía de cuerpo e interfaz |
 | `--rl-font-mono` | Pixel Operator Mono | Código y timestamps |
 | `--rl-radius` | `0px` | Radio de componentes por token |
+| `--rl-avatar-filter` | filtro CRT cálido | Filtro aplicado a avatares de contactos |
+| `--rl-avatar-scanline` | `0.14` | Scanline sobre avatares |
 
 Para quitar el efecto CRT:
 
@@ -187,10 +204,12 @@ Retroless/
 │   ├── 10-settings.css
 │   ├── 11-effects.css
 │   ├── 12-priority.css
-│   └── 13-motion.css
+│   ├── 13-motion.css
+│   └── 14-icons.css
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
-│   └── fonts/               Pixel Operator (CC0)
+│   ├── fonts/               Pixel Operator (CC0)
+│   └── icons/               iconos pixel originales 16x16
 ├── sounds/                  signal pack (CC0) + manifest
 ├── docs/                    landing y preview
 ├── scripts/                 validación, bundle, generador de sonidos

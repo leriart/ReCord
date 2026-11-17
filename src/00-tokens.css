@@ -56,6 +56,8 @@
     --rl-grain-opacity: 0.18;
     --rl-vignette-opacity: 0.55;
     --rl-flicker-duration: 0s;
+    --rl-avatar-filter: saturate(0.78) contrast(1.1) sepia(0.2) brightness(0.96);
+    --rl-avatar-scanline: 0.14;
 
     --rl-dither: conic-gradient(from 0deg, var(--rl-signal) 25%, transparent 0 50%, var(--rl-signal) 0 75%, transparent 0);
     --rl-dither-size: 2px 2px;

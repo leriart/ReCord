@@ -1,0 +1,225 @@
+/* pixel icon set */
+
+:root {
+    --rl-icon-fallback: url("../assets/icons/diamond.svg");
+}
+
+#app-mount :is(
+    [class*="toolbar_"] :is(button, [role="button"]),
+    [class*="panels_"] :is(button, [role="button"]),
+    [class*="channelTextArea"] :is(button, [role="button"]),
+    [class*="subtitleContainer"] :is(button, [role="button"]),
+    [class*="privateChannels_"] [class*="header"] :is(button, [role="button"]),
+    [class*="sidebarList_"] [class*="header_"] :is(button, [role="button"]),
+    [class*="guilds_"] :is(button, [role="button"]),
+    [class*="message"] :is(button, [role="button"]),
+    [role="dialog"] [class*="header_"] :is(button, [role="button"])
+):has(> svg) > svg {
+    display: none !important;
+}
+
+#app-mount :is(
+    [class*="toolbar_"] :is(button, [role="button"]),
+    [class*="panels_"] :is(button, [role="button"]),
+    [class*="channelTextArea"] :is(button, [role="button"]),
+    [class*="subtitleContainer"] :is(button, [role="button"]),
+    [class*="privateChannels_"] [class*="header"] :is(button, [role="button"]),
+    [class*="sidebarList_"] [class*="header_"] :is(button, [role="button"]),
+    [class*="guilds_"] :is(button, [role="button"]),
+    [class*="message"] :is(button, [role="button"]),
+    [role="dialog"] [class*="header_"] :is(button, [role="button"])
+):has(> svg)::before {
+    content: "";
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    background: currentColor;
+    -webkit-mask: var(--rl-icon, var(--rl-icon-fallback)) center / contain no-repeat;
+    mask: var(--rl-icon, var(--rl-icon-fallback)) center / contain no-repeat;
+    image-rendering: pixelated;
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Buscar" i], [aria-label*="Search" i], [data-tooltip-text*="Buscar" i], [data-tooltip-text*="Search" i]) {
+    --rl-icon: url("../assets/icons/search.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Bandeja" i], [aria-label*="Inbox" i]) {
+    --rl-icon: url("../assets/icons/inbox.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Ayuda" i], [aria-label*="Help" i]) {
+    --rl-icon: url("../assets/icons/help.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Miembros" i], [aria-label*="Members" i], [aria-label*="Member List" i]) {
+    --rl-icon: url("../assets/icons/members.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Fijad" i], [aria-label*="Pinned" i], [aria-label*="Pin" i]) {
+    --rl-icon: url("../assets/icons/pin.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Notificaci" i], [aria-label*="Notification" i]) {
+    --rl-icon: url("../assets/icons/bell.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Hilo" i], [aria-label*="Thread" i]) {
+    --rl-icon: url("../assets/icons/thread.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Ajustes" i], [aria-label*="Settings" i], [aria-label*="Configuraci" i]) {
+    --rl-icon: url("../assets/icons/settings.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Silenciar" i], [aria-label*="Mute" i], [aria-label*="Micrófono" i], [aria-label*="Microphone" i]) {
+    --rl-icon: url("../assets/icons/mic.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Activar micrófono" i], [aria-label*="Unmute" i], [aria-label*="Activar micro" i]) {
+    --rl-icon: url("../assets/icons/mic-off.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Ensordecer" i], [aria-label*="Deafen" i], [aria-label*="Auriculares" i]) {
+    --rl-icon: url("../assets/icons/headphones.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Activar audio" i], [aria-label*="Undeafen" i]) {
+    --rl-icon: url("../assets/icons/headphones-off.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Cámara" i], [aria-label*="Camera" i], [aria-label*="Video" i]) {
+    --rl-icon: url("../assets/icons/camera.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Compartir" i], [aria-label*="Screen" i]) {
+    --rl-icon: url("../assets/icons/screen.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Colgar" i], [aria-label*="Disconnect" i]) {
+    --rl-icon: url("../assets/icons/phone-off.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Llamada" i], [aria-label*="Call" i], [aria-label*="Phone" i]) {
+    --rl-icon: url("../assets/icons/phone.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Regalo" i], [aria-label*="Gift" i]) {
+    --rl-icon: url("../assets/icons/gift.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Sticker" i], [aria-label*="Stickers" i]) {
+    --rl-icon: url("../assets/icons/sticker.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Emoji" i], [aria-label*="Emojis" i]) {
+    --rl-icon: url("../assets/icons/emoji.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="GIF" i], [aria-label*="Gif" i]) {
+    --rl-icon: url("../assets/icons/gif.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Adjuntar" i], [aria-label*="Attach" i], [aria-label*="Upload" i]) {
+    --rl-icon: url("../assets/icons/attach.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Enviar" i], [aria-label*="Send" i]) {
+    --rl-icon: url("../assets/icons/send.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Responder" i], [aria-label*="Reply" i]) {
+    --rl-icon: url("../assets/icons/reply.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Reacci" i], [aria-label*="Reaction" i]) {
+    --rl-icon: url("../assets/icons/react.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Editar" i], [aria-label*="Edit" i]) {
+    --rl-icon: url("../assets/icons/edit.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Eliminar" i], [aria-label*="Delete" i]) {
+    --rl-icon: url("../assets/icons/trash.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Más opciones" i], [aria-label*="More" i], [aria-label*="Opciones" i]) {
+    --rl-icon: url("../assets/icons/more.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Cerrar" i], [aria-label*="Close" i]) {
+    --rl-icon: url("../assets/icons/close.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Copiar" i], [aria-label*="Copy" i]) {
+    --rl-icon: url("../assets/icons/copy.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Copiar enlace" i], [aria-label*="Copy Link" i], [aria-label*="Link" i]) {
+    --rl-icon: url("../assets/icons/link.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Descargar" i], [aria-label*="Download" i]) {
+    --rl-icon: url("../assets/icons/download.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Amigos" i], [aria-label*="Friends" i]) {
+    --rl-icon: url("../assets/icons/friends.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Tienda" i], [aria-label*="Shop" i]) {
+    --rl-icon: url("../assets/icons/shop.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Misiones" i], [aria-label*="Quests" i]) {
+    --rl-icon: url("../assets/icons/missions.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Explorar" i], [aria-label*="Explore" i]) {
+    --rl-icon: url("../assets/icons/compass.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Nitro" i]) {
+    --rl-icon: url("../assets/icons/spark.svg");
+}
+
+#app-mount :is(button, [role="button"]):is([aria-label*="Añadir servidor" i], [aria-label*="Add a Server" i], [aria-label*="Add Server" i], [aria-label*="Crear DM" i], [aria-label*="Create DM" i], [aria-label*="Nuevo mensaje directo" i], [aria-label*="Add Friend" i], [aria-label*="Añadir amigo" i]) {
+    --rl-icon: url("../assets/icons/plus.svg");
+}
+
+#app-mount [data-list-item-id^="channels___"] [class*="icon_"] > svg,
+#app-mount [data-list-item-id^="channels___"] [class*="iconContainer"] > svg {
+    display: none !important;
+}
+
+#app-mount [data-list-item-id^="channels___"] [class*="icon_"]::before,
+#app-mount [data-list-item-id^="channels___"] [class*="iconContainer"]::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: currentColor;
+    -webkit-mask: url("../assets/icons/hash.svg") center / contain no-repeat;
+    mask: url("../assets/icons/hash.svg") center / contain no-repeat;
+    image-rendering: pixelated;
+}
+
+#app-mount [data-list-item-id^="channels___"]:has([class*="voiceUser"]) [class*="icon_"]::before,
+#app-mount [data-list-item-id^="channels___"][aria-label*="voz" i] [class*="icon_"]::before,
+#app-mount [data-list-item-id^="channels___"][aria-label*="voice" i] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/volume.svg");
+    mask-image: url("../assets/icons/volume.svg");
+}
+
+#app-mount [data-list-item-id^="channels___"][aria-label*="anuncio" i] [class*="icon_"]::before,
+#app-mount [data-list-item-id^="channels___"][aria-label*="announcement" i] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/announcement.svg");
+    mask-image: url("../assets/icons/announcement.svg");
+}
+
+#app-mount [data-list-item-id^="channels___"][aria-label*="foro" i] [class*="icon_"]::before,
+#app-mount [data-list-item-id^="channels___"][aria-label*="forum" i] [class*="icon_"]::before {
+    -webkit-mask-image: url("../assets/icons/forum.svg");
+    mask-image: url("../assets/icons/forum.svg");
+}
