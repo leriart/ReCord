@@ -61,6 +61,14 @@ npm run build
 
 Carga `dist/Retroless.theme.css` como tema local. El paquete incluye todos los módulos y copia las fuentes y los assets a su lado.
 
+### Conflictos entre temas
+
+Usa RETROLESS como único tema. ClearVision, Midnight, System24, Ryoku, Selene y otros temas completos sobrescriben las mismas variables de Discord y se mezclan con este, produciendo texto oscuro sobre fondos oscuros, buscadores claros o iconos redondeados.
+
+Usa también la apariencia `Dark` o `Darker` de Discord. RETROLESS fuerza superficies oscuras, pero el modo claro puede filtrarse en componentes nativos.
+
+Instala RETROLESS desde `Online Themes` o `Local Themes`. No pegues el tema completo en QuickCSS; usa QuickCSS solo para sobrescribir tokens.
+
 ## Paleta
 
 | Token | Hex | Origen |
@@ -107,9 +115,9 @@ Sobrescribe los tokens desde QuickCSS de Vencord. La paleta completa vive en `sr
 | `--rl-ink` | `#080907` | Chat y superficie principal |
 | `--rl-void` | `#050605` | Fondo profundo e inputs |
 | `--rl-line` | `#2c241d` | Bordes y reglas |
-| `--rl-scanline-opacity` | `0.4` | Intensidad de scanlines |
-| `--rl-grain-opacity` | `0.25` | Intensidad del grano |
-| `--rl-vignette-opacity` | `0.8` | Intensidad de la viñeta |
+| `--rl-scanline-opacity` | `0.25` | Intensidad de scanlines |
+| `--rl-grain-opacity` | `0.18` | Intensidad del grano |
+| `--rl-vignette-opacity` | `0.55` | Intensidad de la viñeta |
 | `--rl-flicker-duration` | `0s` | `9s` activa un parpadeo sutil |
 | `--rl-font` | Pixel Operator | Tipografía de cuerpo e interfaz |
 | `--rl-font-mono` | Pixel Operator Mono | Código y timestamps |
@@ -142,7 +150,8 @@ Retroless/
 │   ├── 08-controls.css
 │   ├── 09-overlays.css
 │   ├── 10-settings.css
-│   └── 11-effects.css
+│   ├── 11-effects.css
+│   └── 12-priority.css
 ├── assets/
 │   ├── brand/               marca, esquinas, grano, skyline
 │   └── fonts/               Pixel Operator (CC0)

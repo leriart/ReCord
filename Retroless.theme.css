@@ -2,7 +2,7 @@
  * @name RETROLESS
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Amber phosphor, pixel type, CRT grain.
- * @version 1.0.0
+ * @version 1.0.1
  * @license Apache-2.0
  * @source https://github.com/leriart/Retroless
  * @website https://leriart.github.io/Retroless/
@@ -20,3 +20,4 @@
 @import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/09-overlays.css");
 @import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/10-settings.css");
 @import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/11-effects.css");
+@import url("https://raw.githubusercontent.com/leriart/Retroless/main/src/12-priority.css");

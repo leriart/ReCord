@@ -52,9 +52,9 @@
 
     --rl-radius: 0px;
 
-    --rl-scanline-opacity: 0.4;
-    --rl-grain-opacity: 0.25;
-    --rl-vignette-opacity: 0.8;
+    --rl-scanline-opacity: 0.25;
+    --rl-grain-opacity: 0.18;
+    --rl-vignette-opacity: 0.55;
     --rl-flicker-duration: 0s;
 
     --rl-dither: conic-gradient(from 0deg, var(--rl-signal) 25%, transparent 0 50%, var(--rl-signal) 0 75%, transparent 0);

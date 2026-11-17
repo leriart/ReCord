@@ -1,0 +1,472 @@
+/* priority layer: keeps the terminal surface readable even when Discord is
+   in light mode or another full theme is still enabled */
+
+html:root:root,
+html.theme-dark.theme-dark,
+html.theme-darker.theme-darker,
+html.theme-midnight.theme-midnight,
+html.theme-light.theme-light {
+    color-scheme: dark !important;
+
+    --font-primary: var(--rl-font) !important;
+    --font-display: var(--rl-font-display) !important;
+    --font-headline: var(--rl-font-display) !important;
+    --font-code: var(--rl-font-mono) !important;
+    --font: var(--rl-font) !important;
+    --code-font: var(--rl-font-mono) !important;
+    --main-font: var(--rl-font) !important;
+
+    --background-primary: var(--rl-ink) !important;
+    --background-primary-alt: var(--rl-coal) !important;
+    --background-secondary: var(--rl-panel) !important;
+    --background-secondary-alt: var(--rl-void) !important;
+    --background-tertiary: var(--rl-coal) !important;
+    --background-floating: var(--rl-raised) !important;
+    --background-base-lowest: var(--rl-void) !important;
+    --background-base-lower: var(--rl-ink) !important;
+    --background-base-low: var(--rl-panel) !important;
+    --background-surface-high: var(--rl-raised) !important;
+    --background-surface-higher: var(--rl-high) !important;
+    --background-surface-highest: var(--rl-higher) !important;
+    --background-mod-muted: rgba(212, 180, 150, 0.05) !important;
+    --background-mod-subtle: rgba(212, 180, 150, 0.07) !important;
+    --background-mod-normal: rgba(212, 180, 150, 0.11) !important;
+    --background-mod-strong: rgba(212, 180, 150, 0.16) !important;
+    --background-modifier-hover: rgba(233, 66, 33, 0.07) !important;
+    --background-modifier-active: rgba(233, 66, 33, 0.12) !important;
+    --background-modifier-selected: rgba(233, 66, 33, 0.16) !important;
+    --background-brand: var(--rl-signal) !important;
+    --background-gradient-chat: linear-gradient(180deg, rgba(233, 66, 33, 0.045), transparent 240px), var(--rl-ink) !important;
+    --background-gradient-lowest: var(--rl-void) !important;
+    --background-gradient-lower: var(--rl-ink) !important;
+    --background-gradient-low: var(--rl-panel) !important;
+    --background-gradient-high: var(--rl-raised) !important;
+    --background-gradient-higher: var(--rl-high) !important;
+    --background-gradient-highest: var(--rl-higher) !important;
+    --background-image: none !important;
+    --background-shading: transparent !important;
+    --card-shading: transparent !important;
+    --popout-shading: transparent !important;
+    --modal-shading: transparent !important;
+    --input-shading: transparent !important;
+    --home-background: var(--rl-ink) !important;
+    --channel-background-default: var(--rl-ink) !important;
+    --channeltextarea-background: var(--rl-void) !important;
+    --chat-background: var(--rl-ink) !important;
+    --modal-background: var(--rl-panel) !important;
+    --modal-footer-background: var(--rl-ink) !important;
+    --card-background-default: var(--rl-raised) !important;
+    --card-border-default: var(--rl-line-soft) !important;
+    --panel-bg: var(--rl-panel) !important;
+    --bg-surface-raised: var(--rl-raised) !important;
+
+    --text-default: var(--rl-bone) !important;
+    --text-normal: var(--rl-bone) !important;
+    --text-strong: var(--rl-cream) !important;
+    --text-muted: var(--rl-smoke) !important;
+    --text-subtle: var(--rl-ash) !important;
+    --text-link: var(--rl-signal-soft) !important;
+    --text-brand: var(--rl-signal) !important;
+    --header-primary: var(--rl-cream) !important;
+    --header-secondary: var(--rl-smoke) !important;
+    --header-tertiary: var(--rl-ash) !important;
+    --channels-default: var(--rl-smoke) !important;
+    --channel-icon: var(--rl-ash) !important;
+    --channel-text-area-placeholder: var(--rl-faint) !important;
+    --interactive-normal: var(--rl-smoke) !important;
+    --interactive-hover: var(--rl-cream) !important;
+    --interactive-active: var(--rl-cream) !important;
+    --interactive-muted: var(--rl-faint) !important;
+    --interactive-text-default: var(--rl-smoke) !important;
+    --interactive-text-hover: var(--rl-cream) !important;
+    --interactive-text-active: var(--rl-cream) !important;
+    --interactive-icon-default: var(--rl-ash) !important;
+    --interactive-icon-hover: var(--rl-bone) !important;
+    --interactive-icon-active: var(--rl-cream) !important;
+    --white: var(--rl-cream) !important;
+    --white-500: var(--rl-cream) !important;
+    --white-hsl: 34 58% 86% !important;
+
+    --input-background-default: var(--rl-void) !important;
+    --input-border-default: var(--rl-line) !important;
+    --input-border-hover: rgba(233, 66, 33, 0.35) !important;
+    --input-border-active: var(--rl-signal) !important;
+    --input-text-default: var(--rl-bone) !important;
+    --input-placeholder-text-default: var(--rl-faint) !important;
+    --input-icon-default: var(--rl-ash) !important;
+
+    --brand-500: var(--rl-signal) !important;
+    --brand-560: var(--rl-oxide) !important;
+    --brand-experiment: var(--rl-signal) !important;
+    --main-color: var(--rl-signal) !important;
+    --hover-color: var(--rl-signal-hot) !important;
+
+    --normal-text: var(--rl-bone) !important;
+    --muted-text: var(--rl-smoke) !important;
+    --channel-normal: var(--rl-smoke) !important;
+    --channel-muted: var(--rl-ash) !important;
+    --channel-hover: var(--rl-cream) !important;
+    --channel-selected: var(--rl-cream) !important;
+    --channel-selected-bg: rgba(233, 66, 33, 0.16) !important;
+    --channel-unread: var(--rl-signal-soft) !important;
+
+    --text-0: var(--rl-void) !important;
+    --text-1: var(--rl-bone) !important;
+    --text-2: var(--rl-cream) !important;
+    --text-3: var(--rl-bone) !important;
+    --text-4: var(--rl-smoke) !important;
+    --text-5: var(--rl-ash) !important;
+    --bg-1: var(--rl-raised) !important;
+    --bg-2: var(--rl-panel) !important;
+    --bg-3: var(--rl-ink) !important;
+    --bg-4: var(--rl-void) !important;
+    --accent-1: var(--rl-signal-soft) !important;
+    --accent-2: var(--rl-signal) !important;
+    --accent-3: var(--rl-signal) !important;
+    --accent-4: var(--rl-signal-hot) !important;
+    --accent-5: var(--rl-signal-deep) !important;
+    --border-light: rgba(212, 180, 150, 0.1) !important;
+    --border: rgba(233, 66, 33, 0.22) !important;
+    --border-hover: rgba(233, 66, 33, 0.42) !important;
+    --button-border: rgba(212, 180, 150, 0.18) !important;
+    --hover: rgba(233, 66, 33, 0.07) !important;
+    --active: rgba(233, 66, 33, 0.12) !important;
+    --message-hover: rgba(233, 66, 33, 0.045) !important;
+    --mention: rgba(233, 66, 33, 0.16) !important;
+    --mention-hover: rgba(233, 66, 33, 0.22) !important;
+    --reply: rgba(212, 180, 150, 0.06) !important;
+    --reply-hover: rgba(212, 180, 150, 0.09) !important;
+}
+
+html body {
+    background:
+        radial-gradient(1200px 700px at 72% -12%, rgba(233, 66, 33, 0.07), transparent 62%),
+        radial-gradient(900px 500px at -10% 40%, rgba(20, 50, 42, 0.35), transparent 62%),
+        var(--rl-void) !important;
+}
+
+#app-mount {
+    background:
+        radial-gradient(1150px 620px at 74% -18%, rgba(233, 66, 33, 0.075), transparent 62%),
+        radial-gradient(900px 520px at -12% 112%, rgba(20, 50, 42, 0.45), transparent 64%),
+        var(--rl-void) !important;
+}
+
+#app-mount [class*="guilds"],
+#app-mount [class*="sidebarList"],
+#app-mount [class*="privateChannels"],
+#app-mount [class*="membersWrap"],
+#app-mount [class*="panels"] {
+    background-color: var(--rl-panel) !important;
+    background-image: none !important;
+}
+
+#app-mount [class*="guilds"] {
+    background-color: var(--rl-ink) !important;
+}
+
+#app-mount [class*="panels"] {
+    background-color: var(--rl-void) !important;
+}
+
+#app-mount [class*="chatContent"],
+#app-mount [class*="messagesWrapper"],
+#app-mount [data-list-id="chat-messages"] {
+    background-color: var(--rl-ink) !important;
+    background-image: linear-gradient(180deg, rgba(233, 66, 33, 0.035), transparent 240px) !important;
+}
+
+#app-mount [class*="subtitleContainer"] {
+    background-color: var(--rl-ink) !important;
+    background-image: none !important;
+}
+
+#app-mount [class*="searchBar"],
+#app-mount [class*="searchBarComponent"] {
+    background-color: var(--rl-void) !important;
+    background-image: none !important;
+    border-color: var(--rl-line) !important;
+    border-radius: 0 !important;
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [class*="searchBar"] input,
+#app-mount [class*="searchBar"] [contenteditable],
+#app-mount [class*="searchBarComponent"] input {
+    background-color: transparent !important;
+    color: var(--rl-bone) !important;
+}
+
+#app-mount input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+#app-mount textarea,
+#app-mount [contenteditable="true"] {
+    background-color: var(--rl-void) !important;
+    color: var(--rl-bone) !important;
+    border-color: var(--rl-line) !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="channel"],
+#app-mount [class*="privateChannels"] [class*="interactive"],
+#app-mount [data-list-item-id^="private-channels"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="channel"]:hover,
+#app-mount [class*="privateChannels"] [class*="interactive"]:hover,
+#app-mount [data-list-item-id^="private-channels"]:hover {
+    background-color: rgba(233, 66, 33, 0.08) !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="interactiveSelected"],
+#app-mount [class*="privateChannels"] [class*="selected"],
+#app-mount [data-list-item-id^="private-channels"][class*="selected"],
+#app-mount [class*="privateChannels"] [class*="channel"]:has([class*="selected"]),
+#app-mount [class*="privateChannels"] [class*="interactive"]:has([class*="selected"]) {
+    background-color: rgba(233, 66, 33, 0.14) !important;
+    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.22), transparent 72%) !important;
+    border-left-color: var(--rl-signal) !important;
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="name"],
+#app-mount [class*="privateChannels"] [class*="username"],
+#app-mount [class*="privateChannels"] [class*="selected"] [class*="name"],
+#app-mount [class*="privateChannels"] [class*="selected"] [class*="username"] {
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [class*="privateChannels"] [class*="selected"] [class*="name"],
+#app-mount [class*="privateChannels"] [class*="selected"] [class*="username"] {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="subtitleContainer"] [class*="name"],
+#app-mount [class*="subtitleContainer"] [class*="username"],
+#app-mount [class*="subtitleContainer"] h1 {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [id^="message-content"],
+#app-mount [class*="messageContent"],
+#app-mount [class*="markup"] {
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [id^="message-content"] a,
+#app-mount [class*="markup"] a {
+    color: var(--rl-signal-soft) !important;
+}
+
+#app-mount [id^="message-content"] code,
+#app-mount [class*="markup"] code {
+    color: var(--rl-paper) !important;
+}
+
+#app-mount [id^="chat-messages"] [class*="username"],
+#app-mount [class*="cozy"] [class*="username"],
+#app-mount [class*="compact"] [class*="username"] {
+    color: var(--rl-paper) !important;
+}
+
+#app-mount [id^="chat-messages"] [class*="timestamp"],
+#app-mount [id^="chat-messages"] [class*="edited"] {
+    color: var(--rl-ash) !important;
+}
+
+#app-mount [class*="members"] [class*="name"],
+#app-mount [class*="members"] [class*="username"] {
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [class*="members"] [class*="name"]:hover,
+#app-mount [class*="members"] [class*="username"]:hover {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="panels"] [class*="nameTag"] {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="panels"] button,
+#app-mount [class*="panels"] [class*="button"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="panels"] button:hover,
+#app-mount [class*="panels"] [class*="button"]:hover {
+    background-color: rgba(233, 66, 33, 0.1) !important;
+}
+
+#app-mount [class*="panels"] [class*="redGlow"],
+#app-mount [class*="panels"] [class*="danger"] {
+    background-color: rgba(255, 70, 38, 0.12) !important;
+    border: 1px solid rgba(255, 70, 38, 0.28) !important;
+    color: var(--rl-red) !important;
+}
+
+#app-mount [class*="guilds"] [class*="childWrapper"],
+#app-mount [class*="guilds"] [class*="wrapper"],
+#app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"],
+#app-mount [data-list-item-id^="guildsnav___"] [class*="wrapper"] {
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="guilds"] img,
+#app-mount [data-list-item-id^="guildsnav___"] img {
+    border-radius: 0 !important;
+}
+
+#app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"] {
+    background-color: var(--rl-coal) !important;
+    border: 1px solid var(--rl-line) !important;
+    color: var(--rl-signal) !important;
+}
+
+#app-mount [data-list-item-id^="guildsnav___"] [class*="selected"] [class*="childWrapper"],
+#app-mount [data-list-item-id^="guildsnav___"][class*="selected"] [class*="childWrapper"],
+#app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"][class*="selected"],
+#app-mount [data-list-item-id^="guildsnav___"] [class*="childWrapper"]:hover {
+    background-color: var(--rl-signal) !important;
+    border-color: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    outline: 1px solid var(--rl-signal);
+    outline-offset: 2px;
+    box-shadow: 0 0 14px rgba(233, 66, 33, 0.28) !important;
+}
+
+#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] {
+    background-color: var(--rl-panel) !important;
+    background-image: url("../assets/brand/mark.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 24px 24px !important;
+    border-color: var(--rl-line-hot) !important;
+}
+
+#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"] > svg,
+#app-mount [data-list-item-id="guildsnav___home"] [class*="childWrapper"]::before {
+    display: none !important;
+}
+
+#app-mount [data-list-item-id="guildsnav___home"]:hover [class*="childWrapper"] {
+    background-color: var(--rl-raised) !important;
+}
+
+#app-mount [data-list-item-id="guildsnav___home"][class*="selected"] [class*="childWrapper"],
+#app-mount [data-list-item-id="guildsnav___home"] [class*="selected"] [class*="childWrapper"] {
+    background-color: var(--rl-panel) !important;
+    border-color: var(--rl-signal) !important;
+    background-image: url("../assets/brand/mark.svg") !important;
+    outline: 1px solid var(--rl-signal);
+    outline-offset: 2px;
+}
+
+#app-mount [class*="newBadge"],
+#app-mount [class*="newBadge"] span,
+#app-mount [class*="badge"][class*="new"] {
+    background-color: var(--rl-signal) !important;
+    border-radius: 0 !important;
+    color: var(--rl-void) !important;
+}
+
+#app-mount [class*="modal"],
+#app-mount [role="dialog"],
+#app-mount [role="menu"],
+#app-mount [class*="popout"] {
+    background-color: var(--rl-panel) !important;
+    background-image: none !important;
+}
+
+#app-mount [role="menu"] {
+    background-color: var(--rl-raised) !important;
+}
+
+#app-mount [class*="card"] {
+    background-color: var(--rl-raised) !important;
+    background-image: none !important;
+    border-color: var(--rl-line) !important;
+}
+
+#app-mount [class*="sidebarList"] [class*="name"],
+#app-mount [data-list-item-id^="channels___"] [class*="name"] {
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [data-list-item-id^="channels___"] {
+    background-color: transparent !important;
+    background-image: none !important;
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [data-list-item-id^="channels___"]:hover {
+    background-color: rgba(233, 66, 33, 0.065) !important;
+}
+
+#app-mount [data-list-item-id^="channels___"][class*="modeSelected"],
+#app-mount [data-list-item-id^="channels___"] [class*="modeSelected"],
+#app-mount [data-list-item-id^="channels___"][class*="modeConnected"] {
+    background-color: rgba(233, 66, 33, 0.14) !important;
+    background-image: linear-gradient(90deg, rgba(233, 66, 33, 0.2), transparent 72%) !important;
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [data-list-item-id^="channels___"][class*="modeSelected"] [class*="name"],
+#app-mount [data-list-item-id^="channels___"] [class*="modeSelected"] [class*="name"] {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="numberBadge"],
+#app-mount [class*="mentionBadge"] {
+    background-color: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="avatar"] img,
+#app-mount img[class*="avatar"] {
+    border-radius: 0 !important;
+}
+
+#app-mount [class*="membersGroup"] {
+    color: var(--rl-signal-soft) !important;
+    background-image: none !important;
+}
+
+#app-mount [class*="member"] [class*="username"],
+#app-mount [class*="member"] [class*="name"] {
+    color: var(--rl-bone) !important;
+}
+
+#app-mount [class*="member"]:hover [class*="username"],
+#app-mount [class*="member"]:hover [class*="name"] {
+    color: var(--rl-cream) !important;
+}
+
+#app-mount [class*="sidebarList"] [class*="badge"],
+#app-mount [class*="privateChannels"] [class*="badge"],
+#app-mount [class*="guilds"] [class*="badge"] {
+    background-color: var(--rl-signal) !important;
+    color: var(--rl-void) !important;
+    border-radius: 0 !important;
+}
+
+#app-mount [id^="chat-messages"],
+#app-mount [id^="message-content"],
+#app-mount [class*="messageContent"] {
+    opacity: 1 !important;
+}
+
+#app-mount [class*="imageWrapper"] img,
+#app-mount [class*="attachment"] img {
+    opacity: 1 !important;
+}
+
+#app-mount [class*="avatar"] img {
+    opacity: 1 !important;
+    filter: none !important;
+}

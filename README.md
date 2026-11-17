@@ -63,6 +63,14 @@ npm run build
 
 Load `dist/Retroless.theme.css` as a local theme. The bundle inlines all modules and copies the fonts and assets beside it.
 
+### Theme conflicts
+
+Run RETROLESS as the only theme. ClearVision, Midnight, System24, Ryoku, Selene, and similar full themes override the same Discord variables and will mix with this one, producing dark text on dark surfaces, light search fields, or rounded icons.
+
+Also use Discord's `Dark` or `Darker` appearance. RETROLESS forces dark surfaces, but a light Discord appearance can still leak into native components.
+
+Install RETROLESS through `Online Themes` or `Local Themes`. Do not paste the whole theme into QuickCSS; use QuickCSS only for token overrides.
+
 ## Palette
 
 | Token | Hex | Source |
@@ -109,9 +117,9 @@ Override tokens in Vencord QuickCSS. The full palette lives in `src/00-tokens.cs
 | `--rl-ink` | `#080907` | Chat and main surface |
 | `--rl-void` | `#050605` | Deepest background and inputs |
 | `--rl-line` | `#2c241d` | Borders and rules |
-| `--rl-scanline-opacity` | `0.4` | CRT scanline strength |
-| `--rl-grain-opacity` | `0.25` | Film grain strength |
-| `--rl-vignette-opacity` | `0.8` | Vignette strength |
+| `--rl-scanline-opacity` | `0.25` | CRT scanline strength |
+| `--rl-grain-opacity` | `0.18` | Film grain strength |
+| `--rl-vignette-opacity` | `0.55` | Vignette strength |
 | `--rl-flicker-duration` | `0s` | Set to `9s` to enable subtle flicker |
 | `--rl-font` | Pixel Operator | Body and UI typeface |
 | `--rl-font-mono` | Pixel Operator Mono | Code and timestamps |
@@ -144,7 +152,8 @@ Retroless/
 │   ├── 08-controls.css
 │   ├── 09-overlays.css
 │   ├── 10-settings.css
-│   └── 11-effects.css
+│   ├── 11-effects.css
+│   └── 12-priority.css
 ├── assets/
 │   ├── brand/               mark, corners, grain, skyline
 │   └── fonts/               Pixel Operator (CC0)
