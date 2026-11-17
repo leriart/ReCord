@@ -376,12 +376,8 @@
         animation: rl-power-on 620ms steps(9, end) backwards;
     }
 
-    #app-mount svg[class*="mask_"] rect:is([fill="#45a366" i], [fill="#43a25a" i], [fill="#23a55a" i]) {
+    #app-mount [class*="panels_"] svg[class*="mask_"] rect:is([fill="#45a366" i], [fill="#43a25a" i], [fill="#23a55a" i]) {
         animation: rl-status 2.8s steps(1, end) infinite;
-    }
-
-    #app-mount svg[class*="mask_"] rect:is([fill="#9147ff" i], [fill="#593695" i]) {
-        animation: rl-status 0.9s steps(1, end) infinite;
     }
 
     #app-mount [class*="avatarSpeaking_"],
@@ -395,9 +391,7 @@
         animation: rl-caret 1s steps(1, end) infinite;
     }
 
-    #app-mount *,
-    #app-mount *::before,
-    #app-mount *::after {
+    #app-mount :is(a, button, li, [role="button"], [role="tab"], [role="menuitem"], [role="listitem"], [role="switch"]) {
         transition-timing-function: steps(4, end) !important;
     }
 

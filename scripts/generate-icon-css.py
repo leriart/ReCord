@@ -227,24 +227,47 @@ out += [
 for name, sel in LINKS:
     out += [f"{nav} {sel} {{", f"    --rl-link-icon: {url(name)};", "}", ""]
 
-def signature(paths):
-    return ",\n".join(f'svg:has(> path[d^="{path}"])' for path in paths)
+import re
 
+def pixel_path(name, scale=1.5):
+    svg = (ROOT / "assets" / "icons" / f"{name}.svg").read_text()
+    rows = {}
+    for x, y in re.findall(r'<rect x="(\d+)" y="(\d+)" width="1" height="1"/>', svg):
+        rows.setdefault(int(y), set()).add(int(x))
+    assert rows, name
+    number = lambda value: f"{value * scale:g}"
+    d = ""
+    for y in sorted(rows):
+        columns = sorted(rows[y])
+        index = 0
+        while index < len(columns):
+            start = columns[index]
+            while index + 1 < len(columns) and columns[index + 1] == columns[index] + 1:
+                index += 1
+            width = columns[index] - start + 1
+            d += f"M{number(start)} {number(y)}h{number(width)}v{number(1)}h-{number(width)}z"
+            index += 1
+    return d
+
+# The CSS d property swaps the vector itself: no masks, no extra layers, and the
+# icon keeps whatever fill Discord gives it. Matching on the path tag keeps the
+# selectors in the fast tag bucket.
+ICON = '#app-mount svg[viewBox="0 0 24 24"] > path'
 every = [path for _, paths in SIGNATURES for path in paths]
 out += [
-    f"#app-mount :is(\n{signature(every)}\n) {{",
-    "    background: currentColor !important;",
-    "    -webkit-mask: var(--rl-glyph) center / contain no-repeat !important;",
-    "    mask: var(--rl-glyph) center / contain no-repeat !important;",
-    "}",
-    "",
-    f"#app-mount :is(\n{signature(every)}\n) > * {{",
-    "    visibility: hidden;",
+    ",\n".join(f'{ICON}[d^="{path}"] ~ *' for path in every) + " {",
+    "    display: none;",
     "}",
     "",
 ]
 for name, paths in SIGNATURES:
-    out += [f"#app-mount :is(\n{signature(paths)}\n) {{", f"    --rl-glyph: {url(name)};", "}", ""]
+    out += [
+        ",\n".join(f'{ICON}[d^="{path}"]' for path in paths) + " {",
+        f'    d: path("{pixel_path(name)}");',
+        "    shape-rendering: crispEdges;",
+        "}",
+        "",
+    ]
 
 for name, color, fills in STATUS:
     selector = ",\n".join(f'#app-mount svg[class*="mask_"] rect[fill="{fill}" i]' for fill in fills)

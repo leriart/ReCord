@@ -33,7 +33,6 @@
 
 [class*="backdrop_"] {
     background: color-mix(in srgb, var(--rl-void) 82%, transparent) !important;
-    backdrop-filter: blur(2px);
 }
 
 [class*="modal_"] [class*="closeButton_"],

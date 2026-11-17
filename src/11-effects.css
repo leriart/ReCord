@@ -15,7 +15,8 @@ body::before {
             rgba(0, 0, 0, 0.32) 3px
         );
     opacity: var(--rl-scanline-opacity);
-    mix-blend-mode: multiply;
+    contain: strict;
+    will-change: opacity;
     animation: rl-flicker var(--rl-flicker-duration) steps(1, end) infinite;
 }
 
@@ -29,6 +30,8 @@ body::after {
         radial-gradient(ellipse at 50% 48%, transparent 52%, rgba(0, 0, 0, 0.48) 100%),
         radial-gradient(ellipse at 72% 0%, color-mix(in srgb, var(--rl-signal) 5.5%, transparent), transparent 46%);
     opacity: var(--rl-vignette-opacity);
+    contain: strict;
+    transform: translateZ(0);
 }
 
 #app-mount::before {
@@ -38,8 +41,9 @@ body::after {
     z-index: 9996;
     pointer-events: none;
     background: url("../assets/brand/grain.png") 0 0 / 128px 128px;
-    opacity: var(--rl-grain-opacity);
-    mix-blend-mode: soft-light;
+    opacity: calc(var(--rl-grain-opacity) * 0.55);
+    contain: strict;
+    transform: translateZ(0);
 }
 
 #app-mount::after {
@@ -62,23 +66,29 @@ body::after {
         var(--rl-corner) right bottom / 1px 12px;
     background-repeat: no-repeat;
     opacity: var(--rl-frame-opacity);
-    filter: drop-shadow(0 0 4px color-mix(in srgb, var(--rl-signal) 16%, transparent));
+    contain: strict;
+    transform: translateZ(0);
 }
 
 html::before {
     content: "";
     position: fixed;
-    inset: 0;
+    top: -160px;
+    left: 0;
+    width: 100%;
+    height: 160px;
     z-index: 9995;
     pointer-events: none;
-    background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent) 0 -160px / 100% 160px no-repeat;
+    background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent);
     opacity: var(--rl-beam-opacity);
+    contain: strict;
+    will-change: transform;
     animation: rl-beam var(--rl-beam-duration) linear infinite;
 }
 
 @keyframes rl-beam {
     to {
-        background-position: 0 calc(100vh + 160px);
+        transform: translate3d(0, calc(100vh + 160px), 0);
     }
 }
 

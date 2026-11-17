@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.3.0
+
+Performance pass. Same look, less work for the browser.
+
+- Icons are swapped with the CSS `d` property on the path itself instead of a mask over the SVG: no `:has()` selectors (271 removed), no mask layers, and icons keep Discord's own fill color
+- CRT overlays no longer use `mix-blend-mode`; each one is an isolated compositor layer, so the page underneath repaints without re-blending the whole window
+- The scan beam animates `transform` on a 160px strip instead of `background-position` on a full-screen layer
+- Removed the blinking status animation from lists (it ran on every online avatar on the main thread); it stays on your own status in the user panel
+- Stepped transitions apply to interactive elements instead of every element
+- Removed a `backdrop-filter` blur and a full-frame `drop-shadow`
+
 ## 3.2.0
 
 - Website in English and Spanish: language switch in the top bar, follows the browser language and remembers the choice
