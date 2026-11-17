@@ -1,6 +1,6 @@
 {
     "name": "record",
-    "version": "3.9.0",
+    "version": "4.0.0",
     "private": true,
     "type": "module",
     "description": "A REPLACED-inspired terminal theme for Discord",

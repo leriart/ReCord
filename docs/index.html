@@ -42,7 +42,7 @@
                 <a href="sounds.html">SOUNDS</a>
             </nav>
             <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language">ES</button>
-            <span class="top-version">V3.9.0</span>
+            <span class="top-version">V4.0.0</span>
         </div>
     </header>
 
@@ -235,7 +235,7 @@
                         <ol class="steps">
                             <li>
                                 <h3>RUN THE INSTALLER</h3>
-                                <p>One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, copies the theme and switches it on.</p>
+                                <p>One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, installs the theme, the startup splash and the plugin, and switches everything on.</p>
                             </li>
                             <li>
                                 <h3>RESTART DISCORD</h3>
@@ -248,18 +248,24 @@
                         </ol>
 
                         <div>
-                            <div class="code-card">
-                                <div class="code-card-head"><span>ONE-LINE INSTALL</span><span>ALL SYSTEMS</span></div>
-                                <pre><span class="c">// Linux, macOS, Git Bash, WSL</span>
-<span class="a">curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash</span>
-
-<span class="c">// Windows PowerShell</span>
-<span class="a">irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1 | iex</span>
-
-<span class="c">// with in-app settings and sounds (Vesktop)</span>
-curl -fsSL .../install.sh | bash -s -- --plugin
-<span class="c">// remove everything</span>
-curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
+                            <div class="code-card os-card">
+                                <div class="code-card-head"><span>ONE-LINE INSTALL</span><span id="os-detected">DETECTING...</span></div>
+                                <div class="os-body">
+                                    <div class="os-tabs" role="tablist" aria-label="Operating system">
+                                        <button type="button" role="tab" data-os="windows">WINDOWS</button>
+                                        <button type="button" role="tab" data-os="mac">MACOS</button>
+                                        <button type="button" role="tab" data-os="linux">LINUX</button>
+                                    </div>
+                                    <p class="os-where" id="os-where"></p>
+                                    <pre class="os-command"><code id="os-command"></code></pre>
+                                    <div class="os-options">
+                                        <label><input type="radio" name="os-action" value="install" checked> <span>INSTALL EVERYTHING</span></label>
+                                        <label><input type="radio" name="os-action" value="theme"> <span>THEME ONLY</span></label>
+                                        <label><input type="radio" name="os-action" value="uninstall"> <span>UNINSTALL</span></label>
+                                    </div>
+                                    <button type="button" class="btn" id="os-copy">COPY COMMAND</button>
+                                    <p class="accent-help" id="os-note"></p>
+                                </div>
                             </div>
                             <div class="code-card accent-card">
                                 <div class="code-card-head"><span>ONLINE THEME URL</span><span>AUTO-UPDATE</span></div>
@@ -461,7 +467,72 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
         });
     </script>
     <script>
-        const $ = id => document.getElementById(id);
+// i18n.js is deferred, so it runs after this script: translate through a guard.
+        const tr = text => (window.t ? window.t(text) : text);
+        const installer = "https://raw.githubusercontent.com/leriart/ReCord/main/install";
+        const systems = {
+            windows: {
+                label: "WINDOWS",
+                where: "Open PowerShell (Start menu, type PowerShell) and paste:",
+                command: { install: `irm ${installer}.ps1 | iex`, theme: `& ([scriptblock]::Create((irm ${installer}.ps1))) -NoPlugin`, uninstall: `& ([scriptblock]::Create((irm ${installer}.ps1))) -Uninstall` }
+            },
+            mac: {
+                label: "MACOS",
+                where: "Open Terminal (Spotlight, type Terminal) and paste:",
+                command: { install: `curl -fsSL ${installer}.sh | bash`, theme: `curl -fsSL ${installer}.sh | bash -s -- --no-plugin`, uninstall: `curl -fsSL ${installer}.sh | bash -s -- --uninstall` }
+            },
+            linux: {
+                label: "LINUX",
+                where: "Open a terminal and paste:",
+                command: { install: `curl -fsSL ${installer}.sh | bash`, theme: `curl -fsSL ${installer}.sh | bash -s -- --no-plugin`, uninstall: `curl -fsSL ${installer}.sh | bash -s -- --uninstall` }
+            }
+        };
+        const notes = {
+            install: "Installs the theme, the startup splash and the plugin (in-app settings and sounds) for Vesktop. Then close Discord completely and open it again.",
+            theme: "Installs the theme and the startup splash, and leaves Vencord as it is.",
+            uninstall: "Removes the theme, the splash and the plugin, and restores your settings."
+        };
+
+        function detectSystem() {
+            const hint = `${navigator.userAgentData?.platform ?? ""} ${navigator.platform ?? ""} ${navigator.userAgent}`.toLowerCase();
+            if (/android|iphone|ipad|ipod/.test(hint)) return { os: "linux", mobile: true };
+            if (/win/.test(hint)) return { os: "windows" };
+            if (/mac/.test(hint)) return { os: "mac" };
+            return { os: "linux" };
+        }
+
+        const detected = detectSystem();
+        let currentSystem = detected.os;
+
+        function renderInstall() {
+            const system = systems[currentSystem];
+            const action = document.querySelector('input[name="os-action"]:checked').value;
+            document.getElementById("os-command").textContent = system.command[action];
+            document.getElementById("os-where").textContent = tr(system.where);
+            document.getElementById("os-note").textContent = tr(notes[action]);
+            document.getElementById("os-detected").textContent = detected.mobile
+                ? tr("DESKTOP ONLY")
+                : currentSystem === detected.os ? `${tr("DETECTED")}: ${system.label}` : system.label;
+            for (const tab of document.querySelectorAll(".os-tabs button")) {
+                tab.setAttribute("aria-selected", String(tab.dataset.os === currentSystem));
+            }
+            if (detected.mobile) document.getElementById("os-note").textContent = tr("Discord on phones does not load themes. Run this on the computer where you use Discord.");
+        }
+
+        for (const tab of document.querySelectorAll(".os-tabs button")) {
+            tab.addEventListener("click", () => { currentSystem = tab.dataset.os; renderInstall(); });
+        }
+        for (const option of document.querySelectorAll('input[name="os-action"]')) option.addEventListener("change", renderInstall);
+        document.getElementById("os-copy").addEventListener("click", async () => {
+            await navigator.clipboard.writeText(document.getElementById("os-command").textContent);
+            document.getElementById("os-copy").textContent = tr("COPIED");
+            setTimeout(() => { document.getElementById("os-copy").textContent = tr("COPY COMMAND"); }, 1600);
+        });
+        document.getElementById("lang-toggle")?.addEventListener("click", () => setTimeout(renderInstall, 0));
+        renderInstall();
+        document.addEventListener("DOMContentLoaded", renderInstall);
+
+                const $ = id => document.getElementById(id);
         const picker = $("accent");
         const status = $("download-status");
         const raw = "https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.theme.css";
@@ -543,7 +614,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
             const file = $("bg-file").files[0];
             if (!file) { backgroundFile = null; return; }
             const reader = new FileReader();
-            reader.onload = () => { backgroundFile = reader.result; status.textContent = t("Image attached. It is embedded when you download the CSS."); };
+            reader.onload = () => { backgroundFile = reader.result; status.textContent = tr("Image attached. It is embedded when you download the CSS."); };
             reader.readAsDataURL(file);
         });
         loadPalettes();
@@ -554,11 +625,11 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
 
         $("copy").addEventListener("click", async () => {
             await navigator.clipboard.writeText(snippet());
-            status.textContent = t("Copied. Paste it into Vencord > Themes > QuickCSS.");
+            status.textContent = tr("Copied. Paste it into Vencord > Themes > QuickCSS.");
         });
 
         $("download").addEventListener("click", async () => {
-            status.textContent = t("Fetching theme...");
+            status.textContent = tr("Fetching theme...");
             let css = null;
             for (const url of ["../ReCord.theme.css", raw]) {
                 try {
@@ -567,7 +638,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
                 } catch {}
             }
             if (!css) {
-                status.textContent = t("Could not fetch the theme. Use the raw link instead.");
+                status.textContent = tr("Could not fetch the theme. Use the raw link instead.");
                 return;
             }
             const link = document.createElement("a");
@@ -575,7 +646,7 @@ curl -fsSL .../install.sh | bash -s -- --uninstall</pre>
             link.download = "ReCord.theme.css";
             link.click();
             URL.revokeObjectURL(link.href);
-            status.textContent = t("Downloaded with these settings. Drop it into your themes folder.");
+            status.textContent = tr("Downloaded with these settings. Drop it into your themes folder.");
         });
     </script>
 </body>

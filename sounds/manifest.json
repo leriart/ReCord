@@ -1,6 +1,6 @@
 {
     "name": "RECORD Signal Pack",
-    "version": "3.8.0",
+    "version": "4.0.0",
     "license": "CC0-1.0",
     "description": "Original terminal interface sounds for RECORD. Synthesized, not ripped game audio.",
     "customSounds": {

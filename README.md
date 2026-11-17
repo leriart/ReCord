@@ -18,22 +18,30 @@ curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | ba
 irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1 | iex
 ```
 
-The installer finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord (native and Flatpak), copies `ReCord.theme.css` into each themes folder and switches it on. Fully close Discord and open it again. Run the same command to update.
+The [website](https://leriart.github.io/ReCord/) detects your system and shows the right command.
 
-| Option | Effect |
-| --- | --- |
-| `--plugin` | Also build the ReCord plugin for Vesktop: in-app settings and sounds. Needs `git` and Node.js. |
-| `--no-enable` | Copy the theme without switching it on. |
-| `--uninstall` | Remove the theme and the plugin build. |
+One command installs three things. Fully close Discord and open it again afterwards; run the same command to update.
+
+| What | Where | Notes |
+| --- | --- | --- |
+| Theme | Vencord, Vesktop, Equicord, Equibop, BetterDiscord (native and Flatpak) | Copied to each themes folder and switched on |
+| Startup splash | Vesktop | The pixel mark instead of Vesktop's splash window |
+| Plugin | Vesktop | In-app settings and sounds. A ready-made build is downloaded; no git or Node.js needed |
+
+| Option | Windows | Effect |
+| --- | --- | --- |
+| `--no-plugin` | `-NoPlugin` | Theme and splash only; Vencord stays as it is |
+| `--no-enable` | `-NoEnable` | Copy the theme without switching it on |
+| `--uninstall` | `-Uninstall` | Remove everything and restore the settings it changed |
 
 Pass options after `bash -s --`:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --plugin
+curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --no-plugin
 curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --uninstall
 ```
 
-On PowerShell, uninstall with:
+On PowerShell:
 
 ```powershell
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Uninstall
@@ -91,7 +99,7 @@ Light mode follows Discord's own `Appearance` -> `Light`. A background URL in Qu
 
 ## Plugin
 
-`plugin/record` is a Vencord userplugin, installed with `--plugin`. Themes are CSS-only, so the plugin provides what CSS cannot:
+`plugin/record` is a Vencord userplugin, installed by default on Vesktop. Themes are CSS-only, so the plugin provides what CSS cannot:
 
 - **Settings panel** for every option above.
 - **Replaced Discord sounds**: messages, mentions, mute, deafen, join, leave, calls, streams, camera, push-to-talk, activities.
@@ -101,7 +109,7 @@ Light mode follows Discord's own `Appearance` -> `Light`. A background URL in Qu
 - **Sound control**: a switch and a Play button per sound, one volume for interface sounds and another for the replaced Discord sounds.
 - **Your own sounds**: any audio file in the `record-sounds` folder (button in the settings) replaces the bundled sound with the same name, either a pack name (`mention`, `hover`...) or a Discord event (`message1`, `user_join`...). WAV, OGG, MP3, FLAC and M4A.
 
-The installer builds Vencord with the plugin and points Vesktop at that build, so Vencord stops updating itself there; run the installer again to update. For any other Vencord built from source, copy `plugin/record` into `src/userplugins/` and run `pnpm build && pnpm inject`.
+The installer points Vesktop at a Vencord build that includes the plugin, so Vencord stops updating itself there; run the installer again to update. The build is published by the `plugin.yml` workflow, and the Linux and macOS installer can also build it locally when git and Node.js are present. For any other Vencord built from source, copy `plugin/record` into `src/userplugins/` and run `pnpm build && pnpm inject`.
 
 The bundled pack in `sounds/` is original synthesized audio (CC0). A second interface set, Kenney's UI SFX Set (CC0, by Kenney Vleugels, kenney.nl), is in `sounds/kenney/` and can be chosen in the plugin. No game audio is included or distributed. Preview it at `docs/sounds.html`.
 

@@ -18,22 +18,30 @@ curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | ba
 irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1 | iex
 ```
 
-El instalador busca Vencord, Vesktop, Equicord, Equibop y BetterDiscord (nativos y Flatpak), copia `ReCord.theme.css` a cada carpeta de temas y lo activa. Cierra Discord por completo y vuelve a abrirlo. El mismo comando sirve para actualizar.
+La [página](https://leriart.github.io/ReCord/) detecta tu sistema y te muestra el comando correcto.
 
-| Opción | Efecto |
-| --- | --- |
-| `--plugin` | Compila también el plugin ReCord para Vesktop: ajustes dentro de Discord y sonidos. Necesita `git` y Node.js. |
-| `--no-enable` | Copia el tema sin activarlo. |
-| `--uninstall` | Quita el tema y la compilación del plugin. |
+Un solo comando instala tres cosas. Después cierra Discord por completo y vuelve a abrirlo; el mismo comando sirve para actualizar.
+
+| Qué | Dónde | Notas |
+| --- | --- | --- |
+| Tema | Vencord, Vesktop, Equicord, Equibop, BetterDiscord (nativos y Flatpak) | Se copia a cada carpeta de temas y se activa |
+| Splash de arranque | Vesktop | La marca pixel en lugar de la ventana de arranque de Vesktop |
+| Plugin | Vesktop | Ajustes dentro de Discord y sonidos. Se descarga ya compilado; no hace falta git ni Node.js |
+
+| Opción | Windows | Efecto |
+| --- | --- | --- |
+| `--no-plugin` | `-NoPlugin` | Solo tema y splash; Vencord se queda como está |
+| `--no-enable` | `-NoEnable` | Copia el tema sin activarlo |
+| `--uninstall` | `-Uninstall` | Lo quita todo y restaura los ajustes que cambió |
 
 Las opciones van después de `bash -s --`:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --plugin
+curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --no-plugin
 curl -fsSL https://raw.githubusercontent.com/leriart/ReCord/main/install.sh | bash -s -- --uninstall
 ```
 
-En PowerShell, para desinstalar:
+En PowerShell:
 
 ```powershell
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Uninstall
@@ -91,7 +99,7 @@ El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en Q
 
 ## Plugin
 
-`plugin/record` es un userplugin de Vencord que se instala con `--plugin`. Los temas son solo CSS, así que el plugin aporta lo que el CSS no puede:
+`plugin/record` es un userplugin de Vencord que se instala por defecto en Vesktop. Los temas son solo CSS, así que el plugin aporta lo que el CSS no puede:
 
 - **Panel de ajustes** con todas las opciones de arriba.
 - **Sonidos de Discord sustituidos**: mensajes, menciones, silenciar, ensordecer, entrar, salir, llamadas, directos, cámara, pulsar para hablar, actividades.
@@ -101,7 +109,7 @@ El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en Q
 - **Control de sonidos**: un interruptor y un botón para oír cada sonido, un volumen para los de interfaz y otro para los de Discord sustituidos.
 - **Tus propios sonidos**: cualquier audio en la carpeta `record-sounds` (hay un botón en los ajustes) sustituye al sonido incluido del mismo nombre, sea un nombre del pack (`mention`, `hover`...) o un evento de Discord (`message1`, `user_join`...). WAV, OGG, MP3, FLAC y M4A.
 
-El instalador compila Vencord con el plugin y apunta Vesktop a esa compilación, así que ahí Vencord deja de actualizarse solo; vuelve a ejecutar el instalador para actualizar. En cualquier otro Vencord compilado desde el código, copia `plugin/record` en `src/userplugins/` y ejecuta `pnpm build && pnpm inject`.
+El instalador apunta Vesktop a una compilación de Vencord que incluye el plugin, así que ahí Vencord deja de actualizarse solo; vuelve a ejecutar el instalador para actualizar. La compilación la publica el flujo `plugin.yml`, y el instalador de Linux y macOS también puede hacerla en local si hay git y Node.js. En cualquier otro Vencord compilado desde el código, copia `plugin/record` en `src/userplugins/` y ejecuta `pnpm build && pnpm inject`.
 
 El pack de `sounds/` es audio original sintetizado (CC0). Hay un segundo juego de sonidos de interfaz, el UI SFX Set de Kenney (CC0, de Kenney Vleugels, kenney.nl), en `sounds/kenney/`, que se elige en el plugin. No se incluye ni distribuye audio del juego. Se puede escuchar en `docs/sounds.html`.
 

@@ -53,7 +53,7 @@ const ES = {
     "INSTALL THE SIGNAL": "INSTALA LA SEÑAL",
     "For Vencord, Vesktop, Equicord, Equibop and BetterDiscord. One command, or one self-contained CSS file.": "Para Vencord, Vesktop, Equicord, Equibop y BetterDiscord. Un comando, o un único archivo CSS autocontenido.",
     "RUN THE INSTALLER": "EJECUTA EL INSTALADOR",
-    "One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, copies the theme and switches it on.": "Un comando encuentra Vencord, Vesktop, Equicord, Equibop y BetterDiscord, copia el tema y lo activa.",
+    "One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, copies the theme and switches it on.": "Un comando encuentra Vencord, Vesktop, Equicord, Equibop y BetterDiscord, instala el tema, el splash de arranque y el plugin, y lo activa todo.",
     "RESTART DISCORD": "REINICIA DISCORD",
     "Close it completely, also from the tray, and open it again.": "Ciérralo por completo, también desde la bandeja, y vuelve a abrirlo.",
     "MAKE IT YOURS": "HAZLO TUYO",
@@ -168,7 +168,6 @@ const ES = {
     "Three-note waiting cue for stages.": "Señal de espera de tres notas para escenarios.",
     "PLAYING THEM IN DISCORD:": "CÓMO SUENAN EN DISCORD:",
     "Themes are CSS-only and cannot play audio, so the": "Los temas son solo CSS y no pueden reproducir audio, así que el",
-    "userplugin does it: it replaces Discord's sounds and adds interface sounds. On Vesktop run": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. En Vesktop ejecuta",
     "from the repository. The event mapping is in": "desde el repositorio. El mapeo de eventos está en",
     "NO GAME AUDIO BUNDLED": "NO INCLUYE AUDIO DEL JUEGO",
     "CC0 1.0 / ORIGINAL SYNTHESIS": "CC0 1.0 / SÍNTESIS ORIGINAL",
@@ -245,7 +244,24 @@ const ES = {
     "SEE IT AND HEAR IT": "MÍRALO Y ESCÚCHALO",
     "A working mock of the interface. Power it on, then hover, click, switch channels and type: every action plays the sound theme you pick.": "Una maqueta funcional de la interfaz. Enciéndela y luego pasa el cursor, haz clic, cambia de canal y escribe: cada acción suena con el tema de sonido que elijas.",
     "OPEN FULL SCREEN": "ABRIR A PANTALLA COMPLETA",
-    "Live demo of the RECORD interface": "Demo en vivo de la interfaz de RECORD"
+    "Live demo of the RECORD interface": "Demo en vivo de la interfaz de RECORD",
+    "DETECTING...": "DETECTANDO...",
+    "DETECTED": "DETECTADO",
+    "DESKTOP ONLY": "SOLO ESCRITORIO",
+    "Operating system": "Sistema operativo",
+    "INSTALL EVERYTHING": "INSTALAR TODO",
+    "THEME ONLY": "SOLO EL TEMA",
+    "UNINSTALL": "DESINSTALAR",
+    "COPY COMMAND": "COPIAR COMANDO",
+    "COPIED": "COPIADO",
+    "Open PowerShell (Start menu, type PowerShell) and paste:": "Abre PowerShell (menú Inicio, escribe PowerShell) y pega:",
+    "Open Terminal (Spotlight, type Terminal) and paste:": "Abre Terminal (Spotlight, escribe Terminal) y pega:",
+    "Open a terminal and paste:": "Abre una terminal y pega:",
+    "Installs the theme, the startup splash and the plugin (in-app settings and sounds) for Vesktop. Then close Discord completely and open it again.": "Instala el tema, el splash de arranque y el plugin (ajustes dentro de Discord y sonidos) para Vesktop. Después cierra Discord por completo y vuelve a abrirlo.",
+    "Installs the theme and the startup splash, and leaves Vencord as it is.": "Instala el tema y el splash de arranque, y deja Vencord como está.",
+    "Removes the theme, the splash and the plugin, and restores your settings.": "Quita el tema, el splash y el plugin, y restaura tus ajustes.",
+    "Discord on phones does not load themes. Run this on the computer where you use Discord.": "Discord en el teléfono no carga temas. Ejecuta esto en el ordenador donde uses Discord.",
+    "userplugin does it: it replaces Discord's sounds and adds interface sounds. The installer sets it up on Vesktop by default. The event mapping is in": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. El instalador lo deja listo en Vesktop por defecto. El mapeo de eventos está en"
 };
 
 const clean = text => text.replace(/\s+/g, " ").trim();

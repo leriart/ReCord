@@ -1,0 +1,68 @@
+name: Plugin build
+
+# Builds Vencord with the ReCord plugin and publishes the four files Vesktop
+# loads as the rolling "plugin" release, so the installers can download a
+# ready-made build instead of compiling on the user's machine.
+
+on:
+    push:
+        branches: [main]
+        paths:
+            - "plugin/**"
+            - ".github/workflows/plugin.yml"
+    schedule:
+        - cron: "17 5 * * *"
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+concurrency:
+    group: plugin
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/checkout@v4
+              with:
+                  repository: Vendicated/Vencord
+                  path: vencord
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+            - name: Add the plugin
+              run: |
+                  mkdir -p vencord/src/userplugins/record
+                  cp plugin/record/index.tsx plugin/record/native.ts vencord/src/userplugins/record/
+            - name: Build
+              working-directory: vencord
+              run: |
+                  pnpm install --frozen-lockfile
+                  pnpm build
+            - name: Collect
+              run: |
+                  mkdir out
+                  for file in vencordDesktopMain.js vencordDesktopPreload.js vencordDesktopRenderer.js vencordDesktopRenderer.css; do
+                      cp "vencord/dist/$file" "out/$file"
+                  done
+                  echo "vencord=$(git -C vencord rev-parse --short HEAD)" >> "$GITHUB_ENV"
+            - uses: softprops/action-gh-release@v2
+              with:
+                  tag_name: plugin
+                  name: ReCord plugin build
+                  prerelease: true
+                  make_latest: false
+                  files: out/*
+                  body: |
+                      Vencord built with the ReCord plugin, for the installers.
+
+                      Vencord commit: ${{ env.vencord }} (https://github.com/Vendicated/Vencord)
+                      Plugin source: `plugin/record` in this repository at ${{ github.sha }}
+
+                      Vencord and the plugin are GPL-3.0-or-later. The complete source is the Vencord commit above plus `plugin/record`.

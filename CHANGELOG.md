@@ -1,5 +1,26 @@
 # Changelog
 
+## 4.0.0
+
+Installing
+
+- The installers now set up the startup splash. Before, the image and its settings were never copied, so a fresh machine kept Vesktop's default splash
+- The plugin is installed by default on Linux, macOS and Windows. A ready-made build is downloaded, so the machine does not need git or Node.js; if it is not available the Linux and macOS installer builds it locally. `--no-plugin` (`-NoPlugin` on Windows) skips it
+- The plugin is switched on automatically
+- Uninstalling restores the settings it changed: theme list, splash colors, plugin entry and Vencord location
+- New workflow `plugin.yml` builds Vencord with the plugin and publishes it as the `plugin` release for the installers
+- `--plugin` is still accepted and does nothing, since it is the default
+
+Website
+
+- The install card detects Windows, macOS or Linux and shows the right command, with tabs to switch and options for theme only and uninstall. Phones get a note that themes are desktop only
+
+Plugin performance
+
+- Menus and dialogs are counted at most once per frame with a cheaper lookup, instead of on every DOM change
+- The disabled-sound list and the per-sound themes are parsed once and reused until they change
+- Pointer, click and key listeners are passive and return early when interface sounds are off
+
 ## 3.9.0
 
 - Live demo on the website (`docs/preview.html`, also embedded in the landing page): a working mock of the interface where hovering, clicking, switching channels and typing play the sounds. Sending a message gets a reply, and there are buttons to test a mention and an incoming message

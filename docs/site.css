@@ -1346,3 +1346,66 @@ img {
 .demo-link {
     margin: 16px 0 0;
 }
+
+.os-body {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+}
+
+.os-tabs {
+    display: flex;
+    gap: 6px;
+}
+
+.os-tabs button {
+    flex: 1 1 0;
+    padding: 8px 6px;
+    border: 1px solid var(--rl-line);
+    background: transparent;
+    color: var(--rl-smoke);
+    font: inherit;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+}
+
+.os-tabs button[aria-selected="true"] {
+    border-color: var(--rl-signal);
+    background: var(--rl-signal);
+    color: var(--rl-void);
+}
+
+.os-where {
+    margin: 0;
+    color: var(--rl-bone);
+    font-size: 12px;
+}
+
+.os-command {
+    margin: 0;
+    padding: 12px;
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--rl-line-hot);
+    background: var(--rl-void);
+    color: var(--rl-signal-soft);
+    font-family: var(--rl-font-mono);
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
+    user-select: all;
+}
+
+.os-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    color: var(--rl-bone);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
+.os-options input {
+    accent-color: var(--rl-signal);
+}

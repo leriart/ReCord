@@ -88,7 +88,7 @@ function SoundList() {
         settings.store.disabledSounds = [...disabled].join(",");
     };
 
-    const sources = parseSources(soundSources);
+    const sources = { ...parseSources(soundSources) };
     const choose = (name: string, value: string) => {
         if (value) sources[name] = value; else delete sources[name];
         settings.store.soundSources = JSON.stringify(sources);
@@ -503,13 +503,21 @@ function fileFor(name: string) {
 
 const stem = (file: string) => file.replace(/\.[^.]+$/, "").toLowerCase();
 
+// Both settings are strings that change rarely but are read on every sound,
+// so the parsed form is kept until the string itself changes.
+let sourcesText = "";
+let sourcesValue: Record<string, string> = {};
+
 function parseSources(text: string): Record<string, string> {
+    if (text === sourcesText) return sourcesValue;
+    sourcesText = text;
     try {
         const value = JSON.parse(text || "{}");
-        return value && typeof value === "object" ? value : {};
+        sourcesValue = value && typeof value === "object" ? value : {};
     } catch {
-        return {};
+        sourcesValue = {};
     }
+    return sourcesValue;
 }
 
 // A sound comes from the theme chosen for it, or from the global sound theme,
@@ -520,7 +528,17 @@ function themedFile(name: string, fallback?: string) {
 }
 
 const uiFile = (name: string) => themedFile(name, manifest?.ui[name]);
-const isDisabled = (key: string) => settings.store.disabledSounds.split(",").includes(key);
+let disabledText = "";
+let disabledSet = new Set<string>();
+
+function isDisabled(key: string) {
+    const text = settings.store.disabledSounds;
+    if (text !== disabledText) {
+        disabledText = text;
+        disabledSet = new Set(text.split(","));
+    }
+    return disabledSet.has(key);
+}
 
 function blobFor(file: string) {
     const cached = blobs.get(file);
@@ -692,13 +710,19 @@ function hookDiscordSounds() {
 }
 
 function listen<K extends keyof DocumentEventMap>(type: K, handler: (event: DocumentEventMap[K]) => void) {
-    document.addEventListener(type, handler, true);
-    disposers.push(() => document.removeEventListener(type, handler, true));
+    const options = { capture: true, passive: true };
+    document.addEventListener(type, handler, options);
+    disposers.push(() => document.removeEventListener(type, handler, options));
 }
 
 function hookInterface() {
+    let lastTarget: EventTarget | null = null;
+
     listen("pointerover", event => {
-        if (!settings.store.hoverSounds) return;
+        // The pointer crosses many nodes inside one control; only a new node is worth a lookup.
+        if (event.target === lastTarget) return;
+        lastTarget = event.target;
+        if (!settings.store.hoverSounds || !settings.store.interfaceSounds) return;
         const target = (event.target as Element | null)?.closest?.(INTERACTIVE) ?? null;
         if (target === hovered) return;
         hovered = target;
@@ -706,6 +730,7 @@ function hookInterface() {
     });
 
     listen("click", event => {
+        if (!settings.store.interfaceSounds) return;
         const target = event.target as Element | null;
         if (!target?.closest) return;
         if (target.closest('[aria-label="Close"], [aria-label="Cerrar"], [class*="closeButton_"], [class*="backdrop_"]')) return play("back", 60);
@@ -715,19 +740,33 @@ function hookInterface() {
     });
 
     listen("keydown", event => {
-        const target = event.target as HTMLElement | null;
-        const editing = !!target && (target.isContentEditable || /^(INPUT|TEXTAREA)$/.test(target.tagName));
+        if (!settings.store.interfaceSounds) return;
         if (event.key === "Escape") return play("back", 80);
-        if (!editing) return;
-        if (event.key === "Enter" && !event.shiftKey && target!.closest('[class*="channelTextArea_"]')) return play("send", 80);
+        const target = event.target as HTMLElement | null;
+        if (!target || !(target.isContentEditable || target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+        if (event.key === "Enter" && !event.shiftKey && target.closest('[class*="channelTextArea_"]')) return play("send", 80);
         if (settings.store.typingSounds && (event.key.length === 1 || event.key === "Backspace")) play("type", 28);
     });
 
-    const observer = new MutationObserver(() => {
-        const count = document.querySelectorAll('[role="dialog"], [role="menu"], [class*="layer_"][class*="baseLayer_"] ~ [class*="layer_"]').length;
+    // Discord mutates the DOM constantly. Menus and dialogs are counted at most
+    // once per frame, and only when something was actually added or removed.
+    let scheduled = false;
+    const check = () => {
+        scheduled = false;
+        const count = document.querySelectorAll('[role="dialog"], [role="menu"]').length;
         if (count > layers) play("open", 80);
         else if (count < layers) play("close", 80);
         layers = count;
+    };
+    const observer = new MutationObserver(records => {
+        if (scheduled || !settings.store.interfaceSounds) return;
+        for (const record of records) {
+            if (record.addedNodes.length || record.removedNodes.length) {
+                scheduled = true;
+                requestAnimationFrame(check);
+                return;
+            }
+        }
     });
     observer.observe(document.body, { childList: true, subtree: true });
     disposers.push(() => observer.disconnect());
