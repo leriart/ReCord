@@ -2,7 +2,7 @@
  * @name ReCord
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Signal phosphor, pixel type, CRT grain.
- * @version 3.6.1
+ * @version 3.7.0
  * @license Apache-2.0
  * @source https://github.com/leriart/ReCord
  * @website https://leriart.github.io/ReCord/
@@ -4935,6 +4935,13 @@ html body {
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.49999 3.7998L4.85999 7.4398V12."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 ."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 2h12a4 4 0 0 1 4 4v7.5a.5.5 0 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.4 8.4 8.38-6.46a2 2 0 0 1 2.44"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="m15.93 3.04-1.82 1.83-.58-.58a2.74"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46"] ~ * {
@@ -5344,6 +5351,41 @@ html body {
         shape-rendering: crispEdges;
     }
 
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] {
+        d: path("M16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM4.5 12h3v1.5h-3zM10.5 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM10.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 ."] {
+        d: path("M15 1.5h9v1.5h-9zM15 3h9v1.5h-9zM15 4.5h9v1.5h-9zM12 6h9v1.5h-9zM12 7.5h9v1.5h-9zM9 9h9v1.5h-9zM9 10.5h9v1.5h-9zM6 12h9v1.5h-9zM1.5 13.5h13.5v1.5h-13.5zM1.5 15h10.5v1.5h-10.5zM1.5 16.5h10.5v1.5h-10.5zM1.5 18h7.5v1.5h-7.5zM1.5 19.5h7.5v1.5h-7.5zM1.5 21h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] {
+        d: path("M9 3h4.5v1.5h-4.5zM7.5 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM7.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h4.5v1.5h-4.5zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM4.5 18h15v1.5h-15zM4.5 19.5h15v1.5h-15zM4.5 21h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] {
+        d: path("M6 0h18v1.5h-18zM6 1.5h18v1.5h-18zM18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM15 6h3v1.5h-3zM21 6h3v1.5h-3zM15 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM0 15h3v1.5h-3zM6 15h3v1.5h-3zM0 16.5h3v1.5h-3zM6 16.5h3v1.5h-3zM0 18h3v1.5h-3zM0 19.5h3v1.5h-3zM0 21h21v1.5h-21zM0 22.5h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3"] {
+        d: path("M0 0h24v1.5h-24zM0 1.5h24v1.5h-24zM0 3h3v1.5h-3zM21 3h3v1.5h-3zM0 4.5h3v1.5h-3zM21 4.5h3v1.5h-3zM0 6h3v1.5h-3zM6 6h6v1.5h-6zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h6v1.5h-6zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM6 10.5h6v1.5h-6zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM0 15h3v1.5h-3zM9 15h12v1.5h-12zM0 16.5h3v1.5h-3zM9 16.5h12v1.5h-12zM0 18h24v1.5h-24zM0 19.5h24v1.5h-24z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 2h12a4 4 0 0 1 4 4v7.5a.5.5 0 0"] {
+        d: path("M3 3h16.5v1.5h-16.5zM3 4.5h1.5v1.5h-1.5zM18 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM18 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM7.5 13.5h13.5v1.5h-13.5zM3 15h1.5v1.5h-1.5zM15 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM15 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.4 8.4 8.38-6.46a2 2 0 0 1 2.44"] {
+        d: path("M10.5 1.5h3v1.5h-3zM10.5 3h3v1.5h-3zM7.5 4.5h9v1.5h-9zM7.5 6h9v1.5h-9zM4.5 10.5h15v1.5h-15zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h4.5v1.5h-4.5zM10.5 16.5h3v1.5h-3zM15 16.5h4.5v1.5h-4.5zM4.5 18h4.5v1.5h-4.5zM10.5 18h3v1.5h-3zM15 18h4.5v1.5h-4.5zM4.5 19.5h4.5v1.5h-4.5zM10.5 19.5h3v1.5h-3zM15 19.5h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] {
         d: path("M3 0h15v1.5h-15zM3 1.5h15v1.5h-15zM0 3h3v1.5h-3zM15 3h3v1.5h-3zM0 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM0 6h3v1.5h-3zM12 6h9v1.5h-9zM0 7.5h3v1.5h-3zM12 7.5h9v1.5h-9zM0 9h3v1.5h-3zM15 9h3v1.5h-3zM0 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM21 12h3v1.5h-3zM6 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM3 15h9v1.5h-9zM21 15h3v1.5h-3zM3 16.5h9v1.5h-9zM21 16.5h3v1.5h-3zM6 18h3v1.5h-3zM21 18h3v1.5h-3zM6 19.5h3v1.5h-3zM21 19.5h3v1.5h-3zM6 21h15v1.5h-15zM6 22.5h15v1.5h-15z");
         shape-rendering: crispEdges;
@@ -5416,92 +5458,121 @@ html body {
 
 /* 15-boot.css */
 
-/* startup */
+/* startup: Discord's loading screen is a centered video of its logo with a tip
+   underneath. The video is hidden and the pixel mark is drawn in its place. */
 
-@keyframes rl-boot-pulse {
-    0%,
-    100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 14px color-mix(in srgb, var(--rl-signal) 22%, transparent));
+@keyframes rl-boot-mark {
+    0% {
+        background-size: 100% 0%;
     }
-    50% {
-        opacity: 0.72;
-        filter: drop-shadow(0 0 24px color-mix(in srgb, var(--rl-signal) 38%, transparent));
+    8% {
+        background-size: 100% 25%;
+    }
+    16% {
+        background-size: 100% 50%;
+    }
+    24% {
+        background-size: 100% 75%;
+    }
+    32%,
+    100% {
+        background-size: 100% 100%;
     }
 }
 
-@keyframes rl-boot-text {
-    0%,
-    100% {
-        opacity: 1;
+@keyframes rl-boot-bar {
+    0% {
+        background-size: 0% 100%, 100% 100%;
     }
-    50% {
-        opacity: 0.35;
+    100% {
+        background-size: 100% 100%, 100% 100%;
     }
 }
 
-[class*="loading_2kO"],
-[class*="fallbackSplash"] {
+@keyframes rl-boot-blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0.25;
+    }
+}
+
+[class*="container_"]:has(> [class*="content_"] > video) {
     background:
-        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.25) 2px 3px),
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.28) 2px 3px),
         var(--rl-void) !important;
-    color: var(--rl-signal-soft) !important;
 }
 
-[class*="loading_2kO"] p,
-[class*="loading_2kO"] span {
-    color: var(--rl-smoke) !important;
-    font-family: var(--rl-font) !important;
-    font-size: 11px !important;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-[class*="loading_2kO"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 14px;
-}
-
-[class*="loading_2kO"] svg,
-[class*="loading_2kO"] img {
+[class*="container_"] > [class*="content_"] > video,
+[class*="container_"] > [class*="content_"] > video + img {
     display: none !important;
 }
 
-[class*="loading_2kO"]::before {
+[class*="content_"]:has(> video)::before {
     content: "";
     display: block;
-    width: 112px;
-    height: 112px;
-    background: var(--rl-signal);
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 28px;
+    background: linear-gradient(var(--rl-signal) 0 0) top / 100% 100% no-repeat;
     -webkit-mask: var(--rl-asset-mark) center / contain no-repeat;
     mask: var(--rl-asset-mark) center / contain no-repeat;
-    animation: rl-boot-pulse 1.4s steps(2, end) infinite;
+    animation: rl-boot-mark 2.4s step-end infinite;
 }
 
-[class*="loading_2kO"]::after {
-    content: "SIGNAL BOOT // ONLINE";
-    color: var(--rl-smoke);
-    font-family: var(--rl-font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    animation: rl-boot-text 2s steps(2, end) infinite;
+[class*="content_"]:has(> video)::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 8px;
+    margin: 0 auto 24px;
+    border: 1px solid var(--rl-signal);
+    background:
+        linear-gradient(var(--rl-signal) 0 0) left / 0% 100% no-repeat,
+        linear-gradient(var(--rl-void) 0 0);
+    animation: rl-boot-bar 1.8s steps(12, end) infinite;
 }
 
-[class*="splash_FNz3hO"] {
-    background: var(--rl-void) !important;
+[class*="content_"]:has(> video) [class*="text_"] {
+    top: 0 !important;
+    font-family: var(--rl-font) !important;
 }
 
-[class*="splash_FNz3hO"] img {
-    opacity: 0.14 !important;
-    filter: grayscale(1) sepia(0.45) contrast(1.05) !important;
+[class*="content_"]:has(> video) [class*="tipTitle_"] {
+    color: var(--rl-signal) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase !important;
+}
+
+[class*="content_"]:has(> video) [class*="tipTitle_"]::before {
+    content: "// ";
+}
+
+[class*="content_"]:has(> video) [class*="tip_"] {
+    color: var(--rl-bone) !important;
+    font-size: 14px !important;
+    letter-spacing: 0.04em;
+}
+
+[class*="content_"]:has(> video) [class*="tip_"]::after {
+    content: "_";
+    color: var(--rl-signal);
+    animation: rl-boot-blink 0.9s steps(1, end) infinite;
+}
+
+[class*="container_"]:has(> [class*="content_"] > video) [class*="problems_"] {
+    color: var(--rl-smoke) !important;
+    font-family: var(--rl-font) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    [class*="loading_2kO"]::before,
-    [class*="loading_2kO"]::after {
+    [class*="content_"]:has(> video)::before,
+    [class*="content_"]:has(> video)::after,
+    [class*="content_"]:has(> video) [class*="tip_"]::after {
         animation: none !important;
     }
 }
@@ -5780,4 +5851,30 @@ label:has(input[type="radio"]:checked) > svg[class*="radioIndicator_"] {
     outline: 0 !important;
     box-shadow: none !important;
     background: transparent !important;
+}
+
+/* expression picker: Discord wraps it in a wide positioning container that must stay invisible */
+
+html body #app-mount [class*="positionContainer_"][class*="positionContainer_"],
+html body [class*="positionContainer_"][class*="positionContainer_"] {
+    background: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+    filter: none !important;
+}
+
+/* no rounded corners anywhere */
+
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
+
+#app-mount svg[class*="mask_"] rect,
+#app-mount svg rect[rx] {
+    rx: 0;
+    ry: 0;
 }

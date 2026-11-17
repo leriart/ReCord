@@ -105,7 +105,7 @@ El pack de `sounds/` es audio original sintetizado (CC0). Hay un segundo juego d
 
 - **Selecciones**: el canal, DM, elemento de menú y entrada de ajustes activos son bloques sólidos del color de acento con texto oscuro.
 - **Movimiento**: todo se mueve a saltos. Los menús entran con un barrido, el chat se redibuja desde una línea al cambiar de canal, las filas destellan al pasar el cursor y se invierten al pulsar.
-- **Iconos**: 103 iconos pixel originales de 16 x 16. Los glifos de Discord se identifican por su forma vectorial, así que se sustituyen en todos los sitios donde aparecen (barra superior, menús, ajustes, lista de canales, lista de miembros) y en cualquier idioma. Los indicadores de estado son glifos pixel cuadrados: bloque para conectado, muesca para ausente, barra para no molestar, hueco para desconectado. Galería en `docs/icons.html`.
+- **Iconos**: 104 iconos pixel originales de 16 x 16. Los glifos de Discord se identifican por su forma vectorial, así que se sustituyen en todos los sitios donde aparecen (barra superior, menús, ajustes, lista de canales, lista de miembros) y en cualquier idioma. Los indicadores de estado son glifos pixel cuadrados: bloque para conectado, muesca para ausente, barra para no molestar, hueco para desconectado. Galería en `docs/icons.html`.
 - **Avatares**: cuadrados, con marco y filtro cálido.
 - **Arranque**: la pantalla de carga de Discord muestra la marca pixel. Para el splash de Vesktop elige `assets/brand/splash.gif` en `Vesktop Settings` -> `Customize App Assets`.
 

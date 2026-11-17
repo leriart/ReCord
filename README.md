@@ -105,7 +105,7 @@ The bundled pack in `sounds/` is original synthesized audio (CC0). A second inte
 
 - **Selections**: the active channel, DM, menu item and settings entry are solid accent blocks with dark type.
 - **Motion**: everything moves in steps. Menus wipe in, the chat redraws from a beam on channel switch, rows flash on hover and invert on press.
-- **Icons**: 103 original 16 x 16 pixel icons. Discord's glyphs are matched by their vector shape, so they are replaced everywhere they appear (toolbar, menus, settings, channel list, member list) in any language. Status indicators are square pixel glyphs: block for online, notch for idle, bar for do not disturb, hollow for offline. Gallery at `docs/icons.html`.
+- **Icons**: 104 original 16 x 16 pixel icons. Discord's glyphs are matched by their vector shape, so they are replaced everywhere they appear (toolbar, menus, settings, channel list, member list) in any language. Status indicators are square pixel glyphs: block for online, notch for idle, bar for do not disturb, hollow for offline. Gallery at `docs/icons.html`.
 - **Avatars**: square, framed, with a warm filter.
 - **Startup**: Discord's loading screen shows the pixel mark. For Vesktop's own splash choose `assets/brand/splash.gif` in `Vesktop Settings` -> `Customize App Assets`.
 

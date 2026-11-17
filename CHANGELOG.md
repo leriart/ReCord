@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.7.0
+
+- Loading screen: Discord's logo video is replaced by the pixel mark, drawn in bands, with a stepped progress bar and the tip in pixel type. The previous rule targeted a class that no longer exists, so it never applied
+- GIF, sticker and emoji picker: Discord's invisible positioning container was getting a panel background, frame and animation, which covered the chat with a wide dark strip
+- No rounded corners anywhere: one global rule instead of per-component overrides
+- 104 icons: seven more path signatures (voice call, user profile, mark all read, expand, image, sticker, community)
+- Removed a test page that was committed by mistake in 3.6.0
+
 ## 3.6.1
 
 Visual pass against the live client.

@@ -271,3 +271,29 @@ label:has(input[type="radio"]:checked) > svg[class*="radioIndicator_"] {
     box-shadow: none !important;
     background: transparent !important;
 }
+
+/* expression picker: Discord wraps it in a wide positioning container that must stay invisible */
+
+html body #app-mount [class*="positionContainer_"][class*="positionContainer_"],
+html body [class*="positionContainer_"][class*="positionContainer_"] {
+    background: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+    filter: none !important;
+}
+
+/* no rounded corners anywhere */
+
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
+
+#app-mount svg[class*="mask_"] rect,
+#app-mount svg rect[rx] {
+    rx: 0;
+    ry: 0;
+}

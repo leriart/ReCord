@@ -1,89 +1,118 @@
-/* startup */
+/* startup: Discord's loading screen is a centered video of its logo with a tip
+   underneath. The video is hidden and the pixel mark is drawn in its place. */
 
-@keyframes rl-boot-pulse {
-    0%,
-    100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 14px color-mix(in srgb, var(--rl-signal) 22%, transparent));
+@keyframes rl-boot-mark {
+    0% {
+        background-size: 100% 0%;
     }
-    50% {
-        opacity: 0.72;
-        filter: drop-shadow(0 0 24px color-mix(in srgb, var(--rl-signal) 38%, transparent));
+    8% {
+        background-size: 100% 25%;
+    }
+    16% {
+        background-size: 100% 50%;
+    }
+    24% {
+        background-size: 100% 75%;
+    }
+    32%,
+    100% {
+        background-size: 100% 100%;
     }
 }
 
-@keyframes rl-boot-text {
-    0%,
-    100% {
-        opacity: 1;
+@keyframes rl-boot-bar {
+    0% {
+        background-size: 0% 100%, 100% 100%;
     }
-    50% {
-        opacity: 0.35;
+    100% {
+        background-size: 100% 100%, 100% 100%;
     }
 }
 
-[class*="loading_2kO"],
-[class*="fallbackSplash"] {
+@keyframes rl-boot-blink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0.25;
+    }
+}
+
+[class*="container_"]:has(> [class*="content_"] > video) {
     background:
-        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.25) 2px 3px),
+        repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.28) 2px 3px),
         var(--rl-void) !important;
-    color: var(--rl-signal-soft) !important;
 }
 
-[class*="loading_2kO"] p,
-[class*="loading_2kO"] span {
-    color: var(--rl-smoke) !important;
-    font-family: var(--rl-font) !important;
-    font-size: 11px !important;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-[class*="loading_2kO"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 14px;
-}
-
-[class*="loading_2kO"] svg,
-[class*="loading_2kO"] img {
+[class*="container_"] > [class*="content_"] > video,
+[class*="container_"] > [class*="content_"] > video + img {
     display: none !important;
 }
 
-[class*="loading_2kO"]::before {
+[class*="content_"]:has(> video)::before {
     content: "";
     display: block;
-    width: 112px;
-    height: 112px;
-    background: var(--rl-signal);
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 28px;
+    background: linear-gradient(var(--rl-signal) 0 0) top / 100% 100% no-repeat;
     -webkit-mask: url("../assets/brand/mark.svg") center / contain no-repeat;
     mask: url("../assets/brand/mark.svg") center / contain no-repeat;
-    animation: rl-boot-pulse 1.4s steps(2, end) infinite;
+    animation: rl-boot-mark 2.4s step-end infinite;
 }
 
-[class*="loading_2kO"]::after {
-    content: "SIGNAL BOOT // ONLINE";
-    color: var(--rl-smoke);
-    font-family: var(--rl-font-mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    animation: rl-boot-text 2s steps(2, end) infinite;
+[class*="content_"]:has(> video)::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 8px;
+    margin: 0 auto 24px;
+    border: 1px solid var(--rl-signal);
+    background:
+        linear-gradient(var(--rl-signal) 0 0) left / 0% 100% no-repeat,
+        linear-gradient(var(--rl-void) 0 0);
+    animation: rl-boot-bar 1.8s steps(12, end) infinite;
 }
 
-[class*="splash_FNz3hO"] {
-    background: var(--rl-void) !important;
+[class*="content_"]:has(> video) [class*="text_"] {
+    top: 0 !important;
+    font-family: var(--rl-font) !important;
 }
 
-[class*="splash_FNz3hO"] img {
-    opacity: 0.14 !important;
-    filter: grayscale(1) sepia(0.45) contrast(1.05) !important;
+[class*="content_"]:has(> video) [class*="tipTitle_"] {
+    color: var(--rl-signal) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.14em;
+    text-transform: uppercase !important;
+}
+
+[class*="content_"]:has(> video) [class*="tipTitle_"]::before {
+    content: "// ";
+}
+
+[class*="content_"]:has(> video) [class*="tip_"] {
+    color: var(--rl-bone) !important;
+    font-size: 14px !important;
+    letter-spacing: 0.04em;
+}
+
+[class*="content_"]:has(> video) [class*="tip_"]::after {
+    content: "_";
+    color: var(--rl-signal);
+    animation: rl-boot-blink 0.9s steps(1, end) infinite;
+}
+
+[class*="container_"]:has(> [class*="content_"] > video) [class*="problems_"] {
+    color: var(--rl-smoke) !important;
+    font-family: var(--rl-font) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    [class*="loading_2kO"]::before,
-    [class*="loading_2kO"]::after {
+    [class*="content_"]:has(> video)::before,
+    [class*="content_"]:has(> video)::after,
+    [class*="content_"]:has(> video) [class*="tip_"]::after {
         animation: none !important;
     }
 }
