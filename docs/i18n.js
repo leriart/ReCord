@@ -262,7 +262,9 @@ const ES = {
     "Removes the theme, the splash and the plugin, and restores your settings.": "Quita el tema, el splash y el plugin, y restaura tus ajustes.",
     "Discord on phones does not load themes. Run this on the computer where you use Discord.": "Discord en el teléfono no carga temas. Ejecuta esto en el ordenador donde uses Discord.",
     "userplugin does it: it replaces Discord's sounds and adds interface sounds. The installer sets it up on Vesktop by default. The event mapping is in": "userplugin se encarga: sustituye los sonidos de Discord y añade sonidos de interfaz. El instalador lo deja listo en Vesktop por defecto. El mapeo de eventos está en",
-    "LOW POWER": "BAJO CONSUMO"
+    "LOW POWER": "BAJO CONSUMO",
+    "ReCore is the native client that carries this theme without a browser.": "ReCore es el cliente nativo que lleva este tema sin navegador.",
+    "In ReCore, drop the file in Appearance → Themes folder and press Reload CSS.": "En ReCore, suelta el archivo en Apariencia → Carpeta de temas y pulsa Recargar CSS."
 };
 
 const clean = text => text.replace(/\s+/g, " ").trim();

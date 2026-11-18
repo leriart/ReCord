@@ -2,6 +2,8 @@
 
 Un terminal para Discord inspirado en REPLACED. Un solo color de señal, tipografía pixel, paneles rectos, scanlines y grano, en modo terminal oscuro o papel claro.
 
+Cliente nativo: [**ReCore**](https://leriart.github.io/ReCore/), el fork de Yapfast que lleva este tema sin navegador y lee temas CSS de forma nativa.
+
 ![ReCord](docs/banner.png)
 
 ## Instalación
