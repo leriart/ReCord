@@ -2,7 +2,7 @@
  * @name ReCord
  * @author leriart
  * @description A REPLACED-inspired terminal for Discord. Signal phosphor, pixel type, CRT grain.
- * @version 4.1.0
+ * @version 4.1.1
  * @license Apache-2.0
  * @source https://github.com/leriart/ReCord
  * @website https://leriart.github.io/ReCord/
@@ -3884,20 +3884,6 @@ html body {
 #app-mount [class*="unreadMentionsIndicatorTop"],
 #app-mount [class*="unreadMentionsIndicatorBottom"] {
     display: none !important;
-}
-
-/* paint isolation for long lists: keeps scrolling inside the list */
-
-#app-mount li[id^="chat-messages"] {
-    contain: layout paint style;
-}
-
-#app-mount [class*="members_"] [class*="member_"] {
-    contain: layout paint style;
-}
-
-[data-list-item-id^="guildsnav___"] {
-    contain: layout paint style;
 }
 
 /* server rail: Discord shapes every icon with an SVG mask on a foreignObject,

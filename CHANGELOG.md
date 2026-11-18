@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.1
+
+- Fixed the message hover bar (add reaction, reply, forward, more) being cut off. Since 3.5.0 every message, member row and server icon had `contain: layout paint style`, and paint containment clips anything that sticks out of the box; the bar sits above the top edge of its message. The rules are removed: they had shown no measurable gain. Server badges that overflow their icon were affected the same way
+
 ## 4.1.0
 
 Performance of the website, measured in Firefox, where it was slow.

@@ -635,20 +635,6 @@ html body {
     display: none !important;
 }
 
-/* paint isolation for long lists: keeps scrolling inside the list */
-
-#app-mount li[id^="chat-messages"] {
-    contain: layout paint style;
-}
-
-#app-mount [class*="members_"] [class*="member_"] {
-    contain: layout paint style;
-}
-
-[data-list-item-id^="guildsnav___"] {
-    contain: layout paint style;
-}
-
 /* server rail: Discord shapes every icon with an SVG mask on a foreignObject,
    so the square frame needs that mask removed at its source */
 
