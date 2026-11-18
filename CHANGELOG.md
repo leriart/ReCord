@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.4.1
+
+Installer
+
+- Updates now do a clean plugin install: the downloaded build is checked before anything is touched, the new files are staged next to the old folder, and the whole `record-vencord` folder is replaced in one step. No stale file from an older build survives an update
+- Plugin, theme and splash downloads get a cache-buster, so a release published a minute ago is not served from GitHub's cached copy
+- The Linux and macOS installer refuses to change files while Vesktop or Discord is open, like the Windows one. A running client keeps the old plugin in memory and rewrites its settings on exit
+- Legcord and Replugged theme folders are cleared before copying, and old Retroless files are removed
+
 ## 4.4.0
 
 Backgrounds

@@ -15,6 +15,7 @@ $ErrorActionPreference = "Stop"
 $raw = "https://raw.githubusercontent.com/leriart/ReCord/main"
 $pluginRelease = "https://github.com/leriart/ReCord/releases/download/plugin"
 $pluginFiles = "vencordDesktopMain.js", "vencordDesktopPreload.js", "vencordDesktopRenderer.js", "vencordDesktopRenderer.css"
+$cachebust = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
 $theme = "ReCord.theme.css"
 $legacy = "Retroless.theme.css"
 $utf8 = New-Object System.Text.UTF8Encoding $false
@@ -64,7 +65,7 @@ function Get-Remote([string]$url, [string]$file) {
 
 function Test-Release {
     try {
-        $response = Invoke-WebRequest "$pluginRelease/vencordDesktopMain.js" -UseBasicParsing -ErrorAction Stop
+        $response = Invoke-WebRequest "$pluginRelease/vencordDesktopMain.js?$cachebust" -UseBasicParsing -ErrorAction Stop
         return "reachable (HTTP $($response.StatusCode))"
     } catch {
         return "unreachable: $($_.Exception.Message)"
@@ -118,6 +119,7 @@ function Install-Other($client, [string]$css) {
             # Dorion keeps themes under the home folder on Windows, and its config in AppData.
             $themes = Join-Path $env:USERPROFILE "dorion\themes"
             New-Item -ItemType Directory -Force -Path $themes | Out-Null
+            Remove-Item (Join-Path $themes $legacy) -Force -ErrorAction SilentlyContinue
             Copy-Item $css (Join-Path $themes $theme) -Force
             if (-not $NoEnable) {
                 $file = Join-Path $client.Path "config.json"
@@ -130,6 +132,7 @@ function Install-Other($client, [string]$css) {
         }
         "legcord" {
             $target = Join-Path $client.Path "themes\ReCord"
+            if (Test-Path $target) { Remove-Item $target -Recurse -Force }
             New-Item -ItemType Directory -Force -Path $target | Out-Null
             Copy-Item $css (Join-Path $target "src.css") -Force
             $manifest = [ordered]@{
@@ -143,6 +146,7 @@ function Install-Other($client, [string]$css) {
         }
         "replugged" {
             $target = Join-Path $client.Path "themes\dev.leriart.record"
+            if (Test-Path $target) { Remove-Item $target -Recurse -Force }
             New-Item -ItemType Directory -Force -Path $target | Out-Null
             Copy-Item $css (Join-Path $target $theme) -Force
             $manifest = [ordered]@{
@@ -159,6 +163,7 @@ function Install-Other($client, [string]$css) {
             # GoofCord loads every .css in this folder.
             $target = Join-Path $client.Path "GoofCord\assets"
             New-Item -ItemType Directory -Force -Path $target | Out-Null
+            Remove-Item (Join-Path $target $legacy) -Force -ErrorAction SilentlyContinue
             Copy-Item $css (Join-Path $target $theme) -Force
             Write-Host "  installed: $($client.Path) (GoofCord)"
         }
@@ -188,7 +193,7 @@ function Install-Splash {
     if (-not $vesktop) { Write-Host "  Vesktop not found; only Vesktop has a replaceable splash."; return }
     $tmp = Join-Path $env:TEMP "record-splash.gif"
     try {
-        Get-Remote "$raw/assets/brand/splash.gif" $tmp
+        Get-Remote "$raw/assets/brand/splash.gif?$cachebust" $tmp
     } catch {
         Write-Host "  The splash could not be downloaded: $($_.Exception.Message)"
         Write-Host "  The theme and the plugin are not affected."
@@ -221,7 +226,7 @@ function Install-Plugin {
     $stage = Join-Path $env:TEMP ("record-vencord-" + [guid]::NewGuid().ToString("N"))
     New-Item -ItemType Directory -Force -Path $stage | Out-Null
     try {
-        foreach ($file in $pluginFiles) { Get-Remote "$pluginRelease/$file" (Join-Path $stage $file) }
+        foreach ($file in $pluginFiles) { Get-Remote "$pluginRelease/$file?$cachebust" (Join-Path $stage $file) }
     } catch {
         Write-Host "  The ready-made plugin build could not be downloaded."
         Write-Host "  $($_.Exception.Message)"
@@ -231,11 +236,24 @@ function Install-Plugin {
         Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
         return
     }
+    $small = @($pluginFiles | Where-Object {
+        $file = Join-Path $stage $_
+        (-not (Test-Path $file)) -or ((Get-Item $file).Length -lt 1024)
+    })
+    if ($small) {
+        Write-Host "  The plugin build is incomplete: $($small -join ', ')"
+        Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
+        return
+    }
     foreach ($client in $vesktop) {
         $target = Join-Path $client "record-vencord"
-        New-Item -ItemType Directory -Force -Path $target | Out-Null
-        foreach ($file in $pluginFiles) { Copy-Item (Join-Path $stage $file) (Join-Path $target $file) -Force }
-        [System.IO.File]::WriteAllText((Join-Path $target "package.json"), "{}", $utf8)
+        $next = "$target.new"
+        if (Test-Path $next) { Remove-Item $next -Recurse -Force }
+        New-Item -ItemType Directory -Force -Path $next | Out-Null
+        foreach ($file in $pluginFiles) { Copy-Item (Join-Path $stage $file) (Join-Path $next $file) -Force }
+        [System.IO.File]::WriteAllText((Join-Path $next "package.json"), "{}", $utf8)
+        if (Test-Path $target) { Remove-Item $target -Recurse -Force }
+        Move-Item $next $target
         $state = Join-Path $client "state.json"
         $data = Read-Json $state
         $data | Add-Member -NotePropertyName vencordDir -NotePropertyValue $target -Force
@@ -281,7 +299,7 @@ function Show-Doctor {
             $enabled = "not set"
             if ($settings.plugins -and $settings.plugins.ReCord) { $enabled = "$($settings.plugins.ReCord.enabled)" }
             Write-Host "  $client"
-            if ($missing) { Write-Host "    build: missing $($missing -join ', ')" } else { Write-Host "    build: installed" }
+            if ($missing) { Write-Host "    build: missing $($missing -join ', ')" } else { Write-Host "    build: installed cleanly" }
             if ($state.vencordDir) { Write-Host "    Vesktop points at: $($state.vencordDir)" } else { Write-Host "    Vesktop points at: nothing (state.json has no vencordDir)" }
             Write-Host "    plugin enabled: $enabled"
         }
@@ -353,7 +371,7 @@ if ($Uninstall) {
     }
     Write-Host "== Theme"
     $tmp = Join-Path $env:TEMP $theme
-    Get-Remote "$raw/$theme" $tmp
+    Get-Remote "$raw/$theme?$cachebust" $tmp
     if (-not (Select-String -Path $tmp -Pattern "@name ReCord" -Quiet)) { throw "Downloaded file is not the ReCord theme" }
 
     foreach ($client in $clients) {

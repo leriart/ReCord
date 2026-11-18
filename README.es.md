@@ -20,7 +20,7 @@ irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1 | iex
 
 La [página](https://leriart.github.io/ReCord/) detecta tu sistema y te muestra el comando correcto.
 
-Un solo comando instala tres cosas. Después cierra Discord por completo y vuelve a abrirlo; el mismo comando sirve para actualizar.
+Un solo comando instala tres cosas. Después cierra Discord por completo y vuelve a abrirlo; el mismo comando sirve para actualizar. Al actualizar, el plugin se instala limpio, sin archivos de builds anteriores.
 
 | Qué | Dónde | Notas |
 | --- | --- | --- |

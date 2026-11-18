@@ -9,6 +9,7 @@ set -euo pipefail
 RAW="${RECORD_RAW:-https://raw.githubusercontent.com/leriart/ReCord/main}"
 THEME="ReCord.theme.css"
 LEGACY="Retroless.theme.css"
+CACHEBUST="$(date +%s)"
 
 # Set when the script runs from a checkout, so local files are used instead of downloads.
 HERE=""
@@ -57,9 +58,9 @@ title() { printf '\n== %s\n' "$*"; }
 
 fetch() {
     if command -v curl >/dev/null 2>&1; then
-        curl -fsSL "$1" -o "$2"
+        curl -fsSL --retry 2 --retry-delay 1 "$1" -o "$2"
     elif command -v wget >/dev/null 2>&1; then
-        wget -qO "$2" "$1"
+        wget -q --tries=2 -O "$2" "$1"
     else
         echo "curl or wget is required" >&2
         exit 1
@@ -203,7 +204,7 @@ install_theme() {
     if [ -n "$HERE" ] && [ -f "$HERE/$THEME" ]; then
         cp "$HERE/$THEME" "$tmp"
     else
-        fetch "$RAW/$THEME" "$tmp"
+        fetch "$RAW/$THEME?$CACHEBUST" "$tmp"
     fi
     grep -q "@name ReCord" "$tmp" || { echo "Downloaded file is not the ReCord theme" >&2; rm -f "$tmp"; exit 1; }
 
@@ -286,6 +287,7 @@ install_other() {
             target="$dir/themes"
             case "$(uname -s)" in MINGW* | MSYS* | CYGWIN*) target="${USERPROFILE:-$HOME}/dorion/themes" ;; esac
             mkdir -p "$target"
+            rm -f "$target/$LEGACY"
             cp "$css" "$target/$THEME"
             if [ "$enable" -eq 1 ] && json_list "$dir/config.json" themes add "$THEME"; then
                 say "installed and enabled: $dir (Dorion)"
@@ -295,6 +297,7 @@ install_other() {
             ;;
         legcord)
             target="$dir/themes/ReCord"
+            rm -rf "$target"
             mkdir -p "$target"
             cp "$css" "$target/src.css"
             cat > "$target/manifest.json" <<JSON
@@ -313,6 +316,7 @@ JSON
             ;;
         replugged)
             target="$dir/themes/dev.leriart.record"
+            rm -rf "$target"
             mkdir -p "$target"
             cp "$css" "$target/$THEME"
             cat > "$target/manifest.json" <<JSON
@@ -334,6 +338,7 @@ JSON
             # GoofCord loads every .css in this folder.
             target="$dir/GoofCord/assets"
             mkdir -p "$target"
+            rm -f "$target/$LEGACY"
             cp "$css" "$target/$THEME"
             say "installed: $dir (GoofCord)"
             ;;
@@ -366,7 +371,7 @@ fetch_plugin_build() {
     local out="$1" file
     mkdir -p "$out"
     for file in $PLUGIN_FILES; do
-        fetch "$PLUGIN_RELEASE/$file" "$out/$file" 2>/dev/null || return 1
+        fetch "$PLUGIN_RELEASE/$file?$CACHEBUST" "$out/$file" 2>/dev/null || return 1
         [ -s "$out/$file" ] || return 1
     done
 }
@@ -392,7 +397,7 @@ build_plugin() {
         if [ -n "$HERE" ] && [ -f "$HERE/plugin/record/$file" ]; then
             cp "$HERE/plugin/record/$file" "$dest/$file"
         else
-            fetch "$RAW/plugin/record/$file" "$dest/$file" || return 1
+            fetch "$RAW/plugin/record/$file?$CACHEBUST" "$dest/$file" || return 1
         fi
     done
 
@@ -445,18 +450,31 @@ install_plugin() {
         return
     fi
 
-    local client file
+    local file
+    for file in $PLUGIN_FILES; do
+        if [ ! -s "$stage/$file" ] || [ "$(wc -c < "$stage/$file")" -lt 1024 ]; then
+            say "The plugin build is incomplete: $file"
+            rm -rf "$stage"
+            return
+        fi
+    done
+
+    local client
     while IFS= read -r client; do
         local target="$client/record-vencord"
-        mkdir -p "$target"
+        local next="$client/record-vencord.new"
+        rm -rf "$next"
+        mkdir -p "$next"
         for file in $PLUGIN_FILES; do
-            cp "$stage/$file" "$target/$file"
+            cp "$stage/$file" "$next/$file"
         done
-        echo "{}" > "$target/package.json"
+        echo "{}" > "$next/package.json"
+        rm -rf "$target"
+        mv "$next" "$target"
         rm -rf "$client/retroless-vencord"
         json_set "$client/state.json" vencordDir "\"$target\""
         json_set "$client/settings/settings.json" plugins.ReCord.enabled true
-        say "installed and enabled: $target"
+        say "installed cleanly and enabled: $target"
     done <<<"$targets"
     rm -rf "$stage"
 }
@@ -490,7 +508,7 @@ install_splash() {
     tmp="$(mktemp)"
     if [ -n "$HERE" ] && [ -f "$HERE/assets/brand/splash.gif" ]; then
         cp "$HERE/assets/brand/splash.gif" "$tmp"
-    elif ! fetch "$RAW/assets/brand/splash.gif" "$tmp"; then
+    elif ! fetch "$RAW/assets/brand/splash.gif?$CACHEBUST" "$tmp"; then
         say "could not download the splash image; skipped."
         rm -f "$tmp"
         return
@@ -601,6 +619,14 @@ if [ "$action" = "uninstall" ]; then
     uninstall_splash
     uninstall_plugin
 else
+    running="$(ps -A -o comm= 2>/dev/null | grep -Eiw 'vesktop|discord|discordcanary|discordptb|equibop|dorion|legcord|goofcord' | sort -u | tr '\n' ' ' || true)"
+    if [ -n "$running" ]; then
+        echo "Discord is running: $running" >&2
+        echo "Close it completely (also from the tray) and run this again." >&2
+        echo "Nothing has been changed: a running client keeps the old plugin in memory" >&2
+        echo "and rewrites its settings on exit." >&2
+        exit 1
+    fi
     install_theme
     install_splash
     if [ "$plugin" -eq 1 ]; then install_plugin; fi
