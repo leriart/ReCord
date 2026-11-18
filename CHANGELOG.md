@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.3.1
+
+Voice panel
+
+- The voice connection panel no longer keeps Discord's Lottie controls: camera (and camera-off when the camera is off), screen share, activities, soundboard, noise cancellation and disconnect are now pixel icons
+- Added the camera-off and screen-share glyphs (139 icons). The panel block follows the stable `actionButtons_` and `voiceButtonsContainer_` class prefixes and child order, and leaves the rest of the panel alone
+
 ## 4.3.0
 
 Full icon coverage

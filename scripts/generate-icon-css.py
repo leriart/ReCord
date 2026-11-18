@@ -396,6 +396,67 @@ out += [
 for name, sel in LINKS:
     out += [f"{nav} {sel} {{", f"    --rl-link-icon: {url(name)};", "}", ""]
 
+# Voice panel controls are Lottie animations, not SVG paths: camera, screen share,
+# activities and soundboard in the action row, plus noise cancellation and
+# disconnect in the status row. Mask the animation layer and let the pixel icon
+# sit on top. The selectors follow the stable class prefixes and child order.
+RTC_ACTION = '#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"]'
+RTC_VOICE = '#app-mount [class*="voiceButtonsContainer_"]'
+RTC_BUTTONS = [
+    f'{scope} > :is(button, [role="button"])'
+    for scope in (RTC_ACTION, RTC_VOICE)
+] + [
+    f'{scope} > * :is(button, [role="button"]):first-of-type'
+    for scope in (RTC_ACTION, RTC_VOICE)
+]
+out += [
+    ",\n".join(f"{selector}::before" for selector in RTC_BUTTONS) + " {",
+    '    content: "";',
+    "    position: absolute;",
+    "    left: 50%;",
+    "    top: 50%;",
+    "    width: 20px;",
+    "    height: 20px;",
+    "    transform: translate(-50%, -50%);",
+    "    background: currentColor;",
+    "    -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat;",
+    "    mask: var(--rl-rtc-icon) center / contain no-repeat;",
+    "    pointer-events: none;",
+    "}",
+    "",
+    ",\n".join(RTC_BUTTONS) + " {",
+    "    position: relative;",
+    "}",
+    "",
+    ",\n".join(
+        f'{selector} :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"])'
+        for selector in RTC_BUTTONS
+    ) + " {",
+    "    display: none !important;",
+    "}",
+    "",
+]
+CAMERA_OFF_LABELS = ["Turn On Camera", "Encender cámara", "Activar cámara", "Habilitar cámara"]
+CAMERA_OFF_SELECTOR = ", ".join(f'[aria-label*="{label}" i]' for label in CAMERA_OFF_LABELS)
+RTC_ICONS = [
+    (f'{RTC_VOICE} > :nth-child(1):not(:nth-last-child(1))', "waveform"),
+    (f'{RTC_VOICE} > :nth-last-child(1)', "phone-off"),
+    (f'{RTC_ACTION} > :nth-child(1)', "camera"),
+    (f'{RTC_ACTION} > :nth-child(1):is({CAMERA_OFF_SELECTOR})', "camera-off"),
+    (f'{RTC_ACTION} > :nth-child(1):has({CAMERA_OFF_SELECTOR})', "camera-off"),
+    (f'{RTC_ACTION} > :nth-child(2)', "screen-share"),
+    (f'{RTC_ACTION} > :nth-child(3)', "apps"),
+    (f'{RTC_ACTION} > :nth-child(4)', "soundboard"),
+    (
+        f'{RTC_ACTION} > :nth-last-child(1):has('
+        '[aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], '
+        '[aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i])',
+        "soundboard",
+    ),
+]
+for selector, name in RTC_ICONS:
+    out += [f"{selector} {{", f"    --rl-rtc-icon: {url(name)};", "}", ""]
+
 import re
 
 def pixel_path(name, scale=1.5):

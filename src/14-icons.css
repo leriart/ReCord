@@ -466,6 +466,73 @@
         --rl-link-icon: url("../assets/icons/missions.svg");
     }
 
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :is(button, [role="button"])::before,
+#app-mount [class*="voiceButtonsContainer_"] > :is(button, [role="button"])::before,
+#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > * :is(button, [role="button"]):first-of-type::before,
+#app-mount [class*="voiceButtonsContainer_"] > * :is(button, [role="button"]):first-of-type::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        background: currentColor;
+        -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat;
+        mask: var(--rl-rtc-icon) center / contain no-repeat;
+        pointer-events: none;
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :is(button, [role="button"]),
+#app-mount [class*="voiceButtonsContainer_"] > :is(button, [role="button"]),
+#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > * :is(button, [role="button"]):first-of-type,
+#app-mount [class*="voiceButtonsContainer_"] > * :is(button, [role="button"]):first-of-type {
+        position: relative;
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :is(button, [role="button"]) :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]),
+#app-mount [class*="voiceButtonsContainer_"] > :is(button, [role="button"]) :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]),
+#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > * :is(button, [role="button"]):first-of-type :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]),
+#app-mount [class*="voiceButtonsContainer_"] > * :is(button, [role="button"]):first-of-type :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"]) {
+        display: none !important;
+    }
+
+    #app-mount [class*="voiceButtonsContainer_"] > :nth-child(1):not(:nth-last-child(1)) {
+        --rl-rtc-icon: url("../assets/icons/waveform.svg");
+    }
+
+    #app-mount [class*="voiceButtonsContainer_"] > :nth-last-child(1) {
+        --rl-rtc-icon: url("../assets/icons/phone-off.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1) {
+        --rl-rtc-icon: url("../assets/icons/camera.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):is([aria-label*="Turn On Camera" i], [aria-label*="Encender cámara" i], [aria-label*="Activar cámara" i], [aria-label*="Habilitar cámara" i]) {
+        --rl-rtc-icon: url("../assets/icons/camera-off.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):has([aria-label*="Turn On Camera" i], [aria-label*="Encender cámara" i], [aria-label*="Activar cámara" i], [aria-label*="Habilitar cámara" i]) {
+        --rl-rtc-icon: url("../assets/icons/camera-off.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(2) {
+        --rl-rtc-icon: url("../assets/icons/screen-share.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(3) {
+        --rl-rtc-icon: url("../assets/icons/apps.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(4) {
+        --rl-rtc-icon: url("../assets/icons/soundboard.svg");
+    }
+
+    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-last-child(1):has([aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], [aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i]) {
+        --rl-rtc-icon: url("../assets/icons/soundboard.svg");
+    }
+
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"] ~ *,

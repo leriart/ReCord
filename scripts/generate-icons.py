@@ -140,8 +140,31 @@ def headphones_off_icon(g):
     g.clear_line(2, 2, 14, 14)
 
 make("headphones-off", headphones_off_icon)
-make("camera", lambda g: (g.frame(2, 5, 12, 8), g.rect(5, 3, 4, 2), g.rect(9, 7, 3, 3)))
+def camera_icon(g):
+    g.frame(2, 5, 12, 8)
+    g.rect(5, 3, 4, 2)
+    g.rect(9, 7, 3, 3)
+
+make("camera", camera_icon)
+
+def camera_off_icon(g):
+    camera_icon(g)
+    for shift in (-1, 0, 1):
+        g.clear_line(1 + shift, 1, 14 + shift, 14)
+    g.line(1, 1, 14, 14)
+
+make("camera-off", camera_off_icon)
 make("screen", lambda g: (g.frame(2, 3, 12, 8), g.rect(7, 11, 2, 3), g.rect(4, 14, 8, 1)))
+
+def screen_share_icon(g):
+    g.frame(2, 3, 12, 8)
+    g.rect(7, 11, 2, 3)
+    g.rect(4, 14, 8, 1)
+    g.rect(5, 6, 4, 2)
+    g.rect(8, 4, 2, 2)
+    g.rect(8, 8, 2, 2)
+
+make("screen-share", screen_share_icon)
 def phone_icon(g):
     for i in range(5):
         g.rect(2 + i * 2, 10 - i * 2, 4, 4)
