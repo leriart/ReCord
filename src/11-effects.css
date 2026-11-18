@@ -12,6 +12,10 @@ body::before {
         url("../assets/brand/scanlines.png") 0 0 / 64px 48px;
     opacity: calc(var(--rl-scanline-opacity) + var(--rl-grain-opacity) * 0.22);
     contain: strict;
+    animation: none;
+}
+
+html[data-rl-flicker] body::before {
     will-change: opacity;
     animation: rl-flicker var(--rl-flicker-duration) steps(1, end) infinite;
 }
@@ -36,8 +40,6 @@ body::after {
         radial-gradient(ellipse at 72% 0%, color-mix(in srgb, var(--rl-signal) 5.5%, transparent), transparent 46%);
     opacity: var(--rl-vignette-opacity);
     contain: strict;
-    transform: translateZ(0);
-    mix-blend-mode: normal;
 }
 
 html::before {
@@ -52,8 +54,13 @@ html::before {
     background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent);
     opacity: var(--rl-beam-opacity);
     contain: strict;
+    display: none;
+    animation: rl-beam var(--rl-beam-duration) steps(108, end) infinite;
+}
+
+html[data-rl-beam]::before {
+    display: block;
     will-change: transform;
-    animation: rl-beam var(--rl-beam-duration) linear infinite;
 }
 
 @keyframes rl-beam {
@@ -64,7 +71,11 @@ html::before {
 
 @media (prefers-reduced-motion: reduce) {
     html::before {
-        animation: none;
+        display: none !important;
+    }
+
+    body::before {
+        animation: none !important;
     }
 
     *,
@@ -75,8 +86,13 @@ html::before {
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
     }
+}
 
-    body::before {
-        animation: none;
+/* low power drops the two full-screen overlays as well */
+
+@container style(--rl-lite: on) {
+    body::before,
+    body::after {
+        display: none;
     }
 }

@@ -7,7 +7,6 @@ body {
     font-family: var(--rl-font);
     font-weight: var(--rl-weight);
     letter-spacing: var(--rl-tracking);
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 

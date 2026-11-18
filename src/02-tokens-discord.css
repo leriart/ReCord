@@ -37,7 +37,7 @@
     --background-nested-floating: var(--rl-raised);
     --background-mobile-primary: var(--rl-ink);
     --background-mobile-secondary: var(--rl-panel);
-    --background-base-lowest: var(--rl-void);
+    --background-base-lowest: var(--rl-deep);
     --background-base-lower: var(--rl-ink);
     --background-base-low: var(--rl-panel);
     --background-surface-high: var(--rl-raised);
@@ -76,10 +76,10 @@
     --channel-background-default: var(--rl-ink);
     --channeltextarea-background: var(--rl-void);
     --chat-background-default: var(--rl-ink);
-    --app-frame-background: var(--rl-void);
+    --app-frame-background: var(--rl-deep);
     --app-frame-border: var(--rl-line);
     --background-gradient-chat: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3.5%, transparent), transparent 240px), var(--rl-ink);
-    --background-gradient-lowest: var(--rl-void);
+    --background-gradient-lowest: var(--rl-deep);
     --background-gradient-lower: var(--rl-ink);
     --background-gradient-low: var(--rl-panel);
     --background-gradient-high: var(--rl-raised);

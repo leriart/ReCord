@@ -1,5 +1,26 @@
 # Changelog
 
+## 4.4.2
+
+Backgrounds
+
+- The wallpaper is visible through the interface. Discord's wrapper layers are now clear and the deepest surfaces (title bar, side rail base, user panel) follow the panel opacity, so each column is a single translucent layer instead of several stacked ones
+- New installs default to 75% panel opacity and 50% background darkening, so a background shows as soon as it is picked
+- Video wallpapers pause while the window is hidden, so a minimised client no longer keeps decoding the loop. 1080p videos run much smoother than 4K
+
+Voice panel
+
+- The noise suppression (Krisp) button has its pixel glyph again; the generic button rule was hiding every control without a known label
+- Voice panel glyphs are drawn at 16px, one screen pixel per cell
+
+Performance
+
+- Fixed the voice-panel action-row selector: a bare sibling combinator made every class change invalidate the rest of the message list. In a 1,200-message stress test, style recalculation fell from ~1.7 s to ~40 ms per trace
+- The scanline overlay no longer runs a 0 s infinite animation when flicker is off; the scan beam and flicker only create full-screen layers while they are enabled
+- Startup and channel-switch animations use opacity and transform instead of full-screen brightness filters
+- Avatar scanlines are removed when the avatar filter is off; low power also drops the scanline and vignette overlays, avatar filters and guild icon filters
+- Removed global `optimizeLegibility` and no-op compositor hints (`will-change` on static overlays, `translateZ(0)`, `mix-blend-mode: normal`)
+
 ## 4.4.1
 
 Installer

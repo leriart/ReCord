@@ -30,7 +30,7 @@ html.theme-light.theme-light {
     --background-secondary-alt: var(--rl-void) !important;
     --background-tertiary: var(--rl-coal) !important;
     --background-floating: var(--rl-raised) !important;
-    --background-base-lowest: var(--rl-void) !important;
+    --background-base-lowest: var(--rl-deep) !important;
     --background-base-lower: var(--rl-ink) !important;
     --background-base-low: var(--rl-panel) !important;
     --background-surface-high: var(--rl-raised) !important;
@@ -45,7 +45,7 @@ html.theme-light.theme-light {
     --background-modifier-selected: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
     --background-brand: var(--rl-signal) !important;
     --background-gradient-chat: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 4.5%, transparent), transparent 240px), var(--rl-ink) !important;
-    --background-gradient-lowest: var(--rl-void) !important;
+    --background-gradient-lowest: var(--rl-deep) !important;
     --background-gradient-lower: var(--rl-ink) !important;
     --background-gradient-low: var(--rl-panel) !important;
     --background-gradient-high: var(--rl-raised) !important;
@@ -150,6 +150,16 @@ html body {
     background: var(--rl-void) !important;
 }
 
+/* a wallpaper is always at least partly visible, whatever the plugin slider says */
+
+html[data-rl-background] {
+    --rl-alpha: min(var(--rl-surface), 70%);
+}
+
+html[data-rl-background="video"] {
+    --rl-alpha: min(var(--rl-surface), 65%);
+}
+
 #app-mount {
     background:
         linear-gradient(color-mix(in srgb, var(--rl-void) var(--rl-background-dim), transparent) 0 0),
@@ -194,9 +204,27 @@ html[data-rl-background="video"] #app-mount {
         radial-gradient(900px 520px at -12% 112%, color-mix(in srgb, var(--rl-teal) 12%, transparent), transparent 64%);
 }
 
+/* wrappers stay clear so each column is a single layer over the wallpaper */
+
+#app-mount [class*="appAsidePanelWrapper_"],
+#app-mount [class*="notAppAsidePanel_"],
+#app-mount [class^="app_"],
+#app-mount [class*=" app_"],
+#app-mount [class*="layers_"],
+#app-mount [class*="baseLayer_"],
+#app-mount [class*="container_"] > [class*="base_"],
+#app-mount [class*="base_"] > [class*="content_"],
+#app-mount [class*="content_"] > [class*="sidebar_"],
+#app-mount [class*="content_"] > [class*="page_"],
+#app-mount [class*="privateChannels_"],
+#app-mount [class*="messagesWrapper"],
+#app-mount [data-list-id="chat-messages"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 #app-mount [class*="guilds"],
 #app-mount [class*="sidebarList"],
-#app-mount [class*="privateChannels"],
 #app-mount [class*="membersWrap"],
 #app-mount [class*="panels"] {
     background-color: var(--rl-panel) !important;
@@ -208,12 +236,10 @@ html[data-rl-background="video"] #app-mount {
 }
 
 #app-mount [class*="panels"] {
-    background-color: var(--rl-void) !important;
+    background-color: var(--rl-deep) !important;
 }
 
-#app-mount [class*="chatContent"],
-#app-mount [class*="messagesWrapper"],
-#app-mount [data-list-id="chat-messages"] {
+#app-mount [class*="chatContent"] {
     background-color: var(--rl-ink) !important;
     background-image: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3.5%, transparent), transparent 240px) !important;
 }
@@ -264,8 +290,8 @@ html[data-rl-background="video"] #app-mount {
 #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
 #app-mount [class*="privateChannels"] [class*="selected"],
 #app-mount [data-list-item-id^="private-channels"][class*="selected"],
-#app-mount [class*="privateChannels"] [class*="channel"]:has([class*="selected"]),
-#app-mount [class*="privateChannels"] [class*="interactive"]:has([class*="selected"]) {
+#app-mount [class*="privateChannels"] [class*="channel"]:has(> [class*="elected"]),
+#app-mount [class*="privateChannels"] [class*="interactive"]:has(> [class*="elected"]) {
     background-color: color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
     background-image: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 22%, transparent), transparent 72%) !important;
     border-left-color: var(--rl-signal) !important;
@@ -587,7 +613,7 @@ html[data-rl-background="video"] #app-mount {
     border-bottom: 0 !important;
 }
 
-#app-mount li[id^="chat-messages"]:has([class*="mentioned"]) {
+#app-mount li[id^="chat-messages"]:has(> [class*="mentioned"]) {
     background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 10%, transparent), color-mix(in srgb, var(--rl-signal) 2%, transparent) 55%, transparent) !important;
 }
 

@@ -400,23 +400,28 @@ for name, sel in LINKS:
 # activities and soundboard in the action row, plus noise cancellation and
 # disconnect in the status row. Mask the animation layer and let the pixel icon
 # sit on top. The selectors follow the stable class prefixes and child order.
-RTC_ACTION = '#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"]'
+# The !important declarations beat the generic aria-label button rule above, which
+# is more specific and would otherwise hide every control it has no label for.
+# The sibling relation lives inside :has(). A bare `A ~ B` here makes Blink
+# invalidate the rest of the message list on every class change, which cost
+# seconds per interaction in a 1,200-message stress test.
+RTC_ACTION = '#app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"]'
 RTC_VOICE = '#app-mount [class*="voiceButtonsContainer_"]'
 RTC_ITEMS = [f'{RTC_ACTION} > *', f'{RTC_VOICE} > *']
 out += [
     ",\n".join(f"{selector}::before" for selector in RTC_ITEMS) + " {",
     '    content: "";',
-    "    display: var(--rl-rtc-display, none);",
+    "    display: var(--rl-rtc-display, none) !important;",
     "    position: absolute;",
     "    z-index: 1;",
     "    left: 50%;",
     "    top: 50%;",
-    "    width: 20px;",
-    "    height: 20px;",
-    "    transform: translate(-50%, -50%);",
+    "    width: 16px !important;",
+    "    height: 16px !important;",
+    "    margin: -8px 0 0 -8px;",
     "    background: currentColor;",
-    "    -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat;",
-    "    mask: var(--rl-rtc-icon) center / contain no-repeat;",
+    "    -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat !important;",
+    "    mask: var(--rl-rtc-icon) center / contain no-repeat !important;",
     "    pointer-events: none;",
     "}",
     "",
@@ -437,7 +442,7 @@ out += [
 CAMERA_ON_LABELS = ["Turn Off Camera", "Apagar cámara", "Desactivar cámara", "Turn Camera Off"]
 CAMERA_ON_SELECTOR = ", ".join(f'[aria-label*="{label}" i]' for label in CAMERA_ON_LABELS)
 RTC_ICONS = [
-    (f'{RTC_VOICE} > :nth-child(1):not(:nth-last-child(1))', "waveform"),
+    (f'{RTC_VOICE} > *', "waveform"),
     (f'{RTC_VOICE} > :nth-last-child(1)', "phone-off"),
     (f'{RTC_ACTION} > :nth-child(1)', "camera-off"),
     (f'{RTC_ACTION} > :nth-child(1):is({CAMERA_ON_SELECTOR})', "camera"),
@@ -488,6 +493,9 @@ def pixel_path(name, scale=1.5):
 # selectors in the fast tag bucket.
 ICON = '#app-mount svg[viewBox="0 0 24 24"] > path'
 every = [path for _, paths in SIGNATURES for path in paths]
+# One rule per signature. Blink builds an invalidation set from the left side,
+# which is a single attribute selector here; a giant :is() on the left instead
+# marks every SVG shape dirty on each class change and is far slower.
 out += [
     ",\n".join(f'{ICON}[d^="{path}"] ~ *' for path in every) + " {",
     "    display: none;",

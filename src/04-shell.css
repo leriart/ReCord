@@ -203,12 +203,12 @@
 }
 
 [class*="panels_"] {
-    background: var(--rl-void) !important;
+    background: var(--rl-deep) !important;
     border-top: 1px solid var(--rl-line);
 }
 
 [class*="panels_"] > div {
-    background: var(--rl-void);
+    background: transparent;
 }
 
 [class*="sidebar_"] > [class*="panels_"] {

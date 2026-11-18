@@ -38,6 +38,14 @@
     opacity: var(--rl-avatar-scanline);
 }
 
+/* the plugin sets the token to 0 when the avatar filter is off; removing the
+   pseudo entirely keeps one overlay per avatar out of the style tree */
+@container style(--rl-avatar-scanline: 0) {
+    #app-mount [class*="avatarStack_"]::after {
+        display: none;
+    }
+}
+
 #app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover,
 #app-mount [class*="member_"]:hover [class*="avatarStack_"] img,
 #app-mount [class*="interactiveSelected_"] [class*="avatarStack_"] img,
@@ -306,6 +314,16 @@ html body [class*="positionContainer_"][class*="positionContainer_"] {
     [class*="burstGlow_"],
     video[class*="videoBanner_"] {
         display: none !important;
+    }
+
+    #app-mount [class*="avatarStack_"]::after {
+        display: none !important;
+    }
+
+    #app-mount img[class*="avatar_"],
+    #app-mount [class*="avatarStack_"] img,
+    #app-mount nav[class*="guilds_"] img {
+        filter: none !important;
     }
 
     /* gradient names are text painted through a background; flatten instead of hiding */

@@ -27,24 +27,24 @@ li[id^="chat-messages-"]:hover {
 }
 
 li[id^="chat-messages-"][class*="mentioned"],
-li[id^="chat-messages-"]:has([class*="mentioned"]) {
+li[id^="chat-messages-"]:has(> [class*="mentioned"]) {
     background: var(--message-mentioned-background-default) !important;
     border-left-color: var(--rl-signal);
 }
 
 li[id^="chat-messages-"][class*="mentioned"]:hover,
-li[id^="chat-messages-"]:has([class*="mentioned"]):hover {
+li[id^="chat-messages-"]:has(> [class*="mentioned"]):hover {
     background: var(--message-mentioned-background-hover) !important;
 }
 
 li[id^="chat-messages-"][class*="replying"],
-li[id^="chat-messages-"]:has([class*="replying"]) {
+li[id^="chat-messages-"]:has(> [class*="replying"]) {
     background: linear-gradient(90deg, color-mix(in srgb, var(--rl-paper) 7%, transparent), transparent 55%) !important;
     border-left-color: var(--rl-paper);
 }
 
 li[id^="chat-messages-"][class*="ephemeral"],
-li[id^="chat-messages-"]:has([class*="ephemeral"]) {
+li[id^="chat-messages-"]:has(> [class*="ephemeral"]) {
     background: color-mix(in srgb, var(--rl-signal) 5%, transparent) !important;
 }
 

@@ -21,10 +21,13 @@
 
     --rl-void: #050605;
     --rl-surface: 100%;
-    --rl-ink: color-mix(in srgb, var(--rl-ink-base) var(--rl-surface), transparent);
-    --rl-coal: color-mix(in srgb, var(--rl-coal-base) var(--rl-surface), transparent);
-    --rl-panel: color-mix(in srgb, var(--rl-panel-base) var(--rl-surface), transparent);
-    --rl-raised: color-mix(in srgb, var(--rl-raised-base) var(--rl-surface), transparent);
+    /* Capped again while a wallpaper is active, so 100% can never hide it. */
+    --rl-alpha: var(--rl-surface);
+    --rl-deep: color-mix(in srgb, var(--rl-void) var(--rl-alpha), transparent);
+    --rl-ink: color-mix(in srgb, var(--rl-ink-base) var(--rl-alpha), transparent);
+    --rl-coal: color-mix(in srgb, var(--rl-coal-base) var(--rl-alpha), transparent);
+    --rl-panel: color-mix(in srgb, var(--rl-panel-base) var(--rl-alpha), transparent);
+    --rl-raised: color-mix(in srgb, var(--rl-raised-base) var(--rl-alpha), transparent);
     --rl-high: var(--rl-high-base);
     --rl-higher: var(--rl-higher-base);
 

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         ReCord
 @namespace    github.com/leriart/ReCord
-@version      4.4.1
+@version      4.4.2
 @description  A REPLACED-inspired terminal for Discord.
 @author       leriart
 @homepageURL  https://github.com/leriart/ReCord
@@ -128,10 +128,13 @@
 
     --rl-void: #050605;
     --rl-surface: 100%;
-    --rl-ink: color-mix(in srgb, var(--rl-ink-base) var(--rl-surface), transparent);
-    --rl-coal: color-mix(in srgb, var(--rl-coal-base) var(--rl-surface), transparent);
-    --rl-panel: color-mix(in srgb, var(--rl-panel-base) var(--rl-surface), transparent);
-    --rl-raised: color-mix(in srgb, var(--rl-raised-base) var(--rl-surface), transparent);
+    /* Capped again while a wallpaper is active, so 100% can never hide it. */
+    --rl-alpha: var(--rl-surface);
+    --rl-deep: color-mix(in srgb, var(--rl-void) var(--rl-alpha), transparent);
+    --rl-ink: color-mix(in srgb, var(--rl-ink-base) var(--rl-alpha), transparent);
+    --rl-coal: color-mix(in srgb, var(--rl-coal-base) var(--rl-alpha), transparent);
+    --rl-panel: color-mix(in srgb, var(--rl-panel-base) var(--rl-alpha), transparent);
+    --rl-raised: color-mix(in srgb, var(--rl-raised-base) var(--rl-alpha), transparent);
     --rl-high: var(--rl-high-base);
     --rl-higher: var(--rl-higher-base);
 
@@ -272,7 +275,7 @@ html[data-rl-mode="light"] {
     --background-nested-floating: var(--rl-raised);
     --background-mobile-primary: var(--rl-ink);
     --background-mobile-secondary: var(--rl-panel);
-    --background-base-lowest: var(--rl-void);
+    --background-base-lowest: var(--rl-deep);
     --background-base-lower: var(--rl-ink);
     --background-base-low: var(--rl-panel);
     --background-surface-high: var(--rl-raised);
@@ -311,10 +314,10 @@ html[data-rl-mode="light"] {
     --channel-background-default: var(--rl-ink);
     --channeltextarea-background: var(--rl-void);
     --chat-background-default: var(--rl-ink);
-    --app-frame-background: var(--rl-void);
+    --app-frame-background: var(--rl-deep);
     --app-frame-border: var(--rl-line);
     --background-gradient-chat: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3.5%, transparent), transparent 240px), var(--rl-ink);
-    --background-gradient-lowest: var(--rl-void);
+    --background-gradient-lowest: var(--rl-deep);
     --background-gradient-lower: var(--rl-ink);
     --background-gradient-low: var(--rl-panel);
     --background-gradient-high: var(--rl-raised);
@@ -737,7 +740,6 @@ body {
     font-family: var(--rl-font);
     font-weight: var(--rl-weight);
     letter-spacing: var(--rl-tracking);
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -1083,12 +1085,12 @@ mark {
 }
 
 [class*="panels_"] {
-    background: var(--rl-void) !important;
+    background: var(--rl-deep) !important;
     border-top: 1px solid var(--rl-line);
 }
 
 [class*="panels_"] > div {
-    background: var(--rl-void);
+    background: transparent;
 }
 
 [class*="sidebar_"] > [class*="panels_"] {
@@ -1365,24 +1367,24 @@ li[id^="chat-messages-"]:hover {
 }
 
 li[id^="chat-messages-"][class*="mentioned"],
-li[id^="chat-messages-"]:has([class*="mentioned"]) {
+li[id^="chat-messages-"]:has(> [class*="mentioned"]) {
     background: var(--message-mentioned-background-default) !important;
     border-left-color: var(--rl-signal);
 }
 
 li[id^="chat-messages-"][class*="mentioned"]:hover,
-li[id^="chat-messages-"]:has([class*="mentioned"]):hover {
+li[id^="chat-messages-"]:has(> [class*="mentioned"]):hover {
     background: var(--message-mentioned-background-hover) !important;
 }
 
 li[id^="chat-messages-"][class*="replying"],
-li[id^="chat-messages-"]:has([class*="replying"]) {
+li[id^="chat-messages-"]:has(> [class*="replying"]) {
     background: linear-gradient(90deg, color-mix(in srgb, var(--rl-paper) 7%, transparent), transparent 55%) !important;
     border-left-color: var(--rl-paper);
 }
 
 li[id^="chat-messages-"][class*="ephemeral"],
-li[id^="chat-messages-"]:has([class*="ephemeral"]) {
+li[id^="chat-messages-"]:has(> [class*="ephemeral"]) {
     background: color-mix(in srgb, var(--rl-signal) 5%, transparent) !important;
 }
 
@@ -3176,6 +3178,10 @@ body::before {
         var(--rl-asset-scanlines) 0 0 / 64px 48px;
     opacity: calc(var(--rl-scanline-opacity) + var(--rl-grain-opacity) * 0.22);
     contain: strict;
+    animation: none;
+}
+
+html[data-rl-flicker] body::before {
     will-change: opacity;
     animation: rl-flicker var(--rl-flicker-duration) steps(1, end) infinite;
 }
@@ -3200,8 +3206,6 @@ body::after {
         radial-gradient(ellipse at 72% 0%, color-mix(in srgb, var(--rl-signal) 5.5%, transparent), transparent 46%);
     opacity: var(--rl-vignette-opacity);
     contain: strict;
-    transform: translateZ(0);
-    mix-blend-mode: normal;
 }
 
 html::before {
@@ -3216,8 +3220,13 @@ html::before {
     background: linear-gradient(transparent, color-mix(in srgb, var(--rl-signal) 9%, transparent) 45%, color-mix(in srgb, var(--rl-signal) 14%, transparent) 50%, transparent);
     opacity: var(--rl-beam-opacity);
     contain: strict;
+    display: none;
+    animation: rl-beam var(--rl-beam-duration) steps(108, end) infinite;
+}
+
+html[data-rl-beam]::before {
+    display: block;
     will-change: transform;
-    animation: rl-beam var(--rl-beam-duration) linear infinite;
 }
 
 @keyframes rl-beam {
@@ -3228,7 +3237,11 @@ html::before {
 
 @media (prefers-reduced-motion: reduce) {
     html::before {
-        animation: none;
+        display: none !important;
+    }
+
+    body::before {
+        animation: none !important;
     }
 
     *,
@@ -3239,9 +3252,14 @@ html::before {
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
     }
+}
 
-    body::before {
-        animation: none;
+/* low power drops the two full-screen overlays as well */
+
+@container style(--rl-lite: on) {
+    body::before,
+    body::after {
+        display: none;
     }
 }
 
@@ -3279,7 +3297,7 @@ html.theme-light.theme-light {
     --background-secondary-alt: var(--rl-void) !important;
     --background-tertiary: var(--rl-coal) !important;
     --background-floating: var(--rl-raised) !important;
-    --background-base-lowest: var(--rl-void) !important;
+    --background-base-lowest: var(--rl-deep) !important;
     --background-base-lower: var(--rl-ink) !important;
     --background-base-low: var(--rl-panel) !important;
     --background-surface-high: var(--rl-raised) !important;
@@ -3294,7 +3312,7 @@ html.theme-light.theme-light {
     --background-modifier-selected: color-mix(in srgb, var(--rl-signal) 16%, transparent) !important;
     --background-brand: var(--rl-signal) !important;
     --background-gradient-chat: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 4.5%, transparent), transparent 240px), var(--rl-ink) !important;
-    --background-gradient-lowest: var(--rl-void) !important;
+    --background-gradient-lowest: var(--rl-deep) !important;
     --background-gradient-lower: var(--rl-ink) !important;
     --background-gradient-low: var(--rl-panel) !important;
     --background-gradient-high: var(--rl-raised) !important;
@@ -3399,6 +3417,16 @@ html body {
     background: var(--rl-void) !important;
 }
 
+/* a wallpaper is always at least partly visible, whatever the plugin slider says */
+
+html[data-rl-background] {
+    --rl-alpha: min(var(--rl-surface), 70%);
+}
+
+html[data-rl-background="video"] {
+    --rl-alpha: min(var(--rl-surface), 65%);
+}
+
 #app-mount {
     background:
         linear-gradient(color-mix(in srgb, var(--rl-void) var(--rl-background-dim), transparent) 0 0),
@@ -3443,9 +3471,27 @@ html[data-rl-background="video"] #app-mount {
         radial-gradient(900px 520px at -12% 112%, color-mix(in srgb, var(--rl-teal) 12%, transparent), transparent 64%);
 }
 
+/* wrappers stay clear so each column is a single layer over the wallpaper */
+
+#app-mount [class*="appAsidePanelWrapper_"],
+#app-mount [class*="notAppAsidePanel_"],
+#app-mount [class^="app_"],
+#app-mount [class*=" app_"],
+#app-mount [class*="layers_"],
+#app-mount [class*="baseLayer_"],
+#app-mount [class*="container_"] > [class*="base_"],
+#app-mount [class*="base_"] > [class*="content_"],
+#app-mount [class*="content_"] > [class*="sidebar_"],
+#app-mount [class*="content_"] > [class*="page_"],
+#app-mount [class*="privateChannels_"],
+#app-mount [class*="messagesWrapper"],
+#app-mount [data-list-id="chat-messages"] {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 #app-mount [class*="guilds"],
 #app-mount [class*="sidebarList"],
-#app-mount [class*="privateChannels"],
 #app-mount [class*="membersWrap"],
 #app-mount [class*="panels"] {
     background-color: var(--rl-panel) !important;
@@ -3457,12 +3503,10 @@ html[data-rl-background="video"] #app-mount {
 }
 
 #app-mount [class*="panels"] {
-    background-color: var(--rl-void) !important;
+    background-color: var(--rl-deep) !important;
 }
 
-#app-mount [class*="chatContent"],
-#app-mount [class*="messagesWrapper"],
-#app-mount [data-list-id="chat-messages"] {
+#app-mount [class*="chatContent"] {
     background-color: var(--rl-ink) !important;
     background-image: linear-gradient(180deg, color-mix(in srgb, var(--rl-signal) 3.5%, transparent), transparent 240px) !important;
 }
@@ -3513,8 +3557,8 @@ html[data-rl-background="video"] #app-mount {
 #app-mount [class*="privateChannels"] [class*="interactiveSelected"],
 #app-mount [class*="privateChannels"] [class*="selected"],
 #app-mount [data-list-item-id^="private-channels"][class*="selected"],
-#app-mount [class*="privateChannels"] [class*="channel"]:has([class*="selected"]),
-#app-mount [class*="privateChannels"] [class*="interactive"]:has([class*="selected"]) {
+#app-mount [class*="privateChannels"] [class*="channel"]:has(> [class*="elected"]),
+#app-mount [class*="privateChannels"] [class*="interactive"]:has(> [class*="elected"]) {
     background-color: color-mix(in srgb, var(--rl-signal) 14%, transparent) !important;
     background-image: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 22%, transparent), transparent 72%) !important;
     border-left-color: var(--rl-signal) !important;
@@ -3836,7 +3880,7 @@ html[data-rl-background="video"] #app-mount {
     border-bottom: 0 !important;
 }
 
-#app-mount li[id^="chat-messages"]:has([class*="mentioned"]) {
+#app-mount li[id^="chat-messages"]:has(> [class*="mentioned"]) {
     background: linear-gradient(90deg, color-mix(in srgb, var(--rl-signal) 10%, transparent), color-mix(in srgb, var(--rl-signal) 2%, transparent) 55%, transparent) !important;
 }
 
@@ -4051,17 +4095,12 @@ html[data-rl-background="video"] #app-mount {
 @keyframes rl-screen-in {
     0% {
         opacity: 0;
-        clip-path: inset(48% 0 48% 0);
-        filter: brightness(2.4) saturate(1.5);
     }
     30% {
         opacity: 1;
-        clip-path: inset(30% 0 30% 0);
-        filter: brightness(1.8);
     }
     60% {
-        clip-path: inset(8% 0 8% 0);
-        filter: brightness(1.3);
+        opacity: 0.86;
     }
 }
 
@@ -4069,7 +4108,6 @@ html[data-rl-background="video"] #app-mount {
     0% {
         opacity: 0;
         transform: translateX(-8px);
-        filter: brightness(1.8);
     }
     50% {
         opacity: 0.6;
@@ -4109,19 +4147,19 @@ html[data-rl-background="video"] #app-mount {
 
 @keyframes rl-power-on {
     0% {
+        opacity: 0;
         transform: scale(0.35, 0.004);
-        filter: brightness(9);
     }
     35% {
+        opacity: 0.45;
         transform: scale(1, 0.004);
-        filter: brightness(6);
     }
     65% {
+        opacity: 1;
         transform: scale(1, 1);
-        filter: brightness(2.2);
     }
     85% {
-        filter: brightness(0.8);
+        opacity: 0.9;
     }
 }
 
@@ -4865,36 +4903,36 @@ html[data-rl-background="video"] #app-mount {
         --rl-link-icon: var(--rl-asset-missions);
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > *::before,
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > *::before,
 #app-mount [class*="voiceButtonsContainer_"] > *::before {
         content: "";
-        display: var(--rl-rtc-display, none);
+        display: var(--rl-rtc-display, none) !important;
         position: absolute;
         z-index: 1;
         left: 50%;
         top: 50%;
-        width: 20px;
-        height: 20px;
-        transform: translate(-50%, -50%);
+        width: 16px !important;
+        height: 16px !important;
+        margin: -8px 0 0 -8px;
         background: currentColor;
-        -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat;
-        mask: var(--rl-rtc-icon) center / contain no-repeat;
+        -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat !important;
+        mask: var(--rl-rtc-icon) center / contain no-repeat !important;
         pointer-events: none;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > *,
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > *,
 #app-mount [class*="voiceButtonsContainer_"] > * {
         position: relative;
     }
 
     @container style(--rl-rtc-display: block) {
-        #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]),
+        #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]),
 #app-mount [class*="voiceButtonsContainer_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]) {
             display: none !important;
         }
     }
 
-    #app-mount [class*="voiceButtonsContainer_"] > :nth-child(1):not(:nth-last-child(1)) {
+    #app-mount [class*="voiceButtonsContainer_"] > * {
         --rl-rtc-icon: var(--rl-asset-waveform);
         --rl-rtc-display: block;
     }
@@ -4904,37 +4942,37 @@ html[data-rl-background="video"] #app-mount {
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1) {
         --rl-rtc-icon: var(--rl-asset-camera-off);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):is([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1):is([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
         --rl-rtc-icon: var(--rl-asset-camera);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):has([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1):has([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
         --rl-rtc-icon: var(--rl-asset-camera);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(2) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(2) {
         --rl-rtc-icon: var(--rl-asset-screen-share);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(3) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(3) {
         --rl-rtc-icon: var(--rl-asset-apps);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(4) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(4) {
         --rl-rtc-icon: var(--rl-asset-soundboard);
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-last-child(1):has([aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], [aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-last-child(1):has([aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], [aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i]) {
         --rl-rtc-icon: var(--rl-asset-soundboard);
         --rl-rtc-display: block;
     }
@@ -6630,6 +6668,14 @@ html[data-rl-background="video"] #app-mount {
     opacity: var(--rl-avatar-scanline);
 }
 
+/* the plugin sets the token to 0 when the avatar filter is off; removing the
+   pseudo entirely keeps one overlay per avatar out of the style tree */
+@container style(--rl-avatar-scanline: 0) {
+    #app-mount [class*="avatarStack_"]::after {
+        display: none;
+    }
+}
+
 #app-mount li[id^="chat-messages"] img[class*="avatar_"]:hover,
 #app-mount [class*="member_"]:hover [class*="avatarStack_"] img,
 #app-mount [class*="interactiveSelected_"] [class*="avatarStack_"] img,
@@ -6898,6 +6944,16 @@ html body [class*="positionContainer_"][class*="positionContainer_"] {
     [class*="burstGlow_"],
     video[class*="videoBanner_"] {
         display: none !important;
+    }
+
+    #app-mount [class*="avatarStack_"]::after {
+        display: none !important;
+    }
+
+    #app-mount img[class*="avatar_"],
+    #app-mount [class*="avatarStack_"] img,
+    #app-mount nav[class*="guilds_"] img {
+        filter: none !important;
     }
 
     /* gradient names are text painted through a background; flatten instead of hiding */

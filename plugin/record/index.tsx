@@ -215,8 +215,10 @@ function BackgroundPicker() {
             <Heading>Background / Fondo</Heading>
             <Paragraph>
                 Pick an image, GIF or video. Images and GIFs sit behind the interface; videos play muted on a loop.
+                A 1080p (or smaller) video runs much smoother than a 4K one.
                 Use the two sliders below to control how dark it is and how see-through the panels are.
                 Elige una imagen, GIF o vídeo. Las imágenes y GIFs quedan detrás; los vídeos se reproducen en bucle y sin sonido.
+                Un vídeo de 1080p o menos va mucho más fluido que uno en 4K.
             </Paragraph>
             <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center" }}>
                 <Button size="small" disabled={busy} onClick={() => run(() => Native.pickBackground())}>Choose file / Elegir archivo</Button>
@@ -307,8 +309,8 @@ const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component: BackgroundPicker
     },
-    backgroundDim: percent("Background darkening / Oscurecer el fondo (imagen o vídeo)", 70),
-    panelOpacity: percent("Panel opacity / Opacidad de paneles (menos, más fondo)", 100),
+    backgroundDim: percent("Background darkening / Oscurecer el fondo (imagen o vídeo)", 50),
+    panelOpacity: percent("Panel opacity / Opacidad de paneles (menos, más fondo)", 75),
     motionLevel: choice("Animations / Animaciones", [["Full (everything moves in steps)", "full"], ["Subtle (menus and dialogs only)", "subtle"], ["Off", "off"]], "full"),
     font: choice("Typeface / Tipografía", [["Pixel Operator", "pixel"], ["Pixel Operator Mono", "mono"], ["System monospace", "system"], ["Discord default", "discord"]], "pixel"),
     scanlines: percent("Scanline strength", 25),
@@ -412,11 +414,13 @@ const settings = definePluginSettings({
 
 let backgroundUrl: string | null = null;
 let backgroundKind: "image" | "video" | null = null;
+let videoPausedByVisibility = false;
 
 function syncBackgroundVideo(url: string | null) {
     let layer = document.getElementById("record-background-video");
     if (!url) {
         layer?.remove();
+        videoPausedByVisibility = false;
         return;
     }
     if (!document.body) return;
@@ -436,10 +440,12 @@ function syncBackgroundVideo(url: string | null) {
     }
     const video = layer.querySelector("video");
     if (!video) return;
-    if (video.getAttribute("src") !== url) {
-        video.src = url;
-        void video.play().catch(() => { });
+    if (video.getAttribute("src") !== url) video.src = url;
+    if (document.hidden) {
+        video.pause();
+        videoPausedByVisibility = true;
     } else if (video.paused) {
+        videoPausedByVisibility = false;
         void video.play().catch(() => { });
     }
 }
@@ -487,17 +493,27 @@ function applyTheme() {
             "--rl-beam-duration: 0s",
             "--rl-beam-opacity: 0",
             "--rl-flicker-duration: 0s",
+            "--rl-scanline-opacity: 0",
             "--rl-grain-opacity: 0",
+            "--rl-vignette-opacity: 0",
+            "--rl-avatar-filter: none",
+            "--rl-avatar-scanline: 0",
             "--rl-lite: on",
             `--rl-motion: ${store.motionLevel === "off" ? "off" : "subtle"}`
         );
     }
 
+    // The CSS only paints the beam/flicker when these attributes are present;
+    // an off effect must not keep a full-screen compositor layer alive.
+    const root = document.documentElement;
+    root.toggleAttribute("data-rl-beam", store.beam && store.motionLevel !== "off" && !store.lowPower);
+    root.toggleAttribute("data-rl-flicker", store.flicker && store.motionLevel !== "off" && !store.lowPower);
+
     if (backgroundUrl && backgroundKind === "image") rules.push(`--rl-background-image: url("${backgroundUrl}")`);
     else rules.push("--rl-background-image: none");
 
     const videoUrl = backgroundKind === "video" ? backgroundUrl : null;
-    if (videoUrl) document.documentElement.dataset.rlBackground = "video";
+    if (backgroundKind) document.documentElement.dataset.rlBackground = backgroundKind;
     else delete document.documentElement.dataset.rlBackground;
     syncBackgroundVideo(videoUrl);
 
@@ -827,6 +843,23 @@ function hookInterface() {
     disposers.push(() => observer.disconnect());
 }
 
+function hookBackgroundVideo() {
+    // A looping wallpaper keeps decoding even while the window is hidden.
+    listen("visibilitychange", () => {
+        const video = document.querySelector<HTMLVideoElement>("#record-background-video video");
+        if (!video) return;
+        if (document.hidden) {
+            if (!video.paused) {
+                video.pause();
+                videoPausedByVisibility = true;
+            }
+        } else if (videoPausedByVisibility) {
+            videoPausedByVisibility = false;
+            void video.play().catch(() => { });
+        }
+    });
+}
+
 export default definePlugin({
     name: "ReCord",
     description: "RECORD companion: theme settings (dark or light, accent, background, CRT, icons, animations, typeface), replaced Discord sounds and interface sounds",
@@ -848,6 +881,7 @@ export default definePlugin({
 
         hookDiscordSounds();
         hookInterface();
+        hookBackgroundVideo();
         if (settings.store.bootSound) play("boot");
     },
 
@@ -856,6 +890,9 @@ export default definePlugin({
         document.getElementById("record-background-video")?.remove();
         delete document.documentElement.dataset.rlMode;
         delete document.documentElement.dataset.rlBackground;
+        delete document.documentElement.dataset.rlBeam;
+        delete document.documentElement.dataset.rlFlicker;
+        videoPausedByVisibility = false;
         if (backgroundUrl) URL.revokeObjectURL(backgroundUrl);
         backgroundUrl = null;
         backgroundKind = null;

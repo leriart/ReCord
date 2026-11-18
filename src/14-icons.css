@@ -466,36 +466,36 @@
         --rl-link-icon: url("../assets/icons/missions.svg");
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > *::before,
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > *::before,
 #app-mount [class*="voiceButtonsContainer_"] > *::before {
         content: "";
-        display: var(--rl-rtc-display, none);
+        display: var(--rl-rtc-display, none) !important;
         position: absolute;
         z-index: 1;
         left: 50%;
         top: 50%;
-        width: 20px;
-        height: 20px;
-        transform: translate(-50%, -50%);
+        width: 16px !important;
+        height: 16px !important;
+        margin: -8px 0 0 -8px;
         background: currentColor;
-        -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat;
-        mask: var(--rl-rtc-icon) center / contain no-repeat;
+        -webkit-mask: var(--rl-rtc-icon) center / contain no-repeat !important;
+        mask: var(--rl-rtc-icon) center / contain no-repeat !important;
         pointer-events: none;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > *,
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > *,
 #app-mount [class*="voiceButtonsContainer_"] > * {
         position: relative;
     }
 
     @container style(--rl-rtc-display: block) {
-        #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]),
+        #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]),
 #app-mount [class*="voiceButtonsContainer_"] > * :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"]) {
             display: none !important;
         }
     }
 
-    #app-mount [class*="voiceButtonsContainer_"] > :nth-child(1):not(:nth-last-child(1)) {
+    #app-mount [class*="voiceButtonsContainer_"] > * {
         --rl-rtc-icon: url("../assets/icons/waveform.svg");
         --rl-rtc-display: block;
     }
@@ -505,37 +505,37 @@
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1) {
         --rl-rtc-icon: url("../assets/icons/camera-off.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):is([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1):is([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
         --rl-rtc-icon: url("../assets/icons/camera.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(1):has([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(1):has([aria-label*="Turn Off Camera" i], [aria-label*="Apagar cámara" i], [aria-label*="Desactivar cámara" i], [aria-label*="Turn Camera Off" i]) {
         --rl-rtc-icon: url("../assets/icons/camera.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(2) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(2) {
         --rl-rtc-icon: url("../assets/icons/screen-share.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(3) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(3) {
         --rl-rtc-icon: url("../assets/icons/apps.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-child(4) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-child(4) {
         --rl-rtc-icon: url("../assets/icons/soundboard.svg");
         --rl-rtc-display: block;
     }
 
-    #app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"] > :nth-last-child(1):has([aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], [aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i]) {
+    #app-mount [class*="container_"]:has(> [class*="connection_"] ~ [class*="actionButtons_"]) > [class*="actionButtons_"] > :nth-last-child(1):has([aria-label*="Soundboard" i], [aria-label*="Mesa de sonido" i], [aria-label*="Panel de sonido" i], [aria-label*="Efectos de sonido" i]) {
         --rl-rtc-icon: url("../assets/icons/soundboard.svg");
         --rl-rtc-display: block;
     }
