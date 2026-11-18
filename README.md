@@ -69,7 +69,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | Color mode | Follow Discord appearance, dark terminal, light paper |
 | Accent | Any color; every accent shade derives from it. Presets: amber, phosphor, ice, paper, terminal |
 | Free colors | Your own background and text colors; panels, borders and secondary text follow |
-| Background image | Your own picture, with darkening and panel opacity |
+| Background | Your own image, GIF or video (plugin), with darkening and panel opacity |
 | Animations | Full, subtle (menus and dialogs only), off |
 | Typeface | Pixel Operator, Pixel Operator Mono, system monospace, Discord default |
 | CRT layer | Scanlines, grain, vignette, flicker, rolling scan beam, corner frame |
@@ -100,7 +100,7 @@ html:root:root {
 }
 ```
 
-Light mode follows Discord's own `Appearance` -> `Light`. A background URL in QuickCSS must be on a host Vencord allows (GitHub, Imgur, Discord CDN, Catbox); the plugin and the configurator take a file from your computer instead. The full palette is in `src/00-tokens.css`.
+Light mode follows Discord's own `Appearance` -> `Light`. A background URL in QuickCSS must be on a host Vencord allows (GitHub, Imgur, Discord CDN, Catbox); images and GIFs work there. The plugin and the configurator take a file from your computer instead, and the plugin also plays videos. The full palette is in `src/00-tokens.css`.
 
 ## Plugin
 
@@ -123,6 +123,7 @@ The bundled pack in `sounds/` is original synthesized audio (CC0). A second inte
 - **Selections**: the active channel, DM, menu item and settings entry are solid accent blocks with dark type.
 - **Motion**: everything moves in steps. Menus wipe in, the chat redraws from a beam on channel switch, rows flash on hover and invert on press.
 - **Icons**: 139 original 16 x 16 pixel icons. Every glyph in Discord's current icon set is mapped and matched by its vector shape, so icons are replaced everywhere they appear (toolbar, menus, settings, channel list, member list) in any language. Status indicators are square pixel glyphs: block for online, notch for idle, bar for do not disturb, hollow for offline. Gallery at `docs/icons.html`.
+- **Background**: your own image, GIF or video behind the interface, with darkening and panel opacity. Videos play muted on a loop. Video files are a plugin feature; the website configurator accepts images and GIFs.
 - **Avatars**: square, framed, with a warm filter.
 - **Startup**: Discord's loading screen shows the pixel mark. For Vesktop's own splash choose `assets/brand/splash.gif` in `Vesktop Settings` -> `Customize App Assets`.
 

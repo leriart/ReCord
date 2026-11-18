@@ -159,6 +159,41 @@ html body {
         var(--rl-void) !important;
 }
 
+/* video wallpaper: the plugin appends a muted looping <video> to body */
+
+html[data-rl-background="video"],
+html[data-rl-background="video"] body,
+html[data-rl-background="video"] #app-mount {
+    background: transparent !important;
+}
+
+#record-background-video {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--rl-void);
+}
+
+#record-background-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#record-background-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(color-mix(in srgb, var(--rl-void) var(--rl-background-dim), transparent) 0 0),
+        radial-gradient(1150px 620px at 74% -18%, color-mix(in srgb, var(--rl-signal) 7.5%, transparent), transparent 62%),
+        radial-gradient(900px 520px at -12% 112%, color-mix(in srgb, var(--rl-teal) 12%, transparent), transparent 64%);
+}
+
 #app-mount [class*="guilds"],
 #app-mount [class*="sidebarList"],
 #app-mount [class*="privateChannels"],

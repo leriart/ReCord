@@ -69,7 +69,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | Modo de color | Seguir la apariencia de Discord, terminal oscuro, papel claro |
 | Acento | Cualquier color; todos los tonos de acento salen de él. Preajustes: ámbar, fósforo, hielo, papel, terminal |
 | Colores libres | Tu propio color de fondo y de texto; paneles, bordes y texto secundario los siguen |
-| Imagen de fondo | Tu propia imagen, con oscurecido y opacidad de paneles |
+| Fondo | Tu propia imagen, GIF o vídeo (plugin), con oscurecido y opacidad de paneles |
 | Animaciones | Completas, sutiles (solo menús y diálogos), desactivadas |
 | Tipografía | Pixel Operator, Pixel Operator Mono, monoespaciada del sistema, la de Discord |
 | Capa CRT | Scanlines, grano, viñeta, parpadeo, haz de barrido, marco de esquinas |
@@ -100,7 +100,7 @@ html:root:root {
 }
 ```
 
-El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en QuickCSS tiene que estar en un host que Vencord permita (GitHub, Imgur, CDN de Discord, Catbox); el plugin y el configurador aceptan un archivo de tu equipo. La paleta completa está en `src/00-tokens.css`.
+El modo claro sigue la `Apariencia` -> `Claro` de Discord. Una URL de fondo en QuickCSS tiene que estar en un host que Vencord permita (GitHub, Imgur, CDN de Discord, Catbox); las imágenes y los GIFs funcionan ahí. El plugin y el configurador aceptan un archivo de tu equipo, y el plugin además reproduce vídeos. La paleta completa está en `src/00-tokens.css`.
 
 ## Plugin
 
@@ -123,6 +123,7 @@ El pack de `sounds/` es audio original sintetizado (CC0). Hay un segundo juego d
 - **Selecciones**: el canal, DM, elemento de menú y entrada de ajustes activos son bloques sólidos del color de acento con texto oscuro.
 - **Movimiento**: todo se mueve a saltos. Los menús entran con un barrido, el chat se redibuja desde una línea al cambiar de canal, las filas destellan al pasar el cursor y se invierten al pulsar.
 - **Iconos**: 139 iconos pixel originales de 16 x 16. Todos los glifos del set actual de Discord están mapeados y se identifican por su forma vectorial, así que se sustituyen en todos los sitios donde aparecen (barra superior, menús, ajustes, lista de canales, lista de miembros) y en cualquier idioma. Los indicadores de estado son glifos pixel cuadrados: bloque para conectado, muesca para ausente, barra para no molestar, hueco para desconectado. Galería en `docs/icons.html`.
+- **Fondo**: tu propia imagen, GIF o vídeo detrás de la interfaz, con oscurecido y opacidad de paneles. Los vídeos se reproducen en bucle y sin sonido. Los vídeos son una función del plugin; el configurador de la web acepta imágenes y GIFs.
 - **Avatares**: cuadrados, con marco y filtro cálido.
 - **Arranque**: la pantalla de carga de Discord muestra la marca pixel. Para el splash de Vesktop elige `assets/brand/splash.gif` en `Vesktop Settings` -> `Customize App Assets`.
 

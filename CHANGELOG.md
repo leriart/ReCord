@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.4.0
+
+Backgrounds
+
+- The background picker accepts images, GIFs and videos. Images and GIFs use the existing CSS layer; videos play muted on a loop in a dedicated layer behind the interface, with the same dimming, panel opacity and scanlines
+- Video wallpapers are stored with the plugin settings and restored on start. MP4, M4V, WebM, OGV and MOV are accepted
+
+Voice panel
+
+- Pixel glyphs sit on the grid cell, above the Popout layer, and the native content is hidden only when a glyph is assigned. A selector that misses on another client now falls back to the native icon instead of leaving a blank square
+
 ## 4.3.1
 
 Voice panel

@@ -314,7 +314,7 @@
                                         </select>
                                     </label>
                                     <label class="accent-range"><span>BACKGROUND</span><input type="url" id="bg-url" placeholder="https://i.imgur.com/picture.png"></label>
-                                    <label class="accent-range"><span>OR FILE</span><input type="file" id="bg-file" accept="image/*"></label>
+                                    <label class="accent-range"><span>OR IMAGE/GIF</span><input type="file" id="bg-file" accept="image/*"></label>
                                     <label class="accent-range"><span>BG DIM</span><input type="range" id="bg-dim" min="0" max="100" value="70"></label>
                                     <label class="accent-range"><span>PANELS</span><input type="range" id="surface" min="20" max="100" value="100"></label>
                                     <label class="accent-range"><span>SCANLINES</span><input type="range" id="scanlines" min="0" max="100" value="25"></label>
@@ -618,7 +618,7 @@
             const file = $("bg-file").files[0];
             if (!file) { backgroundFile = null; return; }
             const reader = new FileReader();
-            reader.onload = () => { backgroundFile = reader.result; status.textContent = tr("Image attached. It is embedded when you download the CSS."); };
+            reader.onload = () => { backgroundFile = reader.result; status.textContent = tr("Image or GIF attached. It is embedded when you download the CSS."); };
             reader.readAsDataURL(file);
         });
         loadPalettes();

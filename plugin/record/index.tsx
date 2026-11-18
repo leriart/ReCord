@@ -202,8 +202,8 @@ function BackgroundPicker() {
     const run = async (action: () => Promise<{ type: string; data: Uint8Array; } | null | void>) => {
         setBusy(true);
         try {
-            const image = await action();
-            if (image !== null) setBackground(image ?? null);
+            const media = await action();
+            if (media !== null) setBackground(media ?? null);
         } finally {
             setBusy(false);
             refresh();
@@ -212,15 +212,16 @@ function BackgroundPicker() {
 
     return (
         <section>
-            <Heading>Background image</Heading>
+            <Heading>Background / Fondo</Heading>
             <Paragraph>
-                Pick a picture from your computer. It sits behind the interface; use the two sliders below
-                to control how dark it is and how see-through the panels are.
+                Pick an image, GIF or video. Images and GIFs sit behind the interface; videos play muted on a loop.
+                Use the two sliders below to control how dark it is and how see-through the panels are.
+                Elige una imagen, GIF o vídeo. Las imágenes y GIFs quedan detrás; los vídeos se reproducen en bucle y sin sonido.
             </Paragraph>
             <div style={{ display: "flex", gap: 8, marginTop: 8, alignItems: "center" }}>
-                <Button size="small" disabled={busy} onClick={() => run(() => Native.pickBackground())}>Choose image</Button>
-                <Button size="small" variant="secondary" disabled={busy || !backgroundUrl} onClick={() => run(() => Native.clearBackground())}>Remove</Button>
-                <Paragraph>{backgroundUrl ? "Image set" : "No image"}</Paragraph>
+                <Button size="small" disabled={busy} onClick={() => run(() => Native.pickBackground())}>Choose file / Elegir archivo</Button>
+                <Button size="small" variant="secondary" disabled={busy || !backgroundUrl} onClick={() => run(() => Native.clearBackground())}>Remove / Quitar</Button>
+                <Paragraph>{backgroundUrl ? "Background set / Fondo puesto" : "No background / Sin fondo"}</Paragraph>
             </div>
         </section>
     );
@@ -306,7 +307,7 @@ const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component: BackgroundPicker
     },
-    backgroundDim: percent("Background darkening / Oscurecer el fondo (con imagen)", 70),
+    backgroundDim: percent("Background darkening / Oscurecer el fondo (imagen o vídeo)", 70),
     panelOpacity: percent("Panel opacity / Opacidad de paneles (menos, más fondo)", 100),
     motionLevel: choice("Animations / Animaciones", [["Full (everything moves in steps)", "full"], ["Subtle (menus and dialogs only)", "subtle"], ["Off", "off"]], "full"),
     font: choice("Typeface / Tipografía", [["Pixel Operator", "pixel"], ["Pixel Operator Mono", "mono"], ["System monospace", "system"], ["Discord default", "discord"]], "pixel"),
@@ -410,11 +411,45 @@ const settings = definePluginSettings({
 });
 
 let backgroundUrl: string | null = null;
+let backgroundKind: "image" | "video" | null = null;
 
-function setBackground(image: { type: string; data: Uint8Array; } | null) {
-    if (backgroundUrl) URL.revokeObjectURL(backgroundUrl);
-    backgroundUrl = image ? URL.createObjectURL(new Blob([new Uint8Array(image.data)], { type: image.type })) : null;
+function syncBackgroundVideo(url: string | null) {
+    let layer = document.getElementById("record-background-video");
+    if (!url) {
+        layer?.remove();
+        return;
+    }
+    if (!document.body) return;
+    if (!layer) {
+        layer = document.createElement("div");
+        layer.id = "record-background-video";
+        const video = document.createElement("video");
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.controls = false;
+        video.setAttribute("aria-hidden", "true");
+        video.setAttribute("disablepictureinpicture", "");
+        layer.append(video);
+        document.body.append(layer);
+    }
+    const video = layer.querySelector("video");
+    if (!video) return;
+    if (video.getAttribute("src") !== url) {
+        video.src = url;
+        void video.play().catch(() => { });
+    } else if (video.paused) {
+        void video.play().catch(() => { });
+    }
+}
+
+function setBackground(media: { type: string; data: Uint8Array; } | null) {
+    const previous = backgroundUrl;
+    backgroundUrl = media ? URL.createObjectURL(new Blob([new Uint8Array(media.data)], { type: media.type })) : null;
+    backgroundKind = media ? (media.type.startsWith("video/") ? "video" : "image") : null;
     applyTheme();
+    if (previous) URL.revokeObjectURL(previous);
 }
 
 function applyTheme() {
@@ -458,7 +493,13 @@ function applyTheme() {
         );
     }
 
-    if (backgroundUrl) rules.push(`--rl-background-image: url("${backgroundUrl}")`);
+    if (backgroundUrl && backgroundKind === "image") rules.push(`--rl-background-image: url("${backgroundUrl}")`);
+    else rules.push("--rl-background-image: none");
+
+    const videoUrl = backgroundKind === "video" ? backgroundUrl : null;
+    if (videoUrl) document.documentElement.dataset.rlBackground = "video";
+    else delete document.documentElement.dataset.rlBackground;
+    syncBackgroundVideo(videoUrl);
 
     const hex = /^#[0-9a-f]{6}$/i;
     if (store.customColors && hex.test(store.backgroundColor) && hex.test(store.textColor)) {
@@ -812,9 +853,12 @@ export default definePlugin({
 
     stop() {
         document.getElementById("record-config")?.remove();
+        document.getElementById("record-background-video")?.remove();
         delete document.documentElement.dataset.rlMode;
+        delete document.documentElement.dataset.rlBackground;
         if (backgroundUrl) URL.revokeObjectURL(backgroundUrl);
         backgroundUrl = null;
+        backgroundKind = null;
         for (const url of localBlobs.values()) URL.revokeObjectURL(url);
         localBlobs.clear();
         localBuffers.clear();

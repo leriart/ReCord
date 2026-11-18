@@ -402,17 +402,13 @@ for name, sel in LINKS:
 # sit on top. The selectors follow the stable class prefixes and child order.
 RTC_ACTION = '#app-mount [class*="container_"]:has(> [class*="connection_"] [class*="voiceButtonsContainer_"]) > [class*="actionButtons_"]'
 RTC_VOICE = '#app-mount [class*="voiceButtonsContainer_"]'
-RTC_BUTTONS = [
-    f'{scope} > :is(button, [role="button"])'
-    for scope in (RTC_ACTION, RTC_VOICE)
-] + [
-    f'{scope} > * :is(button, [role="button"]):first-of-type'
-    for scope in (RTC_ACTION, RTC_VOICE)
-]
+RTC_ITEMS = [f'{RTC_ACTION} > *', f'{RTC_VOICE} > *']
 out += [
-    ",\n".join(f"{selector}::before" for selector in RTC_BUTTONS) + " {",
+    ",\n".join(f"{selector}::before" for selector in RTC_ITEMS) + " {",
     '    content: "";',
+    "    display: var(--rl-rtc-display, none);",
     "    position: absolute;",
+    "    z-index: 1;",
     "    left: 50%;",
     "    top: 50%;",
     "    width: 20px;",
@@ -424,26 +420,28 @@ out += [
     "    pointer-events: none;",
     "}",
     "",
-    ",\n".join(RTC_BUTTONS) + " {",
+    ",\n".join(RTC_ITEMS) + " {",
     "    position: relative;",
     "}",
     "",
-    ",\n".join(
-        f'{selector} :is(svg, [class*="lottieIcon_"], [class*="spriteContainer_"])'
-        for selector in RTC_BUTTONS
+    "@container style(--rl-rtc-display: block) {",
+    "    " + ",\n".join(
+        f'{selector} :is(svg, canvas, video, [class*="lottie"], [class*="sprite"], [class*="buttonContents_"])'
+        for selector in RTC_ITEMS
     ) + " {",
-    "    display: none !important;",
+    "        display: none !important;",
+    "    }",
     "}",
     "",
 ]
-CAMERA_OFF_LABELS = ["Turn On Camera", "Encender cámara", "Activar cámara", "Habilitar cámara"]
-CAMERA_OFF_SELECTOR = ", ".join(f'[aria-label*="{label}" i]' for label in CAMERA_OFF_LABELS)
+CAMERA_ON_LABELS = ["Turn Off Camera", "Apagar cámara", "Desactivar cámara", "Turn Camera Off"]
+CAMERA_ON_SELECTOR = ", ".join(f'[aria-label*="{label}" i]' for label in CAMERA_ON_LABELS)
 RTC_ICONS = [
     (f'{RTC_VOICE} > :nth-child(1):not(:nth-last-child(1))', "waveform"),
     (f'{RTC_VOICE} > :nth-last-child(1)', "phone-off"),
-    (f'{RTC_ACTION} > :nth-child(1)', "camera"),
-    (f'{RTC_ACTION} > :nth-child(1):is({CAMERA_OFF_SELECTOR})', "camera-off"),
-    (f'{RTC_ACTION} > :nth-child(1):has({CAMERA_OFF_SELECTOR})', "camera-off"),
+    (f'{RTC_ACTION} > :nth-child(1)', "camera-off"),
+    (f'{RTC_ACTION} > :nth-child(1):is({CAMERA_ON_SELECTOR})', "camera"),
+    (f'{RTC_ACTION} > :nth-child(1):has({CAMERA_ON_SELECTOR})', "camera"),
     (f'{RTC_ACTION} > :nth-child(2)', "screen-share"),
     (f'{RTC_ACTION} > :nth-child(3)', "apps"),
     (f'{RTC_ACTION} > :nth-child(4)', "soundboard"),
@@ -455,7 +453,13 @@ RTC_ICONS = [
     ),
 ]
 for selector, name in RTC_ICONS:
-    out += [f"{selector} {{", f"    --rl-rtc-icon: {url(name)};", "}", ""]
+    out += [
+        f"{selector} {{",
+        f"    --rl-rtc-icon: {url(name)};",
+        "    --rl-rtc-display: block;",
+        "}",
+        "",
+    ]
 
 import re
 

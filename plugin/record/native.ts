@@ -50,20 +50,30 @@ const IMAGES: Record<string, string> = {
     ".avif": "image/avif"
 };
 
+const VIDEOS: Record<string, string> = {
+    ".mp4": "video/mp4",
+    ".m4v": "video/mp4",
+    ".webm": "video/webm",
+    ".ogv": "video/ogg",
+    ".mov": "video/quicktime"
+};
+
+const BACKGROUNDS: Record<string, string> = { ...IMAGES, ...VIDEOS };
+
 const backgroundBase = () => join(app.getPath("userData"), "record-background");
 
 async function findBackground() {
-    for (const extension of Object.keys(IMAGES)) {
+    for (const extension of Object.keys(BACKGROUNDS)) {
         try {
             const file = backgroundBase() + extension;
-            return { type: IMAGES[extension], data: await readFile(file) as Uint8Array };
+            return { type: BACKGROUNDS[extension], data: await readFile(file) as Uint8Array };
         } catch { }
     }
     return null;
 }
 
 export async function clearBackground(_: IpcMainInvokeEvent) {
-    await Promise.all(Object.keys(IMAGES).map(extension => rm(backgroundBase() + extension, { force: true })));
+    await Promise.all(Object.keys(BACKGROUNDS).map(extension => rm(backgroundBase() + extension, { force: true })));
 }
 
 export async function readBackground(_: IpcMainInvokeEvent) {
@@ -74,13 +84,13 @@ export async function pickBackground(event: IpcMainInvokeEvent) {
     const result = await dialog.showOpenDialog({
         title: "RECORD background",
         properties: ["openFile"],
-        filters: [{ name: "Images", extensions: Object.keys(IMAGES).map(extension => extension.slice(1)) }]
+        filters: [{ name: "Images, GIFs and videos", extensions: Object.keys(BACKGROUNDS).map(extension => extension.slice(1)) }]
     });
     const source = result.filePaths[0];
     if (result.canceled || !source) return null;
 
     const extension = extname(source).toLowerCase();
-    if (!IMAGES[extension]) return null;
+    if (!BACKGROUNDS[extension]) return null;
 
     await clearBackground(event);
     await copyFile(source, backgroundBase() + extension);
