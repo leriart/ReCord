@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.3.0
+
+Full icon coverage
+
+- Every glyph in Discord's current icon set is mapped: 246 named SVG components from the web bundle, resolved by path signature. Camera, microphone, headphones, wrench, crown, bookmark, warning, soundboard, stage, clips, tag, upload and the formatting icons no longer keep Discord's vector shapes
+- 33 new 16 x 16 pixel icons (137 total), including formatting, file, envelope, tag, heart, leaf, share, server, soundboard, stage and media controls. The gallery in `docs/icons.html` lists them all
+- Variants that share a badge (lock, warning, spoiler) resolve to the matching composite pixel glyph. Previous signatures stay in place, so older clients keep their icons too
+
 ## 4.2.1
 
 Windows installer

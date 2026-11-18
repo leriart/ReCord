@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         ReCord
 @namespace    github.com/leriart/ReCord
-@version      4.2.1
+@version      4.3.0
 @description  A REPLACED-inspired terminal for Discord.
 @author       leriart
 @homepageURL  https://github.com/leriart/ReCord
@@ -4827,6 +4827,7 @@ html body {
 
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.3 5.3a1 1 0 0 0 0 1.4l5.29 5.3-"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.3 3.3a1 1 0 0 0 0 1.4l7.29 7.3-"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.99 3.16A1 1 0 1 0 9 2.84L8.15"] ~ *,
@@ -4842,13 +4843,17 @@ html body {
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.02 13.43c-.25.1-.5.2-.75.35a3."] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.5 8a3 3 0 1 0-2.7-4.3c-.2.4.06"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.56 1.1c-.46.05-.7.53-.64.98.18"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.65 1.51A2 2 0 0 0 6 3.41v9.88A3"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.3 7.3a1 1 0 0 0 0 1.4l5 5a1 1 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 7.3a1 1 0 0 1 0 1.4l-5 5a1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.62 17.03a9 9 0 1 1 1.41-1.41l4"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 11.3a1 1 0 0 0 0 1.4l5 5a1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.7 12.7a1 1 0 0 0 0-1.4l-5-5a1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3"] ~ *,
@@ -4879,14 +4884,18 @@ html body {
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.63 4.19A3 3 0 0 1 5.53 2H7a1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.5 21.7a8.95 8.95 0 0 1 9 0 1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 5a1 1 0 0 0 0 2h7.59L5.29 17.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.81 2.86c.38-1.15 2-1.15 2.38 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="m13.96 5.46 4.58 4.58a1 1 0 0 0 1."] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.3 5.41h-.39c-.84 0-1.52-.65-1."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.559 12.8227C17.7884 13.4957 16"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.35 7.24C15.9 6.67 16 5.8 16 5a"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 16h-5a2 2 0 0 0-2 2v2c0 1.66-1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m15.93 3.04-1.82 1.83-.58-.58a2.74"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.8333 19H5.16667C3.16667 19 1.5"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2.01232C21.2652 2.01232 21.519"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.79997 15.7699C8.49996 16.1999 8"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 6a4 4 0 0 1 4-4h.09c1.8 0 3.39"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M0 6c0-1.1 1.07-2 2.4-2h19.2c1.32"] ~ *,
@@ -4894,6 +4903,7 @@ html body {
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11 2a1 1 0 1 0-2 0v1H3a1 1 0 0 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.6 7.8 4 12l5.6 4.2a1 1 0 0 1 .4"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 12a1 1 0 0 1 1 1v2a1 1 0 1 1-2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 1a11 11 0 0 1 9.16 17.08 2 2 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M17 4H7a1 1 0 0 0-1 1v13.74l3.99-3"] ~ *,
@@ -4904,28 +4914,244 @@ html body {
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.79 20.97a1 1 0 0 1 .17 1.99 11"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.67 1.33a9.33 9.33 0 0 1 8.05 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M13.82 21.7c.17.05.14.3-.04.3H6a4"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5c0-1.1.9-2 2-2h16a2 2 0 1 1 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.49999 3.7998L4.85999 7.4398V12."] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 ."] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 2h12a4 4 0 0 1 4 4v7.5a.5.5 0 0"] ~ *,
 #app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.4 8.4 8.38-6.46a2 2 0 0 1 2.44"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="m15.93 3.04-1.82 1.83-.58-.58a2.74"] ~ *,
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46"] ~ * {
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.56 2a3 3 0 0 0-2.46 1.28 3.85 3.85 0 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.06 7.61c-.25.95.31 1.92 1.26 2.18l4.3 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 11a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h5a2 2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.7 20.7a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 11.3a1 1 0 0 0 0 1.4l5 5a1 1 0 0 0 1."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.7 12.7a1 1 0 0 0 0-1.4l-8-8a1 1 0 1 0-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.7 12.7a1 1 0 0 0 0-1.4l-5-5a1 1 0 1 0-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.44 6.96c.29 0 .51.25.47.54l-.82 6.34c-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.57 4.01a6.97 6.97 0 0 1 9.86 0l.54.55a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.7 2.89c.18-.07.32-.24.37-.43a2 2 0 0 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.3 21.3a1 1 0 1 0 1.4 1.4l20-20a1 1 0 0 0-1.4-1.4l-20 20ZM3.13 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.42 22a.9.9 0 0 1-.91-.9V2.9c0-.5.4-.9.9"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 2a3 3 0 0 1 3 3v12H5.5a1.5 1.5 0 0 0 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v16a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.02 1.36c.56-.48 1.4-.48 1.96 0l6.48 5."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.95 1.4a1.59 1.59 0 0 1 2.1 0l4.9 4A3.3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.89 13.46a1 1 0 0 1-1.78-.9L7 13l-.9-.45"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.5 23c.88 0 1.7-.25 2.4-.69l1.4 1.4a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 2.3a1 1 0 0 1 0 1.4l-4.92 4.93c-.12."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 16h-5a2 2 0 0 0-2 2v2c0 1.66-1.37 3.04"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.54 3.28a3 3 0 0 0-.37.74c-.19.52.28.98."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 1a1 1 0 0 1 1 1v.75c0 .14.11.25.25.25h7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 13a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.2 22c.5-.01.66-.84.37-1.24A3 3 0 0 1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.66 21.98c.4-.03.56-.51.28-.8l-.06-.06a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 22a10 10 0 1 0-8.45-4.64c.13.19.11.44-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 14a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 12a10 10 0 0 1-10 10H2.2a1 1 0 0 1-.75"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.11 8H6v10.82c0 .86.37 1.68 1 2.27.46.43"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.06 4.94a1.5 1.5 0 0 1 0 2.12l-12 12a1."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1 1 0 0 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29 7.3-7.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29 5.3-5.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.7 5.3a1 1 0 0 1 0 1.4L9.42 12l5.3 5.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.3 5.3a1 1 0 0 0 0 1.4l5.29 5.3-5.3 5.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 15.7a1 1 0 0 0 1.4 0L12 8.42l7.3 7.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l5.3 5.3a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.74 5.74a.5.5 0 0 0 .54.7l5.01-.88a.5.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1-18"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.1 8.85A.5.5 0 0 1 9.45 8h5.1a.5.5 0 0 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 22a9 9 0 0 0 7.03-14.62l.68-.67a1 1 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm4.7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 6a2 2 0 0 1-2 2H3a1 1 0 0 0 0 2h3a4 4 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 4v3.59l5.3-5.3a1 1 0 1 1 1.4 1.42L16.4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.3 20.7a1 1 0 0 0 1.4-1.4L13.42 12l7.3-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13.86 10.47 21.15 2h-1.73l-6.33 7.35L8.04"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 4a5 5 0 0 1 5 5v.2A5.5 5.5 0 0 1 17.5 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.6 7.8 4 12l5.6 4.2a1 1 0 0 1 .4.8v1.98c"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.5 11.87a1 1 0 0 1 1.55-.83l3.2 2.13a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11 3a1 1 0 1 1 2 0v2h5.75c.16 0 .3.07.4.2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8-8h5a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 2a1 1 0 0 0-2 0v3H2a1 1 0 1 0 0 2h3v8a4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 18a1 1 0 0 0-1 1 3 3 0 0 0 3 3h10a3 3 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.76.83a5.02 5.02 0 0 1 .78 7.7 5 5 0 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.18 14.82c.5-.11 1.07.45 1.29 1.27.21.81"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm0 8a2 2 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m13.96 5.46 4.58 4.58a1 1 0 0 0 1.42 0l1.3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22ZM6.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.16 5.02c-.1.28.04.58.29.74l10.27 6.85a."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 6c0-1.1.9-2 2-2h3a1 1 0 0 0 0-2H6a4 4 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 4a1 1 0 0 0 0 2h9.59L4.29 18.3a1 1 0 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 5a1 1 0 0 0 0 2h7.59L5.29 17.3a1 1 0 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4 0 1 1-4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.52 13.17c-.2.41-.87.35-1.15 0a3.02 3.0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.3 21.3a1 1 0 1 0 1.4 1.4l20-20a1 1 0 0 0-1.4-1.4l-20 20ZM3.16 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.27 12.38c.35.11.73-.13.73-.5V10.5a.5.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm1 4a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.07 9.4a.6.6 0 0 0-1.14 0l-.1.25a2 2 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.1 1a2.1 2.1 0 0 1 1.8 3.14h14.05c.84 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2 2 0 0 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 14a9 9 0 1 0 18 0c0-2.63-.61-5.22-1.79-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h3.93a2 2 0 0 1 1.66.9L1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 1a1 1 0 0 0-1 1v.2c0 .79-.4 1.53-1.05 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.91 12.98a5.45 5.45 0 0 1 2.18 6.2c-.1."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 7.3a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 4v1.51a6 6 0 0 1-1.76 4.25l-4.1 4.1a.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.5 18.08a.74.74 0 0 1 1.04 1.04l-.57.58"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.97 4.06c0 .18.08.35.24.43.55.28.9.82 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23.79 16.92c-.47.59-1.62 1.01-1.62 1.01L1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.23 2 2 17.77 17.77 22 22 6.23 6.23 2Zm7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4.5 3.92A11.03 11.03 0 0 1 11.99 1v.02a11"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M24 5.7c0-1.54-.2-2.66-.34-3.23C23.35 1.17"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm6.8"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.9 22.95c-1.7-.16-3.4-.77-4.88-1.73-1.2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm2.1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 6a4 4 0 0 1 4-4h.09c1.8 0 3.39 1.18 3.9"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-4.1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.99 3.16A1 1 0 1 0 9 2.84L8.15 8H4a1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.02 2.84a1 1 0 0 1 1.97.33L10.2 8h2.1a.7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16 4h.5v-.5a2.5 2.5 0 0 1 5 0V4h.5a1 1 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a9 9 0 0 0-8.95 10h1.87a5 5 0 0 1 4.1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM17.0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.47 21.73a.92.92 0 0 1-.94 0C9.43 20.48"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 8.07 10.6 6.7A5 5 0 0 0 6.75 5 3.75 3."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm-.2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.4 8.4 8.38-6.46a2 2 0 0 1 2.44 0l8.39 6"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.3 14.48c-.46.45-1.08.67-1.86.67h-1.39V"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v14a3 3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8.03c0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8.67c0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h6.49c."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 8v7.5a.5.5 0 0 1-.5.5H3a1 1 0 0 1-1-1V8"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5ZM4 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.87 2.31A.5.5 0 0 1 9.34 2h10.92c.36 0 ."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.8 14.6c-.45.31-.9.6-1.37.89l-.02.01-1.1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0 0 1 3 3v"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 12a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 10a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.18 3.12c.49.24.73.79.66 1.32-.27 2 .1 4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.59 3.78c.22-.66.98-.97 1.6-.66.48.24.73"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.5 8a3 3 0 1 0-2.7-4.3c-.2.4.06.86.44 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2a4 4 0 0 0-4 4v4a4 4 0 0 0 8 0V6a4 4 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.7 22.7 20-20a1 1 0 0 0-1.4-1.4l-20 20a1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 12a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h18a1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.76 20.14c.12-.12.3-.15.46-.1.3.1.6.14."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.5 21.7a8.95 8.95 0 0 1 9 0 1 1 0 0 0 1-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10-2a2 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm2 10a2 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.65 1.51A2 2 0 0 0 6 3.41v9.88A3.98 3.98"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3a1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v16a3 3 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 .7.22.83."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.38 11.38a3 3 0 0 0 4.24 0l.03-.03a.5.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22ZM9 8"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96v14.08c0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 4a1 1 0 0 0-.95 1.32l.9 2.68h-4.6l-.92"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.62 2.08a1 1 0 0 1 1.09.21l5 5a1 1 0 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 7.83a3 3 0 1 0-2 0V11H8a4 4 0 0 0-4 4v"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm0-1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 6a1 1 0 1 0-2 0v5H6a1 1 0 1 0 0 2h5v5a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v14a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.35 19.44A4.75 4.75 0 0 0 6.07 21c1.43 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.61 2.26c.25-.34.16-.92-.25-1A11 11 0 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.3 7.3a1 1 0 0 0 0 1.4l5 5a1 1 0 0 0 1.4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.68a.93.93 0 0 1 1.07-.63c.51.1.84."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a9 9 0 0 0-7.47 14.03c.28.41.28.97-.0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm16 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3 3 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 3a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h16a3 3 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h11a3 3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h8.5a.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.46 15.46a5 5 0 0 1 7.07 0 5 5 0 0 1-7."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm6.3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM9.2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.62 17.03a9 9 0 1 1 1.41-1.41l4.68 4.67"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.6 10.02 14 11.4a.6.6 0 0 1 0 1.18L6.6 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.55 4.4c.13-.24.1-.54-.12-.71L8.6 2.24a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.56 1.1c-.46.05-.7.53-.64.98.18 1.16-.1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.26 12.45c.1.03.18.08.25.14l.52.44 5.26 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88c-.36-.3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.3 5.41h-.39c-.84 0-1.52-.65-1.52-1.46v"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 20.59V19.4a1 1 0 0 1 .3-.7l2.4-2.42a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.69 2A3 3 0 0 0 3.7 4.67l-.33 3A3 3 0 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.41 3.59 11.6 2.4a2 2 0 0 1 2.82 0l1.3 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.63 4.19A3 3 0 0 1 5.53 2H7a1 1 0 0 1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 3a1 1 0 0 1 1-1c6.92 0 12.97 3.7 16.3 9"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 13a1 1 0 0 1 1-1 9 9 0 0 1 9 9 1 1 0 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 7a1 1 0 0 0 0 2 12 12 0 0 1 12 12 1 1 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 3a1 1 0 0 1 1-1 19 19 0 0 1 19 19 1 1 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.38 21c.61 0 1.23-.18 1.7-.58a11 11 0 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-2 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm12.7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.12 2a.5.5 0 0 1 .43.76L8.22 21.64a.75."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.24 1.03a1 1 0 0 1 .73 1.21l-1 4a1 1 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.45 6.05c.3-.1.6.09.72.38l.04.09c.26.59"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24c.19.5.57.88 1.07 1.07l1.24.46c.95.35.95 1.7 0 2.04l-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M24 12c0 1.2-1.95 2.1-2.25 3.15-.3 1.05.6 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.65 21.75a1 1 0 0 0 1.64.96l11.24-9.96a1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.7 12a5.6 5.6 0 0 1 5.67 5.5c0 .57-.09 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.37 9.04c.25-.26.73-.2 1.06.13L15 10.7c"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.23 12c0 1.29-.95 2.25-2.22 2.25A2.18 2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.75 7.57a5.12 5.12 0 0 1-3.86 3.87.42.4"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.14 2.8a1.21 1.21 0 0 0-2.28 0l-.5 1.37"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.61 18.25a1.08 1.08 0 0 1-.07-1.33 9 9 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.92 14.08c.32.27.86.15.93-.26A11 11 0 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.26 2.86c.38-1.15 2-1.15 2.38 0l1.89 5."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.16 4.06a2.13 2.13 0 0 1 3.68 0l8 13.77"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.81 2.86c.38-1.15 2-1.15 2.38 0l1.89 5."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.07 10.94a1.25 1.25 0 0 1 .73-2.25h6.12l"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.93 1.51a.74.74 0 0 0-1.41 0l-1.13 3.47"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 2h12a4 4 0 0 1 4 4v7.5a.5.5 0 0 1-.5.5H"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.1 22.5c-1.8 0-3.3-.37-4.53-1.11A7.95 7"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 12a8 8 0 0 1 14.93-4H15a1 1 0 1 0 0 2h6"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.24 2a3 3 0 0 0-2.12.88l-8.25 8.25a3 3 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2.81a1 1 0 0 1 0-1.41l.36-.36a1 1 0 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 15a2.5 2.5 0 0 1 2.5 2.5v.5h.5a1 1 0 0"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m12.58 18.26-9.55-6.72a1 1 0 0 0-1.3.13l-."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.25 1c.41 0 .75.34.75.75V3h5.25c.41 0 ."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13.76 4.97a1 1 0 0 1-.73-1.21l.5-2a1 1 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.89 11.79A3 3 0 1 0 13.1 6.2a3 3 0 0 0-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 20a1 1 0 0 0-1 1v.5c0 .28.22.5.5.5h9a.5"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.03 16.6c1.18 1.17 2.84 1.76 4.97 1.76s3"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 16V5.41l3.3 3.3a1 1 0 1 0 1.4-1.42l-5-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46.9 10.95"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM11.53 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.33 13.68c.41.27.93.27 1.34 0 1.73-1.1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM15."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1h-.06a"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM15.2"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM22."] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.09 1.63c.4-.7 1.43-.7 1.82 0l3.96 6.9c"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24c.19.5.57.88 1.07 1.07l1.24.46c.95.35.95 1.7 0 2.05l-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1.44"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.65 13.63c.1.17.35.1.35-.1V10.5a.5.5 0 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m13.47 1 .07.04c.45.06.9.1 1.35.18.95.17 1"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10 3.1a2.37 2.37 0 0 1 4 0l8.71 14.75c.84"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 "] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM6.8"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.23 21.13a1 1 0 0 1 0-1.41l7.48-7.47c.2-"] ~ *,
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.8 15.77c.7.43 1.2 1.14 1.2 1.96V21a1 1 "] ~ * {
         display: none;
     }
 
@@ -4934,7 +5160,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"] {
         d: path("M6 9h3v1.5h-3zM18 9h3v1.5h-3zM6 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM9 12h3v1.5h-3zM15 12h3v1.5h-3zM9 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM12 15h3v1.5h-3zM12 16.5h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
@@ -4993,7 +5220,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.56 1.1c-.46.05-.7.53-.64.98.18"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.56 1.1c-.46.05-.7.53-.64.98.18"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"] {
         d: path("M7.5 3h3v1.5h-3zM7.5 4.5h3v1.5h-3zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM7.5 9h3v1.5h-3zM7.5 10.5h3v1.5h-3zM15 12h3v1.5h-3zM15 13.5h3v1.5h-3zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM15 18h3v1.5h-3zM15 19.5h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
@@ -5018,7 +5246,9 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] {
         d: path("M16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM4.5 12h3v1.5h-3zM10.5 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM10.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
@@ -5028,7 +5258,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] {
         d: path("M9 3h4.5v1.5h-4.5zM7.5 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM7.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h4.5v1.5h-4.5zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM4.5 18h15v1.5h-15zM4.5 19.5h15v1.5h-15zM4.5 21h15v1.5h-15z");
         shape-rendering: crispEdges;
     }
@@ -5158,7 +5389,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 5a1 1 0 0 0 0 2h7.59L5.29 17.3a"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 5a1 1 0 0 0 0 2h7.59L5.29 17.3a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] {
         d: path("M6 0h18v1.5h-18zM6 1.5h18v1.5h-18zM18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM15 6h3v1.5h-3zM21 6h3v1.5h-3zM15 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM0 15h3v1.5h-3zM6 15h3v1.5h-3zM0 16.5h3v1.5h-3zM6 16.5h3v1.5h-3zM0 18h3v1.5h-3zM0 19.5h3v1.5h-3zM0 21h21v1.5h-21zM0 22.5h21v1.5h-21z");
         shape-rendering: crispEdges;
     }
@@ -5173,7 +5405,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.3 5.41h-.39c-.84 0-1.52-.65-1."] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.3 5.41h-.39c-.84 0-1.52-.65-1."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"] {
         d: path("M4.5 3h15v1.5h-15zM4.5 4.5h15v1.5h-15zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM7.5 16.5h9v1.5h-9zM7.5 18h9v1.5h-9zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
@@ -5184,7 +5417,8 @@ html body {
     }
 
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.35 7.24C15.9 6.67 16 5.8 16 5a"],
-#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 16h-5a2 2 0 0 0-2 2v2c0 1.66-1"] {
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 16h-5a2 2 0 0 0-2 2v2c0 1.66-1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m15.93 3.04-1.82 1.83-.58-.58a2.74"] {
         d: path("M18 0h6v1.5h-6zM18 1.5h6v1.5h-6zM15 3h9v1.5h-9zM15 4.5h9v1.5h-9zM12 6h9v1.5h-9zM12 7.5h9v1.5h-9zM9 9h9v1.5h-9zM9 10.5h9v1.5h-9zM6 12h9v1.5h-9zM6 13.5h9v1.5h-9zM3 15h6v1.5h-6zM3 16.5h6v1.5h-6zM0 18h9v1.5h-9zM0 19.5h9v1.5h-9zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
         shape-rendering: crispEdges;
     }
@@ -5194,7 +5428,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2.01232C21.2652 2.01232 21.519"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2.01232C21.2652 2.01232 21.519"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] {
         d: path("M3 0h15v1.5h-15zM3 1.5h15v1.5h-15zM0 3h3v1.5h-3zM15 3h3v1.5h-3zM0 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM0 6h3v1.5h-3zM12 6h9v1.5h-9zM0 7.5h3v1.5h-3zM12 7.5h9v1.5h-9zM0 9h3v1.5h-3zM15 9h3v1.5h-3zM0 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM21 12h3v1.5h-3zM6 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM3 15h9v1.5h-9zM21 15h3v1.5h-3zM3 16.5h9v1.5h-9zM21 16.5h3v1.5h-3zM6 18h3v1.5h-3zM21 18h3v1.5h-3zM6 19.5h3v1.5h-3zM21 19.5h3v1.5h-3zM6 21h15v1.5h-15zM6 22.5h15v1.5h-15z");
         shape-rendering: crispEdges;
     }
@@ -5229,7 +5464,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 12a1 1 0 0 1 1 1v2a1 1 0 1 1-2"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 12a1 1 0 0 1 1 1v2a1 1 0 1 1-2"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46"] {
         d: path("M0 0h15v1.5h-15zM0 1.5h15v1.5h-15zM0 3h3v1.5h-3zM0 4.5h3v1.5h-3zM0 6h3v1.5h-3zM15 6h3v1.5h-3zM0 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h18v1.5h-18zM0 10.5h3v1.5h-3zM6 10.5h18v1.5h-18zM0 12h3v1.5h-3zM15 12h3v1.5h-3zM0 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM0 15h3v1.5h-3zM0 16.5h3v1.5h-3zM0 18h15v1.5h-15zM0 19.5h15v1.5h-15z");
         shape-rendering: crispEdges;
     }
@@ -5272,28 +5508,13 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29"] {
-        d: path("M6 9h3v1.5h-3zM18 9h3v1.5h-3zM6 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM9 12h3v1.5h-3zM15 12h3v1.5h-3zM9 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM12 15h3v1.5h-3zM12 16.5h3v1.5h-3z");
-        shape-rendering: crispEdges;
-    }
-
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l"] {
         d: path("M9 6h6v1.5h-6zM9 7.5h6v1.5h-6zM6 9h12v1.5h-12zM6 10.5h12v1.5h-12zM3 12h6v1.5h-6zM15 12h6v1.5h-6zM3 13.5h6v1.5h-6zM15 13.5h6v1.5h-6zM0 15h6v1.5h-6zM18 15h6v1.5h-6zM0 16.5h6v1.5h-6zM18 16.5h6v1.5h-6z");
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 5a1 1 0 0 1-1 1h-8.2a2.5 2.5 0"] {
-        d: path("M7.5 3h3v1.5h-3zM7.5 4.5h3v1.5h-3zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM7.5 9h3v1.5h-3zM7.5 10.5h3v1.5h-3zM15 12h3v1.5h-3zM15 13.5h3v1.5h-3zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM15 18h3v1.5h-3zM15 19.5h3v1.5h-3z");
-        shape-rendering: crispEdges;
-    }
-
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96"] {
         d: path("M0 0h6v1.5h-6zM0 1.5h6v1.5h-6zM0 3h12v1.5h-12zM0 4.5h12v1.5h-12zM0 6h18v1.5h-18zM0 7.5h18v1.5h-18zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM0 12h24v1.5h-24zM0 13.5h24v1.5h-24zM0 15h18v1.5h-18zM0 16.5h18v1.5h-18zM0 18h12v1.5h-12zM0 19.5h12v1.5h-12zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
-        shape-rendering: crispEdges;
-    }
-
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1"] {
-        d: path("M16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM4.5 12h3v1.5h-3zM10.5 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM10.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
 
@@ -5317,11 +5538,6 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88"] {
-        d: path("M4.5 3h15v1.5h-15zM4.5 4.5h15v1.5h-15zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM7.5 16.5h9v1.5h-9zM7.5 18h9v1.5h-9zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3z");
-        shape-rendering: crispEdges;
-    }
-
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0"] {
         d: path("M7.5 4.5h9v1.5h-9zM7.5 6h9v1.5h-9zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM4.5 10.5h15v1.5h-15zM4.5 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM4.5 13.5h1.5v1.5h-1.5zM10.5 13.5h3v1.5h-3zM18 13.5h1.5v1.5h-1.5zM4.5 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM10.5 16.5h3v1.5h-3zM18 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM18 18h1.5v1.5h-1.5zM4.5 19.5h15v1.5h-15z");
         shape-rendering: crispEdges;
@@ -5332,23 +5548,8 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.7a1 1 0 0 0-1.4-1.4l-3.26"] {
-        d: path("M16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM4.5 12h3v1.5h-3zM10.5 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM10.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3z");
-        shape-rendering: crispEdges;
-    }
-
     #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 ."] {
         d: path("M15 1.5h9v1.5h-9zM15 3h9v1.5h-9zM15 4.5h9v1.5h-9zM12 6h9v1.5h-9zM12 7.5h9v1.5h-9zM9 9h9v1.5h-9zM9 10.5h9v1.5h-9zM6 12h9v1.5h-9zM1.5 13.5h13.5v1.5h-13.5zM1.5 15h10.5v1.5h-10.5zM1.5 16.5h10.5v1.5h-10.5zM1.5 18h7.5v1.5h-7.5zM1.5 19.5h7.5v1.5h-7.5zM1.5 21h4.5v1.5h-4.5z");
-        shape-rendering: crispEdges;
-    }
-
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12.38c-.02.38-.45.58-.78.4a6.9"] {
-        d: path("M9 3h4.5v1.5h-4.5zM7.5 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM7.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h4.5v1.5h-4.5zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM4.5 18h15v1.5h-15zM4.5 19.5h15v1.5h-15zM4.5 21h15v1.5h-15z");
-        shape-rendering: crispEdges;
-    }
-
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1"] {
-        d: path("M6 0h18v1.5h-18zM6 1.5h18v1.5h-18zM18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM15 6h3v1.5h-3zM21 6h3v1.5h-3zM15 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM0 15h3v1.5h-3zM6 15h3v1.5h-3zM0 16.5h3v1.5h-3zM6 16.5h3v1.5h-3zM0 18h3v1.5h-3zM0 19.5h3v1.5h-3zM0 21h21v1.5h-21zM0 22.5h21v1.5h-21z");
         shape-rendering: crispEdges;
     }
 
@@ -5367,19 +5568,734 @@ html body {
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1"] {
-        d: path("M3 0h15v1.5h-15zM3 1.5h15v1.5h-15zM0 3h3v1.5h-3zM15 3h3v1.5h-3zM0 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM0 6h3v1.5h-3zM12 6h9v1.5h-9zM0 7.5h3v1.5h-3zM12 7.5h9v1.5h-9zM0 9h3v1.5h-3zM15 9h3v1.5h-3zM0 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM21 12h3v1.5h-3zM6 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM3 15h9v1.5h-9zM21 15h3v1.5h-3zM3 16.5h9v1.5h-9zM21 16.5h3v1.5h-3zM6 18h3v1.5h-3zM21 18h3v1.5h-3zM6 19.5h3v1.5h-3zM21 19.5h3v1.5h-3zM6 21h15v1.5h-15zM6 22.5h15v1.5h-15z");
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.56 2a3 3 0 0 0-2.46 1.28 3.85 3.85 0 0"] {
+        d: path("M6 6h6v1.5h-6zM15 6h3v1.5h-3zM3 7.5h15v1.5h-15zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h15v1.5h-15zM6 16.5h6v1.5h-6zM15 16.5h3v1.5h-3zM7.5 18h3v1.5h-3zM7.5 19.5h3v1.5h-3z");
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="m15.93 3.04-1.82 1.83-.58-.58a2.74"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.06 7.61c-.25.95.31 1.92 1.26 2.18l4.3 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 11a2 2 0 0 1-2-2V4c0-1.1.9-2 2-2h5a2 2"] {
+        d: path("M0 0h9v1.5h-9zM12 0h9v1.5h-9zM0 1.5h9v1.5h-9zM12 1.5h9v1.5h-9zM0 3h9v1.5h-9zM12 3h9v1.5h-9zM0 4.5h9v1.5h-9zM12 4.5h9v1.5h-9zM0 6h9v1.5h-9zM12 6h9v1.5h-9zM0 7.5h9v1.5h-9zM12 7.5h9v1.5h-9zM0 12h9v1.5h-9zM15 12h3v1.5h-3zM0 13.5h9v1.5h-9zM15 13.5h3v1.5h-3zM0 15h9v1.5h-9zM12 15h9v1.5h-9zM0 16.5h9v1.5h-9zM12 16.5h9v1.5h-9zM0 18h9v1.5h-9zM15 18h3v1.5h-3zM0 19.5h9v1.5h-9zM15 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.7 20.7a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 "] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM10.5 6h3v1.5h-3zM10.5 7.5h3v1.5h-3zM10.5 9h3v1.5h-3zM10.5 10.5h3v1.5h-3zM7.5 12h9v1.5h-9zM7.5 13.5h9v1.5h-9zM9 15h6v1.5h-6zM9 16.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 11.3a1 1 0 0 0 0 1.4l5 5a1 1 0 0 0 1."] {
+        d: path("M7.5 6h3v1.5h-3zM6 7.5h4.5v1.5h-4.5zM4.5 9h4.5v1.5h-4.5zM3 10.5h19.5v1.5h-19.5zM3 12h19.5v1.5h-19.5zM4.5 13.5h4.5v1.5h-4.5zM6 15h4.5v1.5h-4.5zM7.5 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.7 12.7a1 1 0 0 0 0-1.4l-8-8a1 1 0 1 0-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.7 12.7a1 1 0 0 0 0-1.4l-5-5a1 1 0 1 0-"] {
+        d: path("M15 6h3v1.5h-3zM15 7.5h4.5v1.5h-4.5zM16.5 9h4.5v1.5h-4.5zM1.5 10.5h21v1.5h-21zM1.5 12h21v1.5h-21zM16.5 13.5h4.5v1.5h-4.5zM15 15h4.5v1.5h-4.5zM15 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.44 6.96c.29 0 .51.25.47.54l-.82 6.34c-"] {
+        d: path("M6 0h12v1.5h-12zM6 1.5h12v1.5h-12zM3 3h3v1.5h-3zM18 3h3v1.5h-3zM3 4.5h3v1.5h-3zM18 4.5h3v1.5h-3zM0 6h3v1.5h-3zM9 6h6v1.5h-6zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM9 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h3v1.5h-3zM15 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM6 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM6 12h3v1.5h-3zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM6 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM0 15h3v1.5h-3zM9 15h9v1.5h-9zM0 16.5h3v1.5h-3zM9 16.5h9v1.5h-9zM3 18h3v1.5h-3zM3 19.5h3v1.5h-3zM6 21h15v1.5h-15zM6 22.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.57 4.01a6.97 6.97 0 0 1 9.86 0l.54.55a"] {
+        d: path("M13.5 3h6v1.5h-6zM12 4.5h7.5v1.5h-7.5zM10.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM12 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM10.5 9h1.5v1.5h-1.5zM6 10.5h1.5v1.5h-1.5zM9 10.5h1.5v1.5h-1.5zM7.5 12h1.5v1.5h-1.5zM9 13.5h1.5v1.5h-1.5zM15 13.5h3v1.5h-3zM10.5 15h1.5v1.5h-1.5zM15 15h3v1.5h-3zM12 16.5h6v1.5h-6zM12 18h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.7 2.89c.18-.07.32-.24.37-.43a2 2 0 0 1 "] {
+        d: path("M9 3h6v1.5h-6zM9 4.5h6v1.5h-6zM6 6h12v1.5h-12zM6 7.5h12v1.5h-12zM4.5 9h15v1.5h-15zM4.5 10.5h15v1.5h-15zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18zM10.5 21h3v1.5h-3zM10.5 22.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.3 21.3a1 1 0 1 0 1.4 1.4l20-20a1 1 0 0 0-1.4-1.4l-20 20ZM3.13 1"] {
+        d: path("M1.5 1.5h1.5v1.5h-1.5zM3 3h1.5v1.5h-1.5zM9 3h6v1.5h-6zM4.5 4.5h1.5v1.5h-1.5zM9 4.5h6v1.5h-6zM6 6h1.5v1.5h-1.5zM10.5 6h7.5v1.5h-7.5zM7.5 7.5h1.5v1.5h-1.5zM12 7.5h6v1.5h-6zM4.5 9h3v1.5h-3zM9 9h1.5v1.5h-1.5zM13.5 9h6v1.5h-6zM4.5 10.5h4.5v1.5h-4.5zM10.5 10.5h1.5v1.5h-1.5zM15 10.5h4.5v1.5h-4.5zM4.5 12h6v1.5h-6zM12 12h1.5v1.5h-1.5zM16.5 12h3v1.5h-3zM4.5 13.5h7.5v1.5h-7.5zM13.5 13.5h1.5v1.5h-1.5zM18 13.5h1.5v1.5h-1.5zM4.5 15h9v1.5h-9zM15 15h1.5v1.5h-1.5zM4.5 16.5h10.5v1.5h-10.5zM16.5 16.5h1.5v1.5h-1.5zM3 18h13.5v1.5h-13.5zM18 18h1.5v1.5h-1.5zM3 19.5h15v1.5h-15zM19.5 19.5h1.5v1.5h-1.5zM10.5 21h3v1.5h-3zM21 21h1.5v1.5h-1.5zM10.5 22.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.42 22a.9.9 0 0 1-.91-.9V2.9c0-.5.4-.9.9"] {
+        d: path("M7.5 3h6v1.5h-6zM7.5 4.5h6v1.5h-6zM7.5 6h3v1.5h-3zM13.5 6h3v1.5h-3zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM7.5 9h6v1.5h-6zM7.5 10.5h6v1.5h-6zM7.5 12h3v1.5h-3zM13.5 12h3v1.5h-3zM7.5 13.5h3v1.5h-3zM13.5 13.5h3v1.5h-3zM7.5 15h6v1.5h-6zM7.5 16.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 2a3 3 0 0 1 3 3v12H5.5a1.5 1.5 0 0 0 0"] {
+        d: path("M0 0h21v1.5h-21zM0 1.5h21v1.5h-21zM0 3h6v1.5h-6zM18 3h3v1.5h-3zM0 4.5h6v1.5h-6zM18 4.5h3v1.5h-3zM0 6h6v1.5h-6zM9 6h6v1.5h-6zM18 6h3v1.5h-3zM0 7.5h6v1.5h-6zM9 7.5h6v1.5h-6zM18 7.5h3v1.5h-3zM0 9h6v1.5h-6zM18 9h3v1.5h-3zM0 10.5h6v1.5h-6zM18 10.5h3v1.5h-3zM0 12h6v1.5h-6zM18 12h3v1.5h-3zM0 13.5h6v1.5h-6zM18 13.5h3v1.5h-3zM0 15h21v1.5h-21zM0 16.5h21v1.5h-21zM0 18h6v1.5h-6zM0 19.5h6v1.5h-6zM0 21h21v1.5h-21zM0 22.5h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v16a1 1"] {
+        d: path("M3 0h18v1.5h-18zM3 1.5h18v1.5h-18zM3 3h18v1.5h-18zM3 4.5h18v1.5h-18zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h6v1.5h-6zM15 15h6v1.5h-6zM3 16.5h6v1.5h-6zM15 16.5h6v1.5h-6zM3 18h3v1.5h-3zM18 18h3v1.5h-3zM3 19.5h3v1.5h-3zM18 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.02 1.36c.56-.48 1.4-.48 1.96 0l6.48 5."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.95 1.4a1.59 1.59 0 0 1 2.1 0l4.9 4A3.3"] {
+        d: path("M9 0h6v1.5h-6zM9 1.5h6v1.5h-6zM6 3h12v1.5h-12zM6 4.5h12v1.5h-12zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM6 15h12v1.5h-12zM6 16.5h12v1.5h-12zM6 18h12v1.5h-12zM6 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.73 4.87a18.2 18.2 0 0 0-4.6-1.44c-.21."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.89 13.46a1 1 0 0 1-1.78-.9L7 13l-.9-.45"] {
+        d: path("M10.5 1.5h3v1.5h-3zM10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM3 6h18v1.5h-18zM3 7.5h1.5v1.5h-1.5zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM7.5 10.5h3v1.5h-3zM13.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM1.5 12h3v1.5h-3zM7.5 12h3v1.5h-3zM13.5 12h3v1.5h-3zM19.5 12h3v1.5h-3zM1.5 13.5h3v1.5h-3zM19.5 13.5h3v1.5h-3zM1.5 15h3v1.5h-3zM19.5 15h3v1.5h-3zM3 16.5h1.5v1.5h-1.5zM7.5 16.5h9v1.5h-9zM19.5 16.5h1.5v1.5h-1.5zM3 18h1.5v1.5h-1.5zM19.5 18h1.5v1.5h-1.5zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.5 23c.88 0 1.7-.25 2.4-.69l1.4 1.4a1 1"] {
+        d: path("M0 0h15v1.5h-15zM0 1.5h15v1.5h-15zM0 6h9v1.5h-9zM12 6h6v1.5h-6zM0 7.5h9v1.5h-9zM12 7.5h6v1.5h-6zM9 9h3v1.5h-3zM18 9h3v1.5h-3zM9 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM0 12h6v1.5h-6zM9 12h3v1.5h-3zM18 12h3v1.5h-3zM0 13.5h6v1.5h-6zM9 13.5h3v1.5h-3zM18 13.5h3v1.5h-3zM12 15h6v1.5h-6zM12 16.5h6v1.5h-6zM18 18h3v1.5h-3zM18 19.5h3v1.5h-3zM21 21h3v1.5h-3zM21 22.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 2.3a1 1 0 0 1 0 1.4l-4.92 4.93c-.12."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 16h-5a2 2 0 0 0-2 2v2c0 1.66-1.37 3.04"] {
         d: path("M18 0h6v1.5h-6zM18 1.5h6v1.5h-6zM15 3h9v1.5h-9zM15 4.5h9v1.5h-9zM12 6h9v1.5h-9zM12 7.5h9v1.5h-9zM9 9h9v1.5h-9zM9 10.5h9v1.5h-9zM6 12h9v1.5h-9zM6 13.5h9v1.5h-9zM3 15h6v1.5h-6zM3 16.5h6v1.5h-6zM0 18h9v1.5h-9zM0 19.5h9v1.5h-9zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
         shape-rendering: crispEdges;
     }
 
-    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46"] {
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.54 3.28a3 3 0 0 0-.37.74c-.19.52.28.98."] {
+        d: path("M9 1.5h6v1.5h-6zM9 3h6v1.5h-6zM6 4.5h12v1.5h-12zM6 6h12v1.5h-12zM4.5 7.5h15v1.5h-15zM1.5 9h6v1.5h-6zM10.5 9h3v1.5h-3zM16.5 9h6v1.5h-6zM1.5 10.5h6v1.5h-6zM10.5 10.5h3v1.5h-3zM16.5 10.5h6v1.5h-6zM4.5 12h15v1.5h-15zM4.5 13.5h1.5v1.5h-1.5zM18 13.5h1.5v1.5h-1.5zM1.5 15h21v1.5h-21zM1.5 16.5h21v1.5h-21zM4.5 18h15v1.5h-15zM3 19.5h3v1.5h-3zM18 19.5h3v1.5h-3zM3 21h3v1.5h-3zM18 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 1a1 1 0 0 1 1 1v.75c0 .14.11.25.25.25h7"] {
+        d: path("M3 0h3v1.5h-3zM18 0h3v1.5h-3zM3 1.5h3v1.5h-3zM18 1.5h3v1.5h-3zM0 3h24v1.5h-24zM0 4.5h24v1.5h-24zM0 6h3v1.5h-3zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h3v1.5h-3zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM6 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM0 15h3v1.5h-3zM6 15h3v1.5h-3zM12 15h3v1.5h-3zM21 15h3v1.5h-3zM0 16.5h3v1.5h-3zM6 16.5h3v1.5h-3zM12 16.5h3v1.5h-3zM21 16.5h3v1.5h-3zM0 18h24v1.5h-24zM0 19.5h24v1.5h-24z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 13a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"] {
+        d: path("M7.5 4.5h6v1.5h-6zM7.5 6h6v1.5h-6zM3 7.5h18v1.5h-18zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM13.5 10.5h4.5v1.5h-4.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM13.5 12h4.5v1.5h-4.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM13.5 13.5h4.5v1.5h-4.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.2 22c.5-.01.66-.84.37-1.24A3 3 0 0 1 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.66 21.98c.4-.03.56-.51.28-.8l-.06-.06a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 22a10 10 0 1 0-8.45-4.64c.13.19.11.44-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 14a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 12a10 10 0 0 1-10 10H2.2a1 1 0 0 1-.75"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.11 8H6v10.82c0 .86.37 1.68 1 2.27.46.43"] {
+        d: path("M3 0h18v1.5h-18zM3 1.5h18v1.5h-18zM0 3h3v1.5h-3zM21 3h3v1.5h-3zM0 4.5h3v1.5h-3zM21 4.5h3v1.5h-3zM0 6h3v1.5h-3zM6 6h3v1.5h-3zM15 6h3v1.5h-3zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM6 15h6v1.5h-6zM6 16.5h6v1.5h-6zM3 18h3v1.5h-3zM3 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.06 4.94a1.5 1.5 0 0 1 0 2.12l-12 12a1."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 5.3a1 1 0 0 1 0 1.4l-12 12a1 1 0 0 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.7 7.3a1 1 0 0 1 0 1.4l-8 8a1 1 0 0 1-1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.7"] {
+        d: path("M16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM4.5 12h3v1.5h-3zM10.5 12h3v1.5h-3zM4.5 13.5h3v1.5h-3zM10.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 8.3a1 1 0 0 1 1.4 0l7.3 7.29 7.3-7.3a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29 5.3-5.3a"] {
+        d: path("M6 9h3v1.5h-3zM18 9h3v1.5h-3zM6 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM9 12h3v1.5h-3zM15 12h3v1.5h-3zM9 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM12 15h3v1.5h-3zM12 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.7 5.3a1 1 0 0 1 0 1.4L9.42 12l5.3 5.3a"] {
+        d: path("M15 4.5h3v1.5h-3zM15 6h3v1.5h-3zM12 7.5h3v1.5h-3zM12 9h3v1.5h-3zM9 10.5h3v1.5h-3zM9 12h3v1.5h-3zM12 13.5h3v1.5h-3zM12 15h3v1.5h-3zM15 16.5h3v1.5h-3zM15 18h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.3 5.3a1 1 0 0 0 0 1.4l5.29 5.3-5.3 5.3a"] {
+        d: path("M9 4.5h3v1.5h-3zM9 6h3v1.5h-3zM12 7.5h3v1.5h-3zM12 9h3v1.5h-3zM15 10.5h3v1.5h-3zM15 12h3v1.5h-3zM12 13.5h3v1.5h-3zM12 15h3v1.5h-3zM9 16.5h3v1.5h-3zM9 18h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.3 15.7a1 1 0 0 0 1.4 0L12 8.42l7.3 7.3a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.3 14.7a1 1 0 0 0 1.4 0L12 9.42l5.3 5.3a"] {
+        d: path("M9 6h6v1.5h-6zM9 7.5h6v1.5h-6zM6 9h12v1.5h-12zM6 10.5h12v1.5h-12zM3 12h6v1.5h-6zM15 12h6v1.5h-6zM3 13.5h6v1.5h-6zM15 13.5h6v1.5h-6zM0 15h6v1.5h-6zM18 15h6v1.5h-6zM0 16.5h6v1.5h-6zM18 16.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.74 5.74a.5.5 0 0 0 .54.7l5.01-.88a.5.5"] {
+        d: path("M0 0h24v1.5h-24zM0 1.5h24v1.5h-24zM0 3h3v1.5h-3zM6 3h3v1.5h-3zM12 3h3v1.5h-3zM18 3h3v1.5h-3zM0 4.5h3v1.5h-3zM6 4.5h3v1.5h-3zM12 4.5h3v1.5h-3zM18 4.5h3v1.5h-3zM0 6h24v1.5h-24zM0 7.5h24v1.5h-24zM0 9h3v1.5h-3zM9 9h6v1.5h-6zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM9 10.5h6v1.5h-6zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h6v1.5h-6zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h6v1.5h-6zM21 13.5h3v1.5h-3zM0 15h24v1.5h-24zM0 16.5h24v1.5h-24zM0 18h3v1.5h-3zM6 18h3v1.5h-3zM12 18h3v1.5h-3zM18 18h3v1.5h-3zM0 19.5h3v1.5h-3zM6 19.5h3v1.5h-3zM12 19.5h3v1.5h-3zM18 19.5h3v1.5h-3zM0 21h24v1.5h-24zM0 22.5h24v1.5h-24z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1-18"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.1 8.85A.5.5 0 0 1 9.45 8h5.1a.5.5 0 0 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 22a9 9 0 0 0 7.03-14.62l.68-.67a1 1 0 "] {
+        d: path("M10.5 1.5h1.5v1.5h-1.5zM6 3h4.5v1.5h-4.5zM12 3h4.5v1.5h-4.5zM4.5 4.5h1.5v1.5h-1.5zM16.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM10.5 6h3v1.5h-3zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM10.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM10.5 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM10.5 10.5h6v1.5h-6zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM10.5 12h6v1.5h-6zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM18 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM16.5 16.5h1.5v1.5h-1.5zM6 18h4.5v1.5h-4.5zM12 18h4.5v1.5h-4.5zM10.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm4.7"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 6a2 2 0 0 1-2 2H3a1 1 0 0 0 0 2h3a4 4 0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 4v3.59l5.3-5.3a1 1 0 1 1 1.4 1.42L16.4"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.3 20.7a1 1 0 0 0 1.4-1.4L13.42 12l7.3-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13.86 10.47 21.15 2h-1.73l-6.33 7.35L8.04"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.3 18.7a1 1 0 0 0 1.4-1.4L13.42 12l5.3-"] {
+        d: path("M4.5 4.5h3v1.5h-3zM18 4.5h3v1.5h-3zM6 6h3v1.5h-3zM16.5 6h3v1.5h-3zM7.5 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM9 9h3v1.5h-3zM13.5 9h3v1.5h-3zM10.5 10.5h4.5v1.5h-4.5zM10.5 12h4.5v1.5h-4.5zM9 13.5h3v1.5h-3zM13.5 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM15 15h3v1.5h-3zM6 16.5h3v1.5h-3zM16.5 16.5h3v1.5h-3zM4.5 18h3v1.5h-3zM18 18h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 4a5 5 0 0 1 5 5v.2A5.5 5.5 0 0 1 17.5 "] {
+        d: path("M6 3h9v1.5h-9zM6 4.5h9v1.5h-9zM3 6h15v1.5h-15zM3 7.5h15v1.5h-15zM0 9h21v1.5h-21zM0 10.5h21v1.5h-21zM0 12h24v1.5h-24zM0 13.5h24v1.5h-24zM0 15h24v1.5h-24zM0 16.5h24v1.5h-24zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.6 7.8 4 12l5.6 4.2a1 1 0 0 1 .4.8v1.98c"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.5 11.87a1 1 0 0 1 1.55-.83l3.2 2.13a1 1"] {
+        d: path("M6 3h3v1.5h-3zM15 3h3v1.5h-3zM6 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM3 6h3v1.5h-3zM18 6h3v1.5h-3zM3 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM0 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM3 12h3v1.5h-3zM18 12h3v1.5h-3zM3 13.5h3v1.5h-3zM18 13.5h3v1.5h-3zM6 15h3v1.5h-3zM15 15h3v1.5h-3zM6 16.5h3v1.5h-3zM15 16.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11 3a1 1 0 1 1 2 0v2h5.75c.16 0 .3.07.4.2"] {
+        d: path("M10.5 1.5h1.5v1.5h-1.5zM6 3h4.5v1.5h-4.5zM12 3h4.5v1.5h-4.5zM4.5 4.5h1.5v1.5h-1.5zM16.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM10.5 6h3v1.5h-3zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM10.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM10.5 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM7.5 10.5h9v1.5h-9zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM7.5 12h9v1.5h-9zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM10.5 13.5h3v1.5h-3zM18 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM10.5 16.5h3v1.5h-3zM16.5 16.5h1.5v1.5h-1.5zM6 18h4.5v1.5h-4.5zM12 18h4.5v1.5h-4.5zM10.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 16a1 1 0 0 1-1-1v-5a8 8 0 0 1 8-8h5a1 1"] {
+        d: path("M3 3h12v1.5h-12zM3 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM9 9h12v1.5h-12zM3 10.5h1.5v1.5h-1.5zM9 10.5h1.5v1.5h-1.5zM13.5 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM9 12h1.5v1.5h-1.5zM13.5 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h12v1.5h-12zM19.5 13.5h1.5v1.5h-1.5zM9 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM9 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM9 18h1.5v1.5h-1.5zM19.5 18h1.5v1.5h-1.5zM9 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 2a1 1 0 0 0-2 0v3H2a1 1 0 1 0 0 2h3v8a4"] {
+        d: path("M6 1.5h13.5v1.5h-13.5zM6 3h13.5v1.5h-13.5zM6 4.5h3v1.5h-3zM6 6h3v1.5h-3zM16.5 6h3v1.5h-3zM6 7.5h3v1.5h-3zM16.5 7.5h3v1.5h-3zM6 9h3v1.5h-3zM16.5 9h3v1.5h-3zM6 10.5h3v1.5h-3zM16.5 10.5h3v1.5h-3zM6 12h3v1.5h-3zM16.5 12h3v1.5h-3zM6 13.5h3v1.5h-3zM16.5 13.5h3v1.5h-3zM16.5 15h3v1.5h-3zM6 16.5h13.5v1.5h-13.5zM6 18h13.5v1.5h-13.5zM16.5 19.5h3v1.5h-3zM16.5 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 18a1 1 0 0 0-1 1 3 3 0 0 0 3 3h10a3 3 0"] {
+        d: path("M10.5 3h3v1.5h-3zM3 4.5h3v1.5h-3zM10.5 4.5h3v1.5h-3zM18 4.5h3v1.5h-3zM3 6h3v1.5h-3zM10.5 6h3v1.5h-3zM18 6h3v1.5h-3zM3 7.5h3v1.5h-3zM10.5 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM6 18h12v1.5h-12zM6 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.76.83a5.02 5.02 0 0 1 .78 7.7 5 5 0 0 "] {
+        d: path("M10.5 1.5h1.5v1.5h-1.5zM3 3h7.5v1.5h-7.5zM12 3h4.5v1.5h-4.5zM4.5 4.5h3v1.5h-3zM16.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM6 6h3v1.5h-3zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM9 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM10.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM12 12h3v1.5h-3zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM13.5 13.5h3v1.5h-3zM18 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM15 15h4.5v1.5h-4.5zM4.5 16.5h1.5v1.5h-1.5zM16.5 16.5h3v1.5h-3zM6 18h4.5v1.5h-4.5zM12 18h4.5v1.5h-4.5zM18 18h3v1.5h-3zM10.5 19.5h1.5v1.5h-1.5zM19.5 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.18 14.82c.5-.11 1.07.45 1.29 1.27.21.81"] {
+        d: path("M3 3h18v1.5h-18zM3 4.5h1.5v1.5h-1.5zM19.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM6 6h3v1.5h-3zM15 6h3v1.5h-3zM19.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM6 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM10.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM10.5 12h3v1.5h-3zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM6 15h3v1.5h-3zM15 15h3v1.5h-3zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM6 16.5h3v1.5h-3zM15 16.5h3v1.5h-3zM19.5 16.5h1.5v1.5h-1.5zM3 18h1.5v1.5h-1.5zM19.5 18h1.5v1.5h-1.5zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2a1 1 0 0 1 1 1v10.59l3.3-3.3a1 1 0 1 "] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM10.5 6h3v1.5h-3zM10.5 7.5h3v1.5h-3zM10.5 9h3v1.5h-3zM10.5 10.5h3v1.5h-3zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM7.5 15h9v1.5h-9zM7.5 16.5h9v1.5h-9zM4.5 21h15v1.5h-15zM4.5 22.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm0 8a2 2 "] {
+        d: path("M6 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM6 6h3v1.5h-3zM15 6h3v1.5h-3zM6 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM15 12h3v1.5h-3zM6 16.5h3v1.5h-3zM15 16.5h3v1.5h-3zM6 18h3v1.5h-3zM15 18h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="m13.96 5.46 4.58 4.58a1 1 0 0 0 1.42 0l1.3"] {
+        d: path("M15 4.5h4.5v1.5h-4.5zM15 6h4.5v1.5h-4.5zM15 7.5h4.5v1.5h-4.5zM13.5 9h1.5v1.5h-1.5zM16.5 9h1.5v1.5h-1.5zM12 10.5h1.5v1.5h-1.5zM15 10.5h1.5v1.5h-1.5zM10.5 12h1.5v1.5h-1.5zM13.5 12h1.5v1.5h-1.5zM9 13.5h1.5v1.5h-1.5zM12 13.5h1.5v1.5h-1.5zM7.5 15h1.5v1.5h-1.5zM10.5 15h1.5v1.5h-1.5zM6 16.5h1.5v1.5h-1.5zM9 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM7.5 18h1.5v1.5h-1.5zM3 19.5h4.5v1.5h-4.5zM3 21h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22ZM6.5"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm5"] {
+        d: path("M10.5 1.5h1.5v1.5h-1.5zM6 3h4.5v1.5h-4.5zM12 3h4.5v1.5h-4.5zM4.5 4.5h1.5v1.5h-1.5zM16.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM7.5 10.5h3v1.5h-3zM13.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM18 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM6 15h13.5v1.5h-13.5zM4.5 16.5h1.5v1.5h-1.5zM7.5 16.5h10.5v1.5h-10.5zM6 18h4.5v1.5h-4.5zM12 18h4.5v1.5h-4.5zM10.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.16 5.02c-.1.28.04.58.29.74l10.27 6.85a."] {
+        d: path("M3 6h18v1.5h-18zM3 7.5h4.5v1.5h-4.5zM16.5 7.5h4.5v1.5h-4.5zM3 9h1.5v1.5h-1.5zM6 9h3v1.5h-3zM15 9h3v1.5h-3zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM9 10.5h1.5v1.5h-1.5zM13.5 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM10.5 12h3v1.5h-3zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 6c0-1.1.9-2 2-2h3a1 1 0 0 0 0-2H6a4 4 0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 4a1 1 0 0 0 0 2h9.59L4.29 18.3a1 1 0 1 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 5a1 1 0 0 0 0 2h7.59L5.29 17.3a1 1 0 1 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 "] {
+        d: path("M6 0h18v1.5h-18zM6 1.5h18v1.5h-18zM18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM15 6h3v1.5h-3zM21 6h3v1.5h-3zM15 7.5h3v1.5h-3zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM0 15h3v1.5h-3zM6 15h3v1.5h-3zM0 16.5h3v1.5h-3zM6 16.5h3v1.5h-3zM0 18h3v1.5h-3zM0 19.5h3v1.5h-3zM0 21h21v1.5h-21zM0 22.5h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.56 11.77c.2-.1.44.02.44.23a4 4 0 1 1-4"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.52 13.17c-.2.41-.87.35-1.15 0a3.02 3.0"] {
+        d: path("M6 3h12v1.5h-12zM6 4.5h12v1.5h-12zM3 6h3v1.5h-3zM18 6h3v1.5h-3zM3 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM0 9h3v1.5h-3zM9 9h6v1.5h-6zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM9 10.5h6v1.5h-6zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM9 12h6v1.5h-6zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h6v1.5h-6zM21 13.5h3v1.5h-3zM3 15h3v1.5h-3zM18 15h3v1.5h-3zM3 16.5h3v1.5h-3zM18 16.5h3v1.5h-3zM6 18h12v1.5h-12zM6 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.3 21.3a1 1 0 1 0 1.4 1.4l20-20a1 1 0 0 0-1.4-1.4l-20 20ZM3.16 1"] {
+        d: path("M1.5 1.5h1.5v1.5h-1.5zM3 3h1.5v1.5h-1.5zM6 3h12v1.5h-12zM4.5 4.5h1.5v1.5h-1.5zM7.5 4.5h10.5v1.5h-10.5zM6 6h1.5v1.5h-1.5zM18 6h3v1.5h-3zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM18 7.5h3v1.5h-3zM0 9h3v1.5h-3zM9 9h1.5v1.5h-1.5zM12 9h3v1.5h-3zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM10.5 10.5h1.5v1.5h-1.5zM13.5 10.5h1.5v1.5h-1.5zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM12 12h1.5v1.5h-1.5zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM9 13.5h1.5v1.5h-1.5zM13.5 13.5h1.5v1.5h-1.5zM21 13.5h3v1.5h-3zM3 15h3v1.5h-3zM15 15h1.5v1.5h-1.5zM18 15h3v1.5h-3zM3 16.5h3v1.5h-3zM16.5 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM6 18h9v1.5h-9zM18 18h1.5v1.5h-1.5zM6 19.5h10.5v1.5h-10.5zM19.5 19.5h1.5v1.5h-1.5zM21 21h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.27 12.38c.35.11.73-.13.73-.5V10.5a.5.5"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm1 4a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.07 9.4a.6.6 0 0 0-1.14 0l-.1.25a2 2 0 "] {
+        d: path("M4.5 1.5h10.5v1.5h-10.5zM4.5 3h1.5v1.5h-1.5zM15 3h1.5v1.5h-1.5zM4.5 4.5h1.5v1.5h-1.5zM16.5 4.5h1.5v1.5h-1.5zM4.5 6h1.5v1.5h-1.5zM16.5 6h3v1.5h-3zM4.5 7.5h1.5v1.5h-1.5zM16.5 7.5h1.5v1.5h-1.5zM4.5 9h1.5v1.5h-1.5zM16.5 9h1.5v1.5h-1.5zM4.5 10.5h1.5v1.5h-1.5zM7.5 10.5h7.5v1.5h-7.5zM16.5 10.5h1.5v1.5h-1.5zM4.5 12h1.5v1.5h-1.5zM16.5 12h1.5v1.5h-1.5zM4.5 13.5h1.5v1.5h-1.5zM7.5 13.5h7.5v1.5h-7.5zM16.5 13.5h1.5v1.5h-1.5zM4.5 15h1.5v1.5h-1.5zM16.5 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM7.5 16.5h4.5v1.5h-4.5zM16.5 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM16.5 18h1.5v1.5h-1.5zM4.5 19.5h1.5v1.5h-1.5zM16.5 19.5h1.5v1.5h-1.5zM4.5 21h13.5v1.5h-13.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.1 1a2.1 2.1 0 0 1 1.8 3.14h14.05c.84 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 1a1 1 0 0 1 1 1v.82l8.67-1.45A2 2 0 0 1"] {
+        d: path("M0 0h6v1.5h-6zM0 1.5h6v1.5h-6zM0 3h21v1.5h-21zM0 4.5h21v1.5h-21zM0 6h21v1.5h-21zM0 7.5h21v1.5h-21zM0 9h21v1.5h-21zM0 10.5h21v1.5h-21zM0 12h21v1.5h-21zM0 13.5h21v1.5h-21zM0 15h6v1.5h-6zM0 16.5h6v1.5h-6zM0 18h6v1.5h-6zM0 19.5h6v1.5h-6zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 14a9 9 0 1 0 18 0c0-2.63-.61-5.22-1.79-"] {
+        d: path("M9 0h3v1.5h-3zM9 1.5h3v1.5h-3zM6 3h6v1.5h-6zM6 4.5h6v1.5h-6zM6 6h9v1.5h-9zM18 6h3v1.5h-3zM6 7.5h9v1.5h-9zM18 7.5h3v1.5h-3zM3 9h12v1.5h-12zM18 9h3v1.5h-3zM3 10.5h12v1.5h-12zM18 10.5h3v1.5h-3zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM0 15h24v1.5h-24zM0 16.5h24v1.5h-24zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18zM6 21h12v1.5h-12zM6 22.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h3.93a2 2 0 0 1 1.66.9L1"] {
+        d: path("M3 3h9v1.5h-9zM1.5 4.5h12v1.5h-12zM1.5 6h21v1.5h-21zM1.5 7.5h21v1.5h-21zM1.5 9h21v1.5h-21zM1.5 10.5h21v1.5h-21zM1.5 12h21v1.5h-21zM1.5 13.5h21v1.5h-21zM1.5 15h21v1.5h-21zM1.5 16.5h21v1.5h-21zM1.5 18h21v1.5h-21zM1.5 19.5h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 1a1 1 0 0 0-1 1v.2c0 .79-.4 1.53-1.05 1"] {
+        d: path("M4.5 3h1.5v1.5h-1.5zM7.5 3h1.5v1.5h-1.5zM10.5 3h1.5v1.5h-1.5zM16.5 3h3v1.5h-3zM4.5 4.5h1.5v1.5h-1.5zM7.5 4.5h1.5v1.5h-1.5zM10.5 4.5h1.5v1.5h-1.5zM16.5 4.5h3v1.5h-3zM4.5 6h7.5v1.5h-7.5zM16.5 6h3v1.5h-3zM4.5 7.5h7.5v1.5h-7.5zM16.5 7.5h3v1.5h-3zM6 9h3v1.5h-3zM16.5 9h3v1.5h-3zM6 10.5h3v1.5h-3zM16.5 10.5h3v1.5h-3zM6 12h3v1.5h-3zM16.5 12h3v1.5h-3zM6 13.5h3v1.5h-3zM16.5 13.5h3v1.5h-3zM6 15h3v1.5h-3zM16.5 15h3v1.5h-3zM6 16.5h3v1.5h-3zM16.5 16.5h3v1.5h-3zM6 18h3v1.5h-3zM16.5 18h3v1.5h-3zM6 19.5h3v1.5h-3zM16.5 19.5h3v1.5h-3zM6 21h3v1.5h-3zM16.5 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.91 12.98a5.45 5.45 0 0 1 2.18 6.2c-.1."] {
+        d: path("M3 4.5h13.5v1.5h-13.5zM3 6h1.5v1.5h-1.5zM15 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM15 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM12 9h9v1.5h-9zM3 10.5h1.5v1.5h-1.5zM12 10.5h9v1.5h-9zM3 12h1.5v1.5h-1.5zM12 12h9v1.5h-9zM3 13.5h18v1.5h-18zM6 15h4.5v1.5h-4.5zM12 15h1.5v1.5h-1.5zM15 15h6v1.5h-6zM6 16.5h4.5v1.5h-4.5zM12 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM6 18h4.5v1.5h-4.5zM12 18h9v1.5h-9z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.7 7.3a1 1 0 0 1 0 1.4l-5 5a1 1 0 0 1-1"] {
+        d: path("M12 0h3v1.5h-3zM12 1.5h3v1.5h-3zM12 3h6v1.5h-6zM12 4.5h6v1.5h-6zM0 6h21v1.5h-21zM0 7.5h21v1.5h-21zM0 9h3v1.5h-3zM12 9h6v1.5h-6zM0 10.5h3v1.5h-3zM12 10.5h6v1.5h-6zM0 12h3v1.5h-3zM12 12h3v1.5h-3zM0 13.5h3v1.5h-3zM12 13.5h3v1.5h-3zM0 15h3v1.5h-3zM0 16.5h3v1.5h-3zM0 18h3v1.5h-3zM0 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"] {
+        d: path("M6 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM4.5 6h1.5v1.5h-1.5zM9 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM18 6h1.5v1.5h-1.5zM4.5 7.5h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM18 7.5h1.5v1.5h-1.5zM6 9h3v1.5h-3zM15 9h3v1.5h-3zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 4v1.51a6 6 0 0 1-1.76 4.25l-4.1 4.1a.5"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.5 18.08a.74.74 0 0 1 1.04 1.04l-.57.58"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.97 4.06c0 .18.08.35.24.43.55.28.9.82 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M23.79 16.92c-.47.59-1.62 1.01-1.62 1.01L1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.23 2 2 17.77 17.77 22 22 6.23 6.23 2Zm7"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4.5 3.92A11.03 11.03 0 0 1 11.99 1v.02a11"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M24 5.7c0-1.54-.2-2.66-.34-3.23C23.35 1.17"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm6.8"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.9 22.95c-1.7-.16-3.4-.77-4.88-1.73-1.2"] {
+        d: path("M1.5 7.5h21v1.5h-21zM1.5 9h1.5v1.5h-1.5zM6 9h3v1.5h-3zM21 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM4.5 10.5h6v1.5h-6zM15 10.5h3v1.5h-3zM21 10.5h1.5v1.5h-1.5zM1.5 12h1.5v1.5h-1.5zM4.5 12h6v1.5h-6zM15 12h3v1.5h-3zM21 12h1.5v1.5h-1.5zM1.5 13.5h1.5v1.5h-1.5zM6 13.5h3v1.5h-3zM18 13.5h4.5v1.5h-4.5zM1.5 15h1.5v1.5h-1.5zM18 15h4.5v1.5h-4.5zM1.5 16.5h1.5v1.5h-1.5zM21 16.5h1.5v1.5h-1.5zM1.5 18h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm2.1"] {
+        d: path("M1.5 4.5h21v1.5h-21zM1.5 6h1.5v1.5h-1.5zM21 6h1.5v1.5h-1.5zM1.5 7.5h1.5v1.5h-1.5zM4.5 7.5h3v1.5h-3zM9 7.5h4.5v1.5h-4.5zM15 7.5h4.5v1.5h-4.5zM21 7.5h1.5v1.5h-1.5zM1.5 9h3v1.5h-3zM10.5 9h1.5v1.5h-1.5zM15 9h1.5v1.5h-1.5zM21 9h1.5v1.5h-1.5zM1.5 10.5h3v1.5h-3zM6 10.5h1.5v1.5h-1.5zM10.5 10.5h1.5v1.5h-1.5zM15 10.5h3v1.5h-3zM21 10.5h1.5v1.5h-1.5zM1.5 12h3v1.5h-3zM6 12h1.5v1.5h-1.5zM10.5 12h1.5v1.5h-1.5zM15 12h1.5v1.5h-1.5zM21 12h1.5v1.5h-1.5zM1.5 13.5h1.5v1.5h-1.5zM4.5 13.5h3v1.5h-3zM9 13.5h4.5v1.5h-4.5zM15 13.5h1.5v1.5h-1.5zM21 13.5h1.5v1.5h-1.5zM1.5 15h1.5v1.5h-1.5zM21 15h1.5v1.5h-1.5zM1.5 16.5h1.5v1.5h-1.5zM21 16.5h1.5v1.5h-1.5zM1.5 18h21v1.5h-21z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 6a4 4 0 0 1 4-4h.09c1.8 0 3.39 1.18 3.9"] {
+        d: path("M6 4.5h4.5v1.5h-4.5zM13.5 4.5h4.5v1.5h-4.5zM6 6h4.5v1.5h-4.5zM13.5 6h4.5v1.5h-4.5zM3 7.5h18v1.5h-18zM3 9h1.5v1.5h-1.5zM10.5 9h3v1.5h-3zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM10.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM10.5 16.5h3v1.5h-3zM19.5 16.5h1.5v1.5h-1.5zM3 18h1.5v1.5h-1.5zM10.5 18h3v1.5h-3zM19.5 18h1.5v1.5h-1.5zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-4.1"] {
+        d: path("M6 0h12v1.5h-12zM6 1.5h12v1.5h-12zM3 3h3v1.5h-3zM9 3h6v1.5h-6zM18 3h3v1.5h-3zM3 4.5h3v1.5h-3zM9 4.5h6v1.5h-6zM18 4.5h3v1.5h-3zM0 6h3v1.5h-3zM9 6h6v1.5h-6zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM9 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM0 12h24v1.5h-24zM0 13.5h24v1.5h-24zM0 15h3v1.5h-3zM9 15h6v1.5h-6zM21 15h3v1.5h-3zM0 16.5h3v1.5h-3zM9 16.5h6v1.5h-6zM21 16.5h3v1.5h-3zM3 18h3v1.5h-3zM9 18h6v1.5h-6zM18 18h3v1.5h-3zM3 19.5h3v1.5h-3zM9 19.5h6v1.5h-6zM18 19.5h3v1.5h-3zM6 21h12v1.5h-12zM6 22.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.99 3.16A1 1 0 1 0 9 2.84L8.15 8H4a1 1 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.02 2.84a1 1 0 0 1 1.97.33L10.2 8h2.1a.7"] {
+        d: path("M6 3h3v1.5h-3zM15 3h3v1.5h-3zM6 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM6 6h3v1.5h-3zM15 6h3v1.5h-3zM3 7.5h18v1.5h-18zM3 9h18v1.5h-18zM6 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM15 12h3v1.5h-3zM6 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM6 18h3v1.5h-3zM15 18h3v1.5h-3zM6 19.5h3v1.5h-3zM15 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16 4h.5v-.5a2.5 2.5 0 0 1 5 0V4h.5a1 1 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24"] {
+        d: path("M3 0h3v1.5h-3zM9 0h3v1.5h-3zM3 1.5h3v1.5h-3zM9 1.5h3v1.5h-3zM0 3h15v1.5h-15zM0 4.5h15v1.5h-15zM3 6h3v1.5h-3zM9 6h3v1.5h-3zM3 7.5h3v1.5h-3zM9 7.5h3v1.5h-3zM0 9h15v1.5h-15zM18 9h3v1.5h-3zM0 10.5h15v1.5h-15zM18 10.5h3v1.5h-3zM3 12h3v1.5h-3zM9 12h3v1.5h-3zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM3 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM12 15h12v1.5h-12zM12 16.5h12v1.5h-12zM12 18h12v1.5h-12zM12 19.5h12v1.5h-12zM12 21h12v1.5h-12zM12 22.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a9 9 0 0 0-8.95 10h1.87a5 5 0 0 1 4.1"] {
+        d: path("M6 3h12v1.5h-12zM6 4.5h12v1.5h-12zM3 6h3v1.5h-3zM18 6h3v1.5h-3zM3 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM3 9h3v1.5h-3zM18 9h3v1.5h-3zM3 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM1.5 12h6v1.5h-6zM16.5 12h6v1.5h-6zM1.5 13.5h6v1.5h-6zM16.5 13.5h6v1.5h-6zM1.5 15h1.5v1.5h-1.5zM6 15h1.5v1.5h-1.5zM16.5 15h1.5v1.5h-1.5zM21 15h1.5v1.5h-1.5zM1.5 16.5h1.5v1.5h-1.5zM6 16.5h1.5v1.5h-1.5zM16.5 16.5h1.5v1.5h-1.5zM21 16.5h1.5v1.5h-1.5zM1.5 18h6v1.5h-6zM16.5 18h6v1.5h-6zM1.5 19.5h6v1.5h-6zM16.5 19.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM17.0"] {
+        d: path("M6 3h12v1.5h-12zM6 4.5h12v1.5h-12zM3 6h3v1.5h-3zM18 6h3v1.5h-3zM3 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM3 9h3v1.5h-3zM18 9h3v1.5h-3zM3 10.5h3v1.5h-3zM18 10.5h3v1.5h-3zM1.5 12h6v1.5h-6zM16.5 12h6v1.5h-6zM1.5 13.5h6v1.5h-6zM16.5 13.5h6v1.5h-6zM1.5 15h1.5v1.5h-1.5zM6 15h1.5v1.5h-1.5zM16.5 15h1.5v1.5h-1.5zM21 15h1.5v1.5h-1.5zM1.5 16.5h1.5v1.5h-1.5zM6 16.5h1.5v1.5h-1.5zM21 16.5h1.5v1.5h-1.5zM1.5 18h6v1.5h-6zM16.5 18h1.5v1.5h-1.5zM19.5 18h3v1.5h-3zM1.5 19.5h6v1.5h-6zM16.5 19.5h3v1.5h-3zM21 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.47 21.73a.92.92 0 0 1-.94 0C9.43 20.48"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 8.07 10.6 6.7A5 5 0 0 0 6.75 5 3.75 3."] {
+        d: path("M3 3h6v1.5h-6zM15 3h6v1.5h-6zM3 4.5h6v1.5h-6zM15 4.5h6v1.5h-6zM0 6h24v1.5h-24zM0 7.5h24v1.5h-24zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM6 15h12v1.5h-12zM6 16.5h12v1.5h-12zM9 18h6v1.5h-6zM9 19.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm-.2"] {
+        d: path("M7.5 1.5h9v1.5h-9zM7.5 3h9v1.5h-9zM4.5 4.5h3v1.5h-3zM16.5 4.5h3v1.5h-3zM4.5 6h3v1.5h-3zM16.5 6h3v1.5h-3zM16.5 7.5h3v1.5h-3zM16.5 9h3v1.5h-3zM13.5 10.5h6v1.5h-6zM13.5 12h6v1.5h-6zM10.5 13.5h3v1.5h-3zM10.5 15h3v1.5h-3zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.4 8.4 8.38-6.46a2 2 0 0 1 2.44 0l8.39 6"] {
+        d: path("M10.5 1.5h3v1.5h-3zM10.5 3h3v1.5h-3zM7.5 4.5h9v1.5h-9zM7.5 6h9v1.5h-9zM4.5 10.5h15v1.5h-15zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h4.5v1.5h-4.5zM10.5 16.5h3v1.5h-3zM15 16.5h4.5v1.5h-4.5zM4.5 18h4.5v1.5h-4.5zM10.5 18h3v1.5h-3zM15 18h4.5v1.5h-4.5zM4.5 19.5h4.5v1.5h-4.5zM10.5 19.5h3v1.5h-3zM15 19.5h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.3 14.48c-.46.45-1.08.67-1.86.67h-1.39V"] {
+        d: path("M0 0h24v1.5h-24zM0 1.5h24v1.5h-24zM0 3h3v1.5h-3zM21 3h3v1.5h-3zM0 4.5h3v1.5h-3zM21 4.5h3v1.5h-3zM0 6h3v1.5h-3zM6 6h3v1.5h-3zM12 6h6v1.5h-6zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h3v1.5h-3zM12 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h3v1.5h-3zM12 9h3v1.5h-3zM18 9h6v1.5h-6zM0 10.5h3v1.5h-3zM6 10.5h3v1.5h-3zM12 10.5h3v1.5h-3zM18 10.5h6v1.5h-6zM0 12h3v1.5h-3zM6 12h3v1.5h-3zM12 12h6v1.5h-6zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM6 13.5h3v1.5h-3zM12 13.5h6v1.5h-6zM21 13.5h3v1.5h-3zM0 15h3v1.5h-3zM21 15h3v1.5h-3zM0 16.5h3v1.5h-3zM21 16.5h3v1.5h-3zM0 18h24v1.5h-24zM0 19.5h24v1.5h-24z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v14a3 3"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8.03c0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8.67c0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h6.49c."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 8v7.5a.5.5 0 0 1-.5.5H3a1 1 0 0 1-1-1V8"] {
+        d: path("M0 0h24v1.5h-24zM0 1.5h24v1.5h-24zM0 3h3v1.5h-3zM21 3h3v1.5h-3zM0 4.5h3v1.5h-3zM21 4.5h3v1.5h-3zM0 6h3v1.5h-3zM6 6h6v1.5h-6zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h6v1.5h-6zM21 9h3v1.5h-3zM0 10.5h3v1.5h-3zM6 10.5h6v1.5h-6zM21 10.5h3v1.5h-3zM0 12h3v1.5h-3zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM0 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM0 15h3v1.5h-3zM9 15h12v1.5h-12zM0 16.5h3v1.5h-3zM9 16.5h12v1.5h-12zM0 18h24v1.5h-24zM0 19.5h24v1.5h-24z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5ZM4 "] {
+        d: path("M7.5 3h10.5v1.5h-10.5zM3 6h18v1.5h-18zM3 7.5h1.5v1.5h-1.5zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h6v1.5h-6zM16.5 13.5h6v1.5h-6zM3 15h1.5v1.5h-1.5zM9 15h1.5v1.5h-1.5zM15 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM10.5 16.5h1.5v1.5h-1.5zM13.5 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5"] {
+        d: path("M10.5 1.5h1.5v1.5h-1.5zM6 3h4.5v1.5h-4.5zM12 3h4.5v1.5h-4.5zM4.5 4.5h1.5v1.5h-1.5zM16.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM10.5 6h3v1.5h-3zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM10.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM18 9h1.5v1.5h-1.5zM1.5 10.5h1.5v1.5h-1.5zM10.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM10.5 12h3v1.5h-3zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM10.5 13.5h3v1.5h-3zM18 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM10.5 16.5h3v1.5h-3zM16.5 16.5h1.5v1.5h-1.5zM6 18h4.5v1.5h-4.5zM12 18h4.5v1.5h-4.5zM10.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.87 2.31A.5.5 0 0 1 9.34 2h10.92c.36 0 ."] {
+        d: path("M10.5 3h9v1.5h-9zM10.5 4.5h9v1.5h-9zM13.5 6h3v1.5h-3zM13.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM12 12h3v1.5h-3zM12 13.5h3v1.5h-3zM12 15h3v1.5h-3zM12 16.5h3v1.5h-3zM7.5 18h9v1.5h-9zM7.5 19.5h9v1.5h-9z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.8 14.6c-.45.31-.9.6-1.37.89l-.02.01-1.1"] {
+        d: path("M18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM12 6h12v1.5h-12zM12 7.5h12v1.5h-12zM9 9h12v1.5h-12zM9 10.5h12v1.5h-12zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM3 15h12v1.5h-12zM3 16.5h12v1.5h-12zM0 18h12v1.5h-12zM0 19.5h12v1.5h-12zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.32 14.72a1 1 0 0 1 0-1.41l2.51-2.51a3."] {
+        d: path("M3 6h18v1.5h-18zM3 7.5h1.5v1.5h-1.5zM10.5 7.5h3v1.5h-3zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM10.5 9h3v1.5h-3zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM10.5 10.5h3v1.5h-3zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM10.5 12h3v1.5h-3zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM10.5 13.5h3v1.5h-3zM19.5 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM19.5 15h1.5v1.5h-1.5zM3 16.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 9h1V6a5 5 0 0 1 10 0v3h1a3 3 0 0 1 3 3v"] {
+        d: path("M7.5 4.5h9v1.5h-9zM7.5 6h9v1.5h-9zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM4.5 10.5h15v1.5h-15zM4.5 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM4.5 13.5h1.5v1.5h-1.5zM10.5 13.5h3v1.5h-3zM18 13.5h1.5v1.5h-1.5zM4.5 15h1.5v1.5h-1.5zM10.5 15h3v1.5h-3zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM10.5 16.5h3v1.5h-3zM18 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM18 18h1.5v1.5h-1.5zM4.5 19.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 12a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9 10a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1"] {
         d: path("M0 0h15v1.5h-15zM0 1.5h15v1.5h-15zM0 3h3v1.5h-3zM0 4.5h3v1.5h-3zM0 6h3v1.5h-3zM15 6h3v1.5h-3zM0 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM0 9h3v1.5h-3zM6 9h18v1.5h-18zM0 10.5h3v1.5h-3zM6 10.5h18v1.5h-18zM0 12h3v1.5h-3zM15 12h3v1.5h-3zM0 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM0 15h3v1.5h-3zM0 16.5h3v1.5h-3zM0 18h15v1.5h-15zM0 19.5h15v1.5h-15z");
         shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3.18 3.12c.49.24.73.79.66 1.32-.27 2 .1 4"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.59 3.78c.22-.66.98-.97 1.6-.66.48.24.73"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.5 8a3 3 0 1 0-2.7-4.3c-.2.4.06.86.44 1"] {
+        d: path("M6 6h3v1.5h-3zM15 6h3v1.5h-3zM4.5 7.5h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM18 7.5h1.5v1.5h-1.5zM4.5 9h1.5v1.5h-1.5zM9 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM18 9h1.5v1.5h-1.5zM6 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM3 13.5h18v1.5h-18zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2a4 4 0 0 0-4 4v4a4 4 0 0 0 8 0V6a4 4 "] {
+        d: path("M9 3h6v1.5h-6zM9 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM9 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM9 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h1.5v1.5h-1.5zM13.5 10.5h1.5v1.5h-1.5zM9 12h1.5v1.5h-1.5zM13.5 12h1.5v1.5h-1.5zM9 13.5h6v1.5h-6zM7.5 15h9v1.5h-9zM7.5 16.5h9v1.5h-9zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3zM7.5 22.5h9v1.5h-9z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="m2.7 22.7 20-20a1 1 0 0 0-1.4-1.4l-20 20a1"] {
+        d: path("M9 3h6v1.5h-6zM9 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM9 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM9 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h1.5v1.5h-1.5zM13.5 10.5h1.5v1.5h-1.5zM9 12h1.5v1.5h-1.5zM13.5 12h1.5v1.5h-1.5zM9 13.5h4.5v1.5h-4.5zM7.5 15h7.5v1.5h-7.5zM7.5 16.5h9v1.5h-9zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3zM7.5 22.5h9v1.5h-9z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22 12a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h18a1 "] {
+        d: path("M4.5 10.5h15v1.5h-15zM4.5 12h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.76 20.14c.12-.12.3-.15.46-.1.3.1.6.14."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.5 21.7a8.95 8.95 0 0 1 9 0 1 1 0 0 0 1-"] {
+        d: path("M6 3h15v1.5h-15zM6 4.5h15v1.5h-15zM6 6h3v1.5h-3zM18 6h3v1.5h-3zM6 7.5h3v1.5h-3zM18 7.5h3v1.5h-3zM6 9h15v1.5h-15zM6 10.5h15v1.5h-15zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM6 15h3v1.5h-3zM6 16.5h3v1.5h-3zM6 18h3v1.5h-3zM6 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10-2a2 "] {
+        d: path("M3 10.5h4.5v1.5h-4.5zM9 10.5h4.5v1.5h-4.5zM15 10.5h4.5v1.5h-4.5zM3 12h4.5v1.5h-4.5zM9 12h4.5v1.5h-4.5zM15 12h4.5v1.5h-4.5zM3 13.5h4.5v1.5h-4.5zM9 13.5h4.5v1.5h-4.5zM15 13.5h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm2 10a2 "] {
+        d: path("M9 0h6v1.5h-6zM9 1.5h6v1.5h-6zM9 3h6v1.5h-6zM9 4.5h6v1.5h-6zM9 9h6v1.5h-6zM9 10.5h6v1.5h-6zM9 12h6v1.5h-6zM9 13.5h6v1.5h-6zM9 18h6v1.5h-6zM9 19.5h6v1.5h-6zM9 21h6v1.5h-6zM9 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M8.65 1.51A2 2 0 0 0 6 3.41v9.88A3.98 3.98"] {
+        d: path("M13.5 3h7.5v1.5h-7.5zM13.5 4.5h7.5v1.5h-7.5zM13.5 6h3v1.5h-3zM13.5 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM13.5 10.5h3v1.5h-3zM13.5 12h3v1.5h-3zM6 13.5h10.5v1.5h-10.5zM6 15h10.5v1.5h-10.5zM6 16.5h4.5v1.5h-4.5zM6 18h4.5v1.5h-4.5zM6 19.5h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3a1 1 "] {
+        d: path("M6 4.5h4.5v1.5h-4.5zM13.5 4.5h4.5v1.5h-4.5zM6 6h4.5v1.5h-4.5zM13.5 6h4.5v1.5h-4.5zM6 7.5h4.5v1.5h-4.5zM13.5 7.5h4.5v1.5h-4.5zM6 9h4.5v1.5h-4.5zM13.5 9h4.5v1.5h-4.5zM6 10.5h4.5v1.5h-4.5zM13.5 10.5h4.5v1.5h-4.5zM6 12h4.5v1.5h-4.5zM13.5 12h4.5v1.5h-4.5zM6 13.5h4.5v1.5h-4.5zM13.5 13.5h4.5v1.5h-4.5zM6 15h4.5v1.5h-4.5zM13.5 15h4.5v1.5h-4.5zM6 16.5h4.5v1.5h-4.5zM13.5 16.5h4.5v1.5h-4.5zM6 18h4.5v1.5h-4.5zM13.5 18h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 4a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v16a3 3 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 7.4A5.4 5.4 0 0 1 7.4 2c.36 0 .7.22.83."] {
+        d: path("M15 1.5h9v1.5h-9zM15 3h9v1.5h-9zM15 4.5h9v1.5h-9zM12 6h9v1.5h-9zM12 7.5h9v1.5h-9zM9 9h9v1.5h-9zM9 10.5h9v1.5h-9zM6 12h9v1.5h-9zM1.5 13.5h13.5v1.5h-13.5zM1.5 15h10.5v1.5h-10.5zM1.5 16.5h10.5v1.5h-10.5zM1.5 18h7.5v1.5h-7.5zM1.5 19.5h7.5v1.5h-7.5zM1.5 21h4.5v1.5h-4.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.38 11.38a3 3 0 0 0 4.24 0l.03-.03a.5.5"] {
+        d: path("M7.5 3h9v1.5h-9zM7.5 4.5h9v1.5h-9zM7.5 6h9v1.5h-9zM7.5 7.5h9v1.5h-9zM9 9h6v1.5h-6zM9 10.5h6v1.5h-6zM9 12h6v1.5h-6zM9 13.5h6v1.5h-6zM9 15h6v1.5h-6zM9 16.5h6v1.5h-6zM6 18h12v1.5h-12zM6 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22ZM9 8"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M9.25 3.35C7.87 2.45 6 3.38 6 4.96v14.08c0"] {
+        d: path("M0 0h6v1.5h-6zM0 1.5h6v1.5h-6zM0 3h12v1.5h-12zM0 4.5h12v1.5h-12zM0 6h18v1.5h-18zM0 7.5h18v1.5h-18zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM0 12h24v1.5h-24zM0 13.5h24v1.5h-24zM0 15h18v1.5h-18zM0 16.5h18v1.5h-18zM0 18h12v1.5h-12zM0 19.5h12v1.5h-12zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15 4a1 1 0 0 0-.95 1.32l.9 2.68h-4.6l-.92"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.62 2.08a1 1 0 0 1 1.09.21l5 5a1 1 0 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 7.83a3 3 0 1 0-2 0V11H8a4 4 0 0 0-4 4v"] {
+        d: path("M3 0h3v1.5h-3zM18 0h3v1.5h-3zM3 1.5h3v1.5h-3zM18 1.5h3v1.5h-3zM3 3h3v1.5h-3zM18 3h3v1.5h-3zM3 4.5h3v1.5h-3zM18 4.5h3v1.5h-3zM0 6h24v1.5h-24zM0 7.5h24v1.5h-24zM0 9h24v1.5h-24zM0 10.5h24v1.5h-24zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM6 15h12v1.5h-12zM6 16.5h12v1.5h-12zM9 18h6v1.5h-6zM9 19.5h6v1.5h-6zM9 21h6v1.5h-6zM9 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm0-1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v6a"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 6a1 1 0 1 0-2 0v5H6a1 1 0 1 0 0 2h5v5a"] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM10.5 6h3v1.5h-3zM10.5 7.5h3v1.5h-3zM10.5 9h3v1.5h-3zM3 10.5h18v1.5h-18zM3 12h18v1.5h-18zM10.5 13.5h3v1.5h-3zM10.5 15h3v1.5h-3zM10.5 16.5h3v1.5h-3zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 19V5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v14a"] {
+        d: path("M0 3h6v1.5h-6zM0 4.5h6v1.5h-6zM0 6h6v1.5h-6zM9 6h12v1.5h-12zM0 7.5h6v1.5h-6zM9 7.5h12v1.5h-12zM0 12h6v1.5h-6zM0 13.5h6v1.5h-6zM0 15h6v1.5h-6zM9 15h6v1.5h-6zM0 16.5h6v1.5h-6zM9 16.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.35 19.44A4.75 4.75 0 0 0 6.07 21c1.43 0"] {
+        d: path("M4.5 6h4.5v1.5h-4.5zM12 6h4.5v1.5h-4.5zM4.5 7.5h4.5v1.5h-4.5zM12 7.5h4.5v1.5h-4.5zM3 9h6v1.5h-6zM10.5 9h6v1.5h-6zM3 10.5h3v1.5h-3zM10.5 10.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.61 2.26c.25-.34.16-.92-.25-1A11 11 0 0"] {
+        d: path("M18 3h3v1.5h-3zM7.5 4.5h6v1.5h-6zM18 4.5h3v1.5h-3zM4.5 6h3v1.5h-3zM13.5 6h10.5v1.5h-10.5zM4.5 7.5h1.5v1.5h-1.5zM15 7.5h9v1.5h-9zM3 9h1.5v1.5h-1.5zM16.5 9h4.5v1.5h-4.5zM3 10.5h1.5v1.5h-1.5zM7.5 10.5h3v1.5h-3zM13.5 10.5h7.5v1.5h-7.5zM3 12h1.5v1.5h-1.5zM7.5 12h3v1.5h-3zM13.5 12h4.5v1.5h-4.5zM3 13.5h1.5v1.5h-1.5zM16.5 13.5h1.5v1.5h-1.5zM4.5 15h12v1.5h-12zM4.5 16.5h3v1.5h-3zM13.5 16.5h3v1.5h-3zM7.5 18h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.3 7.3a1 1 0 0 0 0 1.4l5 5a1 1 0 0 0 1.4"] {
+        d: path("M6 4.5h3v1.5h-3zM6 6h3v1.5h-3zM3 7.5h6v1.5h-6zM3 9h6v1.5h-6zM3 10.5h13.5v1.5h-13.5zM3 12h13.5v1.5h-13.5zM3 13.5h6v1.5h-6zM16.5 13.5h3v1.5h-3zM3 15h6v1.5h-6zM16.5 15h3v1.5h-3zM6 16.5h3v1.5h-3zM13.5 16.5h6v1.5h-6zM6 18h3v1.5h-3zM13.5 18h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.7 8.68a.93.93 0 0 1 1.07-.63c.51.1.84."] {
+        d: path("M3 3h18v1.5h-18zM3 4.5h1.5v1.5h-1.5zM7.5 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM19.5 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM7.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM19.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h7.5v1.5h-7.5zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h1.5v1.5h-1.5zM7.5 15h9v1.5h-9zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM7.5 16.5h1.5v1.5h-1.5zM15 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h1.5v1.5h-1.5zM7.5 18h1.5v1.5h-1.5zM15 18h1.5v1.5h-1.5zM19.5 18h1.5v1.5h-1.5zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a9 9 0 0 0-7.47 14.03c.28.41.28.97-.0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm16 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3 3 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 3a3 3 0 0 0-3 3v9a3 3 0 0 0 3 3h16a3 3 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h11a3 3"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 4a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h8.5a.5"] {
+        d: path("M3 4.5h18v1.5h-18zM3 6h1.5v1.5h-1.5zM19.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h18v1.5h-18zM10.5 16.5h3v1.5h-3zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3zM6 21h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.46 15.46a5 5 0 0 1 7.07 0 5 5 0 0 1-7."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm6.3"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM9.2"] {
+        d: path("M1.5 1.5h1.5v1.5h-1.5zM3 3h1.5v1.5h-1.5zM4.5 4.5h1.5v1.5h-1.5zM7.5 4.5h13.5v1.5h-13.5zM3 6h1.5v1.5h-1.5zM6 6h1.5v1.5h-1.5zM19.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM19.5 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM9 9h1.5v1.5h-1.5zM19.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM10.5 10.5h1.5v1.5h-1.5zM19.5 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM12 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM13.5 13.5h1.5v1.5h-1.5zM19.5 13.5h1.5v1.5h-1.5zM3 15h10.5v1.5h-10.5zM15 15h1.5v1.5h-1.5zM18 15h3v1.5h-3zM10.5 16.5h3v1.5h-3zM16.5 16.5h1.5v1.5h-1.5zM10.5 18h3v1.5h-3zM18 18h1.5v1.5h-1.5zM10.5 19.5h3v1.5h-3zM19.5 19.5h1.5v1.5h-1.5zM6 21h12v1.5h-12zM21 21h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.62 17.03a9 9 0 1 1 1.41-1.41l4.68 4.67"] {
+        d: path("M9 1.5h1.5v1.5h-1.5zM4.5 3h4.5v1.5h-4.5zM10.5 3h4.5v1.5h-4.5zM3 4.5h3v1.5h-3zM13.5 4.5h3v1.5h-3zM3 6h1.5v1.5h-1.5zM15 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM15 7.5h1.5v1.5h-1.5zM1.5 9h1.5v1.5h-1.5zM16.5 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM15 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM15 12h1.5v1.5h-1.5zM3 13.5h3v1.5h-3zM13.5 13.5h3v1.5h-3zM4.5 15h4.5v1.5h-4.5zM10.5 15h7.5v1.5h-7.5zM9 16.5h1.5v1.5h-1.5zM16.5 16.5h3v1.5h-3zM18 18h3v1.5h-3zM19.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.6 10.02 14 11.4a.6.6 0 0 1 0 1.18L6.6 1"] {
+        d: path("M16.5 1.5h6v1.5h-6zM16.5 3h6v1.5h-6zM18 4.5h4.5v1.5h-4.5zM16.5 6h1.5v1.5h-1.5zM19.5 6h3v1.5h-3zM15 7.5h1.5v1.5h-1.5zM18 7.5h4.5v1.5h-4.5zM13.5 9h1.5v1.5h-1.5zM16.5 9h1.5v1.5h-1.5zM12 10.5h1.5v1.5h-1.5zM15 10.5h1.5v1.5h-1.5zM10.5 12h1.5v1.5h-1.5zM13.5 12h1.5v1.5h-1.5zM9 13.5h1.5v1.5h-1.5zM12 13.5h1.5v1.5h-1.5zM6 15h3v1.5h-3zM10.5 15h1.5v1.5h-1.5zM4.5 16.5h6v1.5h-6zM4.5 18h4.5v1.5h-4.5zM3 19.5h1.5v1.5h-1.5zM6 19.5h1.5v1.5h-1.5zM4.5 21h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.55 4.4c.13-.24.1-.54-.12-.71L8.6 2.24a"] {
+        d: path("M3 4.5h18v1.5h-18zM3 6h1.5v1.5h-1.5zM6 6h3v1.5h-3zM15 6h3v1.5h-3zM19.5 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM6 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM19.5 7.5h1.5v1.5h-1.5zM3 9h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h1.5v1.5h-1.5zM6 15h3v1.5h-3zM15 15h3v1.5h-3zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM6 16.5h3v1.5h-3zM15 16.5h3v1.5h-3zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.56 1.1c-.46.05-.7.53-.64.98.18 1.16-.1"] {
+        d: path("M7.5 3h3v1.5h-3zM7.5 4.5h3v1.5h-3zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM7.5 9h3v1.5h-3zM7.5 10.5h3v1.5h-3zM15 12h3v1.5h-3zM15 13.5h3v1.5h-3zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM15 18h3v1.5h-3zM15 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.26 12.45c.1.03.18.08.25.14l.52.44 5.26 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.05 8.76a4.7 4.7 0 0 1-1.29-.88c-.36-.3"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M20.3 5.41h-.39c-.84 0-1.52-.65-1.52-1.46v"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 20.59V19.4a1 1 0 0 1 .3-.7l2.4-2.42a1 1"] {
+        d: path("M4.5 3h15v1.5h-15zM4.5 4.5h15v1.5h-15zM3 6h18v1.5h-18zM3 7.5h18v1.5h-18zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM4.5 12h15v1.5h-15zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM7.5 16.5h9v1.5h-9zM7.5 18h9v1.5h-9zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6.69 2A3 3 0 0 0 3.7 4.67l-.33 3A3 3 0 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.41 3.59 11.6 2.4a2 2 0 0 1 2.82 0l1.3 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.63 4.19A3 3 0 0 1 5.53 2H7a1 1 0 0 1 1 "] {
+        d: path("M7.5 1.5h3v1.5h-3zM13.5 1.5h3v1.5h-3zM7.5 3h3v1.5h-3zM13.5 3h3v1.5h-3zM6 4.5h12v1.5h-12zM6 6h12v1.5h-12zM4.5 9h15v1.5h-15zM4.5 10.5h1.5v1.5h-1.5zM18 10.5h1.5v1.5h-1.5zM4.5 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM4.5 13.5h1.5v1.5h-1.5zM9 13.5h6v1.5h-6zM18 13.5h1.5v1.5h-1.5zM4.5 15h1.5v1.5h-1.5zM18 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM18 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM18 18h1.5v1.5h-1.5zM4.5 19.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 3a1 1 0 0 1 1-1c6.92 0 12.97 3.7 16.3 9"] {
+        d: path("M0 0h3v1.5h-3zM6 0h3v1.5h-3zM0 1.5h3v1.5h-3zM6 1.5h3v1.5h-3zM3 3h3v1.5h-3zM3 4.5h3v1.5h-3zM0 6h3v1.5h-3zM6 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h3v1.5h-3zM0 18h6v1.5h-6zM9 18h6v1.5h-6zM18 18h6v1.5h-6zM0 19.5h6v1.5h-6zM9 19.5h6v1.5h-6zM18 19.5h6v1.5h-6zM0 21h6v1.5h-6zM9 21h6v1.5h-6zM18 21h6v1.5h-6zM0 22.5h6v1.5h-6zM9 22.5h6v1.5h-6zM18 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 13a1 1 0 0 1 1-1 9 9 0 0 1 9 9 1 1 0 1 "] {
+        d: path("M0 12h6v1.5h-6zM0 13.5h6v1.5h-6zM0 15h6v1.5h-6zM0 16.5h6v1.5h-6zM0 18h6v1.5h-6zM9 18h6v1.5h-6zM18 18h6v1.5h-6zM0 19.5h6v1.5h-6zM9 19.5h6v1.5h-6zM18 19.5h6v1.5h-6zM0 21h6v1.5h-6zM9 21h6v1.5h-6zM18 21h6v1.5h-6zM0 22.5h6v1.5h-6zM9 22.5h6v1.5h-6zM18 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M3 7a1 1 0 0 0 0 2 12 12 0 0 1 12 12 1 1 0"] {
+        d: path("M9 6h6v1.5h-6zM9 7.5h6v1.5h-6zM9 9h6v1.5h-6zM9 10.5h6v1.5h-6zM0 12h6v1.5h-6zM9 12h6v1.5h-6zM0 13.5h6v1.5h-6zM9 13.5h6v1.5h-6zM0 15h6v1.5h-6zM9 15h6v1.5h-6zM0 16.5h6v1.5h-6zM9 16.5h6v1.5h-6zM0 18h6v1.5h-6zM9 18h6v1.5h-6zM18 18h6v1.5h-6zM0 19.5h6v1.5h-6zM9 19.5h6v1.5h-6zM18 19.5h6v1.5h-6zM0 21h6v1.5h-6zM9 21h6v1.5h-6zM18 21h6v1.5h-6zM0 22.5h6v1.5h-6zM9 22.5h6v1.5h-6zM18 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M2 3a1 1 0 0 1 1-1 19 19 0 0 1 19 19 1 1 0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.38 21c.61 0 1.23-.18 1.7-.58a11 11 0 1"] {
+        d: path("M18 0h6v1.5h-6zM18 1.5h6v1.5h-6zM18 3h6v1.5h-6zM18 4.5h6v1.5h-6zM9 6h6v1.5h-6zM18 6h6v1.5h-6zM9 7.5h6v1.5h-6zM18 7.5h6v1.5h-6zM9 9h6v1.5h-6zM18 9h6v1.5h-6zM9 10.5h6v1.5h-6zM18 10.5h6v1.5h-6zM0 12h6v1.5h-6zM9 12h6v1.5h-6zM18 12h6v1.5h-6zM0 13.5h6v1.5h-6zM9 13.5h6v1.5h-6zM18 13.5h6v1.5h-6zM0 15h6v1.5h-6zM9 15h6v1.5h-6zM18 15h6v1.5h-6zM0 16.5h6v1.5h-6zM9 16.5h6v1.5h-6zM18 16.5h6v1.5h-6zM0 18h6v1.5h-6zM9 18h6v1.5h-6zM18 18h6v1.5h-6zM0 19.5h6v1.5h-6zM9 19.5h6v1.5h-6zM18 19.5h6v1.5h-6zM0 21h6v1.5h-6zM9 21h6v1.5h-6zM18 21h6v1.5h-6zM0 22.5h6v1.5h-6zM9 22.5h6v1.5h-6zM18 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-2 0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3H5Zm12.7"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.12 2a.5.5 0 0 1 .43.76L8.22 21.64a.75."] {
+        d: path("M18 3h3v1.5h-3zM16.5 4.5h3v1.5h-3zM15 6h3v1.5h-3zM15 7.5h3v1.5h-3zM13.5 9h3v1.5h-3zM12 10.5h3v1.5h-3zM10.5 12h3v1.5h-3zM9 13.5h3v1.5h-3zM7.5 15h3v1.5h-3zM7.5 16.5h3v1.5h-3zM6 18h3v1.5h-3zM4.5 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.24 1.03a1 1 0 0 1 .73 1.21l-1 4a1 1 0 "] {
+        d: path("M4.5 3h1.5v1.5h-1.5zM12 3h1.5v1.5h-1.5zM19.5 3h1.5v1.5h-1.5zM4.5 4.5h1.5v1.5h-1.5zM12 4.5h1.5v1.5h-1.5zM19.5 4.5h1.5v1.5h-1.5zM1.5 6h7.5v1.5h-7.5zM12 6h1.5v1.5h-1.5zM19.5 6h1.5v1.5h-1.5zM1.5 7.5h7.5v1.5h-7.5zM12 7.5h1.5v1.5h-1.5zM19.5 7.5h1.5v1.5h-1.5zM4.5 9h1.5v1.5h-1.5zM12 9h1.5v1.5h-1.5zM16.5 9h7.5v1.5h-7.5zM4.5 10.5h1.5v1.5h-1.5zM12 10.5h1.5v1.5h-1.5zM16.5 10.5h7.5v1.5h-7.5zM4.5 12h1.5v1.5h-1.5zM12 12h1.5v1.5h-1.5zM19.5 12h1.5v1.5h-1.5zM4.5 13.5h1.5v1.5h-1.5zM9 13.5h7.5v1.5h-7.5zM19.5 13.5h1.5v1.5h-1.5zM4.5 15h1.5v1.5h-1.5zM9 15h7.5v1.5h-7.5zM19.5 15h1.5v1.5h-1.5zM4.5 16.5h1.5v1.5h-1.5zM12 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM4.5 18h1.5v1.5h-1.5zM12 18h1.5v1.5h-1.5zM19.5 18h1.5v1.5h-1.5zM4.5 19.5h1.5v1.5h-1.5zM12 19.5h1.5v1.5h-1.5zM19.5 19.5h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.45 6.05c.3-.1.6.09.72.38l.04.09c.26.59"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24c.19.5.57.88 1.07 1.07l1.24.46c.95.35.95 1.7 0 2.04l-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M24 12c0 1.2-1.95 2.1-2.25 3.15-.3 1.05.6 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.65 21.75a1 1 0 0 0 1.64.96l11.24-9.96a1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M15.7 12a5.6 5.6 0 0 1 5.67 5.5c0 .57-.09 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.37 9.04c.25-.26.73-.2 1.06.13L15 10.7c"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M16.23 12c0 1.29-.95 2.25-2.22 2.25A2.18 2"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.75 7.57a5.12 5.12 0 0 1-3.86 3.87.42.4"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.14 2.8a1.21 1.21 0 0 0-2.28 0l-.5 1.37"] {
+        d: path("M10.5 1.5h3v1.5h-3zM10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM10.5 6h3v1.5h-3zM7.5 7.5h9v1.5h-9zM7.5 9h9v1.5h-9zM1.5 10.5h21v1.5h-21zM1.5 12h21v1.5h-21zM7.5 13.5h9v1.5h-9zM7.5 15h9v1.5h-9zM10.5 16.5h3v1.5h-3zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3zM10.5 21h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M19.61 18.25a1.08 1.08 0 0 1-.07-1.33 9 9 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.92 14.08c.32.27.86.15.93-.26A11 11 0 1"] {
+        d: path("M9 1.5h6v1.5h-6zM9 3h6v1.5h-6zM9 4.5h6v1.5h-6zM9 6h6v1.5h-6zM6 9h12v1.5h-12zM6 10.5h12v1.5h-12zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM3 16.5h18v1.5h-18zM3 18h18v1.5h-18zM6 19.5h12v1.5h-12zM6 21h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.26 2.86c.38-1.15 2-1.15 2.38 0l1.89 5."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.16 4.06a2.13 2.13 0 0 1 3.68 0l8 13.77"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.81 2.86c.38-1.15 2-1.15 2.38 0l1.89 5."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M2.07 10.94a1.25 1.25 0 0 1 .73-2.25h6.12l"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M17.93 1.51a.74.74 0 0 0-1.41 0l-1.13 3.47"] {
+        d: path("M9 0h6v1.5h-6zM9 1.5h6v1.5h-6zM9 3h6v1.5h-6zM9 4.5h6v1.5h-6zM0 6h24v1.5h-24zM0 7.5h24v1.5h-24zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM3 15h18v1.5h-18zM3 16.5h18v1.5h-18zM3 18h6v1.5h-6zM15 18h6v1.5h-6zM3 19.5h6v1.5h-6zM15 19.5h6v1.5h-6zM0 21h6v1.5h-6zM18 21h6v1.5h-6zM0 22.5h6v1.5h-6zM18 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M6 2h12a4 4 0 0 1 4 4v7.5a.5.5 0 0 1-.5.5H"] {
+        d: path("M3 3h16.5v1.5h-16.5zM3 4.5h1.5v1.5h-1.5zM18 4.5h1.5v1.5h-1.5zM3 6h1.5v1.5h-1.5zM18 6h1.5v1.5h-1.5zM3 7.5h1.5v1.5h-1.5zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM18 7.5h1.5v1.5h-1.5zM3 9h1.5v1.5h-1.5zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM18 9h1.5v1.5h-1.5zM3 10.5h1.5v1.5h-1.5zM18 10.5h1.5v1.5h-1.5zM3 12h1.5v1.5h-1.5zM18 12h1.5v1.5h-1.5zM3 13.5h1.5v1.5h-1.5zM7.5 13.5h13.5v1.5h-13.5zM3 15h1.5v1.5h-1.5zM15 15h1.5v1.5h-1.5zM19.5 15h1.5v1.5h-1.5zM3 16.5h1.5v1.5h-1.5zM15 16.5h1.5v1.5h-1.5zM19.5 16.5h1.5v1.5h-1.5zM3 18h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.1 22.5c-1.8 0-3.3-.37-4.53-1.11A7.95 7"] {
+        d: path("M10.5 3h6v1.5h-6zM10.5 4.5h6v1.5h-6zM7.5 6h3v1.5h-3zM7.5 7.5h3v1.5h-3zM10.5 9h3v1.5h-3zM10.5 10.5h3v1.5h-3zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM7.5 15h6v1.5h-6zM7.5 16.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M21 2a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M4 12a8 8 0 0 1 14.93-4H15a1 1 0 1 0 0 2h6"] {
+        d: path("M3 0h15v1.5h-15zM3 1.5h15v1.5h-15zM0 3h3v1.5h-3zM15 3h3v1.5h-3zM0 4.5h3v1.5h-3zM15 4.5h3v1.5h-3zM0 6h3v1.5h-3zM12 6h9v1.5h-9zM0 7.5h3v1.5h-3zM12 7.5h9v1.5h-9zM0 9h3v1.5h-3zM15 9h3v1.5h-3zM0 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM6 12h3v1.5h-3zM21 12h3v1.5h-3zM6 13.5h3v1.5h-3zM21 13.5h3v1.5h-3zM3 15h9v1.5h-9zM21 15h3v1.5h-3zM3 16.5h9v1.5h-9zM21 16.5h3v1.5h-3zM6 18h3v1.5h-3zM21 18h3v1.5h-3zM6 19.5h3v1.5h-3zM21 19.5h3v1.5h-3zM6 21h15v1.5h-15zM6 22.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12.24 2a3 3 0 0 0-2.12.88l-8.25 8.25a3 3 "] {
+        d: path("M6 4.5h9v1.5h-9zM6 6h12v1.5h-12zM3 7.5h15v1.5h-15zM3 9h3v1.5h-3zM9 9h12v1.5h-12zM3 10.5h3v1.5h-3zM9 10.5h12v1.5h-12zM3 12h18v1.5h-18zM3 13.5h18v1.5h-18zM3 15h15v1.5h-15zM6 16.5h12v1.5h-12zM6 18h9v1.5h-9z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 2.81a1 1 0 0 1 0-1.41l.36-.36a1 1 0 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M19 15a2.5 2.5 0 0 1 2.5 2.5v.5h.5a1 1 0 0"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m12.58 18.26-9.55-6.72a1 1 0 0 0-1.3.13l-."] {
+        d: path("M3 4.5h7.5v1.5h-7.5zM3 6h7.5v1.5h-7.5zM3 7.5h9v1.5h-9zM3 9h9v1.5h-9zM3 10.5h7.5v1.5h-7.5zM12 10.5h1.5v1.5h-1.5zM6 12h1.5v1.5h-1.5zM12 12h9v1.5h-9zM6 13.5h1.5v1.5h-1.5zM12 13.5h9v1.5h-9zM6 15h1.5v1.5h-1.5zM12 15h9v1.5h-9zM6 16.5h1.5v1.5h-1.5zM12 16.5h9v1.5h-9zM6 18h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M14.25 1c.41 0 .75.34.75.75V3h5.25c.41 0 ."] {
+        d: path("M9 3h6v1.5h-6zM9 4.5h6v1.5h-6zM4.5 6h15v1.5h-15zM6 7.5h12v1.5h-12zM6 9h12v1.5h-12zM6 10.5h12v1.5h-12zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM6 15h12v1.5h-12zM6 16.5h12v1.5h-12zM6 18h12v1.5h-12zM6 19.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M13.76 4.97a1 1 0 0 1-.73-1.21l.5-2a1 1 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10.89 11.79A3 3 0 1 0 13.1 6.2a3 3 0 0 0-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M8 20a1 1 0 0 0-1 1v.5c0 .28.22.5.5.5h9a.5"] {
+        d: path("M0 0h24v1.5h-24zM0 1.5h24v1.5h-24zM3 3h18v1.5h-18zM3 4.5h18v1.5h-18zM0 6h3v1.5h-3zM6 6h12v1.5h-12zM21 6h3v1.5h-3zM0 7.5h3v1.5h-3zM6 7.5h12v1.5h-12zM21 7.5h3v1.5h-3zM3 9h18v1.5h-18zM3 10.5h18v1.5h-18zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM9 15h6v1.5h-6zM9 16.5h6v1.5h-6zM9 18h6v1.5h-6zM9 19.5h6v1.5h-6zM3 21h18v1.5h-18zM3 22.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.03 16.6c1.18 1.17 2.84 1.76 4.97 1.76s3"] {
+        d: path("M7.5 3h3v1.5h-3zM13.5 3h3v1.5h-3zM7.5 4.5h3v1.5h-3zM13.5 4.5h3v1.5h-3zM7.5 6h3v1.5h-3zM13.5 6h3v1.5h-3zM7.5 7.5h3v1.5h-3zM13.5 7.5h3v1.5h-3zM7.5 9h3v1.5h-3zM13.5 9h3v1.5h-3zM7.5 10.5h3v1.5h-3zM13.5 10.5h3v1.5h-3zM7.5 12h3v1.5h-3zM13.5 12h3v1.5h-3zM7.5 13.5h3v1.5h-3zM13.5 13.5h3v1.5h-3zM7.5 15h9v1.5h-9zM7.5 16.5h9v1.5h-9zM4.5 21h15v1.5h-15zM4.5 22.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M13 16V5.41l3.3 3.3a1 1 0 1 0 1.4-1.42l-5-"] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM9 6h6v1.5h-6zM9 7.5h6v1.5h-6zM7.5 9h9v1.5h-9zM7.5 10.5h9v1.5h-9zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM10.5 15h3v1.5h-3zM10.5 16.5h3v1.5h-3zM10.5 18h3v1.5h-3zM6 21h12v1.5h-12zM6 22.5h12v1.5h-12z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.46 20.9a12.65 12.65 0 0 1-1.46.9 10.95"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM11.53 "] {
+        d: path("M9 3h4.5v1.5h-4.5zM7.5 4.5h1.5v1.5h-1.5zM13.5 4.5h1.5v1.5h-1.5zM7.5 6h1.5v1.5h-1.5zM13.5 6h1.5v1.5h-1.5zM7.5 7.5h1.5v1.5h-1.5zM13.5 7.5h1.5v1.5h-1.5zM7.5 9h1.5v1.5h-1.5zM13.5 9h1.5v1.5h-1.5zM9 10.5h4.5v1.5h-4.5zM4.5 13.5h15v1.5h-15zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM4.5 18h15v1.5h-15zM4.5 19.5h15v1.5h-15zM4.5 21h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M11.33 13.68c.41.27.93.27 1.34 0 1.73-1.1 "] {
+        d: path("M6 0h6v1.5h-6zM6 1.5h6v1.5h-6zM3 3h12v1.5h-12zM3 4.5h12v1.5h-12zM6 6h6v1.5h-6zM6 7.5h6v1.5h-6zM18 9h3v1.5h-3zM18 10.5h3v1.5h-3zM3 12h9v1.5h-9zM15 12h9v1.5h-9zM3 13.5h9v1.5h-9zM15 13.5h9v1.5h-9zM0 15h15v1.5h-15zM18 15h3v1.5h-3zM0 16.5h15v1.5h-15zM18 16.5h3v1.5h-3zM0 18h15v1.5h-15zM0 19.5h15v1.5h-15z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM15."],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M11 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1h-.06a"] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM7.5 6h6v1.5h-6zM16.5 6h3v1.5h-3zM7.5 7.5h6v1.5h-6zM16.5 7.5h3v1.5h-3zM3 9h10.5v1.5h-10.5zM19.5 9h3v1.5h-3zM3 10.5h10.5v1.5h-10.5zM19.5 10.5h3v1.5h-3zM3 12h10.5v1.5h-10.5zM19.5 12h3v1.5h-3zM3 13.5h10.5v1.5h-10.5zM19.5 13.5h3v1.5h-3zM7.5 15h6v1.5h-6zM16.5 15h3v1.5h-3zM7.5 16.5h6v1.5h-6zM16.5 16.5h3v1.5h-3zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM15.2"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM22."] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM7.5 6h6v1.5h-6zM7.5 7.5h6v1.5h-6zM16.5 7.5h1.5v1.5h-1.5zM21 7.5h1.5v1.5h-1.5zM3 9h10.5v1.5h-10.5zM16.5 9h1.5v1.5h-1.5zM21 9h1.5v1.5h-1.5zM3 10.5h10.5v1.5h-10.5zM18 10.5h3v1.5h-3zM3 12h10.5v1.5h-10.5zM18 12h3v1.5h-3zM3 13.5h10.5v1.5h-10.5zM18 13.5h3v1.5h-3zM7.5 15h6v1.5h-6zM18 15h3v1.5h-3zM7.5 16.5h6v1.5h-6zM16.5 16.5h1.5v1.5h-1.5zM21 16.5h1.5v1.5h-1.5zM10.5 18h3v1.5h-3zM10.5 19.5h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M18.09 1.63c.4-.7 1.43-.7 1.82 0l3.96 6.9c"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM16.48 13.71a1.1 1.1 0 0 1 2.04 0l.46 1.24c.19.5.57.88 1.07 1.07l1.24.46c.95.35.95 1.7 0 2.05l-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm1.44"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M21.65 13.63c.1.17.35.1.35-.1V10.5a.5.5 0 "],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="m13.47 1 .07.04c.45.06.9.1 1.35.18.95.17 1"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M10 3.1a2.37 2.37 0 0 1 4 0l8.71 14.75c.84"] {
+        d: path("M10.5 3h3v1.5h-3zM10.5 4.5h3v1.5h-3zM9 6h6v1.5h-6zM9 7.5h6v1.5h-6zM7.5 9h9v1.5h-9zM7.5 10.5h9v1.5h-9zM6 12h12v1.5h-12zM6 13.5h12v1.5h-12zM4.5 15h15v1.5h-15zM4.5 16.5h15v1.5h-15zM3 18h18v1.5h-18zM3 19.5h18v1.5h-18z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M7 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 "] {
+        d: path("M9 4.5h3v1.5h-3zM9 6h3v1.5h-3zM9 7.5h3v1.5h-3zM15 7.5h3v1.5h-3zM3 9h3v1.5h-3zM9 9h3v1.5h-3zM15 9h3v1.5h-3zM3 10.5h3v1.5h-3zM9 10.5h3v1.5h-3zM15 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM3 12h3v1.5h-3zM9 12h3v1.5h-3zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM3 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM15 13.5h3v1.5h-3zM9 15h3v1.5h-3zM15 15h3v1.5h-3zM9 16.5h3v1.5h-3zM9 18h3v1.5h-3z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M22.7 2.7a1 1 0 0 0-1.4-1.4l-20 20a1 1 0 1 0 1.4 1.4l20-20ZM6.8"] {
+        d: path("M1.5 1.5h1.5v1.5h-1.5zM3 3h1.5v1.5h-1.5zM4.5 4.5h1.5v1.5h-1.5zM9 4.5h3v1.5h-3zM6 6h1.5v1.5h-1.5zM9 6h3v1.5h-3zM7.5 7.5h1.5v1.5h-1.5zM10.5 7.5h1.5v1.5h-1.5zM15 7.5h3v1.5h-3zM3 9h3v1.5h-3zM9 9h1.5v1.5h-1.5zM15 9h3v1.5h-3zM3 10.5h3v1.5h-3zM10.5 10.5h1.5v1.5h-1.5zM15 10.5h3v1.5h-3zM21 10.5h3v1.5h-3zM3 12h3v1.5h-3zM9 12h1.5v1.5h-1.5zM12 12h1.5v1.5h-1.5zM15 12h3v1.5h-3zM21 12h3v1.5h-3zM3 13.5h3v1.5h-3zM9 13.5h3v1.5h-3zM13.5 13.5h1.5v1.5h-1.5zM16.5 13.5h1.5v1.5h-1.5zM9 15h3v1.5h-3zM15 15h1.5v1.5h-1.5zM9 16.5h3v1.5h-3zM16.5 16.5h1.5v1.5h-1.5zM9 18h3v1.5h-3zM18 18h1.5v1.5h-1.5zM19.5 19.5h1.5v1.5h-1.5zM21 21h1.5v1.5h-1.5z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > path[d^="M1.23 21.13a1 1 0 0 1 0-1.41l7.48-7.47c.2-"],
+#app-mount svg[viewBox="0 0 24 24"] > path[d^="M7.8 15.77c.7.43 1.2 1.14 1.2 1.96V21a1 1 "] {
+        d: path("M15 0h6v1.5h-6zM15 1.5h6v1.5h-6zM12 3h6v1.5h-6zM12 4.5h6v1.5h-6zM12 6h6v1.5h-6zM21 6h3v1.5h-3zM12 7.5h6v1.5h-6zM21 7.5h3v1.5h-3zM9 9h15v1.5h-15zM9 10.5h15v1.5h-15zM6 12h9v1.5h-9zM6 13.5h9v1.5h-9zM3 15h9v1.5h-9zM3 16.5h9v1.5h-9zM0 18h9v1.5h-9zM0 19.5h9v1.5h-9zM0 21h6v1.5h-6zM0 22.5h6v1.5h-6z");
+        shape-rendering: crispEdges;
+    }
+
+    #app-mount svg[viewBox="0 0 24 24"] > circle[cx="12"][cy="12"][r="10"]:only-child {
+        clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
     }
 
     #app-mount svg[class*="mask_"] rect[fill="#45a366" i],

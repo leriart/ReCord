@@ -316,4 +316,255 @@ def bell_off_icon(g):
 
 make("bell-off", bell_off_icon)
 
+# current Discord glyphs that had no pixel counterpart in the original set
+
+make("arrow-down", lambda g: (
+    g.rect(7, 2, 2, 9),
+    g.rect(5, 8, 2, 2),
+    g.rect(9, 8, 2, 2),
+    g.rect(6, 10, 4, 2),
+))
+make("chevron-left", lambda g: (
+    g.rect(10, 3, 2, 2),
+    g.rect(8, 5, 2, 2),
+    g.rect(6, 7, 2, 2),
+    g.rect(8, 9, 2, 2),
+    g.rect(10, 11, 2, 2),
+))
+
+art("at", [
+    "..####..",
+    ".#....#.",
+    "#..##..#",
+    "#.#..#.#",
+    "#.#..#.#",
+    "#..###..",
+    ".#......",
+    "..#####.",
+])
+make("bold", lambda g: g.text3x5("B", 5, 2, 2))
+
+def italic_icon(g):
+    g.rect(7, 2, 6, 2)
+    g.rect(5, 12, 6, 2)
+    g.rect(9, 4, 2, 4)
+    g.rect(8, 8, 2, 4)
+
+make("italic", italic_icon)
+make("underline", lambda g: (g.text3x5("U", 5, 2, 2), g.rect(3, 14, 10, 2)))
+make("strike", lambda g: (g.text3x5("S", 5, 2, 2), g.rect(2, 8, 12, 2)))
+
+def bug_icon(g):
+    g.rect(6, 1, 4, 2)
+    g.rect(4, 3, 8, 2)
+    g.rect(3, 5, 10, 8)
+    g.rect(5, 6, 2, 2, 0)
+    g.rect(9, 6, 2, 2, 0)
+    g.rect(4, 9, 8, 1, 0)
+    g.rect(1, 6, 2, 2)
+    g.rect(13, 6, 2, 2)
+    g.rect(1, 10, 2, 2)
+    g.rect(13, 10, 2, 2)
+    g.rect(2, 13, 2, 2)
+    g.rect(12, 13, 2, 2)
+
+make("bug", bug_icon)
+art("clips", [
+    "########",
+    "#.#.#.#.",
+    "########",
+    "#..##..#",
+    "#..##..#",
+    "########",
+    "#.#.#.#.",
+    "########",
+])
+make("crop", lambda g: (
+    g.rect(4, 1, 2, 9),
+    g.rect(4, 1, 9, 2),
+    g.rect(11, 4, 2, 11),
+    g.rect(4, 11, 9, 2),
+))
+
+def deny_icon(g):
+    g.circle(7.5, 7.5, 6)
+    for shift in (-1, 0, 1):
+        g.clear_line(2 + shift, 2, 13 + shift, 13)
+    g.line(2, 2, 13, 13)
+    g.line(3, 2, 14, 13)
+
+make("deny", deny_icon)
+make("dice", lambda g: (
+    g.frame(2, 2, 12, 12),
+    g.rect(4, 4, 2, 2),
+    g.rect(10, 4, 2, 2),
+    g.rect(7, 7, 2, 2),
+    g.rect(4, 10, 2, 2),
+    g.rect(10, 10, 2, 2),
+))
+make("drag", lambda g: (
+    g.rect(4, 3, 2, 2),
+    g.rect(10, 3, 2, 2),
+    g.rect(4, 7, 2, 2),
+    g.rect(10, 7, 2, 2),
+    g.rect(4, 11, 2, 2),
+    g.rect(10, 11, 2, 2),
+))
+
+def envelope_icon(g):
+    g.frame(2, 4, 12, 9)
+    g.line(3, 5, 7, 8)
+    g.line(12, 5, 8, 8)
+    g.rect(3, 5, 2, 1)
+    g.rect(11, 5, 2, 1)
+
+make("envelope", envelope_icon)
+
+def eye_off_icon(g):
+    rows = [
+        "........",
+        "..####..",
+        ".#....#.",
+        "#..##..#",
+        "#..##..#",
+        ".#....#.",
+        "..####..",
+        "........",
+    ]
+    for y, row in enumerate(rows):
+        for x, bit in enumerate(row):
+            if bit == "#":
+                g.rect(x * 2, y * 2, 2, 2)
+    for shift in (-2, -1, 0, 1):
+        g.clear_line(1 + shift, 1, 14 + shift, 14)
+    g.line(1, 1, 14, 14)
+
+make("eye-off", eye_off_icon)
+
+def file_icon(g):
+    g.frame(3, 1, 9, 14)
+    g.rect(9, 1, 3, 3, 0)
+    g.line(9, 1, 12, 4)
+    g.rect(5, 7, 5, 1)
+    g.rect(5, 9, 5, 1)
+    g.rect(5, 11, 3, 1)
+
+make("file", file_icon)
+
+def food_icon(g):
+    g.rect(3, 2, 1, 3)
+    g.rect(5, 2, 1, 3)
+    g.rect(7, 2, 1, 3)
+    g.rect(3, 4, 5, 2)
+    g.rect(4, 6, 2, 9)
+    g.rect(11, 2, 2, 7)
+    g.rect(11, 9, 2, 6)
+
+make("food", food_icon)
+art("heart", [
+    "........",
+    ".##..##.",
+    "########",
+    "########",
+    ".######.",
+    "..####..",
+    "...##...",
+    "........",
+])
+art("leaf", [
+    "........",
+    "......##",
+    "....####",
+    "...####.",
+    "..####..",
+    ".####...",
+    "####....",
+    "##......",
+])
+make("minus", lambda g: g.rect(3, 7, 10, 2))
+make("pause", lambda g: (g.rect(4, 3, 3, 10), g.rect(9, 3, 3, 10)))
+make("quote", lambda g: (
+    g.rect(3, 4, 3, 3),
+    g.rect(2, 6, 2, 2),
+    g.rect(8, 4, 3, 3),
+    g.rect(7, 6, 2, 2),
+))
+
+def save_icon(g):
+    g.frame(2, 2, 12, 12)
+    g.rect(5, 2, 5, 4)
+    g.rect(6, 3, 3, 2, 0)
+    g.rect(5, 10, 6, 4)
+    g.rect(6, 11, 4, 2, 0)
+
+make("save", save_icon)
+
+def screen_off_icon(g):
+    g.frame(2, 3, 12, 8)
+    g.rect(7, 11, 2, 3)
+    g.rect(4, 14, 8, 1)
+    for shift in (-1, 0, 1):
+        g.clear_line(1 + shift, 1, 14 + shift, 14)
+    g.line(1, 1, 14, 14)
+
+make("screen-off", screen_off_icon)
+make("server", lambda g: (
+    g.frame(2, 3, 12, 4),
+    g.frame(2, 9, 12, 4),
+    g.rect(4, 4, 2, 2),
+    g.rect(4, 10, 2, 2),
+    g.rect(10, 4, 2, 2),
+    g.rect(10, 10, 2, 2),
+))
+make("slash", lambda g: (g.line(3, 13, 12, 2), g.line(4, 13, 13, 2)))
+make("soundboard", lambda g: (
+    g.rect(3, 2, 1, 12),
+    g.rect(8, 2, 1, 12),
+    g.rect(13, 2, 1, 12),
+    g.rect(1, 4, 5, 2),
+    g.rect(6, 9, 5, 2),
+    g.rect(11, 6, 5, 2),
+))
+make("stage", lambda g: (
+    g.rect(6, 1, 4, 4),
+    g.rect(4, 6, 8, 4),
+    g.rect(2, 11, 12, 2),
+    g.rect(4, 13, 8, 2),
+))
+make("stop", lambda g: g.rect(3, 3, 10, 10))
+make("tag", lambda g: (
+    g.rect(2, 5, 10, 6),
+    g.rect(4, 3, 6, 2),
+    g.rect(4, 11, 6, 2),
+    g.rect(10, 4, 2, 2),
+    g.rect(12, 6, 2, 4),
+    g.rect(10, 10, 2, 2),
+    g.rect(4, 6, 2, 2, 0),
+))
+make("upload", lambda g: (
+    g.rect(7, 2, 2, 2),
+    g.rect(6, 4, 4, 2),
+    g.rect(5, 6, 6, 2),
+    g.rect(4, 8, 8, 2),
+    g.rect(7, 8, 2, 5),
+    g.rect(4, 14, 8, 2),
+))
+make("waveform", lambda g: (
+    g.rect(2, 6, 2, 4),
+    g.rect(6, 3, 2, 10),
+    g.rect(10, 5, 2, 6),
+    g.rect(14, 7, 2, 2),
+))
+
+def waveform_off_icon(g):
+    g.rect(2, 6, 2, 4)
+    g.rect(6, 3, 2, 10)
+    g.rect(10, 5, 2, 6)
+    g.rect(14, 7, 2, 2)
+    for shift in (-1, 0, 1):
+        g.clear_line(1 + shift, 1, 14 + shift, 14)
+    g.line(1, 1, 14, 14)
+
+make("waveform-off", waveform_off_icon)
+
 print(f"generated {len(list(OUT.glob('*.svg')))} icons in {OUT}")

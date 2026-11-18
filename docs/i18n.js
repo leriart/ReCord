@@ -115,7 +115,7 @@ const ES = {
     "SIGNAL LOCKED": "SEÑAL FIJADA",
     "ICON SET": "ICONOS",
     "PIXELS": "PÍXELES",
-    "Original 16 x 16 terminal icons for the RECORD interface. They are applied through CSS masks to Discord buttons, channel rows, the user panel and the chat bar.": "Iconos de terminal originales de 16 x 16 para la interfaz de RECORD. Se aplican con máscaras CSS a los botones de Discord, las filas de canales, el panel de usuario y la barra del chat.",
+    "137 original 16 x 16 terminal icons for the RECORD interface. Each Discord glyph is matched by its SVG path and redrawn in place, so it keeps Discord's own fill color and works in any language, from buttons and channel rows to the user panel and the chat bar.": "137 iconos de terminal originales de 16 x 16 para la interfaz de RECORD. Cada glifo de Discord se identifica por su ruta SVG y se redibuja en su sitio, así que conserva el color de Discord y funciona en cualquier idioma, desde botones y filas de canales hasta el panel de usuario y la barra del chat.",
     "CONTACT ICONS:": "AVATARES:",
     "avatars are user images, not SVG. RECORD forces them square, adds a thin frame, applies a restrained warm/contrast filter and a subtle scanline overlay. Tune it with": "los avatares son imágenes de usuario, no SVG. RECORD los hace cuadrados, les pone un marco fino, un filtro cálido y unas scanlines sutiles. Ajústalo con",
     "and": "y",
