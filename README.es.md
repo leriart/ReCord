@@ -33,6 +33,7 @@ Un solo comando instala tres cosas. Después cierra Discord por completo y vuelv
 | `--no-plugin` | `-NoPlugin` | Solo tema y splash; Vencord se queda como está |
 | `--no-enable` | `-NoEnable` | Copia el tema sin activarlo |
 | `--uninstall` | `-Uninstall` | Lo quita todo y restaura los ajustes que cambió |
+| `--doctor` | `-Doctor` | Informa de lo instalado y de si se descarga el plugin; no cambia nada |
 
 Las opciones van después de `bash -s --`:
 
@@ -45,7 +46,10 @@ En PowerShell:
 
 ```powershell
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Uninstall
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Doctor
 ```
+
+Los dos instaladores se detienen si Discord sigue abierto, porque el cliente reescribe sus ajustes al cerrarse y desharía la instalación del plugin. Ciérralo también desde la bandeja.
 
 ### Sin el instalador
 
@@ -180,7 +184,7 @@ El tema no añade desenfoques, modos de mezcla ni JavaScript. Se comporta igual 
 
 - Mantén la aceleración por hardware activada en el cliente. Importa más que cualquier opción del tema
 - Bajo consumo apaga el haz de barrido, el grano, el parpadeo y las animaciones continuas, y oculta los efectos de perfil, los banners de vídeo y el brillo de las reacciones de Discord
-- `install.sh --doctor` informa de lo instalado, la GPU del sistema y si el cliente está dibujando con la GPU. No cambia nada
+- `install.sh --doctor` (`-Doctor` en Windows) informa de lo instalado, de si se descarga el plugin, la GPU del sistema y si el cliente está dibujando con la GPU. No cambia nada
 - En Discord, Ajustes > Accesibilidad: desactiva la reproducción automática de GIF, emojis animados y stickers
 
 ## Créditos

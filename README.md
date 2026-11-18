@@ -33,6 +33,7 @@ One command installs three things. Fully close Discord and open it again afterwa
 | `--no-plugin` | `-NoPlugin` | Theme and splash only; Vencord stays as it is |
 | `--no-enable` | `-NoEnable` | Copy the theme without switching it on |
 | `--uninstall` | `-Uninstall` | Remove everything and restore the settings it changed |
+| `--doctor` | `-Doctor` | Report what is installed and whether the plugin build downloads; changes nothing |
 
 Pass options after `bash -s --`:
 
@@ -45,7 +46,10 @@ On PowerShell:
 
 ```powershell
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Uninstall
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Doctor
 ```
+
+Both installers stop if Discord is still running, because a client rewrites its settings on exit and would undo the plugin setup. Close it from the tray as well.
 
 ### Without the installer
 
@@ -180,7 +184,7 @@ The theme adds no blur, no blend modes and no JavaScript. It behaves the same on
 
 - Keep hardware acceleration on in the client. It matters more than any theme option
 - Low power turns off the scan beam, grain, flicker and constant animations, and hides Discord's profile effects, video banners and reaction glow
-- `install.sh --doctor` reports what is installed, which GPU the system has and whether the client is drawing on the GPU. It changes nothing
+- `install.sh --doctor` (`-Doctor` on Windows) reports what is installed, whether the plugin build downloads, which GPU the system has and whether the client is drawing on the GPU. It changes nothing
 - In Discord, Settings > Accessibility: turn off autoplay for GIFs, animated emoji and stickers
 
 ## Credits

@@ -3,10 +3,12 @@
 #   irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1 | iex
 #   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -NoPlugin
 #   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Uninstall
+#   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/leriart/ReCord/main/install.ps1))) -Doctor
 param(
     [switch]$Uninstall,
     [switch]$NoEnable,
-    [switch]$NoPlugin
+    [switch]$NoPlugin,
+    [switch]$Doctor
 )
 
 $ErrorActionPreference = "Stop"
@@ -28,6 +30,46 @@ $others = @(foreach ($name in "dorion", "legcord", "replugged", "goofcord") {
     $path = Join-Path $env:APPDATA $name
     if (Test-Path $path) { [pscustomobject]@{ Kind = $name; Path = $path } }
 })
+
+function Get-DiscordProcesses {
+    $names = "Vesktop", "Discord", "DiscordCanary", "DiscordPTB", "Equibop", "Dorion", "Legcord", "GoofCord"
+    @(Get-Process -Name $names -ErrorAction SilentlyContinue)
+}
+
+# Invoke-WebRequest fails on older Windows PowerShell installs that still use an
+# old TLS default. This retries once with TLS 1.2 and then with curl.exe, which
+# ships with Windows 10 and later.
+function Get-Remote([string]$url, [string]$file) {
+    $last = "unknown error"
+    for ($try = 1; $try -le 2; $try++) {
+        try {
+            Invoke-WebRequest $url -OutFile $file -UseBasicParsing -ErrorAction Stop
+            if ((Get-Item $file).Length -gt 512) { return }
+            throw "the downloaded file is empty"
+        } catch {
+            $last = $_.Exception.Message
+            try {
+                [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+            } catch { }
+        }
+    }
+    $curl = Get-Command curl.exe -ErrorAction SilentlyContinue
+    if ($curl) {
+        & curl.exe -fsSL --retry 2 $url -o $file 2>$null
+        if ($LASTEXITCODE -eq 0 -and (Test-Path $file) -and (Get-Item $file).Length -gt 512) { return }
+        $last = "curl.exe exit code $LASTEXITCODE"
+    }
+    throw "$url ($last)"
+}
+
+function Test-Release {
+    try {
+        $response = Invoke-WebRequest "$pluginRelease/vencordDesktopMain.js" -UseBasicParsing -ErrorAction Stop
+        return "reachable (HTTP $($response.StatusCode))"
+    } catch {
+        return "unreachable: $($_.Exception.Message)"
+    }
+}
 
 function Read-Json([string]$file) {
     if (Test-Path $file) { return Get-Content $file -Raw | ConvertFrom-Json }
@@ -145,7 +187,13 @@ function Install-Splash {
     Write-Host "== Startup splash"
     if (-not $vesktop) { Write-Host "  Vesktop not found; only Vesktop has a replaceable splash."; return }
     $tmp = Join-Path $env:TEMP "record-splash.gif"
-    Invoke-WebRequest "$raw/assets/brand/splash.gif" -OutFile $tmp -UseBasicParsing
+    try {
+        Get-Remote "$raw/assets/brand/splash.gif" $tmp
+    } catch {
+        Write-Host "  The splash could not be downloaded: $($_.Exception.Message)"
+        Write-Host "  The theme and the plugin are not affected."
+        return
+    }
     foreach ($client in $vesktop) {
         $assets = Join-Path $client "userAssets"
         New-Item -ItemType Directory -Force -Path $assets | Out-Null
@@ -159,20 +207,28 @@ function Install-Splash {
         Write-Json $file $data
         Write-Host "  installed: $client"
     }
-    Remove-Item $tmp -Force
+    Remove-Item $tmp -Force -ErrorAction SilentlyContinue
 }
 
 function Install-Plugin {
     Write-Host "== Plugin"
-    if (-not $vesktop) { Write-Host "  Vesktop not found, so the plugin was skipped. The theme works without it."; return }
-    $stage = Join-Path $env:TEMP "record-vencord"
+    if (-not $vesktop) {
+        Write-Host "  Vesktop not found, so the plugin was skipped."
+        Write-Host "  The plugin is a Vencord user plugin and only Vesktop loads it without rebuilding."
+        Write-Host "  The theme works without it."
+        return
+    }
+    $stage = Join-Path $env:TEMP ("record-vencord-" + [guid]::NewGuid().ToString("N"))
     New-Item -ItemType Directory -Force -Path $stage | Out-Null
     try {
-        foreach ($file in $pluginFiles) {
-            Invoke-WebRequest "$pluginRelease/$file" -OutFile (Join-Path $stage $file) -UseBasicParsing
-        }
+        foreach ($file in $pluginFiles) { Get-Remote "$pluginRelease/$file" (Join-Path $stage $file) }
     } catch {
-        Write-Host "  The ready-made plugin build could not be downloaded; skipped. The theme is still installed."
+        Write-Host "  The ready-made plugin build could not be downloaded."
+        Write-Host "  $($_.Exception.Message)"
+        Write-Host "  The theme is installed and works; the plugin needs this download."
+        Write-Host "  Check the connection and run this again. If it keeps failing, report it at"
+        Write-Host "  https://github.com/leriart/ReCord/issues"
+        Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
         return
     }
     foreach ($client in $vesktop) {
@@ -184,10 +240,66 @@ function Install-Plugin {
         $data = Read-Json $state
         $data | Add-Member -NotePropertyName vencordDir -NotePropertyValue $target -Force
         Write-Json $state $data
-        Set-PluginState (Join-Path $client "settings\settings.json") $true
-        Write-Host "  installed and enabled: $target"
+        [void](Set-PluginState (Join-Path $client "settings\settings.json") $true)
+        $missing = @($pluginFiles | Where-Object { -not (Test-Path (Join-Path $target $_)) })
+        if ($missing) {
+            Write-Host "  failed: $target is missing $($missing -join ', ')"
+        } else {
+            Write-Host "  installed and enabled: $target"
+        }
     }
-    Remove-Item $stage -Recurse -Force
+    Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
+}
+
+function Show-Doctor {
+    Write-Host "ReCord doctor"
+    Write-Host "== Clients"
+    if (-not $clients -and -not $others) { Write-Host "  none found in $env:APPDATA" }
+    foreach ($client in $clients) {
+        $name = Split-Path $client -Leaf
+        $file = Join-Path $client "themes\$theme"
+        if (Test-Path $file) {
+            $match = Select-String -Path $file -Pattern "@version (\S+)" | Select-Object -First 1
+            Write-Host "  $name`: theme installed ($($match.Matches[0].Groups[1].Value))"
+        } else {
+            Write-Host "  $name`: theme not installed"
+        }
+    }
+    foreach ($client in $others) { Write-Host "  $($client.Kind): theme folder $($client.Path)" }
+    if (-not $clients -and -not $others) { Write-Host "  run your client once, then run this again" }
+
+    Write-Host "== Plugin"
+    if (-not $vesktop) {
+        Write-Host "  Vesktop not found. Only Vesktop loads the plugin without rebuilding Vencord."
+    } else {
+        Write-Host "  ready-made build: $(Test-Release)"
+        foreach ($client in $vesktop) {
+            $target = Join-Path $client "record-vencord"
+            $missing = @($pluginFiles | Where-Object { -not (Test-Path (Join-Path $target $_)) })
+            $state = Read-Json (Join-Path $client "state.json")
+            $settings = Read-Json (Join-Path $client "settings\settings.json")
+            $enabled = "not set"
+            if ($settings.plugins -and $settings.plugins.ReCord) { $enabled = "$($settings.plugins.ReCord.enabled)" }
+            Write-Host "  $client"
+            if ($missing) { Write-Host "    build: missing $($missing -join ', ')" } else { Write-Host "    build: installed" }
+            if ($state.vencordDir) { Write-Host "    Vesktop points at: $($state.vencordDir)" } else { Write-Host "    Vesktop points at: nothing (state.json has no vencordDir)" }
+            Write-Host "    plugin enabled: $enabled"
+        }
+    }
+
+    Write-Host "== Running"
+    $running = Get-DiscordProcesses
+    if ($running) {
+        Write-Host "  $((($running | Select-Object -ExpandProperty ProcessName -Unique) -join ', '))"
+        Write-Host "  Close it completely (also from the tray) before installing or uninstalling."
+    } else {
+        Write-Host "  nothing"
+    }
+}
+
+if ($Doctor) {
+    Show-Doctor
+    return
 }
 
 if (-not $clients -and -not $others) {
@@ -230,9 +342,18 @@ if ($Uninstall) {
     }
 } else {
     Write-Host "ReCord install"
+    $running = Get-DiscordProcesses
+    if ($running) {
+        $names = ($running | Select-Object -ExpandProperty ProcessName -Unique) -join ", "
+        Write-Host "Discord is running: $names"
+        Write-Host "Close it completely, also from the tray, and run this again."
+        Write-Host "Nothing has been changed: a running client rewrites its settings on exit"
+        Write-Host "and would undo the plugin setup."
+        return
+    }
     Write-Host "== Theme"
     $tmp = Join-Path $env:TEMP $theme
-    Invoke-WebRequest "$raw/$theme" -OutFile $tmp -UseBasicParsing
+    Get-Remote "$raw/$theme" $tmp
     if (-not (Select-String -Path $tmp -Pattern "@name ReCord" -Quiet)) { throw "Downloaded file is not the ReCord theme" }
 
     foreach ($client in $clients) {
@@ -255,3 +376,4 @@ if ($Uninstall) {
 
 Write-Host ""
 Write-Host "Done. Fully close Discord (also from the tray) and open it again."
+Write-Host "The plugin settings appear in Discord under Plugins > ReCord."

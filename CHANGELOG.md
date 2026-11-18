@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.2.1
+
+Windows installer
+
+- It refused nothing before: it wrote Vesktop's settings even while Discord was running, and the client rewrites those files on exit, so the plugin could vanish. It now stops first and says why
+- The plugin download reports the real error instead of "could not be downloaded", retries with TLS 1.2 and falls back to `curl.exe` on older Windows PowerShell
+- A failed splash download no longer stops the script before the plugin is installed
+- `-Doctor` reports the clients, whether the plugin build downloads, the plugin folder, `vencordDir`, whether the plugin is enabled and which clients are running
+- The plugin step checks that the four files landed and names the missing ones
+
 ## 4.2.0
 
 More clients
