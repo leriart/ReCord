@@ -28,13 +28,15 @@ ReCord installer
   --no-plugin     theme and splash only; keep the stock Vencord build
   --no-enable     copy the theme but do not switch it on
   --uninstall     remove the theme, the splash and the plugin build
+  --doctor        report what is installed and how Discord is rendering; changes nothing
   --help          show this help
 
 The plugin (in-app settings and sounds) is installed for Vesktop. A ready-made
 build is downloaded when available; otherwise it is built here, which needs
 git and Node.js.
 
-Clients: Vencord, Vesktop, Equicord, Equibop, BetterDiscord (native and Flatpak).
+Clients: Vencord, Vesktop, Equicord, Equibop, BetterDiscord, Dorion, Legcord,
+GoofCord and Replugged (native and Flatpak).
 TXT
 }
 
@@ -42,6 +44,7 @@ for arg in "$@"; do
     case "$arg" in
         --plugin) plugin=1 ;;
         --no-plugin) plugin=0 ;;
+        --doctor) action="doctor" ;;
         --no-enable) enable=0 ;;
         --uninstall) action="uninstall" ;;
         --help | -h) usage; exit 0 ;;
@@ -73,14 +76,22 @@ case "$(uname -s)" in
             "$HOME/.var/app/com.discordapp.Discord/config"
             "$HOME/.var/app/com.discordapp.DiscordCanary/config"
             "$HOME/.var/app/io.github.equicord.equibop/config"
+            "$HOME/.var/app/app.legcord.Legcord/config"
+            "$HOME/.var/app/io.github.milkshiift.GoofCord/config"
         )
         ;;
 esac
 
+# Clients that take a .theme.css in a themes folder and a Vencord-style settings file.
 clients=()
+# Clients with their own theme format: "kind:folder".
+others=()
 for root in "${roots[@]}"; do
     for name in Vencord vesktop Equicord equibop BetterDiscord; do
         [ -d "$root/$name" ] && clients+=("$root/$name")
+    done
+    for name in dorion legcord replugged goofcord; do
+        [ -d "$root/$name" ] && others+=("$name:$root/$name")
     done
 done
 
@@ -179,8 +190,9 @@ vesktop_dirs() {
 
 install_theme() {
     title "Theme"
-    if [ ${#clients[@]} -eq 0 ]; then
-        say "No Vencord, Vesktop, Equicord, Equibop or BetterDiscord folder found."
+    if [ ${#clients[@]} -eq 0 ] && [ ${#others[@]} -eq 0 ]; then
+        say "No supported client folder found (Vencord, Vesktop, Equicord, Equibop,"
+        say "BetterDiscord, Dorion, Legcord, GoofCord, Replugged)."
         say "Start your client once, or add this link in Themes > Online Themes:"
         say "$RAW/$THEME"
         return
@@ -195,7 +207,7 @@ install_theme() {
     fi
     grep -q "@name ReCord" "$tmp" || { echo "Downloaded file is not the ReCord theme" >&2; rm -f "$tmp"; exit 1; }
 
-    for client in "${clients[@]}"; do
+    for client in ${clients[@]+"${clients[@]}"}; do
         mkdir -p "$client/themes"
         cp "$tmp" "$client/themes/$THEME"
         rm -f "$client/themes/$LEGACY"
@@ -204,6 +216,10 @@ install_theme() {
         else
             say "installed: $client (enable ReCord in Settings > Themes)"
         fi
+    done
+    local entry
+    for entry in ${others[@]+"${others[@]}"}; do
+        install_other "${entry%%:*}" "${entry#*:}" "$tmp"
     done
     rm -f "$tmp"
 }
@@ -217,6 +233,128 @@ uninstall_theme() {
             say "removed: $client"
         fi
     done
+    local entry
+    for entry in ${others[@]+"${others[@]}"}; do
+        uninstall_other "${entry%%:*}" "${entry#*:}"
+    done
+}
+
+# json_list <file> <key> <add|remove> <value>: keeps a string in, or out of, a JSON array.
+json_list() {
+    local file="$1" key="$2" mode="$3" value="$4"
+    case "$json_tool" in
+        python3)
+            python3 - "$file" "$key" "$mode" "$value" <<'PY'
+import json, os, sys
+path, key, mode, value = sys.argv[1:5]
+data = {}
+if os.path.exists(path):
+    with open(path, encoding="utf-8") as handle:
+        data = json.load(handle)
+items = [item for item in (data.get(key) or []) if item != value]
+if mode == "add":
+    items.append(value)
+data[key] = items
+os.makedirs(os.path.dirname(path), exist_ok=True)
+with open(path, "w", encoding="utf-8") as handle:
+    json.dump(data, handle, indent=4)
+PY
+            ;;
+        node)
+            node -e '
+                const fs = require("fs"), path = require("path");
+                const [file, key, mode, value] = process.argv.slice(1);
+                const data = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : {};
+                const items = (data[key] ?? []).filter(item => item !== value);
+                if (mode === "add") items.push(value);
+                data[key] = items;
+                fs.mkdirSync(path.dirname(file), { recursive: true });
+                fs.writeFileSync(file, JSON.stringify(data, null, 4));
+            ' "$file" "$key" "$mode" "$value"
+            ;;
+        *) return 1 ;;
+    esac
+}
+
+# Each of these clients stores themes its own way; the paths and formats come
+# from their source code.
+install_other() {
+    local kind="$1" dir="$2" css="$3" target
+    case "$kind" in
+        dorion)
+            # Windows keeps Dorion themes under the home folder, not AppData.
+            target="$dir/themes"
+            case "$(uname -s)" in MINGW* | MSYS* | CYGWIN*) target="${USERPROFILE:-$HOME}/dorion/themes" ;; esac
+            mkdir -p "$target"
+            cp "$css" "$target/$THEME"
+            if [ "$enable" -eq 1 ] && json_list "$dir/config.json" themes add "$THEME"; then
+                say "installed and enabled: $dir (Dorion)"
+            else
+                say "installed: $dir (Dorion; enable ReCord in its theme settings)"
+            fi
+            ;;
+        legcord)
+            target="$dir/themes/ReCord"
+            mkdir -p "$target"
+            cp "$css" "$target/src.css"
+            cat > "$target/manifest.json" <<JSON
+{
+    "id": "ReCord",
+    "name": "ReCord",
+    "author": "leriart",
+    "description": "A REPLACED-inspired terminal for Discord.",
+    "version": "$(sed -n 's/^ \* @version //p' "$css" | head -n 1)",
+    "source": "https://github.com/leriart/ReCord",
+    "theme": "src.css",
+    "enabled": $([ "$enable" -eq 1 ] && echo true || echo false)
+}
+JSON
+            say "installed: $dir (Legcord)"
+            ;;
+        replugged)
+            target="$dir/themes/dev.leriart.record"
+            mkdir -p "$target"
+            cp "$css" "$target/$THEME"
+            cat > "$target/manifest.json" <<JSON
+{
+    "id": "dev.leriart.record",
+    "name": "ReCord",
+    "description": "A REPLACED-inspired terminal for Discord.",
+    "author": { "name": "leriart", "github": "leriart" },
+    "version": "$(sed -n 's/^ \* @version //p' "$css" | head -n 1)",
+    "license": "Apache-2.0",
+    "type": "replugged-theme",
+    "main": "$THEME",
+    "source": "https://github.com/leriart/ReCord"
+}
+JSON
+            say "installed: $dir (Replugged; enable ReCord in Settings > Themes)"
+            ;;
+        goofcord)
+            # GoofCord loads every .css in this folder.
+            target="$dir/GoofCord/assets"
+            mkdir -p "$target"
+            cp "$css" "$target/$THEME"
+            say "installed: $dir (GoofCord)"
+            ;;
+    esac
+}
+
+uninstall_other() {
+    local kind="$1" dir="$2"
+    case "$kind" in
+        dorion)
+            local target="$dir/themes"
+            case "$(uname -s)" in MINGW* | MSYS* | CYGWIN*) target="${USERPROFILE:-$HOME}/dorion/themes" ;; esac
+            [ -f "$target/$THEME" ] || return 0
+            rm -f "$target/$THEME"
+            json_list "$dir/config.json" themes remove "$THEME" || true
+            ;;
+        legcord) [ -d "$dir/themes/ReCord" ] || return 0; rm -rf "$dir/themes/ReCord" ;;
+        replugged) [ -d "$dir/themes/dev.leriart.record" ] || return 0; rm -rf "$dir/themes/dev.leriart.record" ;;
+        goofcord) [ -f "$dir/GoofCord/assets/$THEME" ] || return 0; rm -f "$dir/GoofCord/assets/$THEME" ;;
+    esac
+    say "removed: $dir"
 }
 
 PLUGIN_FILES="vencordDesktopMain.js vencordDesktopPreload.js vencordDesktopRenderer.js vencordDesktopRenderer.css"
@@ -385,7 +523,79 @@ uninstall_splash() {
     done <<<"$(vesktop_dirs)"
 }
 
+# read_flag <file> <key>: prints true, false or unset for a top-level JSON boolean.
+read_flag() {
+    [ -f "$1" ] || { echo "default"; return; }
+    case "$json_tool" in
+        python3) python3 -c 'import json,sys; v=json.load(open(sys.argv[1])).get(sys.argv[2]); print("default" if v is None else str(v).lower())' "$1" "$2" 2>/dev/null || echo "default" ;;
+        node) node -e 'const v=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"))[process.argv[2]]; console.log(v===undefined?"default":String(v))' "$1" "$2" 2>/dev/null || echo "default" ;;
+        *) echo "default" ;;
+    esac
+}
+
+# Reports only. Graphics settings are left alone on purpose: the right ones
+# depend on the driver, and a wrong flag can leave the window black.
+doctor() {
+    title "Clients"
+    local client entry found=0
+    for client in ${clients[@]+"${clients[@]}"}; do
+        found=1
+        if [ -f "$client/themes/$THEME" ]; then
+            say "$client: theme installed ($(sed -n 's/^ \* @version //p' "$client/themes/$THEME" | head -n 1))"
+        else
+            say "$client: theme not installed"
+        fi
+    done
+    for entry in ${others[@]+"${others[@]}"}; do
+        found=1
+        say "${entry#*:} (${entry%%:*})"
+    done
+    [ "$found" -eq 1 ] || say "none found"
+
+    title "Rendering"
+    local gpu=""
+    if command -v lspci >/dev/null 2>&1; then
+        gpu="$(lspci 2>/dev/null | grep -Ei 'vga|3d|display' | sed 's/^[^:]*:[^:]*: //' | head -n 3)"
+    elif [ "$(uname -s)" = "Darwin" ]; then
+        gpu="$(system_profiler SPDisplaysDataType 2>/dev/null | sed -n 's/^ *Chipset Model: //p' | head -n 3)"
+    fi
+    if [ -n "$gpu" ]; then
+        printf '%s\n' "$gpu" | while IFS= read -r line; do say "GPU: $line"; done
+    else
+        say "GPU: could not be detected"
+    fi
+
+    local targets acceleration video
+    targets="$(vesktop_dirs)"
+    if [ -z "$targets" ]; then
+        say "Vesktop not found. In Discord: Settings > Advanced > Hardware Acceleration."
+    else
+        while IFS= read -r client; do
+            acceleration="$(read_flag "$client/settings.json" hardwareAcceleration)"
+            video="$(read_flag "$client/settings.json" hardwareVideoAcceleration)"
+            say "$client"
+            say "  hardware acceleration: $acceleration   video decoding: $video"
+            if [ "$acceleration" = "false" ]; then
+                say "  Discord is drawing on the CPU. Turn on Hardware Acceleration in Vesktop Settings,"
+                say "  or switch on Low power in the ReCord plugin."
+            fi
+        done <<<"$targets"
+    fi
+
+    title "If Discord feels heavy"
+    say "1. Keep hardware acceleration on. It matters more than any theme option."
+    say "2. In the ReCord plugin turn on Low power: no scan beam, grain, flicker or constant animations."
+    say "3. Discord > Settings > Accessibility: turn off autoplay for GIFs and animated emoji and stickers."
+    say "4. Discord > Settings > Chat: turn off link previews you do not need."
+    say "To see what the browser engine is actually using, open chrome://gpu from a Chromium window."
+}
+
 echo "ReCord $action"
+if [ "$action" = "doctor" ]; then
+    doctor
+    exit 0
+fi
+
 if [ "$action" = "uninstall" ]; then
     uninstall_theme
     uninstall_splash

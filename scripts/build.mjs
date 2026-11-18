@@ -94,14 +94,36 @@ for (const file of modules) {
 const assetBlock = `:root {\n${[...assets].map(([name, uri]) => `    ${name}: url("${uri}");`).join("\n")}\n}`;
 const bundle = [header, settings, "/* embedded assets */\n\n" + assetBlock, ...parts].join("\n\n") + "\n";
 
+// The same theme as a userstyle, for Discord in a browser through Stylus.
+const userstyle = `/* ==UserStyle==
+@name         ReCord
+@namespace    github.com/leriart/ReCord
+@version      ${pkg.version}
+@description  A REPLACED-inspired terminal for Discord.
+@author       leriart
+@homepageURL  https://github.com/leriart/ReCord
+@updateURL    https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.user.css
+@license      Apache-2.0
+==/UserStyle== */
+
+@-moz-document domain("discord.com") {
+${bundle.slice(bundle.indexOf("/* embedded assets */"))}}
+`;
+
 if (process.argv.includes("--check")) {
     const current = await readFile(path.join(root, "ReCord.theme.css"), "utf8").catch(() => "");
     if (current !== bundle) {
         console.error("error: ReCord.theme.css is out of date; run npm run build");
         process.exit(1);
     }
+    const currentUserstyle = await readFile(path.join(root, "ReCord.user.css"), "utf8").catch(() => "");
+    if (currentUserstyle !== userstyle) {
+        console.error("error: ReCord.user.css is out of date; run npm run build");
+        process.exit(1);
+    }
     console.log("ReCord.theme.css is up to date");
 } else {
     await writeFile(path.join(root, "ReCord.theme.css"), bundle);
+    await writeFile(path.join(root, "ReCord.user.css"), userstyle);
     console.log(`Built ReCord.theme.css v${pkg.version} (${modules.length} modules, ${assets.size} embedded assets, ${(bundle.length / 1024).toFixed(1)} KiB)`);
 }

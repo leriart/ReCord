@@ -23,6 +23,12 @@ $clients = @(foreach ($name in "Vencord", "vesktop", "Equicord", "equibop", "Bet
 })
 $vesktop = @($clients | Where-Object { (Split-Path $_ -Leaf) -eq "vesktop" })
 
+# Clients with their own theme format. Paths and formats come from their source code.
+$others = @(foreach ($name in "dorion", "legcord", "replugged", "goofcord") {
+    $path = Join-Path $env:APPDATA $name
+    if (Test-Path $path) { [pscustomobject]@{ Kind = $name; Path = $path } }
+})
+
 function Read-Json([string]$file) {
     if (Test-Path $file) { return Get-Content $file -Raw | ConvertFrom-Json }
     return New-Object PSObject
@@ -56,6 +62,83 @@ function Set-PluginState([string]$file, [bool]$on) {
         $data.plugins.PSObject.Properties.Remove("ReCord")
     }
     Write-Json $file $data
+}
+
+function Get-ThemeVersion([string]$css) {
+    $match = Select-String -Path $css -Pattern "@version (\S+)" | Select-Object -First 1
+    if ($match) { return $match.Matches[0].Groups[1].Value }
+    return "0.0.0"
+}
+
+function Install-Other($client, [string]$css) {
+    switch ($client.Kind) {
+        "dorion" {
+            # Dorion keeps themes under the home folder on Windows, and its config in AppData.
+            $themes = Join-Path $env:USERPROFILE "dorion\themes"
+            New-Item -ItemType Directory -Force -Path $themes | Out-Null
+            Copy-Item $css (Join-Path $themes $theme) -Force
+            if (-not $NoEnable) {
+                $file = Join-Path $client.Path "config.json"
+                $data = Read-Json $file
+                $list = @($data.themes | Where-Object { $_ -and $_ -ne $theme }) + $theme
+                $data | Add-Member -NotePropertyName themes -NotePropertyValue $list -Force
+                Write-Json $file $data
+            }
+            Write-Host "  installed: $($client.Path) (Dorion)"
+        }
+        "legcord" {
+            $target = Join-Path $client.Path "themes\ReCord"
+            New-Item -ItemType Directory -Force -Path $target | Out-Null
+            Copy-Item $css (Join-Path $target "src.css") -Force
+            $manifest = [ordered]@{
+                id = "ReCord"; name = "ReCord"; author = "leriart"
+                description = "A REPLACED-inspired terminal for Discord."
+                version = (Get-ThemeVersion $css); source = "https://github.com/leriart/ReCord"
+                theme = "src.css"; enabled = (-not $NoEnable)
+            }
+            Write-Json (Join-Path $target "manifest.json") $manifest
+            Write-Host "  installed: $($client.Path) (Legcord)"
+        }
+        "replugged" {
+            $target = Join-Path $client.Path "themes\dev.leriart.record"
+            New-Item -ItemType Directory -Force -Path $target | Out-Null
+            Copy-Item $css (Join-Path $target $theme) -Force
+            $manifest = [ordered]@{
+                id = "dev.leriart.record"; name = "ReCord"
+                description = "A REPLACED-inspired terminal for Discord."
+                author = [ordered]@{ name = "leriart"; github = "leriart" }
+                version = (Get-ThemeVersion $css); license = "Apache-2.0"
+                type = "replugged-theme"; main = $theme; source = "https://github.com/leriart/ReCord"
+            }
+            Write-Json (Join-Path $target "manifest.json") $manifest
+            Write-Host "  installed: $($client.Path) (Replugged; enable ReCord in Settings > Themes)"
+        }
+        "goofcord" {
+            # GoofCord loads every .css in this folder.
+            $target = Join-Path $client.Path "GoofCord\assets"
+            New-Item -ItemType Directory -Force -Path $target | Out-Null
+            Copy-Item $css (Join-Path $target $theme) -Force
+            Write-Host "  installed: $($client.Path) (GoofCord)"
+        }
+    }
+}
+
+function Uninstall-Other($client) {
+    switch ($client.Kind) {
+        "dorion" {
+            $file = Join-Path $env:USERPROFILE "dorion\themes\$theme"
+            if (-not (Test-Path $file)) { return }
+            Remove-Item $file -Force
+            $config = Join-Path $client.Path "config.json"
+            $data = Read-Json $config
+            $data | Add-Member -NotePropertyName themes -NotePropertyValue @($data.themes | Where-Object { $_ -and $_ -ne $theme }) -Force
+            Write-Json $config $data
+        }
+        "legcord" { $dir = Join-Path $client.Path "themes\ReCord"; if (-not (Test-Path $dir)) { return }; Remove-Item $dir -Recurse -Force }
+        "replugged" { $dir = Join-Path $client.Path "themes\dev.leriart.record"; if (-not (Test-Path $dir)) { return }; Remove-Item $dir -Recurse -Force }
+        "goofcord" { $file = Join-Path $client.Path "GoofCord\assets\$theme"; if (-not (Test-Path $file)) { return }; Remove-Item $file -Force }
+    }
+    Write-Host "  removed: $($client.Path)"
 }
 
 function Install-Splash {
@@ -107,8 +190,9 @@ function Install-Plugin {
     Remove-Item $stage -Recurse -Force
 }
 
-if (-not $clients) {
-    Write-Host "No Vencord, Vesktop, Equicord, Equibop or BetterDiscord folder found."
+if (-not $clients -and -not $others) {
+    Write-Host "No supported client folder found (Vencord, Vesktop, Equicord, Equibop,"
+    Write-Host "BetterDiscord, Dorion, Legcord, GoofCord, Replugged)."
     Write-Host "Start your client once, or add this link in Themes > Online Themes:"
     Write-Host "  $raw/$theme"
     return
@@ -123,6 +207,7 @@ if ($Uninstall) {
         [void](Set-ThemeState (Join-Path $client "settings\settings.json") $false)
         Write-Host "  removed: $client"
     }
+    foreach ($client in $others) { Uninstall-Other $client }
     foreach ($client in $vesktop) {
         $splash = Join-Path $client "userAssets\splash"
         if (Test-Path $splash) {
@@ -161,6 +246,7 @@ if ($Uninstall) {
             Write-Host "  installed: $client (enable ReCord in Settings > Themes)"
         }
     }
+    foreach ($client in $others) { Install-Other $client $tmp }
     Remove-Item $tmp -Force
 
     Install-Splash

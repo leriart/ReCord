@@ -73,6 +73,7 @@
     --rl-avatar-scanline: 0.14;
     --rl-icons: on;
     --rl-motion: full;
+    --rl-lite: off;
     --rl-frame-opacity: 0.6;
     --rl-beam-duration: 9s;
     --rl-beam-opacity: 0.5;

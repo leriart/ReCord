@@ -313,7 +313,7 @@ const settings = definePluginSettings({
     scanlines: percent("Scanline strength", 25),
     grain: percent("Film grain", 18),
     vignette: percent("Vignette", 55),
-    lowPower: toggle("Low power / Bajo consumo: no scan beam, grain, flicker or constant animations (for PCs without GPU acceleration)", false),
+    lowPower: toggle("Low power / Bajo consumo: no scan beam, grain, flicker, constant animations, profile effects or video banners", false),
     flicker: toggle("CRT flicker", false),
     beam: toggle("Rolling scan beam"),
     frame: toggle("Corner brackets and screen frame"),
@@ -453,6 +453,7 @@ function applyTheme() {
             "--rl-beam-opacity: 0",
             "--rl-flicker-duration: 0s",
             "--rl-grain-opacity: 0",
+            "--rl-lite: on",
             `--rl-motion: ${store.motionLevel === "off" ? "off" : "subtle"}`
         );
     }

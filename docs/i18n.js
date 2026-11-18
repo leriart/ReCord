@@ -53,7 +53,7 @@ const ES = {
     "INSTALL THE SIGNAL": "INSTALA LA SEÑAL",
     "For Vencord, Vesktop, Equicord, Equibop and BetterDiscord. One command, or one self-contained CSS file.": "Para Vencord, Vesktop, Equicord, Equibop y BetterDiscord. Un comando, o un único archivo CSS autocontenido.",
     "RUN THE INSTALLER": "EJECUTA EL INSTALADOR",
-    "One command finds Vencord, Vesktop, Equicord, Equibop and BetterDiscord, copies the theme and switches it on.": "Un comando encuentra Vencord, Vesktop, Equicord, Equibop y BetterDiscord, instala el tema, el splash de arranque y el plugin, y lo activa todo.",
+    "One command finds Vencord, Vesktop, Equicord, Equibop, BetterDiscord, Dorion, Legcord, GoofCord and Replugged, installs the theme, the startup splash and the plugin for Vesktop, and switches everything on.": "Un comando encuentra Vencord, Vesktop, Equicord, Equibop, BetterDiscord, Dorion, Legcord, GoofCord y Replugged, instala el tema, el splash de arranque y el plugin para Vesktop, y lo activa todo.",
     "RESTART DISCORD": "REINICIA DISCORD",
     "Close it completely, also from the tray, and open it again.": "Ciérralo por completo, también desde la bandeja, y vuelve a abrirlo.",
     "MAKE IT YOURS": "HAZLO TUYO",

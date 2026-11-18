@@ -297,3 +297,21 @@ html body [class*="positionContainer_"][class*="positionContainer_"] {
     rx: 0;
     ry: 0;
 }
+
+/* low power: drop Discord's decorative layers. Each of these is an overlay or a
+   background by Discord's own definition, so removing it cannot hide content. */
+
+@container style(--rl-lite: on) {
+    [class*="profileEffects_"],
+    [class*="burstGlow_"],
+    video[class*="videoBanner_"] {
+        display: none !important;
+    }
+
+    /* gradient names are text painted through a background; flatten instead of hiding */
+    [class*="usernameGradient_"] {
+        background: none !important;
+        -webkit-text-fill-color: currentColor !important;
+        animation: none !important;
+    }
+}

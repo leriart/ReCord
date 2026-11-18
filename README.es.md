@@ -24,7 +24,7 @@ Un solo comando instala tres cosas. Después cierra Discord por completo y vuelv
 
 | Qué | Dónde | Notas |
 | --- | --- | --- |
-| Tema | Vencord, Vesktop, Equicord, Equibop, BetterDiscord (nativos y Flatpak) | Se copia a cada carpeta de temas y se activa |
+| Tema | Vencord, Vesktop, Equicord, Equibop, BetterDiscord, Dorion, Legcord, GoofCord, Replugged (nativos y Flatpak) | Se copia a cada carpeta de temas y se activa |
 | Splash de arranque | Vesktop | La marca pixel en lugar de la ventana de arranque de Vesktop |
 | Plugin | Vesktop | Ajustes dentro de Discord y sonidos. Se descarga ya compilado; no hace falta git ni Node.js |
 
@@ -70,7 +70,7 @@ Usa ReCord como único tema activo. Otros temas completos sobrescriben las misma
 | Tipografía | Pixel Operator, Pixel Operator Mono, monoespaciada del sistema, la de Discord |
 | Capa CRT | Scanlines, grano, viñeta, parpadeo, haz de barrido, marco de esquinas |
 | Iconos pixel | Activados, o los iconos nativos de Discord |
-| Bajo consumo | Apaga el haz de barrido, el grano, el parpadeo y las animaciones continuas, para equipos donde Discord va sin aceleración por GPU |
+| Bajo consumo | Apaga el haz de barrido, el grano, el parpadeo y las animaciones continuas, y oculta efectos de perfil, banners de vídeo y el brillo de las reacciones |
 | Avatares | Filtro cálido y scanlines, sí o no |
 
 Tres formas de cambiarlas:
@@ -158,7 +158,30 @@ Edita `src/` y ejecuta `npm run build`; el `ReCord.theme.css` del repositorio es
 
 ## Compatibilidad
 
-Vencord, Vesktop, Equicord, Equibop y BetterDiscord en Discord de escritorio. Desarrollado y comprobado en Vesktop sobre Linux. El instalador de PowerShell y las rutas de macOS todavía no se han ejecutado en máquinas reales; se agradecen reportes. Pixel Operator cubre glifos latinos; otros alfabetos usan la fuente de Discord.
+| Cliente | Tema | Plugin | Cómo |
+| --- | --- | --- | --- |
+| Vesktop | Sí | Sí | Instalador |
+| Vencord, Equicord, Equibop, BetterDiscord | Sí | No | Instalador |
+| Dorion | Sí | No | Instalador; se copia a su carpeta de temas y se activa en `config.json` |
+| Legcord | Sí | No | Instalador; se escribe como carpeta de tema de Legcord con su manifiesto |
+| GoofCord | Sí | No | Instalador; se copia a su carpeta de assets, que carga todos los `.css` |
+| Replugged | Sí | No | Instalador; después actívalo en Ajustes > Temas |
+| Discord en el navegador | Sí | No | Instala [`ReCord.user.css`](https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.user.css) con la extensión Stylus |
+| moonlight | Manual | No | No trae cargador de temas; pega el enlace de importación en una extensión que añada CSS propio |
+| Yapfast y otros clientes nativos | No | No | No usan la interfaz web de Discord, así que no hay CSS que cambiar |
+
+El plugin es un plugin de usuario de Vencord y solo se instala en Vesktop. En el resto todas las opciones siguen funcionando: son variables CSS, y el [configurador](https://leriart.github.io/ReCord/#configure) genera el bloque que se pega en el CSS personalizado del cliente. Los sonidos necesitan el plugin.
+
+Desarrollado y comprobado en Vesktop sobre Linux. Dorion, Legcord, GoofCord y Replugged siguen las rutas y formatos del código fuente de cada cliente y se probaron con carpetas de prueba, no con las aplicaciones reales. El instalador de PowerShell y las rutas de macOS todavía no se han ejecutado en máquinas reales; se agradecen reportes. Pixel Operator cubre glifos latinos; otros alfabetos usan la fuente de Discord.
+
+## Rendimiento
+
+El tema no añade desenfoques, modos de mezcla ni JavaScript. Se comporta igual con gráficas NVIDIA, AMD e Intel porque nunca toca las opciones de GPU: las correctas dependen del controlador, y una equivocada puede dejar la ventana en negro.
+
+- Mantén la aceleración por hardware activada en el cliente. Importa más que cualquier opción del tema
+- Bajo consumo apaga el haz de barrido, el grano, el parpadeo y las animaciones continuas, y oculta los efectos de perfil, los banners de vídeo y el brillo de las reacciones de Discord
+- `install.sh --doctor` informa de lo instalado, la GPU del sistema y si el cliente está dibujando con la GPU. No cambia nada
+- En Discord, Ajustes > Accesibilidad: desactiva la reproducción automática de GIF, emojis animados y stickers
 
 ## Créditos
 

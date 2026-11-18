@@ -24,7 +24,7 @@ One command installs three things. Fully close Discord and open it again afterwa
 
 | What | Where | Notes |
 | --- | --- | --- |
-| Theme | Vencord, Vesktop, Equicord, Equibop, BetterDiscord (native and Flatpak) | Copied to each themes folder and switched on |
+| Theme | Vencord, Vesktop, Equicord, Equibop, BetterDiscord, Dorion, Legcord, GoofCord, Replugged (native and Flatpak) | Copied to each themes folder and switched on |
 | Startup splash | Vesktop | The pixel mark instead of Vesktop's splash window |
 | Plugin | Vesktop | In-app settings and sounds. A ready-made build is downloaded; no git or Node.js needed |
 
@@ -70,7 +70,7 @@ Use ReCord as the only enabled theme. Other full themes override the same Discor
 | Typeface | Pixel Operator, Pixel Operator Mono, system monospace, Discord default |
 | CRT layer | Scanlines, grain, vignette, flicker, rolling scan beam, corner frame |
 | Pixel icons | On, or Discord's native icons |
-| Low power | Turns off the scan beam, grain, flicker and constant animations, for PCs where Discord runs without GPU acceleration |
+| Low power | Turns off the scan beam, grain, flicker and constant animations, and hides profile effects, video banners and reaction glow |
 | Avatars | Warm filter and scanlines on or off |
 
 Three ways to change them:
@@ -158,7 +158,30 @@ Edit `src/`, then run `npm run build`; the committed `ReCord.theme.css` is what 
 
 ## Compatibility
 
-Vencord, Vesktop, Equicord, Equibop and BetterDiscord on Discord desktop. Developed and checked against Vesktop on Linux. The PowerShell installer and the macOS paths have not been run on real machines yet; reports are welcome. Pixel Operator covers Latin glyphs; other scripts fall back to Discord's font.
+| Client | Theme | Plugin | How |
+| --- | --- | --- | --- |
+| Vesktop | Yes | Yes | Installer |
+| Vencord, Equicord, Equibop, BetterDiscord | Yes | No | Installer |
+| Dorion | Yes | No | Installer; copied to its themes folder and enabled in `config.json` |
+| Legcord | Yes | No | Installer; written as a Legcord theme folder with its manifest |
+| GoofCord | Yes | No | Installer; copied to its assets folder, which loads every `.css` |
+| Replugged | Yes | No | Installer; enable it afterwards in Settings > Themes |
+| Discord in a browser | Yes | No | Install [`ReCord.user.css`](https://raw.githubusercontent.com/leriart/ReCord/main/ReCord.user.css) with the Stylus extension |
+| moonlight | Manual | No | It has no theme loader of its own; paste the import link into an extension that adds custom CSS |
+| Yapfast and other native clients | No | No | They do not use Discord's web interface, so there is no CSS to restyle |
+
+The plugin is a Vencord user plugin and is installed for Vesktop only. Everywhere else every option still works: they are CSS variables, and the [configurator](https://leriart.github.io/ReCord/#configure) writes the block to paste into the client's custom CSS box. Sounds need the plugin.
+
+Developed and checked against Vesktop on Linux. Dorion, Legcord, GoofCord and Replugged follow the paths and formats in each client's source code and were tested against stand-in folders, not the real apps. The PowerShell installer and the macOS paths have not been run on real machines yet; reports are welcome. Pixel Operator covers Latin glyphs; other scripts fall back to Discord's font.
+
+## Performance
+
+The theme adds no blur, no blend modes and no JavaScript. It behaves the same on NVIDIA, AMD and Intel graphics because it never touches GPU flags: the right ones depend on the driver, and a wrong one can leave the window black.
+
+- Keep hardware acceleration on in the client. It matters more than any theme option
+- Low power turns off the scan beam, grain, flicker and constant animations, and hides Discord's profile effects, video banners and reaction glow
+- `install.sh --doctor` reports what is installed, which GPU the system has and whether the client is drawing on the GPU. It changes nothing
+- In Discord, Settings > Accessibility: turn off autoplay for GIFs, animated emoji and stickers
 
 ## Credits
 
