@@ -12,6 +12,11 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+# Windows PowerShell 5.1 still defaults to old TLS versions on some machines and
+# GitHub only accepts TLS 1.2 and newer.
+try {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+} catch { }
 $raw = "https://raw.githubusercontent.com/leriart/ReCord/main"
 $pluginRelease = "https://github.com/leriart/ReCord/releases/download/plugin"
 $pluginFiles = "vencordDesktopMain.js", "vencordDesktopPreload.js", "vencordDesktopRenderer.js", "vencordDesktopRenderer.css"
@@ -37,30 +42,38 @@ function Get-DiscordProcesses {
     @(Get-Process -Name $names -ErrorAction SilentlyContinue)
 }
 
-# Invoke-WebRequest fails on older Windows PowerShell installs that still use an
-# old TLS default. This retries once with TLS 1.2 and then with curl.exe, which
-# ships with Windows 10 and later.
+# Invoke-WebRequest is tried twice, then curl.exe, which ships with Windows 10
+# and later. Windows PowerShell turns any stderr from a native command into a
+# terminating error while $ErrorActionPreference is Stop, so curl.exe runs with
+# it relaxed.
 function Get-Remote([string]$url, [string]$file) {
     $last = "unknown error"
     for ($try = 1; $try -le 2; $try++) {
         try {
+            Remove-Item $file -Force -ErrorAction SilentlyContinue
             Invoke-WebRequest $url -OutFile $file -UseBasicParsing -ErrorAction Stop
             if ((Get-Item $file).Length -gt 512) { return }
             throw "the downloaded file is empty"
         } catch {
             $last = $_.Exception.Message
-            try {
-                [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-            } catch { }
         }
     }
     $curl = Get-Command curl.exe -ErrorAction SilentlyContinue
     if ($curl) {
-        & curl.exe -fsSL --retry 2 $url -o $file 2>$null
-        if ($LASTEXITCODE -eq 0 -and (Test-Path $file) -and (Get-Item $file).Length -gt 512) { return }
-        $last = "curl.exe exit code $LASTEXITCODE"
+        Remove-Item $file -Force -ErrorAction SilentlyContinue
+        $code = 1
+        $previous = $ErrorActionPreference
+        $ErrorActionPreference = "Continue"
+        try {
+            & curl.exe -fsSL --retry 2 --connect-timeout 20 -o $file $url 2>$null
+            $code = $LASTEXITCODE
+        } finally {
+            $ErrorActionPreference = $previous
+        }
+        if ($code -eq 0 -and (Test-Path $file) -and (Get-Item $file).Length -gt 512) { return }
+        $last = "curl.exe exit code $code"
     }
-    throw "$url ($last)"
+    throw "could not download $url ($last)"
 }
 
 function Test-Release {
@@ -226,7 +239,7 @@ function Install-Plugin {
     $stage = Join-Path $env:TEMP ("record-vencord-" + [guid]::NewGuid().ToString("N"))
     New-Item -ItemType Directory -Force -Path $stage | Out-Null
     try {
-        foreach ($file in $pluginFiles) { Get-Remote "$pluginRelease/$file?$cachebust" (Join-Path $stage $file) }
+        foreach ($file in $pluginFiles) { Get-Remote "$pluginRelease/${file}?${cachebust}" (Join-Path $stage $file) }
     } catch {
         Write-Host "  The ready-made plugin build could not be downloaded."
         Write-Host "  $($_.Exception.Message)"
@@ -371,7 +384,7 @@ if ($Uninstall) {
     }
     Write-Host "== Theme"
     $tmp = Join-Path $env:TEMP $theme
-    Get-Remote "$raw/$theme?$cachebust" $tmp
+    Get-Remote "$raw/${theme}?${cachebust}" $tmp
     if (-not (Select-String -Path $tmp -Pattern "@name ReCord" -Quiet)) { throw "Downloaded file is not the ReCord theme" }
 
     foreach ($client in $clients) {
